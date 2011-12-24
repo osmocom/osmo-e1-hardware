@@ -8352,7 +8352,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="81.28" y1="147.32" x2="78.74" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="VDD" class="0">
+<net name="VDD" class="1">
 <segment>
 <pinref part="U$1" gate="G$4" pin="MODE0"/>
 <wire x1="38.1" y1="198.12" x2="-2.54" y2="198.12" width="0.1524" layer="91"/>
@@ -8497,7 +8497,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="38.1" y1="124.46" x2="17.78" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="TCLK" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="TCLK"/>
 <wire x1="38.1" y1="111.76" x2="25.4" y2="111.76" width="0.1524" layer="91"/>
@@ -8553,7 +8553,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="114.3" y="142.24"/>
 </segment>
 </net>
-<net name="N$27" class="0">
+<net name="RTIP" class="0">
 <segment>
 <pinref part="U$2" gate="1:1" pin="P$3"/>
 <wire x1="137.16" y1="200.66" x2="129.54" y2="200.66" width="0.1524" layer="91"/>
@@ -8578,7 +8578,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="83.82" y="205.74"/>
 </segment>
 </net>
-<net name="N$28" class="0">
+<net name="RRING" class="0">
 <segment>
 <pinref part="U$2" gate="1:1" pin="P$1"/>
 <wire x1="137.16" y1="185.42" x2="129.54" y2="185.42" width="0.1524" layer="91"/>
@@ -8600,7 +8600,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="83.82" y="185.42"/>
 </segment>
 </net>
-<net name="N$25" class="0">
+<net name="TTIP" class="0">
 <segment>
 <pinref part="D5" gate="G$1" pin="C"/>
 <wire x1="109.22" y1="175.26" x2="109.22" y2="177.8" width="0.1524" layer="91"/>
@@ -8618,7 +8618,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="83.82" y="177.8"/>
 </segment>
 </net>
-<net name="N$30" class="0">
+<net name="TRING" class="0">
 <segment>
 <pinref part="D8" gate="G$1" pin="C"/>
 <wire x1="109.22" y1="160.02" x2="109.22" y2="157.48" width="0.1524" layer="91"/>
@@ -8685,7 +8685,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="25.4" y1="76.2" x2="38.1" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$18" class="0">
+<net name="MCLK" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="OUT"/>
 <wire x1="88.9" y1="71.12" x2="83.82" y2="71.12" width="0.1524" layer="91"/>
