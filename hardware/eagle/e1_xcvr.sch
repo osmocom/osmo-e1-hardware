@@ -11309,6 +11309,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
 <wire x1="27.94" y1="63.5" x2="27.94" y2="66.04" width="0.1524" layer="91"/>
 <junction x="27.94" y="66.04"/>
+<junction x="-5.08" y="93.98"/>
 </segment>
 <segment>
 <pinref part="T1" gate="G$1" pin="E"/>
@@ -11918,11 +11919,6 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="190.5" y1="121.92" x2="190.5" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="GNDIO" class="0">
-<segment>
-<wire x1="142.24" y1="121.92" x2="152.4" y2="121.92" width="0.1524" layer="91"/>
-</segment>
-</net>
 </nets>
 </sheet>
 </sheets>
@@ -11937,6 +11933,9 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <approved hash="104,1,78.74,121.92,U$1G$5,GNDIO,GND,,,"/>
 <approved hash="104,1,109.22,83.82,U$3,VCC,VDD,,,"/>
 <approved hash="104,1,109.22,71.12,U$4,VCC,VDD,,,"/>
+<approved hash="104,1,180.34,68.58,U$6,GND1,GND,,,"/>
+<approved hash="205,1,88.9,71.12,MCLK,,,,,"/>
+<approved hash="205,1,88.9,83.82,MCLK,,,,,"/>
 </errors>
 </schematic>
 </drawing>
