@@ -3,6 +3,24 @@
 #include "idt82v2081.h"
 #include "idt82v2081_regs.h"
 
+/*! \brief Set or clear some (masked) bits inside a register
+ *  \param[in] e4k reference to the tuner
+ *  \param[in] reg number of the register
+ *  \param[in] mask bit-mask of the value
+ *  \param[in] val data value to be written to register
+ *  \returns 0 on success, negative in case of error
+ */
+static int idt82_reg_set_bit_mask(struct idt82 *idt, uint8_t reg,
+				  uint8_t mask, uint8_t val)
+{
+	uint8_t tmp = idt82_reg_read(idt, reg);
+
+	if ((tmp & mask) == val)
+		return 0;
+
+	return idt82_reg_write(idt, reg, (tmp & ~mask) | (val & mask));
+}
+
 int idt82_termination(struct idt82 *idt, enum idt82_term term)
 {
 	idt82_reg_set_bit_mask(IDT_REG_TERM, term | (term << IDT_TERM_T_SHIFT),
