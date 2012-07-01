@@ -130,15 +130,18 @@
 <smd name="C7" x="1.15" y="-8.89" dx="2.3" dy="1" layer="1"/>
 <smd name="SW1" x="1.15" y="-9.89" dx="2.3" dy="0.5" layer="1"/>
 <smd name="SW2" x="1.15" y="-11.19" dx="2.3" dy="0.5" layer="1"/>
-<wire x1="27.9" y1="-13.6" x2="27.9" y2="5.1" width="0.127" layer="49"/>
-<wire x1="0" y1="-13.6" x2="1.7" y2="-13.6" width="0.127" layer="49"/>
-<wire x1="1.7" y1="-13.6" x2="27.85" y2="-13.6" width="0.127" layer="49"/>
-<wire x1="0" y1="5.1" x2="27.85" y2="5.1" width="0.127" layer="49"/>
-<wire x1="1.7" y1="-13.6" x2="1.7" y2="0.95" width="0.127" layer="49"/>
-<wire x1="0" y1="5.1" x2="0" y2="1" width="0.127" layer="49"/>
-<wire x1="0" y1="1" x2="1.7" y2="1" width="0.127" layer="49"/>
-<smd name="P$2" x="25.16" y="5.6" dx="4" dy="1.7" layer="1"/>
-<smd name="P$3" x="25.16" y="-14.1" dx="4" dy="1.7" layer="1"/>
+<wire x1="28.65" y1="-12.51" x2="28.65" y2="6.19" width="0.127" layer="49"/>
+<wire x1="2.3" y1="-12.51" x2="28.65" y2="-12.51" width="0.127" layer="49"/>
+<wire x1="0.8" y1="6.19" x2="28.65" y2="6.19" width="0.127" layer="49"/>
+<wire x1="2.3" y1="-12.51" x2="2.3" y2="2.19" width="0.127" layer="49"/>
+<wire x1="0.8" y1="6.19" x2="0.8" y2="2.19" width="0.127" layer="49"/>
+<wire x1="0.8" y1="2.19" x2="2.3" y2="2.19" width="0.127" layer="49"/>
+<smd name="P$2" x="25.25" y="6.69" dx="4" dy="1.7" layer="1"/>
+<smd name="P$3" x="25.15" y="-13.01" dx="4" dy="1.7" layer="1"/>
+<rectangle x1="2.4" y1="-11.83" x2="12.82" y2="-7.43" layer="41"/>
+<wire x1="2.3" y1="-12.51" x2="0.8" y2="-12.51" width="0.127" layer="21"/>
+<wire x1="2.3" y1="-11.83" x2="0.8" y2="-11.83" width="0.127" layer="21"/>
+<wire x1="0.8" y1="-11.83" x2="0.8" y2="-12.51" width="0.127" layer="21"/>
 </package>
 <package name="FTM-110-XX-XX-DV-S">
 <description>&lt;b&gt;PCB Libraries Package&lt;b&gt;</description>
