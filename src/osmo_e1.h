@@ -5,6 +5,7 @@
 #include <osmocom/core/msgb.h>
 #include <osmocom/core/linuxlist.h>
 #include <osmocom/core/fsm.h>
+#include <osmocom/core/isdnhdlc.h>
 
 struct osmo_e1_tx_state {
 	bool remote_alarm;
@@ -41,6 +42,11 @@ enum osmo_e1_notify_event {
 	E1_NTFY_EVT_REMOTE_ALARM,
 };
 
+enum osmo_e1_ts_mode {
+       OSMO_E1_TS_RAW,
+       OSMO_E1_TS_HDLC_CRC,
+};
+
 struct osmo_e1_instance_ts;
 struct osmo_e1_instance;
 typedef void (*e1_data_cb)(struct osmo_e1_instance_ts *ts, struct msgb *msg);
@@ -50,14 +56,20 @@ typedef void (*e1_notify_cb)(struct osmo_e1_instance *e1i, enum osmo_e1_notify_e
 struct osmo_e1_instance_ts {
 	/* timeslot number */
 	uint8_t ts_nr;
+	/* mode in which we operate (RAW/HDLC) */
+	enum osmo_e1_ts_mode mode;
 	/* back-pointer to e1 instance */
 	struct osmo_e1_instance *inst;
 	struct {
+		/* optional HDLC encoder state */
+		struct osmo_isdnhdlc_vars hdlc;
 		/* queue of pending to-be-transmitted messages */
 		struct llist_head queue;
 		unsigned long underruns;
 	} tx;
 	struct {
+		/* optional HDLC decoder state */
+		struct osmo_isdnhdlc_vars hdlc;
 		bool enabled;
 		/* how many bytes to buffer before calling call-back */
 		unsigned int granularity;
@@ -101,7 +113,7 @@ int osmo_e1_instance_init(struct osmo_e1_instance *e1i, const char *name, e1_not
 			  bool crc4_enabled, void *priv);
 void osmo_e1_instance_reset(struct osmo_e1_instance *e1i);
 int osmo_e1_ts_config(struct osmo_e1_instance_ts *e1t, e1_data_cb cb, unsigned int granularity,
-		      bool enable);
+		      bool enable, enum osmo_e1_ts_mode mode);
 void osmo_e1_ts_reset(struct osmo_e1_instance_ts *e1t);
 
 

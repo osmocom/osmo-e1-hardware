@@ -119,7 +119,7 @@ int main(int argc, char **argv)
 	osmo_e1_instance_init(&inst, "e1_test", &notify_cb, true, NULL);
 	for (i = 1; i < 32; i++) {
 		struct osmo_e1_instance_ts *e1t = osmo_e1_instance_ts(&inst, i);
-		osmo_e1_ts_config(e1t, &data_cb, 40, true);
+		osmo_e1_ts_config(e1t, &data_cb, 40, true, OSMO_E1_TS_RAW);
 	}
 
 	printf("\nRx Random...\n");

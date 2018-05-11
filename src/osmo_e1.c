@@ -91,6 +91,10 @@ void osmo_e1_ts_reset(struct osmo_e1_instance_ts *e1t)
 	e1t->rx.enabled = false;
 	msgb_free(e1t->rx.msg);
 	e1t->rx.msg = NULL;
+
+	osmo_isdnhdlc_rcv_init(&e1t->rx.hdlc, OSMO_HDLC_F_BITREVERSE);
+	//osmo_isdnhdlc_rcv_init(&e1t->rx.hdlc, 0);
+	osmo_isdnhdlc_out_init(&e1t->tx.hdlc, 0);
 }
 
 /*! stop E1 instance; stops all timeslots and releases any pending rx/tx buffers
@@ -136,13 +140,15 @@ struct osmo_e1_instance_ts *osmo_e1_instance_ts(struct osmo_e1_instance *e1i, ui
  *  \param[in] e1t Timeslot which we are to configure
  *  \param[in] granularity granularity (buffer size) to use on Rx
  *  \param[in] enable enable (true) or disalble (false) receiving on this TS
+ *  \param[in] mode the mode for this timeslot (raw or hdlc)
  *  \return 0 on success; negative on error */
 int osmo_e1_ts_config(struct osmo_e1_instance_ts *e1t, e1_data_cb cb, unsigned int granularity,
-		      bool enable)
+		      bool enable, enum osmo_e1_ts_mode mode)
 {
 	e1t->rx.data_cb = cb;
 	e1t->rx.enabled = enable;
 	e1t->rx.granularity = granularity;
+	e1t->mode = mode;
 
 	return 0;
 }
@@ -611,6 +617,7 @@ static void e1_rx_ts0(struct osmo_e1_instance *e1i, uint8_t inb)
 static void e1_rx_tsN(struct osmo_e1_instance_ts *e1t, uint8_t inb)
 {
 	struct msgb *msg;
+	int count, rc;
 
 	if (!e1t->rx.enabled)
 		return;
@@ -620,14 +627,46 @@ static void e1_rx_tsN(struct osmo_e1_instance_ts *e1t, uint8_t inb)
 	msg = e1t->rx.msg;
 	OSMO_ASSERT(msg);
 
-	msgb_put_u8(msg, inb);
-	if (msgb_tailroom(msg) <= 0) {
-		if (!e1t->rx.data_cb)
-			msgb_free(msg);
-		else
-			e1t->rx.data_cb(e1t, msg);
-		e1t->rx.msg = NULL;
+	switch (e1t->mode) {
+	case OSMO_E1_TS_RAW:
+		/* append byte at end of msgb */
+		msgb_put_u8(msg, inb);
+		/* flush msgb, if full */
+		if (msgb_tailroom(msg) <= 0) {
+			goto flush;
+		}
+		break;
+	case OSMO_E1_TS_HDLC_CRC:
+		rc = osmo_isdnhdlc_decode(&e1t->rx.hdlc, &inb, 1, &count,
+					  msgb_data(msg), msgb_tailroom(msg));
+		switch (rc) {
+		case -OSMO_HDLC_FRAMING_ERROR:
+			fprintf(stdout, "Framing Error\n");
+			break;
+		case -OSMO_HDLC_CRC_ERROR:
+			fprintf(stdout, "CRC Error\n");
+			break;
+		case -OSMO_HDLC_LENGTH_ERROR:
+			fprintf(stdout, "Length Error\n");
+			break;
+		case 0:
+			/* no output yet */
+			break;
+		default:
+			msgb_put(msg, rc);
+			goto flush;
+		}
+		break;
 	}
+
+	return;
+flush:
+
+	if (!e1t->rx.data_cb)
+		msgb_free(msg);
+	else
+		e1t->rx.data_cb(e1t, msg);
+	e1t->rx.msg = NULL;
 }
 
 /*! Receive a single E1 frame of 32x8 (=256) bits
