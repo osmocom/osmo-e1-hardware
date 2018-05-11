@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <osmocom/core/bits.h>
 
 static const uint8_t crc4_table_byte[256] = {
 	0x0, 0x7, 0xe, 0x9, 0x5, 0x2, 0xb, 0xc, 0xa, 0xd, 0x4, 0x3, 0xf, 0x8, 0x1, 0x6,
@@ -23,6 +24,6 @@ uint8_t crc4itu(uint8_t crc, const uint8_t *data, unsigned int len)
 {
 	crc &= 0xf;
 	while (len--)
-		crc = crc4_table_byte[crc ^ *data++];
+		crc = crc4_table_byte[crc ^ osmo_revbytebits_8(*data++)];
 	return crc;
 }

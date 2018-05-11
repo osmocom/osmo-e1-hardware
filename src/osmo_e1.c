@@ -389,10 +389,10 @@ static uint8_t crc4_from_ts0_hist(struct osmo_e1_instance *e1i, bool smf2)
 	if (smf2)
 		offset = 8;
 
-	crc |= (e1i->rx.ts0_history[0+offset] >> 7) << 3;
-	crc |= (e1i->rx.ts0_history[2+offset] >> 7) << 2;
-	crc |= (e1i->rx.ts0_history[4+offset] >> 7) << 1;
-	crc |= (e1i->rx.ts0_history[6+offset] >> 7) << 0;
+	crc |= (e1i->rx.ts0_history[0+offset] >> 7) << 0;
+	crc |= (e1i->rx.ts0_history[2+offset] >> 7) << 1;
+	crc |= (e1i->rx.ts0_history[4+offset] >> 7) << 2;
+	crc |= (e1i->rx.ts0_history[6+offset] >> 7) << 3;
 
 	return crc;
 }
