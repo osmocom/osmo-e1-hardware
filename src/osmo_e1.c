@@ -648,7 +648,7 @@ int osmo_e1_rx_frame(struct osmo_e1_instance *e1i, const uint8_t *in_frame)
 
 	for (i = 1; i < ARRAY_SIZE(e1i->ts); i++) {
 		struct osmo_e1_instance_ts *e1t = &e1i->ts[i];
-		e1_rx_tsN(e1t, in_frame[1]);
+		e1_rx_tsN(e1t, in_frame[i]);
 	}
 
 	return 0;
