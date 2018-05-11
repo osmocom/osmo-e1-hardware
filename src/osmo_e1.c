@@ -72,7 +72,7 @@ int osmo_e1_instance_init(struct osmo_e1_instance *e1i, const char *name, e1_not
 		e1t->rx.granularity = 256;
 	}
 
-	e1i->rx.fi = osmo_fsm_inst_alloc(&e1_align_fsm, NULL, e1i, LOGL_NOTICE, name);
+	e1i->rx.fi = osmo_fsm_inst_alloc(&e1_align_fsm, NULL, e1i, LOGL_DEBUG, name);
 	if (!e1i->rx.fi)
 		return -1;
 
