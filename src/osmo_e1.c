@@ -109,7 +109,7 @@ void osmo_e1_instance_reset(struct osmo_e1_instance *e1i)
 	e1i->tx.crc4_error = false;
 	e1i->tx.frame_nr = 0;
 	e1i->tx.crc4_last_smf = 0;
-	e1i->tx.crc4 = 0;
+	e1i->tx.crc4 = crc4itu_init();
 
 	e1i->rx.frame_nr = 0;
 	memset(&e1i->rx.ts0_history, 0, sizeof(e1i->rx.ts0_history));
@@ -279,9 +279,9 @@ static void e1_tx_update_crc4(struct osmo_e1_instance *e1i, const uint8_t *out_f
 	/* mask off the C bits */
 	if (is_correct_fas(ts0))
 		ts0 &= 0x7F;
-	e1i->tx.crc4 = crc4itu(e1i->tx.crc4, &ts0, 1);
+	e1i->tx.crc4 = crc4itu_update(e1i->tx.crc4, &ts0, 1);
 	/* add the remaining bytes/bits */
-	e1i->tx.crc4 = crc4itu(e1i->tx.crc4, out_frame+1, ARRAY_SIZE(e1i->ts)-1);
+	e1i->tx.crc4 = crc4itu_update(e1i->tx.crc4, out_frame+1, ARRAY_SIZE(e1i->ts)-1);
 }
 
 /*! Pull one to-be-transmitted E1 frame (256bits) from the E1 instance
@@ -395,10 +395,10 @@ static uint8_t crc4_from_ts0_hist(struct osmo_e1_instance *e1i, bool smf2)
 	if (smf2)
 		offset = 8;
 
-	crc |= (e1i->rx.ts0_history[0+offset] >> 7) << 0;
-	crc |= (e1i->rx.ts0_history[2+offset] >> 7) << 1;
-	crc |= (e1i->rx.ts0_history[4+offset] >> 7) << 2;
-	crc |= (e1i->rx.ts0_history[6+offset] >> 7) << 3;
+	crc |= (e1i->rx.ts0_history[0+offset] >> 7) << 3;
+	crc |= (e1i->rx.ts0_history[2+offset] >> 7) << 2;
+	crc |= (e1i->rx.ts0_history[4+offset] >> 7) << 1;
+	crc |= (e1i->rx.ts0_history[6+offset] >> 7) << 0;
 
 	return crc;
 }
@@ -412,9 +412,9 @@ static void e1_rx_update_crc4(struct osmo_e1_instance *e1i, const uint8_t *rx_fr
 	/* mask off the C bits */
 	if (is_correct_fas(ts0))
 		ts0 &= 0x7F;
-	e1i->rx.crc4 = crc4itu(e1i->rx.crc4, &ts0, 1);
+	e1i->rx.crc4 = crc4itu_update(e1i->rx.crc4, &ts0, 1);
 	/* add the remaining bytes/bits */
-	e1i->rx.crc4 = crc4itu(e1i->rx.crc4, rx_frame+1, ARRAY_SIZE(e1i->ts)-1);
+	e1i->rx.crc4 = crc4itu_update(e1i->rx.crc4, rx_frame+1, ARRAY_SIZE(e1i->ts)-1);
 }
 
 /* FSM State handler */
@@ -499,7 +499,7 @@ static void e1_aligned_crc_mframe(struct osmo_fsm_inst *fi, uint32_t event, void
 			}
 			/* rotate computed CRC4 one further */
 			e1i->rx.crc4_last_smf = e1i->rx.crc4;
-			e1i->rx.crc4 = 0;
+			e1i->rx.crc4 = crc4itu_init();
 			break;
 		default:
 			break;
