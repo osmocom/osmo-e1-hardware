@@ -14,4 +14,4 @@ e1_test_dieter: osmo_e1.o crc4itu.o e1_test_dieter.o
 
 
 clean:
-	@rm *.o e1_test
+	@rm -f *.o e1_test e1_test_dieter
