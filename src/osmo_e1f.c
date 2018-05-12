@@ -17,7 +17,7 @@
 #include <osmocom/core/fsm.h>
 
 #include "crc4itu.h"
-#include "osmo_e1.h"
+#include "osmo_e1f.h"
 
 #define S(x)	(1 << (x))
 
@@ -32,16 +32,16 @@ static inline bool is_correct_fas(uint8_t bt) {
 }
 
 /* are we in SMF II (true) or I (false) */
-static inline bool is_smf_II(const struct osmo_e1_tx_state *tx) {
+static inline bool is_smf_II(const struct osmo_e1f_tx_state *tx) {
 	if (tx->frame_nr >= 8)
 		return true;
 	return false;
 }
 
 static struct osmo_fsm e1_align_fsm;
-static void align_fsm_reset(struct osmo_e1_instance *e1i);
+static void align_fsm_reset(struct osmo_e1f_instance *e1i);
 
-static void notify_user(struct osmo_e1_instance *e1i, enum osmo_e1_notify_event evt,
+static void notify_user(struct osmo_e1f_instance *e1i, enum osmo_e1f_notify_event evt,
 			bool present, void *priv)
 {
 	if (!e1i->notify_cb)
@@ -52,7 +52,7 @@ static void notify_user(struct osmo_e1_instance *e1i, enum osmo_e1_notify_event 
 /*! Initialize a (caller-allocated) Osmocom E1 Instance
  *  \param[inout] e1i E1 Instance to be initialized
  *  \returns 0 on success, negative on error */
-int osmo_e1_instance_init(struct osmo_e1_instance *e1i, const char *name, e1_notify_cb cb,
+int osmo_e1f_instance_init(struct osmo_e1f_instance *e1i, const char *name, e1_notify_cb cb,
 			  bool crc4_enabled, void *priv)
 {
 	int i;
@@ -64,7 +64,7 @@ int osmo_e1_instance_init(struct osmo_e1_instance *e1i, const char *name, e1_not
 	e1i->priv = priv;
 
 	for (i = 1; i < ARRAY_SIZE(e1i->ts); i++) {
-		struct osmo_e1_instance_ts *e1t = &e1i->ts[i];
+		struct osmo_e1f_instance_ts *e1t = &e1i->ts[i];
 		e1t->ts_nr = i;
 		e1t->inst = e1i;
 		INIT_LLIST_HEAD(&e1t->tx.queue);
@@ -76,14 +76,14 @@ int osmo_e1_instance_init(struct osmo_e1_instance *e1i, const char *name, e1_not
 	if (!e1i->rx.fi)
 		return -1;
 
-	osmo_e1_instance_reset(e1i);
+	osmo_e1f_instance_reset(e1i);
 
 	return 0;
 }
 
 /*! stop E1 timeslot; release any pending rx/tx buffers
  *  \param[in] e1t Timeslot which we are to stop, disable and release buffers */
-void osmo_e1_ts_reset(struct osmo_e1_instance_ts *e1t)
+void osmo_e1f_ts_reset(struct osmo_e1f_instance_ts *e1t)
 {
 	e1t->tx.underruns = 0;
 	msgb_queue_free(&e1t->tx.queue);
@@ -99,7 +99,7 @@ void osmo_e1_ts_reset(struct osmo_e1_instance_ts *e1t)
 
 /*! stop E1 instance; stops all timeslots and releases any pending rx/tx buffers
  *  \param[in] e1t E1 instance which we are to stop */
-void osmo_e1_instance_reset(struct osmo_e1_instance *e1i)
+void osmo_e1f_instance_reset(struct osmo_e1f_instance *e1i)
 {
 	int i;
 
@@ -119,8 +119,8 @@ void osmo_e1_instance_reset(struct osmo_e1_instance *e1i)
 	e1i->rx.num_ts0_in_mframe_search = 0;
 
 	for (i = 1; i < ARRAY_SIZE(e1i->ts); i++) {
-		struct osmo_e1_instance_ts *e1t = &e1i->ts[i];
-		osmo_e1_ts_reset(e1t);
+		struct osmo_e1f_instance_ts *e1t = &e1i->ts[i];
+		osmo_e1f_ts_reset(e1t);
 	}
 }
 
@@ -128,7 +128,7 @@ void osmo_e1_instance_reset(struct osmo_e1_instance *e1i)
  *  \param[in] e1i E1 intance on which we work
  *  \param[in] ts_nr E1 timeslot number (1..31)
  *  \returns pointer to timeslot; NULL on error */
-struct osmo_e1_instance_ts *osmo_e1_instance_ts(struct osmo_e1_instance *e1i, uint8_t ts_nr)
+struct osmo_e1f_instance_ts *osmo_e1f_instance_ts(struct osmo_e1f_instance *e1i, uint8_t ts_nr)
 {
 	if (ts_nr == 0 || ts_nr >= ARRAY_SIZE(e1i->ts))
 		return NULL;
@@ -142,8 +142,8 @@ struct osmo_e1_instance_ts *osmo_e1_instance_ts(struct osmo_e1_instance *e1i, ui
  *  \param[in] enable enable (true) or disalble (false) receiving on this TS
  *  \param[in] mode the mode for this timeslot (raw or hdlc)
  *  \return 0 on success; negative on error */
-int osmo_e1_ts_config(struct osmo_e1_instance_ts *e1t, e1_data_cb cb, unsigned int granularity,
-		      bool enable, enum osmo_e1_ts_mode mode)
+int osmo_e1f_ts_config(struct osmo_e1f_instance_ts *e1t, e1_data_cb cb, unsigned int granularity,
+		      bool enable, enum osmo_e1f_ts_mode mode)
 {
 	e1t->rx.data_cb = cb;
 	e1t->rx.enabled = enable;
@@ -153,7 +153,7 @@ int osmo_e1_ts_config(struct osmo_e1_instance_ts *e1t, e1_data_cb cb, unsigned i
 	return 0;
 }
 
-const struct value_string osmo_e1_notifv_evt_names[] = {
+const struct value_string osmo_e1f_notifv_evt_names[] = {
 	{ E1_NTFY_EVT_ALIGN_FRAME, "Aligned to Frame" },
 	{ E1_NTFY_EVT_ALIGN_CRC_MFRAME, "Aligned to CRC4-Multiframe" },
 	{ E1_NTFY_EVT_CRC_ERROR, "CRC Error detected (local)" },
@@ -175,13 +175,13 @@ const struct value_string osmo_e1_notifv_evt_names[] = {
  *  Ownership of \a msg is transferred from caller into this function, but only
  *  in case of successful execution (return 0)!
  */
-void osmo_e1_ts_enqueue(struct osmo_e1_instance_ts *e1t, struct msgb *msg)
+void osmo_e1f_ts_enqueue(struct osmo_e1f_instance_ts *e1t, struct msgb *msg)
 {
 	msgb_enqueue(&e1t->tx.queue, msg);
 }
 
 /* obtain a CRC4 bit for the current frame number */
-static uint8_t e1_pull_crc4_bit(struct osmo_e1_instance *e1i)
+static uint8_t e1_pull_crc4_bit(struct osmo_e1f_instance *e1i)
 {
 	/* If CRC-4 is disabled, all CRC bits shall be '1' */
 	if (e1i->crc4_enabled == 0) {
@@ -204,7 +204,7 @@ static uint8_t e1_pull_crc4_bit(struct osmo_e1_instance *e1i)
 }
 
 /* pull a single to-be-transmitted byte for TS0 */
-static uint8_t e1_pull_ts0(struct osmo_e1_instance *e1i)
+static uint8_t e1_pull_ts0(struct osmo_e1f_instance *e1i)
 {
 	uint8_t ret;
 
@@ -249,7 +249,7 @@ static uint8_t e1_pull_ts0(struct osmo_e1_instance *e1i)
 }
 
 /* pull a single to-be-transmitted byte for TS1..31 */
-static uint8_t e1_pull_tsN(struct osmo_e1_instance_ts *e1t)
+static uint8_t e1_pull_tsN(struct osmo_e1f_instance_ts *e1t)
 {
 	struct msgb *msg = llist_first_entry_or_null(&e1t->tx.queue, struct msgb, list);
 	uint8_t *cur;
@@ -271,7 +271,7 @@ retry:
 }
 
 /* update the current in-progress CRC4 value with data from \a out_frame */
-static void e1_tx_update_crc4(struct osmo_e1_instance *e1i, const uint8_t *out_frame)
+static void e1_tx_update_crc4(struct osmo_e1f_instance *e1i, const uint8_t *out_frame)
 {
 	uint8_t ts0;
 
@@ -288,7 +288,7 @@ static void e1_tx_update_crc4(struct osmo_e1_instance *e1i, const uint8_t *out_f
  *  \param e1i E1 instance for which the frame shall be generated
  *  \param[out] out_frame callee-allocated buffer to which function stores 32 bytes
  *  \returns 0 on success, negative on error */
-int osmo_e1_pull_tx_frame(struct osmo_e1_instance *e1i, uint8_t *out_frame)
+int osmo_e1f_pull_tx_frame(struct osmo_e1f_instance *e1i, uint8_t *out_frame)
 {
 	int i;
 
@@ -297,7 +297,7 @@ int osmo_e1_pull_tx_frame(struct osmo_e1_instance *e1i, uint8_t *out_frame)
 
 	/* generate TS1..31 */
 	for (i = 1; i < ARRAY_SIZE(e1i->ts); i++) {
-		struct osmo_e1_instance_ts *e1t = &e1i->ts[i];
+		struct osmo_e1f_instance_ts *e1t = &e1i->ts[i];
 		/* get next to-be-transmitted byte from the TS */
 		out_frame[i] = e1_pull_tsN(e1t);
 	}
@@ -336,13 +336,13 @@ static const struct value_string e1_align_evt_names[] = {
 };
 
 /* get a TS0 byte from the history. delta 0 == current, delte 1 == previous, ... */
-static uint8_t get_ts0_hist(struct osmo_e1_instance *e1i, uint8_t delta)
+static uint8_t get_ts0_hist(struct osmo_e1f_instance *e1i, uint8_t delta)
 {
 	return e1i->rx.ts0_history[((e1i->rx.frame_nr + 16)-delta) % 16];
 }
 
 /* ITU-T G.706 Section 4.1.1 */
-static bool frame_alignment_lost(struct osmo_e1_instance *e1i)
+static bool frame_alignment_lost(struct osmo_e1f_instance *e1i)
 {
 	if (e1i->rx.frame_nr % 2)
 		return false;
@@ -358,7 +358,7 @@ static bool frame_alignment_lost(struct osmo_e1_instance *e1i)
 }
 
 /* ITU-T G.706 Section 4.1.2 */
-static bool frame_alignment_recovered(struct osmo_e1_instance *e1i)
+static bool frame_alignment_recovered(struct osmo_e1f_instance *e1i)
 {
 	/* two consecutive FAS with one non-FAS interspersed */
 	if (is_correct_fas(get_ts0_hist(e1i, 0)) &&
@@ -370,7 +370,7 @@ static bool frame_alignment_recovered(struct osmo_e1_instance *e1i)
 }
 
 /* ITU-T G.706 Section 4.2 */
-static bool crc_mframe_alignment_achieved(struct osmo_e1_instance *e1i)
+static bool crc_mframe_alignment_achieved(struct osmo_e1f_instance *e1i)
 {
 	/* if current TS0 byte is FAS, we cannot detect alignment */
 	if (is_correct_fas(get_ts0_hist(e1i, 0)))
@@ -387,7 +387,7 @@ static bool crc_mframe_alignment_achieved(struct osmo_e1_instance *e1i)
 }
 
 /* Get the CRC4 that was received from our Rx TS0 history */
-static uint8_t crc4_from_ts0_hist(struct osmo_e1_instance *e1i, bool smf2)
+static uint8_t crc4_from_ts0_hist(struct osmo_e1f_instance *e1i, bool smf2)
 {
 	uint8_t crc = 0;
 	uint8_t offset = 0;
@@ -404,7 +404,7 @@ static uint8_t crc4_from_ts0_hist(struct osmo_e1_instance *e1i, bool smf2)
 }
 
 /* update the current in-progress CRC4 value with data from \a rx_frame */
-static void e1_rx_update_crc4(struct osmo_e1_instance *e1i, const uint8_t *rx_frame)
+static void e1_rx_update_crc4(struct osmo_e1f_instance *e1i, const uint8_t *rx_frame)
 {
 	uint8_t ts0;
 
@@ -420,7 +420,7 @@ static void e1_rx_update_crc4(struct osmo_e1_instance *e1i, const uint8_t *rx_fr
 /* FSM State handler */
 static void e1_align_search_frame(struct osmo_fsm_inst *fi, uint32_t event, void *data)
 {
-	struct osmo_e1_instance *e1i = (struct osmo_e1_instance *) fi->priv;
+	struct osmo_e1f_instance *e1i = (struct osmo_e1f_instance *) fi->priv;
 
 	if (frame_alignment_recovered(e1i)) {
 		/* if we detected the 2nd FAS, we must be in FN 2 (or at least FN%2=0 */
@@ -433,7 +433,7 @@ static void e1_align_search_frame(struct osmo_fsm_inst *fi, uint32_t event, void
 /* FSM State handler */
 static void e1_align_search_crc_mframe(struct osmo_fsm_inst *fi, uint32_t event, void *data)
 {
-	struct osmo_e1_instance *e1i = (struct osmo_e1_instance *) fi->priv;
+	struct osmo_e1f_instance *e1i = (struct osmo_e1f_instance *) fi->priv;
 
 	if (crc_mframe_alignment_achieved(e1i)) {
 		/* if we detected the 6-bit CRC multiframe signal, we must be in FN 11 */
@@ -453,7 +453,7 @@ static void e1_align_search_crc_mframe(struct osmo_fsm_inst *fi, uint32_t event,
 	}
 }
 
-static void e1_aligned_common(struct osmo_e1_instance *e1i)
+static void e1_aligned_common(struct osmo_e1f_instance *e1i)
 {
 	uint8_t inb = get_ts0_hist(e1i, 0);
 
@@ -473,7 +473,7 @@ static void e1_aligned_common(struct osmo_e1_instance *e1i)
 /* FSM State handler */
 static void e1_aligned_crc_mframe(struct osmo_fsm_inst *fi, uint32_t event, void *data)
 {
-	struct osmo_e1_instance *e1i = (struct osmo_e1_instance *) fi->priv;
+	struct osmo_e1f_instance *e1i = (struct osmo_e1f_instance *) fi->priv;
 
 	if (frame_alignment_lost(e1i)) {
 		osmo_fsm_inst_state_chg(fi, E1_AS_SEARCH_FRAME, 0, 0);
@@ -526,7 +526,7 @@ static void e1_aligned_crc_mframe(struct osmo_fsm_inst *fi, uint32_t event, void
 /* FSM State handler */
 static void e1_aligned_basic(struct osmo_fsm_inst *fi, uint32_t event, void *data)
 {
-	struct osmo_e1_instance *e1i = (struct osmo_e1_instance *) fi->priv;
+	struct osmo_e1f_instance *e1i = (struct osmo_e1f_instance *) fi->priv;
 
 	if (frame_alignment_lost(e1i)) {
 		osmo_fsm_inst_state_chg(fi, E1_AS_SEARCH_FRAME, 0, 0);
@@ -571,7 +571,7 @@ static const struct osmo_fsm_state e1_align_states[] = {
 
 static void e1_allstate(struct osmo_fsm_inst *fi, uint32_t event, void *data)
 {
-	struct osmo_e1_instance *e1i = (struct osmo_e1_instance *) fi->priv;
+	struct osmo_e1f_instance *e1i = (struct osmo_e1f_instance *) fi->priv;
 
 	switch (event) {
 	case E1_AE_RESET:
@@ -591,19 +591,19 @@ static struct osmo_fsm e1_align_fsm = {
 	.event_names = e1_align_evt_names,
 };
 
-static void align_fsm_reset(struct osmo_e1_instance *e1i)
+static void align_fsm_reset(struct osmo_e1f_instance *e1i)
 {
 	osmo_fsm_inst_dispatch(e1i->rx.fi, E1_AE_RESET, NULL);
 }
 
-static void e1_rx_hist_add(struct osmo_e1_instance *e1i, uint8_t inb)
+static void e1_rx_hist_add(struct osmo_e1f_instance *e1i, uint8_t inb)
 {
 	e1i->rx.ts0_history[e1i->rx.frame_nr] = inb;
 	if (e1i->rx.ts0_hist_len < 16)
 		e1i->rx.ts0_hist_len++;
 }
 
-static void e1_rx_ts0(struct osmo_e1_instance *e1i, uint8_t inb)
+static void e1_rx_ts0(struct osmo_e1f_instance *e1i, uint8_t inb)
 {
 	/* append just-received byte to the TS0 receive history buffer */
 	e1_rx_hist_add(e1i, inb);
@@ -614,7 +614,7 @@ static void e1_rx_ts0(struct osmo_e1_instance *e1i, uint8_t inb)
 	e1i->rx.frame_nr = (e1i->rx.frame_nr + 1) % 16;
 }
 
-static void e1_rx_tsN(struct osmo_e1_instance_ts *e1t, uint8_t inb)
+static void e1_rx_tsN(struct osmo_e1f_instance_ts *e1t, uint8_t inb)
 {
 	struct msgb *msg;
 	int count, rc;
@@ -628,7 +628,7 @@ static void e1_rx_tsN(struct osmo_e1_instance_ts *e1t, uint8_t inb)
 	OSMO_ASSERT(msg);
 
 	switch (e1t->mode) {
-	case OSMO_E1_TS_RAW:
+	case OSMO_E1F_TS_RAW:
 		/* append byte at end of msgb */
 		msgb_put_u8(msg, inb);
 		/* flush msgb, if full */
@@ -636,7 +636,7 @@ static void e1_rx_tsN(struct osmo_e1_instance_ts *e1t, uint8_t inb)
 			goto flush;
 		}
 		break;
-	case OSMO_E1_TS_HDLC_CRC:
+	case OSMO_E1F_TS_HDLC_CRC:
 		rc = osmo_isdnhdlc_decode(&e1t->rx.hdlc, &inb, 1, &count,
 					  msgb_data(msg), msgb_tailroom(msg));
 		switch (rc) {
@@ -677,7 +677,7 @@ flush:
  *  i.e. the first bit of TS0 of the frame will be octet-aligned and hence the
  *  entire 256bit buffer is provided as octet-aligned 32bytes in \a in_frame.
  */
-int osmo_e1_rx_frame(struct osmo_e1_instance *e1i, const uint8_t *in_frame)
+int osmo_e1f_rx_frame(struct osmo_e1f_instance *e1i, const uint8_t *in_frame)
 {
 	int i;
 
@@ -686,14 +686,14 @@ int osmo_e1_rx_frame(struct osmo_e1_instance *e1i, const uint8_t *in_frame)
 	e1_rx_ts0(e1i, in_frame[0]);
 
 	for (i = 1; i < ARRAY_SIZE(e1i->ts); i++) {
-		struct osmo_e1_instance_ts *e1t = &e1i->ts[i];
+		struct osmo_e1f_instance_ts *e1t = &e1i->ts[i];
 		e1_rx_tsN(e1t, in_frame[i]);
 	}
 
 	return 0;
 }
 
-int osmo_e1_init(void)
+int osmo_e1f_init(void)
 {
 	return osmo_fsm_register(&e1_align_fsm);
 }

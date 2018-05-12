@@ -7,7 +7,7 @@
 #include <osmocom/core/fsm.h>
 #include <osmocom/core/isdnhdlc.h>
 
-struct osmo_e1_tx_state {
+struct osmo_e1f_tx_state {
 	bool remote_alarm;
 	bool crc4_error;
 	/* lower 5 bits: Sa4..Sa8 */
@@ -18,7 +18,7 @@ struct osmo_e1_tx_state {
 	uint8_t crc4;
 };
 
-struct osmo_e1_rx_state {
+struct osmo_e1f_rx_state {
 	uint8_t frame_nr;
 	/* history of rceived TS0 octets */
 	uint8_t ts0_history[16];
@@ -34,7 +34,7 @@ struct osmo_e1_rx_state {
 	uint8_t crc4;
 };
 
-enum osmo_e1_notify_event {
+enum osmo_e1f_notify_event {
 	E1_NTFY_EVT_ALIGN_FRAME,
 	E1_NTFY_EVT_ALIGN_CRC_MFRAME,
 	E1_NTFY_EVT_CRC_ERROR,
@@ -42,24 +42,24 @@ enum osmo_e1_notify_event {
 	E1_NTFY_EVT_REMOTE_ALARM,
 };
 
-enum osmo_e1_ts_mode {
-       OSMO_E1_TS_RAW,
-       OSMO_E1_TS_HDLC_CRC,
+enum osmo_e1f_ts_mode {
+       OSMO_E1F_TS_RAW,
+       OSMO_E1F_TS_HDLC_CRC,
 };
 
-struct osmo_e1_instance_ts;
-struct osmo_e1_instance;
-typedef void (*e1_data_cb)(struct osmo_e1_instance_ts *ts, struct msgb *msg);
-typedef void (*e1_notify_cb)(struct osmo_e1_instance *e1i, enum osmo_e1_notify_event evt,
+struct osmo_e1f_instance_ts;
+struct osmo_e1f_instance;
+typedef void (*e1_data_cb)(struct osmo_e1f_instance_ts *ts, struct msgb *msg);
+typedef void (*e1_notify_cb)(struct osmo_e1f_instance *e1i, enum osmo_e1f_notify_event evt,
 			     bool present, void *data);
 
-struct osmo_e1_instance_ts {
+struct osmo_e1f_instance_ts {
 	/* timeslot number */
 	uint8_t ts_nr;
 	/* mode in which we operate (RAW/HDLC) */
-	enum osmo_e1_ts_mode mode;
+	enum osmo_e1f_ts_mode mode;
 	/* back-pointer to e1 instance */
-	struct osmo_e1_instance *inst;
+	struct osmo_e1f_instance *inst;
 	struct {
 		/* optional HDLC encoder state */
 		struct osmo_isdnhdlc_vars hdlc;
@@ -81,7 +81,7 @@ struct osmo_e1_instance_ts {
 	} rx;
 };
 
-struct osmo_e1_instance {
+struct osmo_e1f_instance {
 	/* list; currently not used yet */
 	struct llist_head list;
 
@@ -91,32 +91,32 @@ struct osmo_e1_instance {
 	e1_notify_cb notify_cb;
 
 	/* Rx + Tx related state */
-	struct osmo_e1_tx_state tx;
-	struct osmo_e1_rx_state rx;
+	struct osmo_e1f_tx_state tx;
+	struct osmo_e1f_rx_state rx;
 
 	/* our 32 timeslots (only 1..32 are used) */
-	struct osmo_e1_instance_ts ts[32];
+	struct osmo_e1f_instance_ts ts[32];
 
 	/* private data, relevant to user */
 	void *priv;
 };
 
-extern const struct value_string osmo_e1_notifv_evt_names[];
+extern const struct value_string osmo_e1f_notifv_evt_names[];
 
-static inline const char *osmo_e1_notify_event_name(enum osmo_e1_notify_event evt) {
-	return get_value_string(osmo_e1_notifv_evt_names, evt);
+static inline const char *osmo_e1f_notify_event_name(enum osmo_e1f_notify_event evt) {
+	return get_value_string(osmo_e1f_notifv_evt_names, evt);
 }
 
-int osmo_e1_init(void);
-struct osmo_e1_instance_ts *osmo_e1_instance_ts(struct osmo_e1_instance *e1i, uint8_t ts_nr);
-int osmo_e1_instance_init(struct osmo_e1_instance *e1i, const char *name, e1_notify_cb cb,
+int osmo_e1f_init(void);
+struct osmo_e1f_instance_ts *osmo_e1f_instance_ts(struct osmo_e1f_instance *e1i, uint8_t ts_nr);
+int osmo_e1f_instance_init(struct osmo_e1f_instance *e1i, const char *name, e1_notify_cb cb,
 			  bool crc4_enabled, void *priv);
-void osmo_e1_instance_reset(struct osmo_e1_instance *e1i);
-int osmo_e1_ts_config(struct osmo_e1_instance_ts *e1t, e1_data_cb cb, unsigned int granularity,
-		      bool enable, enum osmo_e1_ts_mode mode);
-void osmo_e1_ts_reset(struct osmo_e1_instance_ts *e1t);
+void osmo_e1f_instance_reset(struct osmo_e1f_instance *e1i);
+int osmo_e1f_ts_config(struct osmo_e1f_instance_ts *e1t, e1_data_cb cb, unsigned int granularity,
+		      bool enable, enum osmo_e1f_ts_mode mode);
+void osmo_e1f_ts_reset(struct osmo_e1f_instance_ts *e1t);
 
 
-void osmo_e1_ts_enqueue(struct osmo_e1_instance_ts *e1t, struct msgb *msg);
-int osmo_e1_pull_tx_frame(struct osmo_e1_instance *e1i, uint8_t *out_frame);
-int osmo_e1_rx_frame(struct osmo_e1_instance *e1i, const uint8_t *in_frame);
+void osmo_e1f_ts_enqueue(struct osmo_e1f_instance_ts *e1t, struct msgb *msg);
+int osmo_e1f_pull_tx_frame(struct osmo_e1f_instance *e1i, uint8_t *out_frame);
+int osmo_e1f_rx_frame(struct osmo_e1f_instance *e1i, const uint8_t *in_frame);
