@@ -25,7 +25,7 @@
   </gnm:Attributes>
   <office:document-meta xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:ooo="http://openoffice.org/2004/office" office:version="1.2">
     <office:meta>
-      <dc:date>2018-05-07T13:28:32Z</dc:date>
+      <dc:date>2018-05-16T19:10:37Z</dc:date>
       <meta:creation-date>2018-05-07T12:33:59Z</meta:creation-date>
     </office:meta>
   </office:document-meta>
@@ -39,8 +39,8 @@
   <gnm:Sheets>
     <gnm:Sheet DisplayFormulas="0" HideZero="0" HideGrid="0" HideColHeader="0" HideRowHeader="0" DisplayOutlines="1" OutlineSymbolsBelow="1" OutlineSymbolsRight="1" Visibility="GNM_SHEET_VISIBILITY_VISIBLE" GridColor="0:0:0">
       <gnm:Name>Sheet1</gnm:Name>
-      <gnm:MaxCol>12</gnm:MaxCol>
-      <gnm:MaxRow>93</gnm:MaxRow>
+      <gnm:MaxCol>13</gnm:MaxCol>
+      <gnm:MaxRow>81</gnm:MaxRow>
       <gnm:Zoom>1.3</gnm:Zoom>
       <gnm:Names>
         <gnm:Name>
@@ -977,17 +977,11 @@
         <gnm:RowInfo No="0" Unit="13.5"/>
         <gnm:RowInfo No="2" Unit="13.27"/>
         <gnm:RowInfo No="5" Unit="13.5" Count="14"/>
-        <gnm:RowInfo No="21" Unit="13.5" Count="5"/>
-        <gnm:RowInfo No="28" Unit="13.5" Count="7"/>
-        <gnm:RowInfo No="36" Unit="13.5" Count="5"/>
-        <gnm:RowInfo No="42" Unit="13.5" Count="6"/>
-        <gnm:RowInfo No="49" Unit="13.5" Count="9"/>
-        <gnm:RowInfo No="59" Unit="13.5" Count="3"/>
-        <gnm:RowInfo No="63" Unit="13.5" Count="3"/>
-        <gnm:RowInfo No="67" Unit="13.5" Count="12"/>
+        <gnm:RowInfo No="19" Unit="13.27"/>
+        <gnm:RowInfo No="21" Unit="13.5" Count="50"/>
       </gnm:Rows>
-      <gnm:Selections CursorCol="13" CursorRow="9">
-        <gnm:Selection startCol="13" startRow="9" endCol="13" endRow="9"/>
+      <gnm:Selections CursorCol="5" CursorRow="21">
+        <gnm:Selection startCol="5" startRow="21" endCol="5" endRow="21"/>
       </gnm:Selections>
       <gnm:Cells>
         <gnm:Cell Row="0" Col="0" ValueType="60">SAM4S based E1 </gnm:Cell>
@@ -1036,10 +1030,11 @@
         <gnm:Cell Row="10" Col="9" ValueType="60">JP2</gnm:Cell>
         <gnm:Cell Row="10" Col="10" ValueType="40">6</gnm:Cell>
         <gnm:Cell Row="10" Col="12" ValueType="60">LIU DATA</gnm:Cell>
-        <gnm:Cell Row="11" Col="0" ValueType="60">TCLK5</gnm:Cell>
-        <gnm:Cell Row="11" Col="1" ValueType="60">PC31</gnm:Cell>
-        <gnm:Cell Row="11" Col="3" ValueType="60">EXT3</gnm:Cell>
-        <gnm:Cell Row="11" Col="4" ValueType="40">10</gnm:Cell>
+        <gnm:Cell Row="10" Col="13" ValueType="60">violet</gnm:Cell>
+        <gnm:Cell Row="11" Col="0" ValueType="60">TCLK3</gnm:Cell>
+        <gnm:Cell Row="11" Col="1" ValueType="60">PC25</gnm:Cell>
+        <gnm:Cell Row="11" Col="3" ValueType="60">EXT2</gnm:Cell>
+        <gnm:Cell Row="11" Col="4" ValueType="40">6</gnm:Cell>
         <gnm:Cell Row="11" Col="12" ValueType="60">LIU DATA</gnm:Cell>
         <gnm:Cell Row="12" Col="0" ValueType="60">RD</gnm:Cell>
         <gnm:Cell Row="12" Col="1" ValueType="60">PA18</gnm:Cell>
@@ -1052,6 +1047,7 @@
         <gnm:Cell Row="12" Col="9" ValueType="60">JP2</gnm:Cell>
         <gnm:Cell Row="12" Col="10" ValueType="40">8</gnm:Cell>
         <gnm:Cell Row="12" Col="12" ValueType="60">LIU DATA</gnm:Cell>
+        <gnm:Cell Row="12" Col="13" ValueType="60">yellow</gnm:Cell>
         <gnm:Cell Row="13" Col="5" ValueType="60">IN</gnm:Cell>
         <gnm:Cell Row="13" Col="6" ValueType="60">?</gnm:Cell>
         <gnm:Cell Row="13" Col="7" ValueType="60">CV/RDN</gnm:Cell>
@@ -1070,6 +1066,7 @@
         <gnm:Cell Row="14" Col="9" ValueType="60">JP2</gnm:Cell>
         <gnm:Cell Row="14" Col="10" ValueType="40">9</gnm:Cell>
         <gnm:Cell Row="14" Col="12" ValueType="60">LIU DATA</gnm:Cell>
+        <gnm:Cell Row="14" Col="13" ValueType="60">grey</gnm:Cell>
         <gnm:Cell Row="15" Col="0" ValueType="60">TD</gnm:Cell>
         <gnm:Cell Row="15" Col="1" ValueType="60">PA17</gnm:Cell>
         <gnm:Cell Row="15" Col="3" ValueType="60">EXT1</gnm:Cell>
@@ -1081,6 +1078,7 @@
         <gnm:Cell Row="15" Col="9" ValueType="60">JP2</gnm:Cell>
         <gnm:Cell Row="15" Col="10" ValueType="40">7</gnm:Cell>
         <gnm:Cell Row="15" Col="12" ValueType="60">LIU DATA</gnm:Cell>
+        <gnm:Cell Row="15" Col="13" ValueType="60">orange</gnm:Cell>
         <gnm:Cell Row="16" Col="5" ValueType="60">OUT</gnm:Cell>
         <gnm:Cell Row="16" Col="6" ValueType="60">?</gnm:Cell>
         <gnm:Cell Row="16" Col="7" ValueType="60">TDN</gnm:Cell>
@@ -1088,7 +1086,6 @@
         <gnm:Cell Row="16" Col="9" ValueType="60">JP2</gnm:Cell>
         <gnm:Cell Row="16" Col="10" ValueType="40">5</gnm:Cell>
         <gnm:Cell Row="16" Col="12" ValueType="60">LIU DATA</gnm:Cell>
-        <gnm:Cell Row="17" Col="12" ValueType="60">LIU DATA</gnm:Cell>
         <gnm:Cell Row="18" Col="0" ValueType="60">RF</gnm:Cell>
         <gnm:Cell Row="18" Col="1" ValueType="60">PA20</gnm:Cell>
         <gnm:Cell Row="18" Col="3" ValueType="60">EXT2</gnm:Cell>
@@ -1099,16 +1096,18 @@
         <gnm:Cell Row="18" Col="8" ValueType="60">-</gnm:Cell>
         <gnm:Cell Row="18" Col="9" ValueType="60">-</gnm:Cell>
         <gnm:Cell Row="18" Col="10" ValueType="60">-</gnm:Cell>
-        <gnm:Cell Row="19" Col="0" ValueType="60">TIOA5</gnm:Cell>
-        <gnm:Cell Row="19" Col="1" ValueType="60">PC29</gnm:Cell>
-        <gnm:Cell Row="19" Col="3" ValueType="60">EXT4</gnm:Cell>
-        <gnm:Cell Row="19" Col="4" ValueType="40">3</gnm:Cell>
+        <gnm:Cell Row="18" Col="13" ValueType="60">yellow</gnm:Cell>
+        <gnm:Cell Row="19" Col="0" ValueType="60">TIOA4</gnm:Cell>
+        <gnm:Cell Row="19" Col="1" ValueType="60">PC26</gnm:Cell>
+        <gnm:Cell Row="19" Col="3" ValueType="60">EXT2</gnm:Cell>
+        <gnm:Cell Row="19" Col="4" ValueType="40">9</gnm:Cell>
         <gnm:Cell Row="19" Col="5" ValueType="60">OUT</gnm:Cell>
         <gnm:Cell Row="19" Col="6" ValueType="60">RX_FRAME</gnm:Cell>
         <gnm:Cell Row="19" Col="7" ValueType="60">-</gnm:Cell>
         <gnm:Cell Row="19" Col="8" ValueType="60">-</gnm:Cell>
         <gnm:Cell Row="19" Col="9" ValueType="60">-</gnm:Cell>
         <gnm:Cell Row="19" Col="10" ValueType="60">-</gnm:Cell>
+        <gnm:Cell Row="19" Col="13" ValueType="60">yelow</gnm:Cell>
         <gnm:Cell Row="21" Col="0" ValueType="60">GPIO</gnm:Cell>
         <gnm:Cell Row="21" Col="1" ValueType="60">PC27</gnm:Cell>
         <gnm:Cell Row="21" Col="3" ValueType="60">EXT2</gnm:Cell>
@@ -1120,6 +1119,7 @@
         <gnm:Cell Row="21" Col="9" ValueType="60">JP1</gnm:Cell>
         <gnm:Cell Row="21" Col="10" ValueType="40">4</gnm:Cell>
         <gnm:Cell Row="21" Col="12" ValueType="60">LIU SPI</gnm:Cell>
+        <gnm:Cell Row="21" Col="13" ValueType="60">green</gnm:Cell>
         <gnm:Cell Row="22" Col="0" ValueType="60">NPCS[1]</gnm:Cell>
         <gnm:Cell Row="22" Col="1" ValueType="60">PA9</gnm:Cell>
         <gnm:Cell Row="22" Col="3" ValueType="60">EXT2</gnm:Cell>
@@ -1131,6 +1131,7 @@
         <gnm:Cell Row="22" Col="9" ValueType="60">JP1</gnm:Cell>
         <gnm:Cell Row="22" Col="10" ValueType="40">10</gnm:Cell>
         <gnm:Cell Row="22" Col="12" ValueType="60">LIU SPI</gnm:Cell>
+        <gnm:Cell Row="22" Col="13" ValueType="60">blue</gnm:Cell>
         <gnm:Cell Row="23" Col="0" ValueType="60">MISO</gnm:Cell>
         <gnm:Cell Row="23" Col="1" ValueType="60">PA12</gnm:Cell>
         <gnm:Cell Row="23" Col="3" ValueType="60">EXT2</gnm:Cell>
@@ -1142,6 +1143,7 @@
         <gnm:Cell Row="23" Col="9" ValueType="60">JP1</gnm:Cell>
         <gnm:Cell Row="23" Col="10" ValueType="40">7</gnm:Cell>
         <gnm:Cell Row="23" Col="12" ValueType="60">LIU SPI</gnm:Cell>
+        <gnm:Cell Row="23" Col="13" ValueType="60">brown</gnm:Cell>
         <gnm:Cell Row="24" Col="0" ValueType="60">SPCK</gnm:Cell>
         <gnm:Cell Row="24" Col="1" ValueType="60">PA14</gnm:Cell>
         <gnm:Cell Row="24" Col="3" ValueType="60">EXT2</gnm:Cell>
@@ -1153,6 +1155,7 @@
         <gnm:Cell Row="24" Col="9" ValueType="60">JP1</gnm:Cell>
         <gnm:Cell Row="24" Col="10" ValueType="40">9</gnm:Cell>
         <gnm:Cell Row="24" Col="12" ValueType="60">LIU SPI</gnm:Cell>
+        <gnm:Cell Row="24" Col="13" ValueType="60">white</gnm:Cell>
         <gnm:Cell Row="25" Col="0" ValueType="60">MOSI</gnm:Cell>
         <gnm:Cell Row="25" Col="1" ValueType="60">PA13</gnm:Cell>
         <gnm:Cell Row="25" Col="3" ValueType="60">EXT2</gnm:Cell>
@@ -1164,6 +1167,7 @@
         <gnm:Cell Row="25" Col="9" ValueType="60">JP1</gnm:Cell>
         <gnm:Cell Row="25" Col="10" ValueType="40">8</gnm:Cell>
         <gnm:Cell Row="25" Col="12" ValueType="60">LIU SPI</gnm:Cell>
+        <gnm:Cell Row="25" Col="13" ValueType="60">red</gnm:Cell>
         <gnm:Cell Row="28" Col="0" ValueType="60">CD</gnm:Cell>
         <gnm:Cell Row="28" Col="1" ValueType="60">PC12</gnm:Cell>
         <gnm:Cell Row="28" Col="6" ValueType="60">SD_CD</gnm:Cell>
@@ -1317,8 +1321,8 @@
     </gnm:Sheet>
     <gnm:Sheet DisplayFormulas="0" HideZero="0" HideGrid="0" HideColHeader="0" HideRowHeader="0" DisplayOutlines="1" OutlineSymbolsBelow="1" OutlineSymbolsRight="1" Visibility="GNM_SHEET_VISIBILITY_VISIBLE" GridColor="0:0:0">
       <gnm:Name>Sheet2</gnm:Name>
-      <gnm:MaxCol>-1</gnm:MaxCol>
-      <gnm:MaxRow>-1</gnm:MaxRow>
+      <gnm:MaxCol>0</gnm:MaxCol>
+      <gnm:MaxRow>0</gnm:MaxRow>
       <gnm:Zoom>1</gnm:Zoom>
       <gnm:Names>
         <gnm:Name>
@@ -1377,8 +1381,8 @@
     </gnm:Sheet>
     <gnm:Sheet DisplayFormulas="0" HideZero="0" HideGrid="0" HideColHeader="0" HideRowHeader="0" DisplayOutlines="1" OutlineSymbolsBelow="1" OutlineSymbolsRight="1" Visibility="GNM_SHEET_VISIBILITY_VISIBLE" GridColor="0:0:0">
       <gnm:Name>Sheet3</gnm:Name>
-      <gnm:MaxCol>-1</gnm:MaxCol>
-      <gnm:MaxRow>-1</gnm:MaxRow>
+      <gnm:MaxCol>0</gnm:MaxCol>
+      <gnm:MaxRow>0</gnm:MaxRow>
       <gnm:Zoom>1</gnm:Zoom>
       <gnm:Names>
         <gnm:Name>
