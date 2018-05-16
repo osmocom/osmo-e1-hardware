@@ -1,5 +1,5 @@
-LDFLAGS+=-losmocore -losmogsm
-CFLAGS+=-Wall
+LDFLAGS+=`pkg-config --libs libosmocore libosmogsm`
+CFLAGS+=-Wall `pkg-config --cflags libosmocore libosmogsm`
 
 all: e1_test e1_test_dieter
 
