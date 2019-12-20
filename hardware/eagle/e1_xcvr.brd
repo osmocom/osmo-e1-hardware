@@ -11,6 +11,16 @@
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="yes"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="yes"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="yes"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="yes"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="yes"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="yes"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="yes"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="yes"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="yes"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -64,10 +74,10 @@
 <wire x1="70" y1="0" x2="70" y2="60" width="0" layer="20"/>
 <wire x1="70" y1="60" x2="0" y2="60" width="0" layer="20"/>
 <wire x1="0" y1="60" x2="0" y2="0" width="0" layer="20"/>
-<text x="53.815" y="57.9425" size="1.4224" layer="16" font="vector" ratio="14" rot="MR0">sysmocom</text>
-<text x="55.4025" y="55.72" size="1.4224" layer="16" font="vector" ratio="14" rot="MR0">E1 XCVR v2</text>
-<text x="43.655" y="57.9425" size="1.4224" layer="1" font="vector" ratio="14">sysmocom</text>
-<text x="42.7025" y="55.72" size="1.4224" layer="1" font="vector" ratio="14">E1 XCVR v2</text>
+<text x="56.99" y="57.9425" size="1.4224" layer="16" font="vector" ratio="14" rot="MR0">sysmocom</text>
+<text x="56.99" y="55.72" size="1.4224" layer="16" font="vector" ratio="14" rot="MR0">E1 XCVR v2</text>
+<text x="44.29" y="57.9425" size="1.4224" layer="1" font="vector" ratio="14">sysmocom</text>
+<text x="44.29" y="55.72" size="1.4224" layer="1" font="vector" ratio="14">E1 XCVR v2</text>
 <text x="13.175" y="32.225" size="1.778" layer="25">D41317A</text>
 </plain>
 <libraries>
@@ -1765,7 +1775,7 @@ Source: http://www.osram.convergy.de/ ... LG_R971.pdf</description>
 <class number="1" name="power" width="0.508" drill="0">
 </class>
 </classes>
-<designrules name="default">
+<designrules name="default *">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -1785,9 +1795,9 @@ design rules under a new name.</description>
 <param name="layerSetup" value="(1*16)"/>
 <param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
 <param name="mtIsolate" value="1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
-<param name="mdWireWire" value="6mil"/>
-<param name="mdWirePad" value="6mil"/>
-<param name="mdWireVia" value="6mil"/>
+<param name="mdWireWire" value="8mil"/>
+<param name="mdWirePad" value="8mil"/>
+<param name="mdWireVia" value="8mil"/>
 <param name="mdPadPad" value="6mil"/>
 <param name="mdPadVia" value="6mil"/>
 <param name="mdViaVia" value="6mil"/>
@@ -1836,9 +1846,9 @@ design rules under a new name.</description>
 <param name="mlMinCreamFrame" value="0mil"/>
 <param name="mlMaxCreamFrame" value="0mil"/>
 <param name="mlViaStopLimit" value="100mil"/>
-<param name="srRoundness" value="0"/>
+<param name="srRoundness" value="0.3"/>
 <param name="srMinRoundness" value="0mil"/>
-<param name="srMaxRoundness" value="0mil"/>
+<param name="srMaxRoundness" value="10mil"/>
 <param name="slThermalIsolate" value="10mil"/>
 <param name="slThermalsForVias" value="0"/>
 <param name="dpMaxLengthDifference" value="10mm"/>
@@ -2137,7 +2147,6 @@ design rules under a new name.</description>
 <contactref element="U3_2M" pad="P$2"/>
 <contactref element="C6" pad="2"/>
 <contactref element="C7" pad="1"/>
-<contactref element="U4_1M5" pad="P$2"/>
 <contactref element="JP9" pad="2"/>
 <contactref element="D5" pad="2"/>
 <contactref element="D8" pad="2"/>
@@ -2228,6 +2237,9 @@ design rules under a new name.</description>
 <via x="5" y="5" extent="1-16" drill="3.2" diameter="6"/>
 <via x="65" y="5" extent="1-16" drill="3.2" diameter="6"/>
 <via x="65" y="55" extent="1-16" drill="3.2" diameter="6"/>
+<wire x1="31.8225" y1="23.145" x2="32.67" y2="23.145" width="0.508" layer="1"/>
+<wire x1="32.67" y1="23.145" x2="34.60625" y2="25.08125" width="0.508" layer="1"/>
+<wire x1="34.60625" y1="25.08125" x2="34.60625" y2="25.5575" width="0.508" layer="1"/>
 </signal>
 <signal name="N$1">
 <contactref element="R1" pad="2"/>
