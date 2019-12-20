@@ -64,10 +64,10 @@
 <wire x1="50" y1="0" x2="50" y2="50" width="0" layer="20"/>
 <wire x1="50" y1="50" x2="0" y2="50" width="0" layer="20"/>
 <wire x1="0" y1="50" x2="0" y2="0" width="0" layer="20"/>
-<text x="48.26" y="47.625" size="1.778" layer="16" rot="MR0">sysmocom</text>
-<text x="48.26" y="45.085" size="1.778" layer="16" rot="MR0">E1 XCVR v1</text>
-<text x="33.655" y="47.9425" size="1.778" layer="1">sysmocom</text>
-<text x="32.7025" y="45.72" size="1.778" layer="1">E1 XCVR v1</text>
+<text x="43.815" y="47.9425" size="1.4224" layer="16" font="vector" ratio="14" rot="MR0">sysmocom</text>
+<text x="45.4025" y="45.72" size="1.4224" layer="16" font="vector" ratio="14" rot="MR0">E1 XCVR v2</text>
+<text x="33.655" y="47.9425" size="1.4224" layer="1" font="vector" ratio="14">sysmocom</text>
+<text x="32.7025" y="45.72" size="1.4224" layer="1" font="vector" ratio="14">E1 XCVR v2</text>
 <text x="3.175" y="22.225" size="1.778" layer="25">D41317A</text>
 </plain>
 <libraries>
