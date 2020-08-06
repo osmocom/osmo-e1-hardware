@@ -32,13 +32,13 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
@@ -181,6 +181,18 @@
 <wire x1="160" y1="0" x2="160" y2="120" width="0" layer="20"/>
 <wire x1="160" y1="120" x2="0" y2="120" width="0" layer="20"/>
 <wire x1="0" y1="120" x2="0" y2="0" width="0" layer="20"/>
+<text x="65.3398" y="46.80195" size="1.778" layer="1" font="vector" ratio="14" rot="SR90">e1-tracer</text>
+<text x="65.3398" y="61.72445" size="1.778" layer="25" font="vector" ratio="14" rot="SR90">&gt;REVISION</text>
+<text x="67.8798" y="46.80195" size="1.778" layer="1" font="vector" ratio="14" rot="SR90">(C) 2020 sysmocom</text>
+<text x="67.8798" y="46.80195" size="1.778" layer="25" font="vector" ratio="14" rot="SR90">(C) 2020 sysmocom</text>
+<text x="65.3398" y="46.80195" size="1.778" layer="25" font="vector" ratio="14" rot="SR90">e1-tracer</text>
+<text x="65.3398" y="61.72445" size="1.778" layer="1" font="vector" ratio="16" rot="SR90">&gt;REVISION</text>
+<text x="65.3398" y="73.21305" size="1.778" layer="16" font="vector" ratio="14" rot="SMR270">e1-tracer</text>
+<text x="65.3398" y="58.29055" size="1.778" layer="26" font="vector" ratio="14" rot="SMR270">&gt;REVISION</text>
+<text x="67.8798" y="73.21305" size="1.778" layer="16" font="vector" ratio="14" rot="SMR270">(C) 2020 sysmocom</text>
+<text x="67.8798" y="73.21305" size="1.778" layer="26" font="vector" ratio="14" rot="SMR270">(C) 2020 sysmocom</text>
+<text x="65.3398" y="73.21305" size="1.778" layer="26" font="vector" ratio="14" rot="SMR270">e1-tracer</text>
+<text x="65.3398" y="58.29055" size="1.778" layer="16" font="vector" ratio="16" rot="SMR270">&gt;REVISION</text>
 </plain>
 <libraries>
 <library name="microbuilder">
