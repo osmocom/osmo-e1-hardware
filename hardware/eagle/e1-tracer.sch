@@ -146,33 +146,12 @@ DIN A3, landscape with location and doc. field</description>
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
-<symbol name="VDD">
-<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="0" y1="1.27" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-1.905" x2="0" y2="1.27" width="0.254" layer="94"/>
-<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="VDD" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" prefix="GND">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="GND" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="VDD" prefix="VDD">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="G$1" symbol="VDD" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -9535,7 +9514,6 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="1727-4717-1-ND"/>
 </part>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
-<part name="VDD1" library="supply1" deviceset="VDD" device=""/>
 <part name="IC5" library="tlv700xx" deviceset="TLV700*" device="-SOT" technology="33" value="TLV70233DBVR">
 <attribute name="OC_DIGIKEY" value="296-32415-1-ND"/>
 </part>
@@ -10146,7 +10124,6 @@ TLV702xx and TLV733xx</description>
 <attribute name="LINK" x="314.96" y="205.74" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND42" gate="1" x="314.96" y="193.04"/>
-<instance part="VDD1" gate="G$1" x="314.96" y="226.06"/>
 <instance part="IC5" gate="G$1" x="238.76" y="213.36"/>
 </instances>
 <busses>
@@ -10418,6 +10395,11 @@ TLV702xx and TLV733xx</description>
 <pinref part="JP1" gate="G$1" pin="1"/>
 <wire x1="187.96" y1="22.86" x2="187.96" y2="25.4" width="0.1524" layer="91"/>
 <label x="187.96" y="25.4" size="1.27" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="VCC"/>
+<wire x1="314.96" y1="215.9" x2="314.96" y2="218.44" width="0.1524" layer="91"/>
+<label x="314.96" y="218.44" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="VBUS" class="1">
@@ -10853,13 +10835,6 @@ TLV702xx and TLV733xx</description>
 <pinref part="X2" gate="G$1" pin="MIDDLE"/>
 <pinref part="U3" gate="G$1" pin="1A"/>
 <wire x1="332.74" y1="203.2" x2="325.12" y2="203.2" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="VDD" class="2">
-<segment>
-<pinref part="U3" gate="G$1" pin="VCC"/>
-<wire x1="314.96" y1="215.9" x2="314.96" y2="223.52" width="0.1524" layer="91"/>
-<pinref part="VDD1" gate="G$1" pin="VDD"/>
 </segment>
 </net>
 <net name="N$36" class="0">

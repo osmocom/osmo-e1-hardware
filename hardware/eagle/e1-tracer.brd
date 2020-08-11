@@ -29,14 +29,14 @@
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -2084,7 +2084,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="MANUFACTURER" value="Samsung Electro-Mechanics America, Inc" x="76.2" y="37.56" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS-konform" x="76.2" y="37.56" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DESCRIPTION" value="CAP CER 0.1UF 16V 10% X7R 0603" x="76.2" y="37.56" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="81.5975" y="37.2425" size="1.1" layer="25" font="vector" ratio="16"/>
+<attribute name="NAME" x="77.62875" y="36.925" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="77.7875" y="39.0523" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="C8" library="rc-sysmocom" package="_0603" value="1u" x="76.2" y="38.83" smashed="yes" rot="R180">
@@ -2097,7 +2097,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="MANUFACTURER" value="Samsung Electro-Mechanics" x="76.2" y="38.83" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS-konform" x="76.2" y="38.83" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DESCRIPTION" value="CAP CER 1UF 10V X5R 0603" x="76.2" y="38.83" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="81.5975" y="38.5125" size="1.1" layer="25" font="vector" ratio="16"/>
+<attribute name="NAME" x="78.9625" y="38.1" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="77.7875" y="40.3223" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="C9" library="rc-sysmocom" package="_0603" value="1u" x="92.3925" y="48.26" smashed="yes" rot="R90">
@@ -3641,6 +3641,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <wire x1="95.5675" y1="22.225" x2="93.0275" y2="22.225" width="0.3048" layer="1"/>
 <wire x1="71.12" y1="36.29" x2="72.7075" y2="36.29" width="0.4064" layer="16"/>
 <wire x1="72.7075" y1="36.29" x2="72.86625" y2="36.44875" width="0.4064" layer="16"/>
+<contactref element="U3" pad="5"/>
 </signal>
 <signal name="VBUS" class="1">
 <contactref element="X1" pad="1"/>
@@ -4745,9 +4746,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <wire x1="62.865" y1="13.6525" x2="63.8175" y2="13.6525" width="0.3048" layer="1"/>
 <wire x1="63.8175" y1="13.6525" x2="64.9925" y2="14.8275" width="0.3048" layer="1"/>
 <wire x1="64.9925" y1="14.8275" x2="64.9925" y2="14.925" width="0.3048" layer="1"/>
-</signal>
-<signal name="VDD" class="2">
-<contactref element="U3" pad="5"/>
 </signal>
 <signal name="N$36">
 <contactref element="X1" pad="M2"/>
