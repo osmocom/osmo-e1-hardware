@@ -143,67 +143,7 @@
 </library>
 <library name="rc-sysmocom">
 <packages>
-<package name="_0603@1">
-<description>&lt;b&gt;0603&lt;/b&gt;</description>
-<wire x1="-0.432" y1="-0.306" x2="0.432" y2="-0.306" width="0.1016" layer="51"/>
-<wire x1="0.432" y1="0.306" x2="-0.432" y2="0.306" width="0.1016" layer="51"/>
-<wire x1="-1.4605" y1="0.635" x2="1.4605" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="1.4605" y1="0.635" x2="1.4605" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="1.4605" y1="-0.635" x2="-1.4605" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="-1.4605" y1="-0.635" x2="-1.4605" y2="0.635" width="0.2032" layer="21"/>
-<smd name="1" x="-0.762" y="0" dx="0.9" dy="0.8" layer="1" roundness="30" cream="no"/>
-<smd name="2" x="0.762" y="0" dx="0.9" dy="0.8" layer="1" roundness="30" cream="no"/>
-<text x="-1.5875" y="0.9525" size="1.016" layer="25" font="vector" ratio="14">&gt;NAME</text>
-<text x="-1.5875" y="-1.4923" size="0.508" layer="27" font="vector" ratio="10">&gt;VALUE</text>
-<rectangle x1="0.4318" y1="-0.4" x2="0.8382" y2="0.4" layer="51"/>
-<rectangle x1="-0.8382" y1="-0.4" x2="-0.4318" y2="0.4" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
-<polygon width="0.127" layer="31">
-<vertex x="0.635" y="0.3175"/>
-<vertex x="1.11125" y="0.3175"/>
-<vertex x="1.11125" y="-0.3175"/>
-<vertex x="0.635" y="-0.3175"/>
-<vertex x="0.396875" y="0"/>
-</polygon>
-<polygon width="0.127" layer="31">
-<vertex x="-1.11125" y="0.3175"/>
-<vertex x="-0.635" y="0.3175"/>
-<vertex x="-0.396875" y="0"/>
-<vertex x="-0.635" y="-0.3175"/>
-<vertex x="-1.11125" y="-0.3175"/>
-</polygon>
-</package>
-<package name="_0402@1">
-<description>&lt;b&gt; 0402&lt;/b&gt;</description>
-<wire x1="-0.245" y1="0.174" x2="0.245" y2="0.174" width="0.1016" layer="51"/>
-<wire x1="0.245" y1="-0.174" x2="-0.245" y2="-0.174" width="0.1016" layer="51"/>
-<wire x1="-1.0573" y1="0.5557" x2="1.0573" y2="0.5557" width="0.2032" layer="21"/>
-<wire x1="1.0573" y1="0.5557" x2="1.0573" y2="-0.5556" width="0.2032" layer="21"/>
-<wire x1="1.0573" y1="-0.5556" x2="-1.0573" y2="-0.5557" width="0.2032" layer="21"/>
-<wire x1="-1.0573" y1="-0.5557" x2="-1.0573" y2="0.5557" width="0.2032" layer="21"/>
-<smd name="1" x="-0.508" y="0" dx="0.6" dy="0.6" layer="1" roundness="30" cream="no"/>
-<smd name="2" x="0.508" y="0" dx="0.6" dy="0.6" layer="1" roundness="30" cream="no"/>
-<text x="-1.27" y="0.7939" size="1.016" layer="25" font="vector" ratio="14">&gt;NAME</text>
-<text x="-1.27" y="-1.3336" size="0.508" layer="27" font="vector" ratio="10">&gt;VALUE</text>
-<rectangle x1="-0.0794" y1="-0.2381" x2="0.0794" y2="0.2381" layer="35"/>
-<rectangle x1="0.25" y1="-0.25" x2="0.5" y2="0.25" layer="51"/>
-<rectangle x1="-0.5" y1="-0.25" x2="-0.25" y2="0.25" layer="51"/>
-<polygon width="0.127" layer="31">
-<vertex x="-0.714375" y="0.238125"/>
-<vertex x="-0.396875" y="0.238125"/>
-<vertex x="-0.238125" y="0"/>
-<vertex x="-0.396875" y="-0.238125"/>
-<vertex x="-0.714375" y="-0.238125"/>
-</polygon>
-<polygon width="0.127" layer="31">
-<vertex x="0.238125" y="0"/>
-<vertex x="0.396875" y="0.238125"/>
-<vertex x="0.714375" y="0.238125"/>
-<vertex x="0.714375" y="-0.238125"/>
-<vertex x="0.396875" y="-0.238125"/>
-</polygon>
-</package>
-<package name="1206@1">
+<package name="1206">
 <description>&lt;b&gt;1206 (3216 Metric)&lt;/b&gt;</description>
 <wire x1="-2.473" y1="0.983" x2="2.473" y2="0.983" width="0.0508" layer="39"/>
 <wire x1="2.473" y1="-0.983" x2="-2.473" y2="-0.983" width="0.0508" layer="39"/>
@@ -1809,7 +1749,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 </pass>
 </autorouter>
 <elements>
-<element name="C1" library="rc-sysmocom" package="_0603@1" value="100n" x="79.6925" y="35.02" smashed="yes" rot="R180">
+<element name="C1" library="rc-sysmocom" package="_0603" value="100n" x="79.6925" y="35.02" smashed="yes" rot="R180">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="79.6925" y="35.02" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="79.6925" y="35.02" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="79.6925" y="35.02" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1822,7 +1762,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="81.28" y="35.17875" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="81.28" y="36.5123" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
-<element name="C12" library="rc-sysmocom" package="_0603@1" value="1u" x="72.7075" y="12.85875" smashed="yes" rot="R90">
+<element name="C12" library="rc-sysmocom" package="_0603" value="1u" x="72.7075" y="12.85875" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/samsung-electro-mechanics/CL10A105KP8NNNC/1276-1182-1-ND/3889268" x="72.7075" y="12.85875" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1182-1-ND" x="72.7075" y="12.85875" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10A105KP8NNNC" x="72.7075" y="12.85875" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1835,7 +1775,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="71.755" y="11.58875" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="74.1998" y="11.27125" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C10" library="rc-sysmocom" package="_0603@1" value="1u" x="86.0425" y="47.3075" smashed="yes" rot="R90">
+<element name="C10" library="rc-sysmocom" package="_0603" value="1u" x="86.0425" y="47.3075" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/samsung-electro-mechanics/CL10A105KP8NNNC/1276-1182-1-ND/3889268" x="86.0425" y="47.3075" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1182-1-ND" x="86.0425" y="47.3075" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10A105KP8NNNC" x="86.0425" y="47.3075" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1848,7 +1788,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="84.7725" y="47.9425" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="87.5348" y="45.72" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C13" library="rc-sysmocom" package="_0402@1" value="10n" x="83.82" y="11.43" smashed="yes" rot="R90">
+<element name="C13" library="rc-sysmocom" package="_0402" value="10n" x="83.82" y="11.43" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/samsung-electro-mechanics/CL05B103KA5NNNC/1276-1057-1-ND/3889143" x="83.82" y="11.43" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1057-1-ND" x="83.82" y="11.43" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL05B103KA5NNNC" x="83.82" y="11.43" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1861,7 +1801,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="83.82015" y="10.00125" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="85.1536" y="10.16" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C14" library="rc-sysmocom" package="_0603@1" value="100n" x="85.725" y="25.8125" smashed="yes" rot="R180">
+<element name="C14" library="rc-sysmocom" package="_0603" value="100n" x="85.725" y="25.8125" smashed="yes" rot="R180">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="85.725" y="25.8125" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="85.725" y="25.8125" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="85.725" y="25.8125" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1874,7 +1814,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="87.3125" y="23.9075" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="87.3125" y="27.3048" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
-<element name="C11" library="rc-sysmocom" package="1206@1" value="22u" x="86.995" y="15.5575" smashed="yes" rot="R90">
+<element name="C11" library="rc-sysmocom" package="1206" value="22u" x="86.995" y="15.5575" smashed="yes" rot="R90">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1287-1-ND" x="86.995" y="15.5575" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1287-1-ND" x="86.995" y="15.5575" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL31A226KPHNNNE" x="86.995" y="15.5575" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1887,7 +1827,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="87.503" y="12.065" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="88.9" y="13.97" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C16" library="rc-sysmocom" package="1206@1" value="22u" x="90.4875" y="19.685" smashed="yes" rot="R90">
+<element name="C16" library="rc-sysmocom" package="1206" value="22u" x="90.4875" y="19.685" smashed="yes" rot="R90">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1287-1-ND" x="90.4875" y="19.685" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1287-1-ND" x="90.4875" y="19.685" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL31A226KPHNNNE" x="90.4875" y="19.685" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1900,7 +1840,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="92.075" y="17.9705" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="92.3925" y="18.0975" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C17" library="rc-sysmocom" package="_0603@1" value="100n" x="83.185" y="42.005" smashed="yes" rot="R90">
+<element name="C17" library="rc-sysmocom" package="_0603" value="100n" x="83.185" y="42.005" smashed="yes" rot="R90">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="83.185" y="42.005" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="83.185" y="42.005" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="83.185" y="42.005" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1913,7 +1853,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="84.7725" y="43.91" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="84.6773" y="40.4175" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C18" library="rc-sysmocom" package="_0603@1" value="68µ DNP" x="29.21" y="69.85" smashed="yes" rot="R180">
+<element name="C18" library="rc-sysmocom" package="_0603" value="68µ DNP" x="29.21" y="69.85" smashed="yes" rot="R180">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="29.21" y="69.85" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="29.21" y="69.85" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="29.21" y="69.85" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1926,7 +1866,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="27.6225" y="70.1675" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="30.7975" y="71.3423" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
-<element name="C19" library="rc-sysmocom" package="_0603@1" value="68µ DNP" x="58.42" y="69.85" smashed="yes" rot="R180">
+<element name="C19" library="rc-sysmocom" package="_0603" value="68µ DNP" x="58.42" y="69.85" smashed="yes" rot="R180">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="58.42" y="69.85" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="58.42" y="69.85" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="58.42" y="69.85" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1939,7 +1879,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="56.8325" y="70.1675" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="60.0075" y="71.3423" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
-<element name="C2" library="rc-sysmocom" package="_0603@1" value="100n" x="69.215" y="36.29" smashed="yes">
+<element name="C2" library="rc-sysmocom" package="_0603" value="100n" x="69.215" y="36.29" smashed="yes">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="69.215" y="36.29" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="69.215" y="36.29" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="69.215" y="36.29" size="1.778" layer="27" display="off"/>
@@ -1952,7 +1892,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="68.58" y="35.49625" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="67.6275" y="34.7977" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
-<element name="C20" library="rc-sysmocom" package="_0603@1" value="100n" x="34.6075" y="71.12" smashed="yes" rot="R90">
+<element name="C20" library="rc-sysmocom" package="_0603" value="100n" x="34.6075" y="71.12" smashed="yes" rot="R90">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="34.6075" y="71.12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="34.6075" y="71.12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="34.6075" y="71.12" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1965,7 +1905,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="37.1475" y="71.4375" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="36.0998" y="69.5325" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C21" library="rc-sysmocom" package="_0603@1" value="100n" x="73.66" y="64.4525" smashed="yes">
+<element name="C21" library="rc-sysmocom" package="_0603" value="100n" x="73.66" y="64.4525" smashed="yes">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="73.66" y="64.4525" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="73.66" y="64.4525" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="73.66" y="64.4525" size="1.778" layer="27" display="off"/>
@@ -1978,7 +1918,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="72.0725" y="65.405" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="72.0725" y="62.9602" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
-<element name="C22" library="rc-sysmocom" package="_0603@1" value="100n" x="44.7675" y="64.135" smashed="yes">
+<element name="C22" library="rc-sysmocom" package="_0603" value="100n" x="44.7675" y="64.135" smashed="yes">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="44.7675" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="44.7675" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="44.7675" y="64.135" size="1.778" layer="27" display="off"/>
@@ -1991,7 +1931,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="43.18" y="65.0875" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="43.18" y="62.6427" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
-<element name="C23" library="rc-sysmocom" package="_0603@1" value="100n" x="63.8175" y="71.12" smashed="yes" rot="R90">
+<element name="C23" library="rc-sysmocom" package="_0603" value="100n" x="63.8175" y="71.12" smashed="yes" rot="R90">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="63.8175" y="71.12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="63.8175" y="71.12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="63.8175" y="71.12" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2004,7 +1944,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="66.675" y="70.8025" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="65.3098" y="69.5325" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C24" library="rc-sysmocom" package="_0603@1" value="100n" x="33.02" y="54.2925" smashed="yes" rot="R270">
+<element name="C24" library="rc-sysmocom" package="_0603" value="100n" x="33.02" y="54.2925" smashed="yes" rot="R270">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="33.02" y="54.2925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="33.02" y="54.2925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="33.02" y="54.2925" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2017,7 +1957,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="33.9725" y="55.88" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="31.5277" y="55.88" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C25" library="rc-sysmocom" package="_0603@1" value="100n" x="62.23" y="54.2925" smashed="yes" rot="R270">
+<element name="C25" library="rc-sysmocom" package="_0603" value="100n" x="62.23" y="54.2925" smashed="yes" rot="R270">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="62.23" y="54.2925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="62.23" y="54.2925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="62.23" y="54.2925" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2030,7 +1970,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="63.1825" y="55.88" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="60.7377" y="55.88" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C26" library="rc-sysmocom" package="_0603@1" value="100n" x="41.91" y="52.705" smashed="yes" rot="R270">
+<element name="C26" library="rc-sysmocom" package="_0603" value="100n" x="41.91" y="52.705" smashed="yes" rot="R270">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="41.91" y="52.705" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="41.91" y="52.705" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="41.91" y="52.705" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2043,7 +1983,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="43.4975" y="54.2925" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="40.4177" y="54.2925" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C27" library="rc-sysmocom" package="_0603@1" value="100n" x="68.58" y="53.34" smashed="yes" rot="R270">
+<element name="C27" library="rc-sysmocom" package="_0603" value="100n" x="68.58" y="53.34" smashed="yes" rot="R270">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="68.58" y="53.34" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="68.58" y="53.34" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="68.58" y="53.34" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2056,7 +1996,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="66.675" y="52.705" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="67.0877" y="54.9275" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C28" library="rc-sysmocom" package="_0603@1" value="100n" x="89.2175" y="52.3875" smashed="yes">
+<element name="C28" library="rc-sysmocom" package="_0603" value="100n" x="89.2175" y="52.3875" smashed="yes">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="89.2175" y="52.3875" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="89.2175" y="52.3875" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="89.2175" y="52.3875" size="1.778" layer="27" display="off"/>
@@ -2069,7 +2009,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="91.44" y="52.07" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="87.63" y="50.8952" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
-<element name="C29" library="rc-sysmocom" package="_0603@1" value="100n" x="89.2175" y="62.5475" smashed="yes">
+<element name="C29" library="rc-sysmocom" package="_0603" value="100n" x="89.2175" y="62.5475" smashed="yes">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="89.2175" y="62.5475" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="89.2175" y="62.5475" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="89.2175" y="62.5475" size="1.778" layer="27" display="off"/>
@@ -2082,7 +2022,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="91.44" y="62.23" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="87.63" y="61.0552" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
-<element name="C3" library="rc-sysmocom" package="_0603@1" value="100n" x="69.5325" y="27.4" smashed="yes" rot="R90">
+<element name="C3" library="rc-sysmocom" package="_0603" value="100n" x="69.5325" y="27.4" smashed="yes" rot="R90">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="69.5325" y="27.4" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="69.5325" y="27.4" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="69.5325" y="27.4" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2095,7 +2035,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="68.58" y="26.4475" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="71.0248" y="25.8125" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C4" library="rc-sysmocom" package="_0603@1" value="100n" x="79.6925" y="33.75" smashed="yes" rot="R180">
+<element name="C4" library="rc-sysmocom" package="_0603" value="100n" x="79.6925" y="33.75" smashed="yes" rot="R180">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="79.6925" y="33.75" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="79.6925" y="33.75" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="79.6925" y="33.75" size="1.778" layer="27" rot="R180" display="off"/>
@@ -2108,7 +2048,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="81.28" y="32.48" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="81.28" y="35.2423" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
-<element name="C5" library="rc-sysmocom" package="_0603@1" value="100n" x="73.025" y="39.465" smashed="yes" rot="R270">
+<element name="C5" library="rc-sysmocom" package="_0603" value="100n" x="73.025" y="39.465" smashed="yes" rot="R270">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="73.025" y="39.465" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="73.025" y="39.465" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="73.025" y="39.465" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2121,7 +2061,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="72.0725" y="38.5125" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="71.5327" y="41.0525" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C6" library="rc-sysmocom" package="_0603@1" value="100n" x="71.755" y="25.495" smashed="yes" rot="R90">
+<element name="C6" library="rc-sysmocom" package="_0603" value="100n" x="71.755" y="25.495" smashed="yes" rot="R90">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="71.755" y="25.495" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="71.755" y="25.495" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="71.755" y="25.495" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2134,7 +2074,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="69.5325" y="24.86" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="73.2473" y="23.9075" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C7" library="rc-sysmocom" package="_0603@1" value="100n" x="76.2" y="37.56" smashed="yes" rot="R180">
+<element name="C7" library="rc-sysmocom" package="_0603" value="100n" x="76.2" y="37.56" smashed="yes" rot="R180">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="76.2" y="37.56" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="76.2" y="37.56" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="76.2" y="37.56" size="1.778" layer="27" rot="R180" display="off"/>
@@ -2147,7 +2087,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="81.5975" y="37.2425" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="77.7875" y="39.0523" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
-<element name="C8" library="rc-sysmocom" package="_0603@1" value="1u" x="76.2" y="38.83" smashed="yes" rot="R180">
+<element name="C8" library="rc-sysmocom" package="_0603" value="1u" x="76.2" y="38.83" smashed="yes" rot="R180">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/samsung-electro-mechanics/CL10A105KP8NNNC/1276-1182-1-ND/3889268" x="76.2" y="38.83" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1182-1-ND" x="76.2" y="38.83" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10A105KP8NNNC" x="76.2" y="38.83" size="1.778" layer="27" rot="R180" display="off"/>
@@ -2160,7 +2100,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="81.5975" y="38.5125" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="77.7875" y="40.3223" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
-<element name="C9" library="rc-sysmocom" package="_0603@1" value="1u" x="92.3925" y="48.26" smashed="yes" rot="R90">
+<element name="C9" library="rc-sysmocom" package="_0603" value="1u" x="92.3925" y="48.26" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/samsung-electro-mechanics/CL10A105KP8NNNC/1276-1182-1-ND/3889268" x="92.3925" y="48.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1182-1-ND" x="92.3925" y="48.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10A105KP8NNNC" x="92.3925" y="48.26" size="1.778" layer="27" rot="R90" display="off"/>
