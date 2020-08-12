@@ -9115,7 +9115,7 @@ TLV702xx and TLV733xx</description>
 <part name="CDONE" library="led" deviceset="LED" device="CHIPLED_0805" value="BLUE">
 <attribute name="CLASS" value="UNKNOWN CLASS"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/lite-on-inc/LTST-C193TBKT-5A/160-1827-1-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
@@ -10224,7 +10224,7 @@ TLV702xx and TLV733xx</description>
 </bus>
 </busses>
 <nets>
-<net name="GND" class="0">
+<net name="GND" class="1">
 <segment>
 <pinref part="GND4" gate="1" pin="GND"/>
 <pinref part="U1" gate="G$1" pin="GND"/>
@@ -11974,7 +11974,7 @@ B3  - LIU RD1</text>
 </bus>
 </busses>
 <nets>
-<net name="GND" class="0">
+<net name="GND" class="1">
 <segment>
 <wire x1="104.14" y1="215.9" x2="104.14" y2="213.36" width="0.1524" layer="91"/>
 <pinref part="U4" gate="G$4" pin="JA1"/>
