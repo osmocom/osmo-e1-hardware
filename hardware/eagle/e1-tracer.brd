@@ -10,7 +10,7 @@
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="yes"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
 <layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
 <layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
@@ -22,7 +22,7 @@
 <layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -66,6 +66,8 @@
 <layer number="57" name="tCAD" color="6" fill="1" visible="no" active="no"/>
 <layer number="59" name="tMark" color="7" fill="1" visible="no" active="no"/>
 <layer number="60" name="bMark" color="7" fill="1" visible="no" active="no"/>
+<layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="no" active="no"/>
@@ -175,6 +177,36 @@
 </library>
 <library name="rc-sysmocom">
 <packages>
+<package name="_0805">
+<description>&lt;b&gt;0805&lt;/b&gt;</description>
+<wire x1="-0.41" y1="0.585" x2="0.41" y2="0.585" width="0.1016" layer="51"/>
+<wire x1="-0.41" y1="-0.585" x2="0.41" y2="-0.585" width="0.1016" layer="51"/>
+<wire x1="-1.905" y1="0.889" x2="1.905" y2="0.889" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="0.889" x2="1.905" y2="-0.889" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="-0.889" x2="-1.905" y2="-0.889" width="0.2032" layer="21"/>
+<wire x1="-1.905" y1="-0.889" x2="-1.905" y2="0.889" width="0.2032" layer="21"/>
+<smd name="1" x="-1.016" y="0" dx="1.2" dy="1.3" layer="1" roundness="30" cream="no"/>
+<smd name="2" x="1.016" y="0" dx="1.2" dy="1.3" layer="1" roundness="30" cream="no"/>
+<text x="-1.905" y="1.27" size="1.016" layer="25" font="vector" ratio="14">&gt;NAME</text>
+<text x="-1.9049" y="-1.651" size="0.508" layer="27" font="vector" ratio="10">&gt;VALUE</text>
+<rectangle x1="0.4064" y1="-0.65" x2="1.0564" y2="0.65" layer="51"/>
+<rectangle x1="-1.0668" y1="-0.65" x2="-0.4168" y2="0.65" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.5001" x2="0.1999" y2="0.5001" layer="35"/>
+<polygon width="0.127" layer="31">
+<vertex x="-1.508125" y="0.555625"/>
+<vertex x="-0.873125" y="0.555625"/>
+<vertex x="-0.47625" y="0"/>
+<vertex x="-0.873125" y="-0.555625"/>
+<vertex x="-1.508125" y="-0.555625"/>
+</polygon>
+<polygon width="0.127" layer="31">
+<vertex x="0.47625" y="0"/>
+<vertex x="0.873125" y="0.555625"/>
+<vertex x="1.508125" y="0.555625"/>
+<vertex x="1.508125" y="-0.555625"/>
+<vertex x="0.873125" y="-0.555625"/>
+</polygon>
+</package>
 <package name="1206">
 <description>&lt;b&gt;1206 (3216 Metric)&lt;/b&gt;</description>
 <wire x1="-2.473" y1="0.983" x2="2.473" y2="0.983" width="0.0508" layer="39"/>
@@ -458,7 +490,7 @@ package type TQ</description>
 <wire x1="4.4" y1="-4.8" x2="-4.4" y2="-4.8" width="0.2032" layer="21"/>
 <wire x1="-4.4" y1="-4.8" x2="-4.8" y2="-4.4" width="0.2032" layer="21"/>
 <wire x1="-4.8" y1="-4.4" x2="-4.8" y2="4.4" width="0.2032" layer="21"/>
-<circle x="-4" y="4" radius="0.2827" width="0.254" layer="21"/>
+<circle x="-5.27" y="5.27" radius="0.2" width="0.4064" layer="21"/>
 <smd name="1" x="-5.8" y="4" dx="1.5" dy="0.5" layer="1"/>
 <smd name="2" x="-5.8" y="3.2" dx="1.5" dy="0.5" layer="1"/>
 <smd name="3" x="-5.8" y="2.4" dx="1.5" dy="0.5" layer="1"/>
@@ -549,6 +581,8 @@ package type TQ</description>
 <rectangle x1="-2.5999" y1="4.95" x2="-2.1999" y2="6.1001" layer="51"/>
 <rectangle x1="-3.4" y1="4.95" x2="-3" y2="6.1001" layer="51"/>
 <rectangle x1="-4.1999" y1="4.95" x2="-3.8001" y2="6.1001" layer="51"/>
+<circle x="-5.27" y="5.27" radius="0.2" width="0.4064" layer="51"/>
+<circle x="-5.27" y="5.27" radius="0.2" width="0.4064" layer="25"/>
 </package>
 <package name="HC73">
 <smd name="P$4" x="0" y="0" dx="2" dy="1.8" layer="1" roundness="50" rot="R90"/>
@@ -1541,150 +1575,85 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <clearance class="3" value="0.2"/>
 </class>
 </classes>
-<designrules name="basista_035um-cu_dicke *">
-<description language="de">&lt;html&gt;
-	&lt;title&gt;f&amp;uuml;r 35&amp;micro;m Cu - Basista Leiterplatten GmbH&lt;/title&gt;
-	&lt;title&gt;c 2012-2014 Baista leiterplatten GmbH&lt;/title&gt;
-	&lt;style type='text/css'&gt;
-	.blau {
-		color: #2113DE;
-	}
-	a:link {
-		color: #2113DE;
-		font-weight: bold;
-	}
-	a:hover {
-		color: #000000;
-		text-decoration: none;
-		font-weight: bold;
-	}
-	a:visited {
-		font-weight: bold;
-	}
-	.small {
-	font-size: 10px;
-	}
-	&lt;/style&gt;
-	&lt;body&gt;
-		&lt;h3 class='blau'&gt;Design Regeln f&amp;uuml;r 35&amp;micro;m Kupfer der Basista Leiterplatten GmbH&lt;/h3&gt;
-		Diese DRU-Datei enth&amp;auml;lt die erforderlichen Design Regeln, damit Ihre Leiterplatte bei Basista Leiterplatten fehlerfrei produziert werden kann. &lt;br&gt;
-		Die Reiter &quot;Shapes&quot; und &quot;Misc&quot; sind nicht relevant, der minimale und maximale Wert für Roundness Shapes kann frei gewählt werden.
-		&lt;br&gt;&lt;br&gt;
-		&lt;b class='blau'&gt;Design Regeln &amp;Uuml;berblick&lt;/b&gt;
-		&lt;table&gt;
-		&lt;tr&gt;
-			&lt;td width=&quot;250&quot;&gt;&lt;b&gt;Design Parameter&lt;/b&gt;&lt;/td&gt;
-			&lt;td&gt;&lt;b&gt;min. Wert&lt;/b&gt;&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Leiterbahnbreite/-abstand:&lt;/td&gt;
-			&lt;td&gt;0,150mm (6mil)&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Bohrdurchmesser:&lt;/td&gt;
-			&lt;td&gt;0,300mm (12mil)&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Restringe bei PTH-Bohrungen:&lt;/td&gt;
-			&lt;td&gt;0,150mm (6mil) f&amp;uuml;r Au&amp;szlig;enlagen&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Strichst&amp;auml;rke Best&amp;uuml;ckungsdruck:&lt;/td&gt;
-			&lt;td&gt;0,180mm (7mil)&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Freistellung L&amp;ouml;tstop:&lt;/td&gt;
-			&lt;td&gt;0,075mm (3mil) standard&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-			&lt;td&gt;
-				0,050mm (2mil) evtl. n&amp;ouml;tig f&amp;uuml;r Finepitch SMD / BGAs&lt;br&gt;
-				Im Reiter &lt;B&gt;Masks &lt;/b&gt; k&amp;ouml;nnen Sie beleibige Freistellung der L&amp;ouml;tstopmaske einstellen.&lt;/div&gt;
-			&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;/table&gt;
-		&lt;br&gt;&lt;br&gt;
-		Polygone sollten mit einer Strichst&amp;auml;rke von min. 0,200mm (8mil)  gef&amp;uuml;llt werden.&lt;br&gt;
-		Schriftz&amp;uuml;ge im Kupfer sollten mindestens 0,200mm (8mil) breit sein. Achten Sie darauf Vektorschriften zu aktivieren.
-		&lt;br&gt;&lt;br&gt;
-
-
-		Der Bestückdruck Top  wird standardmässig aus den Lagen Tplace ( 21)  und Tnames (25) erzeugt.&lt;br&gt;
-		Der Bestückdruck Bot  wird standardmässig aus den Lagen Bplace (22)  und Bnames (26) erzeugt.&lt;br&gt;
-		Wir &lt;B&gt; clippen&lt;/b&gt; den Bestückdruck automatisch über SMD Pad's ! &lt;br&gt;
-		Weitere Information für Eagle  User finden Sie unter: &lt;a href='http://www.basista.de/Service/Design-Hilfe-Einleitung/Design-Eagle-User'&gt;www.basista.de\Design-Hilfen-Einleitung\Eagle User&lt;/a&gt;&lt;br&gt;
-
-		&lt;br&gt; &lt;br&gt;
-
-		Weitere Information zu Leiterplatten und Design finden Sie unter: &lt;a href='http://www.basista.de/Service/Design-Hilfe-Einleitung'&gt;www.basista.de&lt;/a&gt;&lt;br&gt;
-		Kalkulieren und Bestellen Sie Ihre Leiterplatten Prototypen &amp;amp; Serien Online: &lt;a href='https://www.basista.de/calculate/prototype'&gt;Leiterplatten Online Kalkulator&lt;/a&gt;
-	&lt;/body&gt;
-&lt;/html&gt;</description>
-<param name="layerSetup" value="(1*16)"/>
+<designrules name="sysmocom-def *">
+<description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
+&lt;p&gt;
+Die Standard-Design-Rules sind so gewählt, dass sie für 
+die meisten Anwendungen passen. Sollte ihre Platine 
+besondere Anforderungen haben, treffen Sie die erforderlichen
+Einstellungen hier und speichern die Design Rules unter 
+einem neuen Namen ab.</description>
+<description language="en">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
+&lt;p&gt;
+The default Design Rules have been set to cover
+a wide range of applications. Your particular design
+may have different requirements, so please make the
+necessary adjustments and save your customized
+design rules under a new name.</description>
+<param name="layerSetup" value="(1*2+3*16)"/>
 <param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
-<param name="mtIsolate" value="1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
-<param name="mdWireWire" value="6mil"/>
+<param name="mtIsolate" value="0.2mm 0.4mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
+<param name="mdWireWire" value="4mil"/>
 <param name="mdWirePad" value="6mil"/>
 <param name="mdWireVia" value="6mil"/>
 <param name="mdPadPad" value="6mil"/>
 <param name="mdPadVia" value="6mil"/>
 <param name="mdViaVia" value="6mil"/>
-<param name="mdSmdPad" value="6mil"/>
-<param name="mdSmdVia" value="6mil"/>
-<param name="mdSmdSmd" value="6mil"/>
+<param name="mdSmdPad" value="0mil"/>
+<param name="mdSmdVia" value="0mil"/>
+<param name="mdSmdSmd" value="0mil"/>
 <param name="mdViaViaSameLayer" value="8mil"/>
 <param name="mnLayersViaInSmd" value="2"/>
-<param name="mdCopperDimension" value="20mil"/>
+<param name="mdCopperDimension" value="40mil"/>
 <param name="mdDrill" value="8mil"/>
 <param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="6mil"/>
-<param name="msDrill" value="12mil"/>
-<param name="msMicroVia" value="999mil"/>
-<param name="msBlindViaRatio" value="1"/>
-<param name="rvPadTop" value="0"/>
-<param name="rvPadInner" value="0"/>
-<param name="rvPadBottom" value="0"/>
-<param name="rvViaOuter" value="0"/>
-<param name="rvViaInner" value="0"/>
-<param name="rvMicroViaOuter" value="0"/>
-<param name="rvMicroViaInner" value="0"/>
-<param name="rlMinPadTop" value="8mil"/>
-<param name="rlMaxPadTop" value="100mil"/>
-<param name="rlMinPadInner" value="8mil"/>
-<param name="rlMaxPadInner" value="100mil"/>
-<param name="rlMinPadBottom" value="8mil"/>
-<param name="rlMaxPadBottom" value="100mil"/>
+<param name="msWidth" value="4mil"/>
+<param name="msDrill" value="0.3mm"/>
+<param name="msMicroVia" value="9.99mm"/>
+<param name="msBlindViaRatio" value="0.5"/>
+<param name="rvPadTop" value="0.25"/>
+<param name="rvPadInner" value="0.25"/>
+<param name="rvPadBottom" value="0.25"/>
+<param name="rvViaOuter" value="0.25"/>
+<param name="rvViaInner" value="0.25"/>
+<param name="rvMicroViaOuter" value="0.25"/>
+<param name="rvMicroViaInner" value="0.25"/>
+<param name="rlMinPadTop" value="6mil"/>
+<param name="rlMaxPadTop" value="20mil"/>
+<param name="rlMinPadInner" value="6mil"/>
+<param name="rlMaxPadInner" value="20mil"/>
+<param name="rlMinPadBottom" value="6mil"/>
+<param name="rlMaxPadBottom" value="20mil"/>
 <param name="rlMinViaOuter" value="6mil"/>
-<param name="rlMaxViaOuter" value="100mil"/>
+<param name="rlMaxViaOuter" value="20mil"/>
 <param name="rlMinViaInner" value="6mil"/>
-<param name="rlMaxViaInner" value="100mil"/>
-<param name="rlMinMicroViaOuter" value="99mil"/>
-<param name="rlMaxMicroViaOuter" value="999mil"/>
-<param name="rlMinMicroViaInner" value="99mil"/>
-<param name="rlMaxMicroViaInner" value="999mil"/>
+<param name="rlMaxViaInner" value="20mil"/>
+<param name="rlMinMicroViaOuter" value="6mil"/>
+<param name="rlMaxMicroViaOuter" value="20mil"/>
+<param name="rlMinMicroViaInner" value="6mil"/>
+<param name="rlMaxMicroViaInner" value="20mil"/>
 <param name="psTop" value="-1"/>
 <param name="psBottom" value="-1"/>
-<param name="psFirst" value="0"/>
+<param name="psFirst" value="-1"/>
 <param name="psElongationLong" value="100"/>
 <param name="psElongationOffset" value="100"/>
-<param name="mvStopFrame" value="0"/>
+<param name="mvStopFrame" value="1"/>
 <param name="mvCreamFrame" value="0"/>
-<param name="mlMinStopFrame" value="3mil"/>
-<param name="mlMaxStopFrame" value="5mil"/>
+<param name="mlMinStopFrame" value="4mil"/>
+<param name="mlMaxStopFrame" value="4mil"/>
 <param name="mlMinCreamFrame" value="0mil"/>
-<param name="mlMaxCreamFrame" value="8mil"/>
+<param name="mlMaxCreamFrame" value="0mil"/>
 <param name="mlViaStopLimit" value="0mil"/>
 <param name="srRoundness" value="0.3"/>
 <param name="srMinRoundness" value="4mil"/>
 <param name="srMaxRoundness" value="8mil"/>
-<param name="slThermalIsolate" value="8mil"/>
+<param name="slThermalIsolate" value="10mil"/>
 <param name="slThermalsForVias" value="0"/>
 <param name="dpMaxLengthDifference" value="10mm"/>
 <param name="dpGapFactor" value="2.5"/>
 <param name="checkGrid" value="0"/>
 <param name="checkAngle" value="0"/>
-<param name="checkFont" value="0"/>
+<param name="checkFont" value="1"/>
 <param name="checkRestrict" value="1"/>
 <param name="useDiameter" value="13"/>
 <param name="maxErrors" value="50"/>
@@ -1890,32 +1859,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="84.7725" y="43.5925" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="84.6773" y="40.4175" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C17" library="rc-sysmocom" package="_0603" value="68µ DNP" x="24.21" y="68.85" smashed="yes" rot="R180">
-<attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="24.21" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="24.21" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="24.21" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="POPULATED" value="TRUE" x="24.21" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="DIGIKEY" x="24.21" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="CLASS" value="CAPACITOR" x="24.21" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="Samsung Electro-Mechanics America, Inc" x="24.21" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS-konform" x="24.21" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="CAP CER 0.1UF 16V 10% X7R 0603" x="24.21" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="22.6225" y="69.1675" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
-<attribute name="VALUE" x="25.7975" y="70.3423" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
-</element>
-<element name="C18" library="rc-sysmocom" package="_0603" value="68µ DNP" x="53.42" y="68.85" smashed="yes" rot="R180">
-<attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="53.42" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="53.42" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="53.42" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="POPULATED" value="TRUE" x="53.42" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="DIGIKEY" x="53.42" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="CLASS" value="CAPACITOR" x="53.42" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="Samsung Electro-Mechanics America, Inc" x="53.42" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS-konform" x="53.42" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="CAP CER 0.1UF 16V 10% X7R 0603" x="53.42" y="68.85" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="51.8325" y="69.1675" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
-<attribute name="VALUE" x="55.0075" y="70.3423" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
-</element>
 <element name="C2" library="rc-sysmocom" package="_0603" value="100n" x="69.215" y="36.29" smashed="yes">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="69.215" y="36.29" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="69.215" y="36.29" size="1.778" layer="27" display="off"/>
@@ -1929,7 +1872,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="68.58" y="35.49625" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="67.6275" y="34.7977" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
-<element name="C19" library="rc-sysmocom" package="_0603" value="100n" x="29.6075" y="70.12" smashed="yes" rot="R90">
+<element name="C17" library="rc-sysmocom" package="_0603" value="100n" x="29.6075" y="70.12" smashed="yes" rot="R90">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="29.6075" y="70.12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="29.6075" y="70.12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="29.6075" y="70.12" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1942,7 +1885,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="32.1475" y="70.4375" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="31.0998" y="68.5325" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C20" library="rc-sysmocom" package="_0603" value="100n" x="68.66" y="63.4525" smashed="yes">
+<element name="C18" library="rc-sysmocom" package="_0603" value="100n" x="68.66" y="63.4525" smashed="yes">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="68.66" y="63.4525" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="68.66" y="63.4525" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="68.66" y="63.4525" size="1.778" layer="27" display="off"/>
@@ -1955,7 +1898,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="70.8825" y="63.4525" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="67.0725" y="61.9602" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
-<element name="C21" library="rc-sysmocom" package="_0603" value="100n" x="39.7675" y="63.135" smashed="yes">
+<element name="C19" library="rc-sysmocom" package="_0603" value="100n" x="39.7675" y="63.135" smashed="yes">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="39.7675" y="63.135" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="39.7675" y="63.135" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="39.7675" y="63.135" size="1.778" layer="27" display="off"/>
@@ -1968,7 +1911,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="38.18" y="64.0875" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="38.18" y="61.6427" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
-<element name="C22" library="rc-sysmocom" package="_0603" value="100n" x="58.8175" y="70.12" smashed="yes" rot="R90">
+<element name="C20" library="rc-sysmocom" package="_0603" value="100n" x="58.8175" y="70.12" smashed="yes" rot="R90">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="58.8175" y="70.12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="58.8175" y="70.12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="58.8175" y="70.12" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1981,20 +1924,20 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="61.675" y="69.8025" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="60.3098" y="68.5325" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="C23" library="rc-sysmocom" package="_0603" value="100n" x="28.02" y="53.2925" smashed="yes" rot="R270">
-<attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="28.02" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="28.02" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="28.02" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="POPULATED" value="TRUE" x="28.02" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCE" value="DIGIKEY" x="28.02" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="CLASS" value="CAPACITOR" x="28.02" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER" value="Samsung Electro-Mechanics America, Inc" x="28.02" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS-konform" x="28.02" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value="CAP CER 0.1UF 16V 10% X7R 0603" x="28.02" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="28.9725" y="54.88" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
-<attribute name="VALUE" x="26.5277" y="54.88" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
+<element name="C21" library="rc-sysmocom" package="_0603" value="100n" x="28.02" y="53.45125" smashed="yes" rot="R270">
+<attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="28.02" y="53.45125" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="28.02" y="53.45125" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="28.02" y="53.45125" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="28.02" y="53.45125" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="28.02" y="53.45125" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CLASS" value="CAPACITOR" x="28.02" y="53.45125" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER" value="Samsung Electro-Mechanics America, Inc" x="28.02" y="53.45125" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS-konform" x="28.02" y="53.45125" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value="CAP CER 0.1UF 16V 10% X7R 0603" x="28.02" y="53.45125" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="27.225" y="51.95875" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
+<attribute name="VALUE" x="26.5277" y="55.03875" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C24" library="rc-sysmocom" package="_0603" value="100n" x="57.23" y="53.2925" smashed="yes" rot="R270">
+<element name="C22" library="rc-sysmocom" package="_0603" value="100n" x="57.23" y="53.2925" smashed="yes" rot="R270">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="57.23" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="57.23" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="57.23" y="53.2925" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2007,20 +1950,20 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="58.1825" y="54.88" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="55.7377" y="54.88" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C25" library="rc-sysmocom" package="_0603" value="100n" x="36.91" y="51.705" smashed="yes" rot="R270">
-<attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="36.91" y="51.705" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="36.91" y="51.705" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="36.91" y="51.705" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="POPULATED" value="TRUE" x="36.91" y="51.705" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCE" value="DIGIKEY" x="36.91" y="51.705" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="CLASS" value="CAPACITOR" x="36.91" y="51.705" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER" value="Samsung Electro-Mechanics America, Inc" x="36.91" y="51.705" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS-konform" x="36.91" y="51.705" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value="CAP CER 0.1UF 16V 10% X7R 0603" x="36.91" y="51.705" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="38.4975" y="53.2925" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
-<attribute name="VALUE" x="35.4177" y="53.2925" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
+<element name="C23" library="rc-sysmocom" package="_0603" value="100n" x="34.0525" y="52.6575" smashed="yes" rot="R270">
+<attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="34.0525" y="52.6575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="34.0525" y="52.6575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="34.0525" y="52.6575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="34.0525" y="52.6575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="34.0525" y="52.6575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CLASS" value="CAPACITOR" x="34.0525" y="52.6575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER" value="Samsung Electro-Mechanics America, Inc" x="34.0525" y="52.6575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS-konform" x="34.0525" y="52.6575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value="CAP CER 0.1UF 16V 10% X7R 0603" x="34.0525" y="52.6575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="33.4175" y="51.07" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
+<attribute name="VALUE" x="32.5602" y="54.245" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C26" library="rc-sysmocom" package="_0603" value="100n" x="63.58" y="52.34" smashed="yes" rot="R270">
+<element name="C24" library="rc-sysmocom" package="_0603" value="100n" x="63.58" y="52.34" smashed="yes" rot="R270">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="63.58" y="52.34" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="63.58" y="52.34" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="63.58" y="52.34" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2033,7 +1976,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="61.675" y="51.705" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="62.0877" y="53.9275" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C27" library="rc-sysmocom" package="_0603" value="100n" x="75.835" y="53.895" smashed="yes" rot="R270">
+<element name="C29" library="rc-sysmocom" package="_0603" value="100n" x="75.835" y="53.895" smashed="yes" rot="R270">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="75.835" y="53.895" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="75.835" y="53.895" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="75.835" y="53.895" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2046,7 +1989,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="74.66" y="52.4675" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="74.3427" y="55.4825" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
-<element name="C28" library="rc-sysmocom" package="_0603" value="100n" x="86.5975" y="63.5475" smashed="yes" rot="R180">
+<element name="C30" library="rc-sysmocom" package="_0603" value="100n" x="86.5975" y="63.5475" smashed="yes" rot="R180">
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND" x="86.5975" y="63.5475" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1005-1-ND" x="86.5975" y="63.5475" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CL10B104KO8NNNC" x="86.5975" y="63.5475" size="1.778" layer="27" rot="R180" display="off"/>
@@ -2331,39 +2274,39 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="VALUE" x="73.2017" y="21.5313" size="1.1" layer="27" rot="R270"/>
 <attribute name="NAME" x="77.8863" y="19.7437" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="L2" library="inductor-neosid" package="SM-1206" value="47nH" x="35.005" y="51.07" smashed="yes" rot="R270">
-<attribute name="OC_FARNELL" value="unknown" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="LINK" value="UNKNOWN LINK" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="POPULATED" value="TRUE" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MF" value="" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="CLASS" value="INDUCTOR" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="35.005" y="51.07" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="32.827" y="52.578" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
-<attribute name="VALUE" x="32.697" y="53.278" size="1.1" layer="27" rot="R270"/>
+<element name="L2" library="inductor-neosid" package="SM-1206" value="47nH" x="38.02125" y="51.54625" smashed="yes" rot="R270">
+<attribute name="OC_FARNELL" value="unknown" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="LINK" value="UNKNOWN LINK" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CLASS" value="INDUCTOR" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="39.33575" y="52.10175" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
+<attribute name="VALUE" x="35.71325" y="53.75425" size="1.1" layer="27" rot="R270"/>
 </element>
-<element name="L3" library="inductor-neosid" package="SM-1206" value="47nH" x="65.485" y="50.435" smashed="yes" rot="R270">
-<attribute name="OC_FARNELL" value="unknown" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="LINK" value="UNKNOWN LINK" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="POPULATED" value="TRUE" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MF" value="" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="CLASS" value="INDUCTOR" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="65.485" y="50.435" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="67.152" y="48.257" size="1.1" layer="25" font="vector" ratio="16"/>
-<attribute name="VALUE" x="63.177" y="52.643" size="1.1" layer="27" rot="R270"/>
+<element name="L3" library="inductor-neosid" package="SM-1206" value="47nH" x="67.7075" y="51.22875" smashed="yes" rot="R270">
+<attribute name="OC_FARNELL" value="unknown" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="LINK" value="UNKNOWN LINK" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CLASS" value="INDUCTOR" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="69.212" y="52.38675" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
+<attribute name="VALUE" x="65.3995" y="53.43675" size="1.1" layer="27" rot="R270"/>
 </element>
 <element name="LED1" library="microbuilder" package="RGBLED_PLCC4" value="" x="19.05" y="13.97" smashed="yes">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/tt-electronics-optek-technology/OVSARGB4R8/365-1561-2-ND" x="19.05" y="13.97" size="1.778" layer="27" display="off"/>
@@ -2415,31 +2358,31 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="NAME" x="65.04" y="71.04" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="64.7225" y="68.5952" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
-<element name="R30" library="rc-sysmocom" package="_0603" value="3k 1%" x="37.8625" y="54.245" smashed="yes" rot="R180">
-<attribute name="LINK" value="UNKNOWN LINK" x="37.8625" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="37.8625" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="37.8625" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="POPULATED" value="TRUE" x="37.8625" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="37.8625" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="CLASS" value="RESISTOR" x="37.8625" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="37.8625" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="37.8625" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="37.8625" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="39.7675" y="53.61" size="1.1" layer="25" font="vector" ratio="16"/>
-<attribute name="VALUE" x="39.45" y="55.7373" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
+<element name="R30" library="rc-sysmocom" package="_0603" value="3k 1%" x="38.4975" y="55.1975" smashed="yes" rot="R180">
+<attribute name="LINK" value="UNKNOWN LINK" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CLASS" value="RESISTOR" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="40.4025" y="54.5625" size="1.1" layer="25" font="vector" ratio="16"/>
+<attribute name="VALUE" x="40.085" y="56.6898" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
-<element name="R31" library="rc-sysmocom" package="_0603" value="3k 1%" x="67.39" y="52.34" smashed="yes" rot="R90">
-<attribute name="LINK" value="UNKNOWN LINK" x="67.39" y="52.34" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="67.39" y="52.34" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="67.39" y="52.34" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="POPULATED" value="TRUE" x="67.39" y="52.34" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="67.39" y="52.34" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="CLASS" value="RESISTOR" x="67.39" y="52.34" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="67.39" y="52.34" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="67.39" y="52.34" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="67.39" y="52.34" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="68.3425" y="50.7525" size="1.1" layer="25" font="vector" ratio="16"/>
-<attribute name="VALUE" x="68.8823" y="50.7525" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
+<element name="R31" library="rc-sysmocom" package="_0603" value="3k 1%" x="67.9925" y="54.69" smashed="yes" rot="R180">
+<attribute name="LINK" value="UNKNOWN LINK" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CLASS" value="RESISTOR" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="69.6125" y="55.515" size="1.1" layer="25" font="vector" ratio="16"/>
+<attribute name="VALUE" x="69.58" y="56.1823" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R32" library="rc-sysmocom" package="_0603" value="10k" x="16.1925" y="30.48" smashed="yes" rot="R90">
 <attribute name="LINK" value="UNKNOWN LINK" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2766,7 +2709,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="23.5115" y="66.1195" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
+<attribute name="NAME" x="24.1465" y="68.342" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="35.259" y="63.6351" size="1.1" layer="27" rot="R180"/>
 </element>
 <element name="U5" library="laforge" package="TQFP44" value="IDT82V2081" x="60.405" y="61.865" smashed="yes" rot="R180">
@@ -2779,7 +2722,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="54.944" y="54.372" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
+<attribute name="NAME" x="53.674" y="68.977" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="64.469" y="63.6351" size="1.1" layer="27" rot="R180"/>
 </element>
 <element name="U6" library="laforge" package="HC73" value="2.048 Mhz" x="78.0575" y="53.26" smashed="yes" rot="R90">
@@ -3216,6 +3159,15 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="OC_DIGIKEY" value="296-32415-1-ND" x="91.44" y="14.9225" size="1.1" layer="27" ratio="16" display="off"/>
 <attribute name="NAME" x="93.6625" y="12.3825" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="89.535" y="11.4935" size="1.1" layer="27" font="vector" ratio="16"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="91.44" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="91.44" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="91.44" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE" x="91.44" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="91.44" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="91.44" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="91.44" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="CLASS" value="UNKNOWN CLASS" x="91.44" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="LINK" value="UNKNOWN LINK" x="91.44" y="14.9225" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U$1" library="oshw" package="OSHW_8MM_COPPER" value="" x="17.1725" y="44.4175" smashed="yes" rot="R90"/>
 <element name="U$3" library="oshw" package="OSHW_8MM_COPPER" value="" x="17.1725" y="44.4825" smashed="yes" rot="MR270"/>
@@ -3244,6 +3196,58 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <attribute name="CLASS" value="RESISTOR" x="76.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="77.22765" y="24.60625" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="75.10015" y="24.60625" size="0.508" layer="27" font="vector" ratio="10" rot="R270"/>
+</element>
+<element name="C28" library="rc-sysmocom" package="_0805" value="22u" x="29.5275" y="53.0225" smashed="yes" rot="R90">
+<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="CLASS" value="CAPACITOR" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/kemet/C0805C226M9PACTU/399-4696-1-ND" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="28.8925" y="51.1175" size="1.016" layer="25" font="vector" ratio="14" rot="R270"/>
+<attribute name="VALUE" x="31.1785" y="51.1176" size="0.508" layer="27" font="vector" ratio="10" rot="R90"/>
+</element>
+<element name="C26" library="rc-sysmocom" package="_0805" value="22u" x="65.24625" y="51.91125" smashed="yes" rot="R90">
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/kemet/C0805C226M9PACTU/399-4696-1-ND" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="CLASS" value="CAPACITOR" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="NAME" x="64.61125" y="50.00625" size="1.016" layer="25" font="vector" ratio="14" rot="R270"/>
+<attribute name="VALUE" x="66.89725" y="50.00635" size="0.508" layer="27" font="vector" ratio="10" rot="R90"/>
+</element>
+<element name="C25" library="rc-sysmocom" package="_0805" value="22u" x="35.8775" y="52.22875" smashed="yes" rot="R90">
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/kemet/C0805C226M9PACTU/399-4696-1-ND" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="CLASS" value="CAPACITOR" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="NAME" x="35.8775" y="49.37125" size="1.016" layer="25" font="vector" ratio="14" rot="R270"/>
+<attribute name="VALUE" x="37.5285" y="50.32385" size="0.508" layer="27" font="vector" ratio="10" rot="R90"/>
+</element>
+<element name="C27" library="rc-sysmocom" package="_0805" value="22u" x="54.61" y="53.975" smashed="yes">
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/kemet/C0805C226M9PACTU/399-4696-1-ND" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="POPULATED" value="TRUE" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="CLASS" value="CAPACITOR" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="NAME" x="52.705" y="55.245" size="1.016" layer="25" font="vector" ratio="14"/>
+<attribute name="VALUE" x="52.7051" y="52.324" size="0.508" layer="27" font="vector" ratio="10"/>
 </element>
 </elements>
 <signals>
@@ -3279,10 +3283,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <contactref element="U4" pad="13"/>
 <contactref element="U4" pad="17"/>
 <contactref element="T1" pad="E"/>
-<contactref element="C27" pad="1"/>
+<contactref element="C29" pad="1"/>
 <contactref element="U6" pad="P$2"/>
 <contactref element="U7" pad="P$2"/>
-<contactref element="C28" pad="1"/>
+<contactref element="C30" pad="1"/>
 <contactref element="D5" pad="2"/>
 <contactref element="D6" pad="2"/>
 <contactref element="R30" pad="1"/>
@@ -3290,12 +3294,11 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <contactref element="U4" pad="38"/>
 <contactref element="U4" pad="10"/>
 <contactref element="U4" pad="18"/>
-<contactref element="C19" pad="2"/>
-<contactref element="C25" pad="2"/>
+<contactref element="C17" pad="2"/>
 <contactref element="C23" pad="2"/>
 <contactref element="C21" pad="2"/>
+<contactref element="C19" pad="2"/>
 <contactref element="U4" pad="22"/>
-<contactref element="C17" pad="1"/>
 <contactref element="U5" pad="15"/>
 <contactref element="U5" pad="14"/>
 <contactref element="U5" pad="11"/>
@@ -3308,12 +3311,11 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <contactref element="U5" pad="38"/>
 <contactref element="U5" pad="10"/>
 <contactref element="U5" pad="18"/>
-<contactref element="C20" pad="2"/>
-<contactref element="C26" pad="2"/>
+<contactref element="C18" pad="2"/>
 <contactref element="C24" pad="2"/>
 <contactref element="C22" pad="2"/>
+<contactref element="C20" pad="2"/>
 <contactref element="U5" pad="22"/>
-<contactref element="C18" pad="1"/>
 <contactref element="T2" pad="E"/>
 <contactref element="R12" pad="2"/>
 <contactref element="R13" pad="2"/>
@@ -3418,31 +3420,18 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <wire x1="36.995" y1="65.865" x2="36.995" y2="66.395" width="0.4064" layer="1"/>
 <wire x1="36.995" y1="66.395" x2="37.545" y2="66.945" width="0.4064" layer="1"/>
 <via x="37.545" y="66.945" extent="1-16" drill="0.3"/>
-<wire x1="56.405" y1="67.665" x2="55.367" y2="67.665" width="0.4064" layer="1"/>
-<via x="54.69" y="70.12" extent="1-16" drill="0.3"/>
 <wire x1="59.605" y1="67.665" x2="60.405" y2="67.665" width="0.4064" layer="1"/>
 <wire x1="59.605" y1="67.665" x2="59.605" y2="66.145" width="0.4064" layer="1"/>
 <wire x1="59.605" y1="66.145" x2="59.135" y2="65.675" width="0.4064" layer="1"/>
 <via x="59.135" y="65.675" extent="1-16" drill="0.3"/>
 <wire x1="60.405" y1="56.065" x2="59.605" y2="56.065" width="0.4064" layer="1"/>
 <wire x1="30.395" y1="56.065" x2="31.195" y2="56.065" width="0.4064" layer="1"/>
-<wire x1="27.195" y1="67.665" x2="26.157" y2="67.665" width="0.4064" layer="1"/>
-<via x="25.48" y="70.12" extent="1-16" drill="0.3"/>
-<wire x1="36.91" y1="50.943" x2="37.037" y2="50.943" width="0.4064" layer="1"/>
-<wire x1="37.037" y1="50.943" x2="37.70375" y2="50.27625" width="0.4064" layer="1"/>
-<via x="37.70375" y="50.27625" extent="1-16" drill="0.3"/>
 <wire x1="40.5295" y1="63.135" x2="41.51375" y2="63.135" width="0.4064" layer="1"/>
 <via x="41.51375" y="63.135" extent="1-16" drill="0.3"/>
 <wire x1="29.6075" y1="70.882" x2="29.6075" y2="71.7075" width="0.4064" layer="1"/>
 <via x="29.6075" y="71.7075" extent="1-16" drill="0.3"/>
-<wire x1="55.367" y1="67.665" x2="54.182" y2="68.85" width="0.4064" layer="1"/>
-<wire x1="54.182" y1="68.85" x2="54.182" y2="69.612" width="0.4064" layer="1"/>
-<wire x1="54.182" y1="69.612" x2="54.69" y2="70.12" width="0.4064" layer="1"/>
-<wire x1="26.157" y1="67.665" x2="24.972" y2="68.85" width="0.4064" layer="1"/>
-<wire x1="24.972" y1="68.85" x2="24.972" y2="69.612" width="0.4064" layer="1"/>
-<wire x1="24.972" y1="69.612" x2="25.48" y2="70.12" width="0.4064" layer="1"/>
-<wire x1="28.02" y1="52.5305" x2="28.02" y2="51.705" width="0.4064" layer="1"/>
-<via x="28.02" y="51.705" extent="1-16" drill="0.3"/>
+<wire x1="28.02" y1="52.68925" x2="28.02" y2="51.07" width="0.4064" layer="1"/>
+<via x="28.02" y="51.07" extent="1-16" drill="0.3"/>
 <wire x1="48.213" y1="63.135" x2="48.213" y2="61.865" width="0.3048" layer="1"/>
 <wire x1="48.213" y1="61.865" x2="48.213" y2="60.595" width="0.3048" layer="1"/>
 <wire x1="48.213" y1="60.595" x2="48.213" y2="59.325" width="0.3048" layer="1"/>
@@ -3450,9 +3439,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <wire x1="48.213" y1="58.055" x2="48.213" y2="56.785" width="0.3048" layer="1"/>
 <wire x1="48.213" y1="56.785" x2="48.213" y2="55.515" width="0.3048" layer="1"/>
 <wire x1="48.213" y1="55.515" x2="48.213" y2="54.245" width="0.3048" layer="1"/>
-<wire x1="38.6245" y1="54.245" x2="38.6245" y2="54.4355" width="0.4064" layer="1"/>
-<wire x1="38.6245" y1="54.4355" x2="38.4975" y2="55.1975" width="0.4064" layer="1"/>
-<via x="38.4975" y="55.1975" extent="1-16" drill="0.3"/>
+<wire x1="39.2595" y1="55.1975" x2="39.2595" y2="55.388" width="0.4064" layer="1"/>
+<wire x1="39.2595" y1="55.388" x2="39.1325" y2="56.4675" width="0.4064" layer="1"/>
+<via x="39.1325" y="56.4675" extent="1-16" drill="0.3"/>
 <wire x1="58.8175" y1="70.882" x2="58.9445" y2="71.1995" width="0.4064" layer="1"/>
 <wire x1="58.9445" y1="71.1995" x2="59.77" y2="72.025" width="0.4064" layer="1"/>
 <via x="59.77" y="72.025" extent="1-16" drill="0.3"/>
@@ -3462,8 +3451,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <wire x1="59.605" y1="56.065" x2="59.605" y2="55.045" width="0.3048" layer="1"/>
 <wire x1="59.605" y1="55.045" x2="59.77" y2="54.88" width="0.3048" layer="1"/>
 <via x="59.77" y="54.88" extent="1-16" drill="0.3"/>
-<wire x1="57.23" y1="52.5305" x2="56.1505" y2="52.5305" width="0.3048" layer="1"/>
-<wire x1="56.1505" y1="52.5305" x2="55.96" y2="52.34" width="0.3048" layer="1"/>
+<wire x1="57.23" y1="52.5305" x2="56.1505" y2="52.5305" width="0.6096" layer="1"/>
+<wire x1="56.1505" y1="52.5305" x2="55.96" y2="52.34" width="0.6096" layer="1"/>
 <via x="55.96" y="52.34" extent="1-16" drill="0.3"/>
 <wire x1="48.213" y1="54.245" x2="48.213" y2="53.102" width="0.4064" layer="1"/>
 <wire x1="48.213" y1="53.102" x2="48.34" y2="52.975" width="0.4064" layer="1"/>
@@ -3498,9 +3487,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <via x="92.3925" y="49.8475" extent="1-16" drill="0.3"/>
 <wire x1="63.58" y1="51.578" x2="63.58" y2="50.435" width="0.6096" layer="1"/>
 <via x="63.58" y="50.435" extent="1-16" drill="0.3"/>
-<wire x1="30.395" y1="56.065" x2="30.395" y2="54.41" width="0.4064" layer="1"/>
-<wire x1="30.395" y1="54.41" x2="30.56" y2="54.245" width="0.4064" layer="1"/>
-<via x="30.56" y="54.245" extent="1-16" drill="0.3"/>
+<via x="31.195" y="54.72125" extent="1-16" drill="0.3"/>
 <wire x1="19.003" y1="54.245" x2="19.003" y2="53.483" width="0.6096" layer="1"/>
 <wire x1="19.003" y1="53.483" x2="18.495" y2="52.975" width="0.6096" layer="1"/>
 <via x="18.495" y="52.975" extent="1-16" drill="0.3"/>
@@ -3516,8 +3503,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <wire x1="43.61" y1="37.1" x2="43.61" y2="36.26" width="0.6096" layer="1"/>
 <wire x1="43.61" y1="36.26" x2="43.18" y2="35.83" width="0.6096" layer="1"/>
 <via x="43.18" y="35.83" extent="1-16" drill="0.3"/>
-<wire x1="67.39" y1="51.578" x2="67.39" y2="50.435" width="0.3048" layer="1"/>
-<via x="67.39" y="50.435" extent="1-16" drill="0.3"/>
+<wire x1="68.7545" y1="54.69" x2="69.93" y2="54.72125" width="0.3048" layer="1"/>
+<via x="69.93" y="54.72125" extent="1-16" drill="0.3"/>
 <wire x1="80.4545" y1="33.75" x2="80.645" y2="33.9405" width="0.3048" layer="1"/>
 <wire x1="71.755" y1="17.0475" x2="71.755" y2="16.1925" width="0.4064" layer="1"/>
 <wire x1="71.755" y1="16.1925" x2="71.4375" y2="15.875" width="0.4064" layer="1"/>
@@ -3573,6 +3560,28 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <via x="66.3575" y="15.875" extent="1-16" drill="0.3"/>
 <wire x1="73.105" y1="68.977" x2="73.105" y2="69.0405" width="0.254" layer="1"/>
 <wire x1="87.3595" y1="63.5475" x2="89.1375" y2="63.5475" width="0.4064" layer="1"/>
+<contactref element="C28" pad="1"/>
+<contactref element="C26" pad="1"/>
+<contactref element="C25" pad="1"/>
+<contactref element="C27" pad="1"/>
+<wire x1="31.195" y1="56.065" x2="31.195" y2="54.72125" width="0.4" layer="1"/>
+<wire x1="29.5275" y1="52.0065" x2="28.84475" y2="52.68925" width="0.4" layer="1"/>
+<wire x1="28.84475" y1="52.68925" x2="28.02" y2="52.68925" width="0.4" layer="1"/>
+<wire x1="65.24625" y1="50.89525" x2="64.786" y2="50.435" width="0.6096" layer="1"/>
+<wire x1="64.786" y1="50.435" x2="63.58" y2="50.435" width="0.6096" layer="1"/>
+<wire x1="34.0525" y1="51.8955" x2="35.19475" y2="51.8955" width="0.6" layer="1"/>
+<wire x1="35.19475" y1="51.8955" x2="35.8775" y2="51.21275" width="0.6" layer="1"/>
+<wire x1="35.8775" y1="51.21275" x2="35.8775" y2="49.8475" width="0.6" layer="1"/>
+<via x="35.8775" y="49.8475" extent="1-16" drill="0.3048"/>
+<wire x1="53.594" y1="53.975" x2="53.594" y2="52.7685" width="0.6096" layer="1"/>
+<wire x1="53.594" y1="52.7685" x2="53.6575" y2="52.705" width="0.6096" layer="1"/>
+<via x="53.6575" y="52.705" extent="1-16" drill="0.3048"/>
+<wire x1="27.195" y1="67.665" x2="26.0725" y2="67.665" width="0.4064" layer="1"/>
+<wire x1="26.0725" y1="67.665" x2="26.035" y2="67.6275" width="0.4064" layer="1"/>
+<via x="26.035" y="67.6275" extent="1-16" drill="0.3048"/>
+<wire x1="56.405" y1="67.665" x2="55.2825" y2="67.665" width="0.4064" layer="1"/>
+<wire x1="55.2825" y1="67.665" x2="55.245" y2="67.6275" width="0.4064" layer="1"/>
+<via x="55.245" y="67.6275" extent="1-16" drill="0.3048"/>
 </signal>
 <signal name="VCC_3V3" class="1">
 <contactref element="R5" pad="2"/>
@@ -3601,28 +3610,26 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <contactref element="U4" pad="19"/>
 <contactref element="U4" pad="8"/>
 <contactref element="L2" pad="2"/>
-<contactref element="C21" pad="1"/>
-<contactref element="C23" pad="1"/>
 <contactref element="C19" pad="1"/>
+<contactref element="C21" pad="1"/>
+<contactref element="C17" pad="1"/>
 <contactref element="U6" pad="P$4"/>
 <contactref element="U7" pad="P$4"/>
-<contactref element="C27" pad="2"/>
-<contactref element="C28" pad="2"/>
+<contactref element="C29" pad="2"/>
+<contactref element="C30" pad="2"/>
 <contactref element="D1" pad="1"/>
 <contactref element="D2" pad="1"/>
-<contactref element="C17" pad="2"/>
 <contactref element="U5" pad="16"/>
 <contactref element="R29" pad="2"/>
 <contactref element="U5" pad="35"/>
 <contactref element="U5" pad="19"/>
 <contactref element="U5" pad="8"/>
 <contactref element="L3" pad="2"/>
-<contactref element="C22" pad="1"/>
-<contactref element="C24" pad="1"/>
 <contactref element="C20" pad="1"/>
+<contactref element="C22" pad="1"/>
+<contactref element="C18" pad="1"/>
 <contactref element="D3" pad="1"/>
 <contactref element="D4" pad="1"/>
-<contactref element="C18" pad="2"/>
 <contactref element="JP1" pad="1"/>
 <polygon width="0.4064" layer="1" rank="3">
 <vertex x="0" y="74.93"/>
@@ -3684,8 +3691,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <wire x1="67.898" y1="63.4525" x2="67.898" y2="60.087" width="0.4064" layer="1"/>
 <wire x1="67.898" y1="60.087" x2="68.66" y2="59.325" width="0.4064" layer="1"/>
 <via x="68.66" y="59.325" extent="1-16" drill="0.3"/>
-<wire x1="68.66" y1="59.325" x2="68.66" y2="56.15" width="0.4064" layer="16"/>
-<via x="68.66" y="56.15" extent="1-16" drill="0.3"/>
+<wire x1="68.66" y1="59.325" x2="68.66" y2="56.4675" width="0.4064" layer="16"/>
+<via x="68.66" y="56.4675" extent="1-16" drill="0.3"/>
 <contactref element="LOS1" pad="A"/>
 <contactref element="LOS2" pad="A"/>
 <contactref element="PWR" pad="A"/>
@@ -3702,6 +3709,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <contactref element="U3" pad="5"/>
 <wire x1="85.8355" y1="63.5475" x2="83.2325" y2="63.5475" width="0.6096" layer="1"/>
 <wire x1="83.2325" y1="63.5475" x2="83.185" y2="63.5" width="0.6096" layer="1"/>
+<contactref element="C28" pad="2"/>
+<contactref element="C27" pad="2"/>
+<wire x1="29.5275" y1="54.0385" x2="29.2735" y2="54.2925" width="0.4" layer="1"/>
+<wire x1="29.2735" y1="54.2925" x2="27.94" y2="54.2925" width="0.4" layer="1"/>
 </signal>
 <signal name="VBUS" class="1">
 <contactref element="X1" pad="1"/>
@@ -4150,8 +4161,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <wire x1="72.545" y1="35.225" x2="72.545" y2="35.8175" width="0.254" layer="1"/>
 <wire x1="72.545" y1="35.8175" x2="71.755" y2="36.6075" width="0.254" layer="1"/>
 <wire x1="71.755" y1="36.6075" x2="71.755" y2="36.925" width="0.254" layer="1"/>
-<wire x1="71.755" y1="36.925" x2="62.5475" y2="46.0375" width="0.254" layer="1"/>
-<wire x1="62.5475" y1="46.0375" x2="61.9125" y2="46.0375" width="0.254" layer="1"/>
+<wire x1="71.755" y1="36.925" x2="63.1825" y2="45.4025" width="0.254" layer="1"/>
+<wire x1="63.1825" y1="45.4025" x2="61.9125" y2="46.0375" width="0.254" layer="1"/>
 <via x="61.9125" y="46.0375" extent="1-16" drill="0.3"/>
 <wire x1="57.5475" y1="63.4525" x2="57.23" y2="63.77" width="0.3048" layer="16"/>
 <via x="57.23" y="63.77" extent="1-16" drill="0.3"/>
@@ -4292,8 +4303,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <contactref element="R30" pad="2"/>
 <contactref element="U4" pad="43"/>
 <wire x1="34.395" y1="56.065" x2="34.395" y2="54.855" width="0.4064" layer="1"/>
-<wire x1="34.395" y1="54.855" x2="35.005" y2="54.245" width="0.4064" layer="1"/>
-<wire x1="35.005" y1="54.245" x2="37.1005" y2="54.245" width="0.4064" layer="1"/>
+<wire x1="34.395" y1="54.855" x2="35.005" y2="54.5625" width="0.4064" layer="1"/>
+<wire x1="35.005" y1="54.5625" x2="36.7825" y2="54.5625" width="0.4064" layer="1"/>
+<wire x1="36.7825" y1="54.5625" x2="37.1475" y2="54.61" width="0.4064" layer="1"/>
+<wire x1="37.1475" y1="54.61" x2="37.7355" y2="55.1975" width="0.4064" layer="1"/>
 </signal>
 <signal name="TCLK">
 <contactref element="U4" pad="1"/>
@@ -4326,11 +4339,14 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <signal name="N$23" class="1">
 <contactref element="U4" pad="42"/>
 <contactref element="L2" pad="1"/>
-<contactref element="C25" pad="1"/>
-<wire x1="33.595" y1="56.065" x2="33.595" y2="54.13" width="0.4064" layer="1"/>
-<wire x1="33.595" y1="54.13" x2="35.005" y2="52.72" width="0.4064" layer="1"/>
-<wire x1="36.91" y1="52.467" x2="35.258" y2="52.467" width="0.4064" layer="1"/>
-<wire x1="35.258" y1="52.467" x2="35.005" y2="52.72" width="0.4064" layer="1"/>
+<contactref element="C23" pad="1"/>
+<wire x1="33.595" y1="56.065" x2="33.595" y2="53.877" width="0.4064" layer="1"/>
+<contactref element="C25" pad="2"/>
+<wire x1="38.02125" y1="53.19625" x2="35.926" y2="53.19625" width="0.6" layer="1"/>
+<wire x1="35.926" y1="53.19625" x2="35.8775" y2="53.24475" width="0.6" layer="1"/>
+<wire x1="35.8775" y1="53.24475" x2="34.22725" y2="53.24475" width="0.6" layer="1"/>
+<wire x1="34.22725" y1="53.24475" x2="34.0525" y2="53.4195" width="0.6" layer="1"/>
+<wire x1="33.595" y1="53.877" x2="34.0525" y2="53.4195" width="0.4064" layer="1"/>
 </signal>
 <signal name="RTIP">
 <contactref element="R34" pad="2"/>
@@ -4503,11 +4519,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <signal name="N$1">
 <contactref element="R31" pad="2"/>
 <contactref element="U5" pad="43"/>
-<wire x1="67.39" y1="53.102" x2="67.39" y2="53.61" width="0.3048" layer="1"/>
-<wire x1="67.39" y1="53.61" x2="66.755" y2="54.245" width="0.3048" layer="1"/>
-<wire x1="66.755" y1="54.245" x2="64.215" y2="54.245" width="0.3048" layer="1"/>
-<wire x1="63.605" y1="56.065" x2="63.605" y2="54.855" width="0.3048" layer="1"/>
-<wire x1="63.605" y1="54.855" x2="64.215" y2="54.245" width="0.3048" layer="1"/>
+<wire x1="63.605" y1="56.065" x2="63.605" y2="55.1725" width="0.3048" layer="1"/>
+<wire x1="63.605" y1="55.1725" x2="64.215" y2="54.5625" width="0.3048" layer="1"/>
+<wire x1="64.215" y1="54.5625" x2="66.7855" y2="54.5625" width="0.3048" layer="1"/>
+<wire x1="66.7855" y1="54.5625" x2="67.2305" y2="54.69" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="U5" pad="12"/>
@@ -4518,12 +4533,16 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <signal name="N$3" class="1">
 <contactref element="U5" pad="42"/>
 <contactref element="L3" pad="1"/>
-<contactref element="C26" pad="1"/>
+<contactref element="C24" pad="1"/>
 <wire x1="62.805" y1="56.065" x2="62.805" y2="54.13" width="0.4064" layer="1"/>
-<wire x1="62.805" y1="54.13" x2="63.851815625" y2="53.33121875" width="0.4064" layer="1"/>
-<wire x1="63.851815625" y1="53.33121875" x2="65.485" y2="52.085" width="0.4064" layer="1"/>
 <wire x1="63.58" y1="53.102" x2="63.622596875" y2="53.102" width="0.3048" layer="1"/>
-<wire x1="63.622596875" y1="53.102" x2="63.851815625" y2="53.33121875" width="0.3048" layer="1"/>
+<contactref element="C26" pad="2"/>
+<wire x1="62.805" y1="54.13" x2="63.58" y2="53.355" width="0.4" layer="1"/>
+<wire x1="63.58" y1="53.355" x2="63.58" y2="53.102" width="0.4" layer="1"/>
+<wire x1="65.24625" y1="52.92725" x2="65.0715" y2="53.102" width="0.4" layer="1"/>
+<wire x1="65.0715" y1="53.102" x2="63.58" y2="53.102" width="0.6096" layer="1"/>
+<wire x1="65.24625" y1="52.92725" x2="65.29475" y2="52.87875" width="0.4" layer="1"/>
+<wire x1="65.29475" y1="52.87875" x2="67.7075" y2="52.87875" width="0.6096" layer="1"/>
 </signal>
 <signal name="RTIP1">
 <contactref element="R35" pad="2"/>
@@ -4536,9 +4555,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <wire x1="54.415" y1="32.265" x2="54.415" y2="34.707" width="0.4064" layer="1"/>
 <wire x1="54.415" y1="34.707" x2="54.102" y2="35.02" width="0.4064" layer="1"/>
 <wire x1="54.102" y1="44.7675" x2="54.102" y2="47.752" width="0.4064" layer="1"/>
-<wire x1="62.005" y1="53.305" x2="58.5" y2="49.8" width="0.4064" layer="1"/>
-<wire x1="58.5" y1="49.8" x2="55.6425" y2="49.8" width="0.4064" layer="1"/>
-<wire x1="55.6425" y1="49.8" x2="54.102" y2="47.752" width="0.4064" layer="1"/>
+<wire x1="62.005" y1="53.305" x2="57.865" y2="49.00625" width="0.4064" layer="1"/>
+<wire x1="57.865" y1="49.00625" x2="55.325" y2="49.00625" width="0.4064" layer="1"/>
+<wire x1="55.325" y1="49.00625" x2="54.102" y2="47.752" width="0.4064" layer="1"/>
 <wire x1="54.2925" y1="44.7675" x2="54.102" y2="44.7675" width="0.4064" layer="1"/>
 <wire x1="54.102" y1="44.7675" x2="54.102" y2="39.64" width="0.4064" layer="1"/>
 <wire x1="54.102" y1="39.64" x2="54.102" y2="37.1" width="0.4064" layer="1"/>
@@ -4554,12 +4573,12 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77001.pdf</description>
 <contactref element="TP4" pad="TP"/>
 <contactref element="TR2" pad="3"/>
 <wire x1="51.875" y1="32.265" x2="51.875" y2="34.317" width="0.4064" layer="1"/>
-<wire x1="55.0075" y1="51.07" x2="58.5" y2="51.07" width="0.4064" layer="1"/>
-<wire x1="58.5" y1="51.07" x2="61.205" y2="53.775" width="0.4064" layer="1"/>
+<wire x1="54.21375" y1="49.8" x2="57.38875" y2="49.8" width="0.4064" layer="1"/>
+<wire x1="57.38875" y1="49.8" x2="61.205" y2="53.775" width="0.4064" layer="1"/>
 <wire x1="61.205" y1="56.065" x2="61.205" y2="53.775" width="0.4064" layer="1"/>
 <wire x1="51.875" y1="34.317" x2="52.578" y2="35.02" width="0.4064" layer="1"/>
 <wire x1="52.578" y1="44.7675" x2="52.578" y2="48.133" width="0.4064" layer="1"/>
-<wire x1="52.578" y1="48.133" x2="55.0075" y2="51.07" width="0.4064" layer="1"/>
+<wire x1="52.578" y1="48.133" x2="54.21375" y2="49.8" width="0.4064" layer="1"/>
 <wire x1="52.3875" y1="44.7675" x2="52.578" y2="44.7675" width="0.4064" layer="1"/>
 <wire x1="52.578" y1="44.7675" x2="52.578" y2="39.767" width="0.4064" layer="1"/>
 <wire x1="52.578" y1="35.02" x2="52.705" y2="35.02" width="0.3048" layer="1"/>
