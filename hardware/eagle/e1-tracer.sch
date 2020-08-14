@@ -322,7 +322,7 @@ DIN A3, landscape with location and doc. field</description>
 <pin name="IOT_49A" x="30.48" y="-40.64" length="middle" rot="R180"/>
 <pin name="IOT_48B" x="30.48" y="-38.1" length="middle" rot="R180"/>
 <pin name="IOT_46B_G0" x="30.48" y="-35.56" length="middle" rot="R180"/>
-<pin name="VCC_IO_0" x="-25.4" y="-33.02" length="middle" direction="in"/>
+<pin name="VCC_IO_0" x="-25.4" y="-33.02" length="middle" direction="pwr"/>
 <pin name="IOT_45A_G1" x="30.48" y="-33.02" length="middle" rot="R180"/>
 <pin name="IOT_44B" x="30.48" y="-30.48" length="middle" rot="R180"/>
 <pin name="IOT_43A" x="30.48" y="-27.94" length="middle" rot="R180"/>
