@@ -298,7 +298,7 @@ DIN A3, landscape with location and doc. field</description>
 <text x="12.7" y="68.58" size="2.54" layer="95" ratio="10" align="center">&gt;NAME</text>
 <pin name="IOB_9B" x="30.48" y="38.1" length="middle" rot="R180"/>
 <pin name="VCC_PLL" x="-5.08" y="66.04" length="middle" direction="pwr" rot="R270"/>
-<pin name="IOT_51A" x="30.48" y="-45.72" length="middle" direction="pwr" rot="R180"/>
+<pin name="IOT_51A" x="30.48" y="-45.72" length="middle" rot="R180"/>
 <pin name="IOT_39A" x="30.48" y="-20.32" length="middle" rot="R180"/>
 <pin name="VCC" x="0" y="66.04" length="middle" direction="pwr" rot="R270"/>
 <pin name="IOB_3B_G6" x="30.48" y="50.8" length="middle" rot="R180"/>
@@ -323,7 +323,7 @@ DIN A3, landscape with location and doc. field</description>
 <pin name="IOT_48B" x="30.48" y="-38.1" length="middle" rot="R180"/>
 <pin name="IOT_46B_G0" x="30.48" y="-35.56" length="middle" rot="R180"/>
 <pin name="VCC_IO_0" x="-25.4" y="-33.02" length="middle" direction="in"/>
-<pin name="IOT_45A_G1" x="30.48" y="-33.02" length="middle" direction="out" rot="R180"/>
+<pin name="IOT_45A_G1" x="30.48" y="-33.02" length="middle" rot="R180"/>
 <pin name="IOT_44B" x="30.48" y="-30.48" length="middle" rot="R180"/>
 <pin name="IOT_43A" x="30.48" y="-27.94" length="middle" rot="R180"/>
 <pin name="IOT_42B" x="30.48" y="-25.4" length="middle" rot="R180"/>
