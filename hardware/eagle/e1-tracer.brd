@@ -133,6 +133,14 @@
 <vertex x="89.8525" y="68.58"/>
 <vertex x="89.8525" y="74.93"/>
 </polygon>
+<text x="95.25" y="33.02" size="1.1" layer="25" font="vector" ratio="16">SI</text>
+<text x="95.25" y="35.56" size="1.1" layer="25" font="vector" ratio="16">SO</text>
+<text x="95.25" y="38.1" size="1.1" layer="25" font="vector" ratio="16">3V3</text>
+<text x="95.25" y="30.48" size="1.1" layer="25" font="vector" ratio="16">SCK</text>
+<text x="95.25" y="28.2575" size="1.1" layer="25" font="vector" ratio="16">SS</text>
+<text x="95.25" y="25.4" size="1.1" layer="25" font="vector" ratio="16">CDO</text>
+<text x="95.25" y="23.1775" size="1.1" layer="25" font="vector" ratio="16">CRE</text>
+<text x="95.25" y="20.6375" size="1.1" layer="25" font="vector" ratio="16">GND</text>
 </plain>
 <libraries>
 <library name="microbuilder">
