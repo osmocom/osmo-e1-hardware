@@ -8321,7 +8321,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R30" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="3k 1%">
+<part name="R34" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="3k 1%">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -8332,7 +8332,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R34" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="120">
+<part name="R38" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="120">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -8420,7 +8420,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R20" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<part name="R24" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -8464,7 +8464,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R32" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<part name="R36" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -8514,7 +8514,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="W25Q80DVSNIG-ND"/>
 </part>
-<part name="C14" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="_0603" value="100n">
+<part name="C11" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="_0603" value="100n">
 <attribute name="CLASS" value="CAPACITOR"/>
 <attribute name="DESCRIPTION" value="CAP CER 0.1UF 16V 10% X7R 0603"/>
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1005-1-ND"/>
@@ -8527,7 +8527,7 @@ TLV702xx and TLV733xx</description>
 </part>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
-<part name="R8" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<part name="R10" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES 10K OHM 1%% 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT10K0/RMCF0603FT10K0CT-ND"/>
@@ -8538,7 +8538,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603FT10K0CT-ND"/>
 </part>
-<part name="R5" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<part name="R8" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES 10K OHM 1%% 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT10K0/RMCF0603FT10K0CT-ND"/>
@@ -8571,7 +8571,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="1727-4717-1-ND"/>
 </part>
-<part name="R7" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="100k">
+<part name="R12" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="100k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 100K OHM 5%% 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/yageo/RC0603JR-07100KL/311-100KGRCT-ND/729645"/>
@@ -8582,7 +8582,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="311-100KGRCT-ND"/>
 </part>
-<part name="R6" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="100k">
+<part name="R11" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="100k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 100K OHM 5%% 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/yageo/RC0603JR-07100KL/311-100KGRCT-ND/729645"/>
@@ -8593,7 +8593,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="311-100KGRCT-ND"/>
 </part>
-<part name="C13" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="_0402" value="10n">
+<part name="C14" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="_0402" value="10n">
 <attribute name="CLASS" value="CAPACITOR"/>
 <attribute name="DESCRIPTION" value="CAP CER 10000PF 25V X7R 0402"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/samsung-electro-mechanics/CL05B103KA5NNNC/1276-1057-1-ND/3889143"/>
@@ -8616,7 +8616,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="732-3198-1-ND"/>
 </part>
-<part name="R4" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="1k5">
+<part name="R9" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="1k5">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -8755,7 +8755,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R31" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="3k 1%">
+<part name="R35" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="3k 1%">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -8766,7 +8766,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R35" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="120">
+<part name="R39" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="120">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -8832,7 +8832,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R29" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<part name="R33" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -8927,7 +8927,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R33" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<part name="R37" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -8963,7 +8963,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="535-9757-1-ND"/>
 </part>
-<part name="R10" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<part name="R13" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES 10K OHM 1%% 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT10K0/RMCF0603FT10K0CT-ND"/>
@@ -8987,7 +8987,7 @@ TLV702xx and TLV733xx</description>
 </part>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="R11" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="68">
+<part name="R15" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="68">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -9011,7 +9011,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="1276-1287-1-ND"/>
 </part>
-<part name="C11" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="1206" value="22u">
+<part name="C13" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="1206" value="22u">
 <attribute name="CLASS" value="CAPACITOR"/>
 <attribute name="DESCRIPTION" value="CAP CER 22UF 10V 10% X5R 1206"/>
 <attribute name="LINK" value="http://www.digikey.de/product-detail/de/foo/1276-1287-1-ND"/>
@@ -9104,7 +9104,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="365-1561-2-ND"/>
 </part>
-<part name="R9" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="2.2k">
+<part name="R14" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="2.2k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -9127,7 +9127,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
-<part name="R39" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="1k">
+<part name="R43" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="1k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -9138,7 +9138,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R38" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="1k">
+<part name="R42" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="1k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -9165,50 +9165,6 @@ TLV702xx and TLV733xx</description>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
 <attribute name="MANUFACTURER" value="Mentor"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
-<attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
-</part>
-<part name="R12" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
-<attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
-<attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
-</part>
-<part name="R13" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
-<attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
-<attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
-</part>
-<part name="R14" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
-<attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
-<attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
-</part>
-<part name="R15" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
-<attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
@@ -9259,6 +9215,17 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
+<part name="R20" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<attribute name="CLASS" value="RESISTOR"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
+<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="POPULATED" value="TRUE"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+</part>
 <part name="R21" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
@@ -9282,17 +9249,6 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
 <part name="R23" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
-<attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
-<attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
-</part>
-<part name="R24" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -9347,6 +9303,50 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
+<part name="R29" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<attribute name="CLASS" value="RESISTOR"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
+<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="POPULATED" value="TRUE"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+</part>
+<part name="R30" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<attribute name="CLASS" value="RESISTOR"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
+<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="POPULATED" value="TRUE"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+</part>
+<part name="R31" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<attribute name="CLASS" value="RESISTOR"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
+<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="POPULATED" value="TRUE"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+</part>
+<part name="R32" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
+<attribute name="CLASS" value="RESISTOR"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
+<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="POPULATED" value="TRUE"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+</part>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M08" device="LOCK">
 <attribute name="CLASS" value="CONNECTOR\JUMPER"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
@@ -9358,7 +9358,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R36" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="330">
+<part name="R40" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="330">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 330 OHM 1%% 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/yageo/RC0603FR-07330RL/311-330HRCT-ND"/>
@@ -9369,7 +9369,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="311-330HRCT-ND"/>
 </part>
-<part name="R37" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="330">
+<part name="R41" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="330">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 330 OHM 1%% 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/yageo/RC0603FR-07330RL/311-330HRCT-ND"/>
@@ -9380,7 +9380,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="311-330HRCT-ND"/>
 </part>
-<part name="LOS1" library="LED-PLCC2" deviceset="LED" device="PLCC2-MIN" value="LEDPLCC2-MIN-red">
+<part name="LOS2" library="LED-PLCC2" deviceset="LED" device="PLCC2-MIN" value="LEDPLCC2-MIN-red">
 <attribute name="CLASS" value="LED"/>
 <attribute name="DESCRIPTION" value="LED RED CLEAR 2PLCC SMD"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/osram-opto-semiconductors-inc/LS-T676-R1S1-1-Z/475-2683-1-ND"/>
@@ -9392,7 +9392,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="475-2683-1-ND"/>
 <variant name="LEDs top" populate="no"/>
 </part>
-<part name="LOS0" library="LED-PLCC2" deviceset="LED" device="PLCC2-MIN" value="LEDPLCC2-MIN-red">
+<part name="LOS1" library="LED-PLCC2" deviceset="LED" device="PLCC2-MIN" value="LEDPLCC2-MIN-red">
 <attribute name="CLASS" value="LED"/>
 <attribute name="DESCRIPTION" value="LED RED CLEAR 2PLCC SMD"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/osram-opto-semiconductors-inc/LS-T676-R1S1-1-Z/475-2683-1-ND"/>
@@ -9415,7 +9415,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 <variant name="LEDs top" populate="no"/>
 </part>
-<part name="R40" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
+<part name="R44" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 0 OHM JUMPER 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/panasonic-electronic-components/ERJ-3GEY0R00V/P0-0GCT-ND/134711"/>
@@ -9426,7 +9426,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
-<part name="R41" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
+<part name="R45" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 0 OHM JUMPER 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/panasonic-electronic-components/ERJ-3GEY0R00V/P0-0GCT-ND/134711"/>
@@ -9437,7 +9437,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
-<part name="R42" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
+<part name="R46" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 0 OHM JUMPER 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/panasonic-electronic-components/ERJ-3GEY0R00V/P0-0GCT-ND/134711"/>
@@ -9495,7 +9495,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R2" library="rc-sysmocom" deviceset="RESISTOR" device="_0402" value="33">
+<part name="R6" library="rc-sysmocom" deviceset="RESISTOR" device="_0402" value="33">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -9506,7 +9506,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R3" library="rc-sysmocom" deviceset="RESISTOR" device="_0402" value="33">
+<part name="R7" library="rc-sysmocom" deviceset="RESISTOR" device="_0402" value="33">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
@@ -9561,7 +9561,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
-<part name="R43" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
+<part name="R4" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 0 OHM JUMPER 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/panasonic-electronic-components/ERJ-3GEY0R00V/P0-0GCT-ND/134711"/>
@@ -9572,7 +9572,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
-<part name="R44" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
+<part name="R5" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 0 OHM JUMPER 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/panasonic-electronic-components/ERJ-3GEY0R00V/P0-0GCT-ND/134711"/>
@@ -9583,7 +9583,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
-<part name="R45" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
+<part name="R2" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 0 OHM JUMPER 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/panasonic-electronic-components/ERJ-3GEY0R00V/P0-0GCT-ND/134711"/>
@@ -9594,7 +9594,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
-<part name="R46" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
+<part name="R3" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="RES SMD 0 OHM JUMPER 1/10W 0603"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/panasonic-electronic-components/ERJ-3GEY0R00V/P0-0GCT-ND/134711"/>
@@ -9707,7 +9707,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="NAME" x="193.04" y="49.784" size="1.778" layer="95"/>
 <attribute name="VALUE" x="193.04" y="32.004" size="1.778" layer="96"/>
 </instance>
-<instance part="C14" gate="G$1" x="223.52" y="45.72" smashed="yes">
+<instance part="C11" gate="G$1" x="223.52" y="45.72" smashed="yes">
 <attribute name="SOURCE" x="223.52" y="45.72" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="LINK" x="223.52" y="45.72" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="DESCRIPTION" x="223.52" y="45.72" size="1.778" layer="96" rot="R270" display="off"/>
@@ -9726,7 +9726,7 @@ TLV702xx and TLV733xx</description>
 <instance part="GND14" gate="1" x="231.14" y="45.72" smashed="yes" rot="R90">
 <attribute name="VALUE" x="233.68" y="43.18" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R8" gate="G$1" x="238.76" y="48.26" smashed="yes" rot="R90">
+<instance part="R10" gate="G$1" x="238.76" y="48.26" smashed="yes" rot="R90">
 <attribute name="NAME" x="242.062" y="45.72" size="1.27" layer="95" rot="R90"/>
 <attribute name="VALUE" x="242.189" y="49.784" size="1.27" layer="96" rot="R90"/>
 <attribute name="DESCRIPTION" x="238.76" y="48.26" size="1.27" layer="96" rot="R90" display="off"/>
@@ -9739,7 +9739,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" x="238.76" y="48.26" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="LINK" x="238.76" y="48.26" size="1.27" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="R5" gate="G$1" x="185.42" y="50.8" smashed="yes" rot="R90">
+<instance part="R8" gate="G$1" x="185.42" y="50.8" smashed="yes" rot="R90">
 <attribute name="DESCRIPTION" x="185.42" y="50.8" size="1.778" layer="96" display="off"/>
 <attribute name="MANUFACTURER" x="185.42" y="50.8" size="1.778" layer="96" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="185.42" y="50.8" size="1.778" layer="96" display="off"/>
@@ -9780,7 +9780,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="LINK" x="228.6" y="147.32" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="NAME" x="231.14" y="157.48" size="1.778" layer="95" rot="MR180"/>
 </instance>
-<instance part="R7" gate="G$1" x="251.46" y="124.46" smashed="yes" rot="MR180">
+<instance part="R12" gate="G$1" x="251.46" y="124.46" smashed="yes" rot="MR180">
 <attribute name="SOURCE" x="251.46" y="124.46" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="LINK" x="251.46" y="124.46" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="DESCRIPTION" x="251.46" y="124.46" size="1.778" layer="96" rot="MR0" display="off"/>
@@ -9793,7 +9793,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="NAME" x="254" y="126.746" size="1.27" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="254" y="121.031" size="1.27" layer="96" rot="MR0"/>
 </instance>
-<instance part="R6" gate="G$1" x="241.3" y="124.46" smashed="yes" rot="MR180">
+<instance part="R11" gate="G$1" x="241.3" y="124.46" smashed="yes" rot="MR180">
 <attribute name="SOURCE" x="241.3" y="124.46" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="LINK" x="241.3" y="124.46" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="DESCRIPTION" x="241.3" y="124.46" size="1.778" layer="96" rot="MR0" display="off"/>
@@ -9806,7 +9806,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="NAME" x="243.84" y="126.746" size="1.27" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="243.84" y="121.031" size="1.27" layer="96" rot="MR0"/>
 </instance>
-<instance part="C13" gate="G$1" x="248.92" y="118.872" smashed="yes" rot="R180">
+<instance part="C14" gate="G$1" x="248.92" y="118.872" smashed="yes" rot="R180">
 <attribute name="NAME" x="254" y="116.586" size="1.27" layer="95" font="vector" rot="R180"/>
 <attribute name="VALUE" x="245.364" y="116.332" size="1.27" layer="96" font="vector" rot="R180"/>
 <attribute name="DESCRIPTION" x="248.92" y="118.872" size="1.778" layer="96" rot="MR0" display="off"/>
@@ -9835,7 +9835,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" x="200.66" y="148.59" size="1.778" layer="96" display="off"/>
 <attribute name="LINK" x="200.66" y="148.59" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R4" gate="G$1" x="203.2" y="137.16" smashed="yes" rot="MR180">
+<instance part="R9" gate="G$1" x="203.2" y="137.16" smashed="yes" rot="MR180">
 <attribute name="NAME" x="205.74" y="139.446" size="1.27" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="205.74" y="133.731" size="1.27" layer="96" rot="MR0"/>
 <attribute name="DESCRIPTION" x="203.2" y="137.16" size="1.27" layer="96" display="off"/>
@@ -9964,7 +9964,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
 <attribute name="LINK" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
 </instance>
-<instance part="R10" gate="G$1" x="330.2" y="142.24" smashed="yes" rot="MR180">
+<instance part="R13" gate="G$1" x="330.2" y="142.24" smashed="yes" rot="MR180">
 <attribute name="DESCRIPTION" x="330.2" y="142.24" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="MANUFACTURER" x="330.2" y="142.24" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="330.2" y="142.24" size="1.778" layer="96" rot="MR90" display="off"/>
@@ -9996,7 +9996,7 @@ TLV702xx and TLV733xx</description>
 <instance part="GND31" gate="1" x="322.58" y="147.32" smashed="yes" rot="MR90">
 <attribute name="VALUE" x="320.04" y="144.78" size="1.778" layer="96" rot="MR90"/>
 </instance>
-<instance part="R11" gate="G$1" x="342.9" y="45.72" smashed="yes" rot="MR270">
+<instance part="R15" gate="G$1" x="342.9" y="45.72" smashed="yes" rot="MR270">
 <attribute name="DESCRIPTION" x="342.9" y="45.72" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="342.9" y="45.72" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="342.9" y="45.72" size="1.27" layer="96" rot="R90" display="off"/>
@@ -10028,7 +10028,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="NAME" x="264.795" y="201.168" size="1.27" layer="95" rot="R90"/>
 <attribute name="VALUE" x="264.541" y="206.756" size="1.27" layer="96" rot="R90"/>
 </instance>
-<instance part="C11" gate="G$1" x="238.76" y="205.74" smashed="yes" rot="R270">
+<instance part="C13" gate="G$1" x="238.76" y="205.74" smashed="yes" rot="R270">
 <attribute name="SOURCE" x="238.76" y="205.74" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="LINK" x="238.76" y="205.74" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="DESCRIPTION" x="238.76" y="205.74" size="1.778" layer="96" rot="R270" display="off"/>
@@ -10108,7 +10108,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="NAME" x="86.868" y="27.178" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="104.14" y="40.64" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R9" gate="G$1" x="330.2" y="58.42" smashed="yes" rot="R270">
+<instance part="R14" gate="G$1" x="330.2" y="58.42" smashed="yes" rot="R270">
 <attribute name="NAME" x="327.406" y="60.96" size="1.27" layer="95" rot="R270"/>
 <attribute name="VALUE" x="331.851" y="60.96" size="1.27" layer="96" rot="R270"/>
 <attribute name="DESCRIPTION" x="330.2" y="58.42" size="1.778" layer="96" rot="R90" display="off"/>
@@ -10231,7 +10231,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" x="254" y="213.36" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="LINK" x="254" y="213.36" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
-<instance part="R2" gate="G$1" x="182.88" y="152.4" smashed="yes" rot="MR180">
+<instance part="R6" gate="G$1" x="182.88" y="152.4" smashed="yes" rot="MR180">
 <attribute name="NAME" x="181.61" y="154.178" size="1.27" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="186.436" y="154.305" size="1.27" layer="96" rot="MR0"/>
 <attribute name="DESCRIPTION" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
@@ -10244,7 +10244,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
 <attribute name="LINK" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
 </instance>
-<instance part="R3" gate="G$1" x="182.88" y="144.78" smashed="yes" rot="MR180">
+<instance part="R7" gate="G$1" x="182.88" y="144.78" smashed="yes" rot="MR180">
 <attribute name="NAME" x="182.118" y="146.812" size="1.27" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="186.436" y="146.685" size="1.27" layer="96" rot="MR0"/>
 <attribute name="DESCRIPTION" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
@@ -10257,7 +10257,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
 <attribute name="LINK" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
 </instance>
-<instance part="R43" gate="G$1" x="134.62" y="68.58" smashed="yes" rot="MR270">
+<instance part="R4" gate="G$1" x="134.62" y="68.58" smashed="yes" rot="MR270">
 <attribute name="NAME" x="136.398" y="68.58" size="1.27" layer="95" rot="MR90"/>
 <attribute name="VALUE" x="131.191" y="68.58" size="1.27" layer="96" rot="MR90"/>
 <attribute name="DESCRIPTION" x="134.62" y="68.58" size="1.778" layer="96" rot="MR90" display="off"/>
@@ -10270,7 +10270,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" x="134.62" y="68.58" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="LINK" x="134.62" y="68.58" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
-<instance part="R44" gate="G$1" x="134.62" y="58.42" smashed="yes" rot="MR270">
+<instance part="R5" gate="G$1" x="134.62" y="58.42" smashed="yes" rot="MR270">
 <attribute name="NAME" x="136.398" y="58.42" size="1.27" layer="95" rot="MR90"/>
 <attribute name="VALUE" x="131.191" y="58.42" size="1.27" layer="96" rot="MR90"/>
 <attribute name="DESCRIPTION" x="134.62" y="58.42" size="1.778" layer="96" rot="MR90" display="off"/>
@@ -10283,7 +10283,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" x="134.62" y="58.42" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="LINK" x="134.62" y="58.42" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
-<instance part="R45" gate="G$1" x="119.38" y="55.88" smashed="yes" rot="R270">
+<instance part="R2" gate="G$1" x="119.38" y="55.88" smashed="yes" rot="R270">
 <attribute name="NAME" x="117.602" y="55.88" size="1.27" layer="95" rot="R90"/>
 <attribute name="VALUE" x="122.809" y="55.88" size="1.27" layer="96" rot="R90"/>
 <attribute name="DESCRIPTION" x="119.38" y="55.88" size="1.778" layer="96" rot="R90" display="off"/>
@@ -10296,7 +10296,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" x="119.38" y="55.88" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="LINK" x="119.38" y="55.88" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="R46" gate="G$1" x="119.38" y="45.72" smashed="yes" rot="R270">
+<instance part="R3" gate="G$1" x="119.38" y="45.72" smashed="yes" rot="R270">
 <attribute name="NAME" x="117.602" y="45.72" size="1.27" layer="95" rot="R90"/>
 <attribute name="VALUE" x="122.809" y="45.72" size="1.27" layer="96" rot="R90"/>
 <attribute name="DESCRIPTION" x="119.38" y="45.72" size="1.778" layer="96" rot="R90" display="off"/>
@@ -10357,12 +10357,12 @@ TLV702xx and TLV733xx</description>
 <wire x1="185.42" y1="38.1" x2="187.96" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C14" gate="G$1" pin="2"/>
+<pinref part="C11" gate="G$1" pin="2"/>
 <pinref part="GND14" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="R6" gate="G$1" pin="1"/>
-<pinref part="C13" gate="G$1" pin="2"/>
+<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="C14" gate="G$1" pin="2"/>
 <wire x1="243.84" y1="118.872" x2="236.22" y2="118.872" width="0.1524" layer="91"/>
 <wire x1="236.22" y1="118.872" x2="236.22" y2="121.92" width="0.1524" layer="91"/>
 <pinref part="X1" gate="G$1" pin="5"/>
@@ -10424,7 +10424,7 @@ TLV702xx and TLV733xx</description>
 <wire x1="325.12" y1="147.32" x2="327.66" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R11" gate="G$1" pin="2"/>
+<pinref part="R15" gate="G$1" pin="2"/>
 <pinref part="GND32" gate="1" pin="GND"/>
 <wire x1="342.9" y1="38.1" x2="342.9" y2="40.64" width="0.1524" layer="91"/>
 </segment>
@@ -10434,7 +10434,7 @@ TLV702xx and TLV733xx</description>
 <pinref part="IC3" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="C11" gate="G$1" pin="2"/>
+<pinref part="C13" gate="G$1" pin="2"/>
 <pinref part="GND35" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -10477,7 +10477,7 @@ TLV702xx and TLV733xx</description>
 </net>
 <net name="VCC_3V3" class="1">
 <segment>
-<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="185.42" y1="55.88" x2="185.42" y2="58.42" width="0.1524" layer="91"/>
 <label x="185.42" y="58.42" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
@@ -10485,7 +10485,7 @@ TLV702xx and TLV733xx</description>
 <pinref part="IC2" gate="G$1" pin="!HOLD(D3)"/>
 <wire x1="218.44" y1="43.18" x2="220.98" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="VCC"/>
-<pinref part="C14" gate="G$1" pin="1"/>
+<pinref part="C11" gate="G$1" pin="1"/>
 <wire x1="220.98" y1="45.72" x2="218.44" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="45.72" x2="220.98" y2="58.42" width="0.1524" layer="91"/>
 <junction x="220.98" y="45.72"/>
@@ -10493,7 +10493,7 @@ TLV702xx and TLV733xx</description>
 <wire x1="220.98" y1="43.18" x2="220.98" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R8" gate="G$1" pin="2"/>
+<pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="238.76" y1="53.34" x2="238.76" y2="58.42" width="0.1524" layer="91"/>
 <label x="238.76" y="58.42" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
@@ -10538,7 +10538,7 @@ TLV702xx and TLV733xx</description>
 <label x="180.34" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="R10" gate="G$1" pin="2"/>
+<pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="335.28" y1="142.24" x2="337.82" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="IC4" gate="G$1" pin="VCC"/>
 <wire x1="337.82" y1="142.24" x2="337.82" y2="139.7" width="0.1524" layer="91"/>
@@ -10571,7 +10571,7 @@ TLV702xx and TLV733xx</description>
 </segment>
 <segment>
 <label x="330.2" y="66.04" size="1.27" layer="95" rot="R90" xref="yes"/>
-<pinref part="R9" gate="G$1" pin="1"/>
+<pinref part="R14" gate="G$1" pin="1"/>
 <wire x1="330.2" y1="66.04" x2="330.2" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -10600,7 +10600,7 @@ TLV702xx and TLV733xx</description>
 </segment>
 <segment>
 <wire x1="241.3" y1="218.44" x2="238.76" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="C11" gate="G$1" pin="1"/>
+<pinref part="C13" gate="G$1" pin="1"/>
 <wire x1="238.76" y1="208.28" x2="238.76" y2="218.44" width="0.1524" layer="91"/>
 <junction x="238.76" y="218.44"/>
 <wire x1="238.76" y1="218.44" x2="231.14" y2="218.44" width="0.1524" layer="91"/>
@@ -10620,7 +10620,7 @@ TLV702xx and TLV733xx</description>
 <net name="USB_D_N" class="2">
 <segment>
 <label x="175.26" y="152.4" size="1.27" layer="95" rot="MR0" xref="yes"/>
-<pinref part="R2" gate="G$1" pin="1"/>
+<pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="175.26" y1="152.4" x2="177.8" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -10632,7 +10632,7 @@ TLV702xx and TLV733xx</description>
 <net name="USB_D_P" class="2">
 <segment>
 <label x="175.26" y="144.78" size="1.27" layer="95" rot="MR0" xref="yes"/>
-<pinref part="R3" gate="G$1" pin="1"/>
+<pinref part="R7" gate="G$1" pin="1"/>
 <wire x1="175.26" y1="144.78" x2="177.8" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -10673,19 +10673,19 @@ TLV702xx and TLV733xx</description>
 <wire x1="213.36" y1="144.78" x2="213.36" y2="137.16" width="0.1524" layer="91"/>
 <junction x="213.36" y="144.78"/>
 <wire x1="213.36" y1="137.16" x2="208.28" y2="137.16" width="0.1524" layer="91"/>
-<pinref part="R4" gate="G$1" pin="2"/>
+<pinref part="R9" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$55" class="0">
 <segment>
-<pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="R6" gate="G$1" pin="2"/>
+<pinref part="R12" gate="G$1" pin="1"/>
+<pinref part="R11" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$61" class="0">
 <segment>
-<pinref part="R7" gate="G$1" pin="2"/>
-<pinref part="C13" gate="G$1" pin="1"/>
+<pinref part="R12" gate="G$1" pin="2"/>
+<pinref part="C14" gate="G$1" pin="1"/>
 <wire x1="251.46" y1="118.872" x2="256.54" y2="118.872" width="0.1524" layer="91"/>
 <wire x1="256.54" y1="118.872" x2="256.54" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="256.54" y1="124.46" x2="256.54" y2="129.54" width="0.1524" layer="91"/>
@@ -10700,7 +10700,7 @@ TLV702xx and TLV733xx</description>
 </net>
 <net name="USB_PU" class="0">
 <segment>
-<pinref part="R4" gate="G$1" pin="1"/>
+<pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="198.12" y1="137.16" x2="187.96" y2="137.16" width="0.1524" layer="91"/>
 <label x="187.96" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -10721,7 +10721,7 @@ TLV702xx and TLV733xx</description>
 <label x="327.66" y="50.8" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="CDONE" gate="G$1" pin="A"/>
 <wire x1="330.2" y1="48.26" x2="330.2" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="R14" gate="G$1" pin="2"/>
 <wire x1="330.2" y1="53.34" x2="330.2" y2="50.8" width="0.1524" layer="91"/>
 <junction x="330.2" y="50.8"/>
 </segment>
@@ -10765,7 +10765,7 @@ TLV702xx and TLV733xx</description>
 <pinref part="IC2" gate="G$1" pin="!CS"/>
 <wire x1="187.96" y1="45.72" x2="185.42" y2="45.72" width="0.1524" layer="91"/>
 <label x="180.34" y="45.72" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="R5" gate="G$1" pin="1"/>
+<pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="185.42" y1="45.72" x2="180.34" y2="45.72" width="0.1524" layer="91"/>
 <junction x="185.42" y="45.72"/>
 </segment>
@@ -10785,7 +10785,7 @@ TLV702xx and TLV733xx</description>
 <pinref part="IC2" gate="G$1" pin="SCK"/>
 <wire x1="218.44" y1="40.64" x2="238.76" y2="40.64" width="0.1524" layer="91"/>
 <label x="243.84" y="40.64" size="1.27" layer="95" xref="yes"/>
-<pinref part="R8" gate="G$1" pin="1"/>
+<pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="238.76" y1="40.64" x2="243.84" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="238.76" y1="43.18" x2="238.76" y2="40.64" width="0.1524" layer="91"/>
 <junction x="238.76" y="40.64"/>
@@ -10981,9 +10981,9 @@ TLV702xx and TLV733xx</description>
 <segment>
 <pinref part="U1" gate="G$1" pin="RGB0"/>
 <wire x1="99.06" y1="63.5" x2="134.62" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="R43" gate="G$1" pin="2"/>
+<pinref part="R4" gate="G$1" pin="2"/>
 <junction x="134.62" y="63.5"/>
-<pinref part="R44" gate="G$1" pin="1"/>
+<pinref part="R5" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$64" class="0">
@@ -10998,11 +10998,11 @@ TLV702xx and TLV733xx</description>
 <net name="N$65" class="0">
 <segment>
 <pinref part="LED1" gate="G$1" pin="BLUE"/>
-<pinref part="R43" gate="G$1" pin="1"/>
+<pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="134.62" y1="73.66" x2="129.54" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="73.66" x2="129.54" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="35.56" x2="124.46" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="R45" gate="G$1" pin="1"/>
+<pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="124.46" y1="35.56" x2="106.68" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="60.96" x2="124.46" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="60.96" x2="124.46" y2="35.56" width="0.1524" layer="91"/>
@@ -11013,13 +11013,13 @@ TLV702xx and TLV733xx</description>
 <segment>
 <pinref part="IC4" gate="G$1" pin="OE/!ST"/>
 <wire x1="330.2" y1="137.16" x2="325.12" y2="137.16" width="0.1524" layer="91"/>
-<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="R13" gate="G$1" pin="1"/>
 <wire x1="325.12" y1="137.16" x2="325.12" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
-<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="R15" gate="G$1" pin="1"/>
 <wire x1="342.9" y1="50.8" x2="342.9" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="PWR" gate="G$1" pin="C"/>
 </segment>
@@ -11040,22 +11040,22 @@ TLV702xx and TLV733xx</description>
 </net>
 <net name="_D_P" class="2">
 <segment>
-<pinref part="R3" gate="G$1" pin="2"/>
+<pinref part="R7" gate="G$1" pin="2"/>
 <wire x1="187.96" y1="144.78" x2="190.5" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="L1" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="_D_N" class="2">
 <segment>
-<pinref part="R2" gate="G$1" pin="2"/>
+<pinref part="R6" gate="G$1" pin="2"/>
 <pinref part="L1" gate="G$1" pin="4"/>
 <wire x1="187.96" y1="152.4" x2="190.5" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$45" class="0">
 <segment>
-<pinref part="R46" gate="G$1" pin="1"/>
-<pinref part="R45" gate="G$1" pin="2"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<pinref part="R2" gate="G$1" pin="2"/>
 <pinref part="U1" gate="G$1" pin="RGB2"/>
 <wire x1="99.06" y1="58.42" x2="114.3" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="58.42" x2="114.3" y2="50.8" width="0.1524" layer="91"/>
@@ -11065,11 +11065,11 @@ TLV702xx and TLV733xx</description>
 </net>
 <net name="N$46" class="0">
 <segment>
-<pinref part="R44" gate="G$1" pin="2"/>
+<pinref part="R5" gate="G$1" pin="2"/>
 <pinref part="LED1" gate="G$1" pin="RED"/>
 <wire x1="134.62" y1="53.34" x2="134.62" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="30.48" x2="119.38" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="R46" gate="G$1" pin="2"/>
+<pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="119.38" y1="30.48" x2="106.68" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="40.64" x2="119.38" y2="30.48" width="0.1524" layer="91"/>
 <junction x="119.38" y="30.48"/>
@@ -11126,7 +11126,7 @@ B3  - LIU RD1</text>
 <instance part="U4" gate="G$4" x="144.78" y="200.66" smashed="yes" rot="R90"/>
 <instance part="U4" gate="G$5" x="157.48" y="187.96" smashed="yes"/>
 <instance part="U4" gate="G$6" x="78.74" y="198.12" smashed="yes" rot="MR270"/>
-<instance part="R30" gate="G$1" x="175.26" y="198.12" smashed="yes" rot="R180">
+<instance part="R34" gate="G$1" x="175.26" y="198.12" smashed="yes" rot="R180">
 <attribute name="DESCRIPTION" x="175.26" y="198.12" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="175.26" y="198.12" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="175.26" y="198.12" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11139,7 +11139,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="179.07" y="196.6214" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="179.07" y="201.422" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R34" gate="G$1" x="226.06" y="215.9" smashed="yes" rot="MR90">
+<instance part="R38" gate="G$1" x="226.06" y="215.9" smashed="yes" rot="MR90">
 <attribute name="DESCRIPTION" x="226.06" y="215.9" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="226.06" y="215.9" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="226.06" y="215.9" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11243,7 +11243,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="328.676" y="109.474" size="1.778" layer="95" font="vector" rot="MR180"/>
 <attribute name="VALUE" x="328.93" y="94.742" size="1.778" layer="96" font="vector" rot="MR180"/>
 </instance>
-<instance part="R20" gate="G$1" x="114.3" y="182.88" smashed="yes" rot="MR0">
+<instance part="R24" gate="G$1" x="114.3" y="182.88" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="182.88" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="182.88" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="182.88" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11295,7 +11295,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="223.52" y="170.18" size="1.778" layer="95"/>
 <attribute name="VALUE" x="223.52" y="167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="R32" gate="G$1" x="223.52" y="162.56" smashed="yes" rot="MR0">
+<instance part="R36" gate="G$1" x="223.52" y="162.56" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="223.52" y="162.56" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="223.52" y="162.56" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="223.52" y="162.56" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11437,7 +11437,7 @@ B3  - LIU RD1</text>
 <instance part="U5" gate="G$4" x="144.78" y="76.2" smashed="yes" rot="R90"/>
 <instance part="U5" gate="G$5" x="157.48" y="63.5" smashed="yes"/>
 <instance part="U5" gate="G$6" x="78.74" y="73.66" smashed="yes" rot="MR270"/>
-<instance part="R31" gate="G$1" x="175.26" y="73.66" smashed="yes" rot="R180">
+<instance part="R35" gate="G$1" x="175.26" y="73.66" smashed="yes" rot="R180">
 <attribute name="DESCRIPTION" x="175.26" y="73.66" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="175.26" y="73.66" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="175.26" y="73.66" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11450,7 +11450,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="179.07" y="72.1614" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="179.07" y="76.962" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R35" gate="G$1" x="226.06" y="91.44" smashed="yes" rot="MR90">
+<instance part="R39" gate="G$1" x="226.06" y="91.44" smashed="yes" rot="MR90">
 <attribute name="DESCRIPTION" x="226.06" y="91.44" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="226.06" y="91.44" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="226.06" y="91.44" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11528,7 +11528,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="199.39" y="70.612" size="1.778" layer="95"/>
 <attribute name="VALUE" x="204.216" y="70.866" size="1.778" layer="96"/>
 </instance>
-<instance part="R29" gate="G$1" x="114.3" y="58.42" smashed="yes" rot="MR0">
+<instance part="R33" gate="G$1" x="114.3" y="58.42" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="58.42" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="58.42" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="58.42" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11653,7 +11653,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="223.52" y="43.18" size="1.778" layer="95"/>
 <attribute name="VALUE" x="223.52" y="40.64" size="1.778" layer="96"/>
 </instance>
-<instance part="R33" gate="G$1" x="223.52" y="35.56" smashed="yes" rot="MR0">
+<instance part="R37" gate="G$1" x="223.52" y="35.56" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="223.52" y="35.56" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="223.52" y="35.56" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="223.52" y="35.56" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11709,7 +11709,7 @@ B3  - LIU RD1</text>
 <instance part="J1" gate="-2" x="307.34" y="185.42" smashed="yes" rot="MR180">
 <attribute name="NAME" x="312.42" y="193.04" size="1.778" layer="95" rot="MR180"/>
 </instance>
-<instance part="R39" gate="G$1" x="274.32" y="187.96" smashed="yes" rot="MR0">
+<instance part="R43" gate="G$1" x="274.32" y="187.96" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="274.32" y="187.96" size="1.27" layer="96" rot="R180" display="off"/>
 <attribute name="MANUFACTURER" x="274.32" y="187.96" size="1.27" layer="96" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="274.32" y="187.96" size="1.27" layer="96" rot="R180" display="off"/>
@@ -11722,7 +11722,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="273.05" y="194.0814" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="273.05" y="191.262" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R38" gate="G$1" x="274.32" y="213.36" smashed="yes" rot="MR0">
+<instance part="R42" gate="G$1" x="274.32" y="213.36" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="274.32" y="213.36" size="1.27" layer="96" rot="R180" display="off"/>
 <attribute name="MANUFACTURER" x="274.32" y="213.36" size="1.27" layer="96" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="274.32" y="213.36" size="1.27" layer="96" rot="R180" display="off"/>
@@ -11735,7 +11735,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="273.05" y="219.4814" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="273.05" y="216.662" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R12" gate="G$1" x="114.3" y="215.9" smashed="yes" rot="MR0">
+<instance part="R16" gate="G$1" x="114.3" y="215.9" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="215.9" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="215.9" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="215.9" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11748,7 +11748,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="216.6366" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="216.408" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R13" gate="G$1" x="114.3" y="213.36" smashed="yes" rot="MR0">
+<instance part="R17" gate="G$1" x="114.3" y="213.36" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="213.36" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="213.36" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="213.36" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11761,7 +11761,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="214.0966" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="213.868" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R14" gate="G$1" x="114.3" y="210.82" smashed="yes" rot="MR0">
+<instance part="R18" gate="G$1" x="114.3" y="210.82" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="210.82" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="210.82" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="210.82" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11774,7 +11774,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="211.5566" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="211.328" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R15" gate="G$1" x="114.3" y="208.28" smashed="yes" rot="MR0">
+<instance part="R19" gate="G$1" x="114.3" y="208.28" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="208.28" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="208.28" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="208.28" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11787,7 +11787,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="209.0166" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="208.788" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R16" gate="G$1" x="114.3" y="205.74" smashed="yes" rot="MR0">
+<instance part="R20" gate="G$1" x="114.3" y="205.74" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="205.74" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="205.74" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="205.74" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11800,7 +11800,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="206.4766" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="206.248" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R17" gate="G$1" x="114.3" y="203.2" smashed="yes" rot="MR0">
+<instance part="R21" gate="G$1" x="114.3" y="203.2" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="203.2" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="203.2" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="203.2" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11813,7 +11813,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="203.9366" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="203.708" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R18" gate="G$1" x="114.3" y="200.66" smashed="yes" rot="MR0">
+<instance part="R22" gate="G$1" x="114.3" y="200.66" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="200.66" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="200.66" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="200.66" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11826,7 +11826,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="201.3966" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="201.168" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R19" gate="G$1" x="114.3" y="198.12" smashed="yes" rot="MR0">
+<instance part="R23" gate="G$1" x="114.3" y="198.12" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="198.12" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="198.12" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="198.12" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11839,7 +11839,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="198.8566" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="198.628" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R21" gate="G$1" x="114.3" y="91.44" smashed="yes" rot="MR0">
+<instance part="R25" gate="G$1" x="114.3" y="91.44" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="91.44" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="91.44" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="91.44" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11852,7 +11852,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="92.1766" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="91.948" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R22" gate="G$1" x="114.3" y="88.9" smashed="yes" rot="MR0">
+<instance part="R26" gate="G$1" x="114.3" y="88.9" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="88.9" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="88.9" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="88.9" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11865,7 +11865,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="89.6366" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="89.408" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R23" gate="G$1" x="114.3" y="86.36" smashed="yes" rot="MR0">
+<instance part="R27" gate="G$1" x="114.3" y="86.36" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="86.36" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="86.36" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="86.36" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11878,7 +11878,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="87.0966" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="86.868" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R24" gate="G$1" x="114.3" y="83.82" smashed="yes" rot="MR0">
+<instance part="R28" gate="G$1" x="114.3" y="83.82" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="83.82" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="83.82" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="83.82" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11891,7 +11891,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="84.5566" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="84.328" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R25" gate="G$1" x="114.3" y="81.28" smashed="yes" rot="MR0">
+<instance part="R29" gate="G$1" x="114.3" y="81.28" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="81.28" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="81.28" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="81.28" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11904,7 +11904,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="82.0166" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="81.788" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R26" gate="G$1" x="114.3" y="78.74" smashed="yes" rot="MR0">
+<instance part="R30" gate="G$1" x="114.3" y="78.74" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="78.74" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="78.74" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="78.74" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11917,7 +11917,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="79.4766" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="79.248" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R27" gate="G$1" x="114.3" y="76.2" smashed="yes" rot="MR0">
+<instance part="R31" gate="G$1" x="114.3" y="76.2" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="76.2" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="76.2" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="76.2" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11930,7 +11930,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="76.9366" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="76.708" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R28" gate="G$1" x="114.3" y="73.66" smashed="yes" rot="MR0">
+<instance part="R32" gate="G$1" x="114.3" y="73.66" smashed="yes" rot="MR0">
 <attribute name="DESCRIPTION" x="114.3" y="73.66" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" x="114.3" y="73.66" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" x="114.3" y="73.66" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11943,7 +11943,7 @@ B3  - LIU RD1</text>
 <attribute name="NAME" x="111.506" y="74.3966" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="121.158" y="74.168" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="R36" gate="G$1" x="236.22" y="175.26" smashed="yes" rot="R270">
+<instance part="R40" gate="G$1" x="236.22" y="175.26" smashed="yes" rot="R270">
 <attribute name="NAME" x="237.998" y="174.244" size="1.27" layer="95" font="vector" rot="R270"/>
 <attribute name="VALUE" x="238.125" y="180.34" size="1.27" layer="96" font="vector" rot="R270"/>
 <attribute name="DESCRIPTION" x="236.22" y="175.26" size="1.778" layer="96" rot="R270" display="off"/>
@@ -11956,7 +11956,7 @@ B3  - LIU RD1</text>
 <attribute name="CLASS" x="236.22" y="175.26" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="LINK" x="236.22" y="175.26" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
-<instance part="R37" gate="G$1" x="236.22" y="48.26" smashed="yes" rot="R270">
+<instance part="R41" gate="G$1" x="236.22" y="48.26" smashed="yes" rot="R270">
 <attribute name="NAME" x="237.998" y="47.244" size="1.27" layer="95" font="vector" rot="R270"/>
 <attribute name="VALUE" x="238.125" y="53.34" size="1.27" layer="96" font="vector" rot="R270"/>
 <attribute name="DESCRIPTION" x="236.22" y="48.26" size="1.778" layer="96" rot="R270" display="off"/>
@@ -11969,7 +11969,7 @@ B3  - LIU RD1</text>
 <attribute name="CLASS" x="236.22" y="48.26" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="LINK" x="236.22" y="48.26" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
-<instance part="LOS1" gate="G$1" x="236.22" y="60.96" smashed="yes">
+<instance part="LOS2" gate="G$1" x="236.22" y="60.96" smashed="yes">
 <attribute name="NAME" x="244.348" y="55.88" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="245.237" y="61.722" size="1.778" layer="96" rot="R270"/>
 <attribute name="DESCRIPTION" x="236.22" y="60.96" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11982,7 +11982,7 @@ B3  - LIU RD1</text>
 <attribute name="CLASS" x="236.22" y="60.96" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="LINK" x="236.22" y="60.96" size="1.27" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="LOS0" gate="G$1" x="236.22" y="187.96" smashed="yes">
+<instance part="LOS1" gate="G$1" x="236.22" y="187.96" smashed="yes">
 <attribute name="NAME" x="244.348" y="182.88" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="245.237" y="188.722" size="1.778" layer="96" rot="R270"/>
 <attribute name="DESCRIPTION" x="236.22" y="187.96" size="1.27" layer="96" rot="R90" display="off"/>
@@ -11995,7 +11995,7 @@ B3  - LIU RD1</text>
 <attribute name="CLASS" x="236.22" y="187.96" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="LINK" x="236.22" y="187.96" size="1.27" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="R40" gate="G$1" x="320.04" y="142.24" smashed="yes" rot="R270">
+<instance part="R44" gate="G$1" x="320.04" y="142.24" smashed="yes" rot="R270">
 <attribute name="NAME" x="318.262" y="142.24" size="1.27" layer="95" rot="R90"/>
 <attribute name="VALUE" x="323.469" y="142.24" size="1.27" layer="96" rot="R90"/>
 <attribute name="DESCRIPTION" x="320.04" y="142.24" size="1.778" layer="96" rot="R90" display="off"/>
@@ -12008,7 +12008,7 @@ B3  - LIU RD1</text>
 <attribute name="CLASS" x="320.04" y="142.24" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="LINK" x="320.04" y="142.24" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="R41" gate="G$1" x="353.06" y="124.46" smashed="yes" rot="R270">
+<instance part="R45" gate="G$1" x="353.06" y="124.46" smashed="yes" rot="R270">
 <attribute name="NAME" x="351.282" y="124.46" size="1.27" layer="95" rot="R90"/>
 <attribute name="VALUE" x="356.489" y="124.46" size="1.27" layer="96" rot="R90"/>
 <attribute name="DESCRIPTION" x="353.06" y="124.46" size="1.778" layer="96" rot="R90" display="off"/>
@@ -12021,7 +12021,7 @@ B3  - LIU RD1</text>
 <attribute name="CLASS" x="353.06" y="124.46" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="LINK" x="353.06" y="124.46" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="R42" gate="G$1" x="353.06" y="114.3" smashed="yes" rot="R270">
+<instance part="R46" gate="G$1" x="353.06" y="114.3" smashed="yes" rot="R270">
 <attribute name="NAME" x="351.282" y="114.3" size="1.27" layer="95" rot="R90"/>
 <attribute name="VALUE" x="356.489" y="114.3" size="1.27" layer="96" rot="R90"/>
 <attribute name="DESCRIPTION" x="353.06" y="114.3" size="1.778" layer="96" rot="R90" display="off"/>
@@ -12141,27 +12141,27 @@ B3  - LIU RD1</text>
 <wire x1="127" y1="175.26" x2="104.14" y2="175.26" width="0.1524" layer="91"/>
 <junction x="104.14" y="175.26"/>
 <pinref part="GND5" gate="1" pin="GND"/>
-<pinref part="R12" gate="G$1" pin="2"/>
+<pinref part="R16" gate="G$1" pin="2"/>
 <wire x1="104.14" y1="215.9" x2="109.22" y2="215.9" width="0.1524" layer="91"/>
-<pinref part="R13" gate="G$1" pin="2"/>
+<pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="104.14" y1="213.36" x2="109.22" y2="213.36" width="0.1524" layer="91"/>
 <junction x="104.14" y="213.36"/>
-<pinref part="R14" gate="G$1" pin="2"/>
+<pinref part="R18" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="210.82" x2="104.14" y2="210.82" width="0.1524" layer="91"/>
 <junction x="104.14" y="210.82"/>
-<pinref part="R15" gate="G$1" pin="2"/>
+<pinref part="R19" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="208.28" x2="104.14" y2="208.28" width="0.1524" layer="91"/>
 <junction x="104.14" y="208.28"/>
-<pinref part="R16" gate="G$1" pin="2"/>
+<pinref part="R20" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="205.74" x2="104.14" y2="205.74" width="0.1524" layer="91"/>
 <junction x="104.14" y="205.74"/>
-<pinref part="R17" gate="G$1" pin="2"/>
+<pinref part="R21" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="203.2" x2="104.14" y2="203.2" width="0.1524" layer="91"/>
 <junction x="104.14" y="203.2"/>
-<pinref part="R18" gate="G$1" pin="2"/>
+<pinref part="R22" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="200.66" x2="104.14" y2="200.66" width="0.1524" layer="91"/>
 <junction x="104.14" y="200.66"/>
-<pinref part="R19" gate="G$1" pin="2"/>
+<pinref part="R23" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="198.12" x2="104.14" y2="198.12" width="0.1524" layer="91"/>
 <junction x="104.14" y="198.12"/>
 </segment>
@@ -12194,8 +12194,8 @@ B3  - LIU RD1</text>
 <wire x1="345.44" y1="99.06" x2="368.3" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="GND10" gate="1" pin="GND"/>
 <pinref part="C30" gate="G$1" pin="1"/>
-<pinref part="R41" gate="G$1" pin="2"/>
-<pinref part="R42" gate="G$1" pin="1"/>
+<pinref part="R45" gate="G$1" pin="2"/>
+<pinref part="R46" gate="G$1" pin="1"/>
 <wire x1="353.06" y1="119.38" x2="368.3" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="368.3" y1="119.38" x2="368.3" y2="104.14" width="0.1524" layer="91"/>
 <junction x="353.06" y="119.38"/>
@@ -12211,7 +12211,7 @@ B3  - LIU RD1</text>
 <pinref part="GND12" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="R30" gate="G$1" pin="1"/>
+<pinref part="R34" gate="G$1" pin="1"/>
 <pinref part="GND21" gate="1" pin="GND"/>
 <wire x1="182.88" y1="198.12" x2="180.34" y2="198.12" width="0.1524" layer="91"/>
 </segment>
@@ -12286,28 +12286,28 @@ B3  - LIU RD1</text>
 <wire x1="127" y1="50.8" x2="104.14" y2="50.8" width="0.1524" layer="91"/>
 <junction x="104.14" y="50.8"/>
 <pinref part="GND9" gate="1" pin="GND"/>
-<pinref part="R28" gate="G$1" pin="2"/>
+<pinref part="R32" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="73.66" x2="104.14" y2="73.66" width="0.1524" layer="91"/>
 <junction x="104.14" y="73.66"/>
-<pinref part="R27" gate="G$1" pin="2"/>
+<pinref part="R31" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="76.2" x2="104.14" y2="76.2" width="0.1524" layer="91"/>
 <junction x="104.14" y="76.2"/>
-<pinref part="R26" gate="G$1" pin="2"/>
+<pinref part="R30" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="78.74" x2="104.14" y2="78.74" width="0.1524" layer="91"/>
 <junction x="104.14" y="78.74"/>
-<pinref part="R25" gate="G$1" pin="2"/>
+<pinref part="R29" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="81.28" x2="104.14" y2="81.28" width="0.1524" layer="91"/>
 <junction x="104.14" y="81.28"/>
-<pinref part="R24" gate="G$1" pin="2"/>
+<pinref part="R28" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="83.82" x2="104.14" y2="83.82" width="0.1524" layer="91"/>
 <junction x="104.14" y="83.82"/>
-<pinref part="R23" gate="G$1" pin="2"/>
+<pinref part="R27" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="86.36" x2="104.14" y2="86.36" width="0.1524" layer="91"/>
 <junction x="104.14" y="86.36"/>
-<pinref part="R22" gate="G$1" pin="2"/>
+<pinref part="R26" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="88.9" x2="104.14" y2="88.9" width="0.1524" layer="91"/>
 <junction x="104.14" y="88.9"/>
-<pinref part="R21" gate="G$1" pin="2"/>
+<pinref part="R25" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="91.44" x2="104.14" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -12325,7 +12325,7 @@ B3  - LIU RD1</text>
 <pinref part="GND15" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="R31" gate="G$1" pin="1"/>
+<pinref part="R35" gate="G$1" pin="1"/>
 <pinref part="GND16" gate="1" pin="GND"/>
 <wire x1="182.88" y1="73.66" x2="180.34" y2="73.66" width="0.1524" layer="91"/>
 </segment>
@@ -12382,7 +12382,7 @@ B3  - LIU RD1</text>
 </net>
 <net name="N$4" class="0">
 <segment>
-<pinref part="R30" gate="G$1" pin="2"/>
+<pinref part="R34" gate="G$1" pin="2"/>
 <pinref part="U4" gate="G$5" pin="REF"/>
 <wire x1="170.18" y1="198.12" x2="167.64" y2="198.12" width="0.1524" layer="91"/>
 </segment>
@@ -12395,7 +12395,7 @@ B3  - LIU RD1</text>
 <wire x1="99.06" y1="220.98" x2="99.06" y2="182.88" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="182.88" x2="109.22" y2="182.88" width="0.1524" layer="91"/>
 <junction x="99.06" y="220.98"/>
-<pinref part="R20" gate="G$1" pin="2"/>
+<pinref part="R24" gate="G$1" pin="2"/>
 <label x="99.06" y="223.52" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
@@ -12457,7 +12457,7 @@ B3  - LIU RD1</text>
 <segment>
 <wire x1="236.22" y1="190.5" x2="236.22" y2="193.04" width="0.1524" layer="91"/>
 <label x="236.22" y="193.04" size="1.27" layer="95" xref="yes"/>
-<pinref part="LOS0" gate="G$1" pin="A"/>
+<pinref part="LOS1" gate="G$1" pin="A"/>
 </segment>
 <segment>
 <pinref part="U5" gate="G$4" pin="MODE0"/>
@@ -12466,7 +12466,7 @@ B3  - LIU RD1</text>
 <wire x1="99.06" y1="96.52" x2="99.06" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="58.42" x2="109.22" y2="58.42" width="0.1524" layer="91"/>
 <junction x="99.06" y="96.52"/>
-<pinref part="R29" gate="G$1" pin="2"/>
+<pinref part="R33" gate="G$1" pin="2"/>
 <label x="99.06" y="99.06" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
@@ -12513,14 +12513,14 @@ B3  - LIU RD1</text>
 <segment>
 <wire x1="236.22" y1="63.5" x2="236.22" y2="66.04" width="0.1524" layer="91"/>
 <label x="236.22" y="66.04" size="1.27" layer="95" xref="yes"/>
-<pinref part="LOS1" gate="G$1" pin="A"/>
+<pinref part="LOS2" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="TCLK" class="0">
 <segment>
 <wire x1="312.42" y1="149.86" x2="320.04" y2="149.86" width="0.1524" layer="91"/>
 <label x="312.42" y="149.86" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="R40" gate="G$1" pin="1"/>
+<pinref part="R44" gate="G$1" pin="1"/>
 <wire x1="320.04" y1="149.86" x2="320.04" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -12537,7 +12537,7 @@ B3  - LIU RD1</text>
 <net name="N$17" class="0">
 <segment>
 <pinref part="U4" gate="G$4" pin="!RST"/>
-<pinref part="R20" gate="G$1" pin="1"/>
+<pinref part="R24" gate="G$1" pin="1"/>
 <wire x1="119.38" y1="182.88" x2="127" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -12558,7 +12558,7 @@ B3  - LIU RD1</text>
 </net>
 <net name="RTIP" class="0">
 <segment>
-<pinref part="R34" gate="G$1" pin="2"/>
+<pinref part="R38" gate="G$1" pin="2"/>
 <wire x1="226.06" y1="220.98" x2="226.06" y2="228.6" width="0.1524" layer="91"/>
 <pinref part="D5" gate="G$1" pin="C"/>
 <wire x1="205.74" y1="226.06" x2="205.74" y2="228.6" width="0.1524" layer="91"/>
@@ -12583,7 +12583,7 @@ B3  - LIU RD1</text>
 </net>
 <net name="RRING" class="0">
 <segment>
-<pinref part="R34" gate="G$1" pin="1"/>
+<pinref part="R38" gate="G$1" pin="1"/>
 <wire x1="205.74" y1="208.28" x2="226.06" y2="208.28" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="208.28" x2="226.06" y2="210.82" width="0.1524" layer="91"/>
 <pinref part="D6" gate="G$1" pin="C"/>
@@ -12617,7 +12617,7 @@ B3  - LIU RD1</text>
 <wire x1="320.04" y1="104.14" x2="325.12" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="134.62" x2="312.42" y2="134.62" width="0.1524" layer="91"/>
 <label x="312.42" y="134.62" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="R40" gate="G$1" pin="2"/>
+<pinref part="R44" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="U4" gate="G$6" pin="MCLK"/>
@@ -12635,7 +12635,7 @@ B3  - LIU RD1</text>
 <pinref part="U6" gate="G$1" pin="E/D"/>
 <wire x1="345.44" y1="137.16" x2="353.06" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="353.06" y1="137.16" x2="353.06" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="R41" gate="G$1" pin="1"/>
+<pinref part="R45" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$38" class="0">
@@ -12643,84 +12643,84 @@ B3  - LIU RD1</text>
 <pinref part="U7" gate="G$1" pin="E/D"/>
 <wire x1="345.44" y1="101.6" x2="353.06" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="353.06" y1="101.6" x2="353.06" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="R42" gate="G$1" pin="2"/>
+<pinref part="R46" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="U4" gate="G$4" pin="PULS3/AD7"/>
 <wire x1="119.38" y1="215.9" x2="127" y2="215.9" width="0.1524" layer="91"/>
-<pinref part="R12" gate="G$1" pin="1"/>
+<pinref part="R16" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="U4" gate="G$4" pin="PULS2/AD6"/>
 <wire x1="119.38" y1="213.36" x2="127" y2="213.36" width="0.1524" layer="91"/>
-<pinref part="R13" gate="G$1" pin="1"/>
+<pinref part="R17" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="U4" gate="G$4" pin="PULS1/AD5"/>
 <wire x1="119.38" y1="210.82" x2="127" y2="210.82" width="0.1524" layer="91"/>
-<pinref part="R14" gate="G$1" pin="1"/>
+<pinref part="R18" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="U4" gate="G$4" pin="PULS0/AD4"/>
 <wire x1="119.38" y1="208.28" x2="127" y2="208.28" width="0.1524" layer="91"/>
-<pinref part="R15" gate="G$1" pin="1"/>
+<pinref part="R19" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
 <pinref part="U4" gate="G$4" pin="EQ/AD3"/>
 <wire x1="119.38" y1="205.74" x2="127" y2="205.74" width="0.1524" layer="91"/>
-<pinref part="R16" gate="G$1" pin="1"/>
+<pinref part="R20" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="U4" gate="G$4" pin="RPD/AD2"/>
 <wire x1="119.38" y1="203.2" x2="127" y2="203.2" width="0.1524" layer="91"/>
-<pinref part="R17" gate="G$1" pin="1"/>
+<pinref part="R21" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
 <pinref part="U4" gate="G$4" pin="PATT1/AD1"/>
 <wire x1="119.38" y1="200.66" x2="127" y2="200.66" width="0.1524" layer="91"/>
-<pinref part="R18" gate="G$1" pin="1"/>
+<pinref part="R22" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$18" class="0">
 <segment>
 <pinref part="U4" gate="G$4" pin="PATT0/AD0"/>
 <wire x1="119.38" y1="198.12" x2="127" y2="198.12" width="0.1524" layer="91"/>
-<pinref part="R19" gate="G$1" pin="1"/>
+<pinref part="R23" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$26" class="0">
 <segment>
 <pinref part="T1" gate="G$1" pin="B"/>
-<pinref part="R32" gate="G$1" pin="1"/>
+<pinref part="R36" gate="G$1" pin="1"/>
 <wire x1="231.14" y1="162.56" x2="228.6" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$27" class="0">
 <segment>
 <wire x1="236.22" y1="182.88" x2="236.22" y2="180.34" width="0.1524" layer="91"/>
-<pinref part="R36" gate="G$1" pin="1"/>
-<pinref part="LOS0" gate="G$1" pin="C"/>
+<pinref part="R40" gate="G$1" pin="1"/>
+<pinref part="LOS1" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$28" class="0">
 <segment>
 <pinref part="T1" gate="G$1" pin="C"/>
 <wire x1="236.22" y1="170.18" x2="236.22" y2="167.64" width="0.1524" layer="91"/>
-<pinref part="R36" gate="G$1" pin="2"/>
+<pinref part="R40" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="IO_A0" class="0">
@@ -12791,7 +12791,7 @@ B3  - LIU RD1</text>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="R31" gate="G$1" pin="2"/>
+<pinref part="R35" gate="G$1" pin="2"/>
 <pinref part="U5" gate="G$5" pin="REF"/>
 <wire x1="170.18" y1="73.66" x2="167.64" y2="73.66" width="0.1524" layer="91"/>
 </segment>
@@ -12799,7 +12799,7 @@ B3  - LIU RD1</text>
 <net name="N$2" class="0">
 <segment>
 <pinref part="U5" gate="G$4" pin="!RST"/>
-<pinref part="R29" gate="G$1" pin="1"/>
+<pinref part="R33" gate="G$1" pin="1"/>
 <wire x1="119.38" y1="58.42" x2="127" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -12820,7 +12820,7 @@ B3  - LIU RD1</text>
 </net>
 <net name="RTIP1" class="0">
 <segment>
-<pinref part="R35" gate="G$1" pin="2"/>
+<pinref part="R39" gate="G$1" pin="2"/>
 <wire x1="226.06" y1="96.52" x2="226.06" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="D7" gate="G$1" pin="C"/>
 <wire x1="205.74" y1="101.6" x2="205.74" y2="104.14" width="0.1524" layer="91"/>
@@ -12845,7 +12845,7 @@ B3  - LIU RD1</text>
 </net>
 <net name="RRING1" class="0">
 <segment>
-<pinref part="R35" gate="G$1" pin="1"/>
+<pinref part="R39" gate="G$1" pin="1"/>
 <wire x1="205.74" y1="83.82" x2="226.06" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="83.82" x2="226.06" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="D8" gate="G$1" pin="C"/>
@@ -12872,77 +12872,77 @@ B3  - LIU RD1</text>
 <segment>
 <pinref part="U5" gate="G$4" pin="PULS3/AD7"/>
 <wire x1="119.38" y1="91.44" x2="127" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="R21" gate="G$1" pin="1"/>
+<pinref part="R25" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$7" class="0">
 <segment>
 <pinref part="U5" gate="G$4" pin="PULS2/AD6"/>
 <wire x1="119.38" y1="88.9" x2="127" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="R22" gate="G$1" pin="1"/>
+<pinref part="R26" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
 <pinref part="U5" gate="G$4" pin="PULS1/AD5"/>
 <wire x1="119.38" y1="86.36" x2="127" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="R23" gate="G$1" pin="1"/>
+<pinref part="R27" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$16" class="0">
 <segment>
 <pinref part="U5" gate="G$4" pin="PULS0/AD4"/>
 <wire x1="119.38" y1="83.82" x2="127" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="R24" gate="G$1" pin="1"/>
+<pinref part="R28" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$19" class="0">
 <segment>
 <pinref part="U5" gate="G$4" pin="EQ/AD3"/>
 <wire x1="119.38" y1="81.28" x2="127" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="R25" gate="G$1" pin="1"/>
+<pinref part="R29" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$20" class="0">
 <segment>
 <pinref part="U5" gate="G$4" pin="RPD/AD2"/>
 <wire x1="119.38" y1="78.74" x2="127" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="R26" gate="G$1" pin="1"/>
+<pinref part="R30" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
 <pinref part="U5" gate="G$4" pin="PATT1/AD1"/>
 <wire x1="119.38" y1="76.2" x2="127" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="R27" gate="G$1" pin="1"/>
+<pinref part="R31" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
 <pinref part="U5" gate="G$4" pin="PATT0/AD0"/>
 <wire x1="119.38" y1="73.66" x2="127" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="R28" gate="G$1" pin="1"/>
+<pinref part="R32" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$31" class="0">
 <segment>
 <pinref part="T2" gate="G$1" pin="B"/>
-<pinref part="R33" gate="G$1" pin="1"/>
+<pinref part="R37" gate="G$1" pin="1"/>
 <wire x1="231.14" y1="35.56" x2="228.6" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$37" class="0">
 <segment>
 <wire x1="236.22" y1="55.88" x2="236.22" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="R37" gate="G$1" pin="1"/>
-<pinref part="LOS1" gate="G$1" pin="C"/>
+<pinref part="R41" gate="G$1" pin="1"/>
+<pinref part="LOS2" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$39" class="0">
 <segment>
 <pinref part="T2" gate="G$1" pin="C"/>
 <wire x1="236.22" y1="43.18" x2="236.22" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="R37" gate="G$1" pin="2"/>
+<pinref part="R41" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="IO_A5" class="0">
@@ -12960,7 +12960,7 @@ B3  - LIU RD1</text>
 <label x="53.34" y="101.6" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="R33" gate="G$1" pin="2"/>
+<pinref part="R37" gate="G$1" pin="2"/>
 <wire x1="218.44" y1="35.56" x2="215.9" y2="35.56" width="0.1524" layer="91"/>
 <label x="215.9" y="35.56" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -12972,7 +12972,7 @@ B3  - LIU RD1</text>
 <label x="53.34" y="226.06" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="R32" gate="G$1" pin="2"/>
+<pinref part="R36" gate="G$1" pin="2"/>
 <wire x1="218.44" y1="162.56" x2="215.9" y2="162.56" width="0.1524" layer="91"/>
 <label x="215.9" y="162.56" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -12998,7 +12998,7 @@ B3  - LIU RD1</text>
 <wire x1="256.54" y1="101.6" x2="261.62" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="261.62" y1="101.6" x2="261.62" y2="187.96" width="0.1524" layer="91"/>
 <pinref part="TR2" gate="-1:1" pin="P$1"/>
-<pinref part="R39" gate="G$1" pin="2"/>
+<pinref part="R43" gate="G$1" pin="2"/>
 <wire x1="261.62" y1="187.96" x2="269.24" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -13023,7 +13023,7 @@ B3  - LIU RD1</text>
 <wire x1="284.48" y1="213.36" x2="284.48" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="284.48" y1="180.34" x2="302.26" y2="180.34" width="0.1524" layer="91"/>
 <pinref part="J1" gate="-2" pin="2"/>
-<pinref part="R38" gate="G$1" pin="1"/>
+<pinref part="R42" gate="G$1" pin="1"/>
 <wire x1="279.4" y1="213.36" x2="284.48" y2="213.36" width="0.1524" layer="91"/>
 <junction x="284.48" y="213.36"/>
 </segment>
@@ -13083,7 +13083,7 @@ B3  - LIU RD1</text>
 <pinref part="J1" gate="-1" pin="5"/>
 <wire x1="302.26" y1="220.98" x2="292.1" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="292.1" y1="220.98" x2="292.1" y2="187.96" width="0.1524" layer="91"/>
-<pinref part="R39" gate="G$1" pin="1"/>
+<pinref part="R43" gate="G$1" pin="1"/>
 <wire x1="279.4" y1="187.96" x2="292.1" y2="187.96" width="0.1524" layer="91"/>
 <junction x="292.1" y="187.96"/>
 </segment>
@@ -13093,7 +13093,7 @@ B3  - LIU RD1</text>
 <pinref part="TR1" gate="-1:1" pin="P$1"/>
 <wire x1="256.54" y1="226.06" x2="266.7" y2="226.06" width="0.1524" layer="91"/>
 <wire x1="266.7" y1="226.06" x2="266.7" y2="213.36" width="0.1524" layer="91"/>
-<pinref part="R38" gate="G$1" pin="2"/>
+<pinref part="R42" gate="G$1" pin="2"/>
 <wire x1="266.7" y1="213.36" x2="269.24" y2="213.36" width="0.1524" layer="91"/>
 </segment>
 </net>
