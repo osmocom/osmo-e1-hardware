@@ -1,4 +1,4 @@
-LDFLAGS+=`pkg-config --libs libosmocore libosmogsm`
+LIBS+=`pkg-config --libs libosmocore libosmogsm`
 CFLAGS+=-Wall `pkg-config --cflags libosmocore libosmogsm`
 
 all: e1_test e1_test_dieter
@@ -7,10 +7,10 @@ all: e1_test e1_test_dieter
 	$(CC) $(CFLAGS) -o $@ -c $^
 
 e1_test: osmo_e1f.o crc4itu.o e1_test.o
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 e1_test_dieter: osmo_e1f.o crc4itu.o e1_test_dieter.o
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 
 clean:
