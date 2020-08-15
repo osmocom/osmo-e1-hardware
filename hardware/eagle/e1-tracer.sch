@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,19 +53,19 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="6" fill="1" visible="no" active="no"/>
-<layer number="59" name="tMark" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bMark" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="6" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tMark" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bMark" color="7" fill="1" visible="yes" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -8398,7 +8398,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="CE201210-47NJCT-ND"/>
 </part>
 <part name="U6" library="laforge" deviceset="FOX_FXO-HC73" device="" value="2.048 Mhz">
-<attribute name="CLASS" value="IC"/>
+<attribute name="CLASS" value="IC / XTAL / XO"/>
 <attribute name="DESCRIPTION" value="XTAL OSC XO 2.0480MHZ HCMOS SMD"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/renesas-electronics-america-inc/XLH736002-048000I/631-1182-ND"/>
 <attribute name="MANUFACTURER" value="Renesas Electronics America Inc."/>
@@ -8409,12 +8409,12 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="631-1182-ND"/>
 </part>
 <part name="U7" library="laforge" deviceset="FOX_FXO-HC73" device="" value="1.544 MHz">
-<attribute name="CLASS" value="IC"/>
+<attribute name="CLASS" value="IC / XTAL / XO"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
-<attribute name="POPULATED" value="TRUE"/>
+<attribute name="POPULATED" value="FALSE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
@@ -8453,15 +8453,15 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
 <part name="T1" library="transistor" deviceset="*-NPN-" device="SOT23-BEC" technology="BC847C" value="BC847C">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="CLASS" value="TRANSISTOR"/>
+<attribute name="DESCRIPTION" value="TRANS NPN 45V 0.1A SOT23"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/nexperia-usa-inc/BC847C,215/1727-2924-1-ND"/>
+<attribute name="MANUFACTURER" value="Nexperia USA Inc."/>
+<attribute name="MANUFACTURERPARTNUMBER" value="BC847C,215"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCE" value="DIGIKEY"/>
+<attribute name="SOURCEPARTNUMBER" value="1727-2924-1-ND"/>
 </part>
 <part name="R36" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
@@ -8503,7 +8503,7 @@ TLV702xx and TLV733xx</description>
 </part>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="IC2" library="spiflash" deviceset="AT25SF" device="-COMB" value="W25Q80DVSNIG">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
+<attribute name="CLASS" value="IC"/>
 <attribute name="DESCRIPTION" value="IC FLASH 8M SPI 104MHZ 8SOIC"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/winbond-electronics/W25Q80DVSNIG/W25Q80DVSNIG-ND"/>
 <attribute name="MANUFACTURER" value="Winbond Electronics"/>
@@ -8745,14 +8745,14 @@ TLV702xx and TLV733xx</description>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="U5" library="laforge" deviceset="IDT82V2081" device="">
 <attribute name="CLASS" value="IC"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="DESCRIPTION" value="IC TELECOM INTERFACE 44TQFP"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/renesas-electronics-america-inc/82V2081PPG/800-2347-ND"/>
+<attribute name="MANUFACTURER" value="Renesas Electronics America Inc."/>
+<attribute name="MANUFACTURERPARTNUMBER" value="82V2081PPG"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCE" value="DIGIKEY"/>
+<attribute name="SOURCEPARTNUMBER" value="800-2347-ND"/>
 </part>
 <part name="R35" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="3k 1%">
 <attribute name="CLASS" value="RESISTOR"/>
@@ -8916,15 +8916,15 @@ TLV702xx and TLV733xx</description>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="T2" library="transistor" deviceset="*-NPN-" device="SOT23-BEC" technology="BC847C" value="BC847C">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="CLASS" value="TRANSISTOR"/>
+<attribute name="DESCRIPTION" value="TRANS NPN 45V 0.1A SOT23"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/nexperia-usa-inc/BC847C,215/1727-2924-1-ND"/>
+<attribute name="MANUFACTURER" value="Nexperia USA Inc."/>
+<attribute name="MANUFACTURERPARTNUMBER" value="BC847C,215"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCE" value="DIGIKEY"/>
+<attribute name="SOURCEPARTNUMBER" value="1727-2924-1-ND"/>
 </part>
 <part name="R37" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
@@ -8952,7 +8952,7 @@ TLV702xx and TLV733xx</description>
 </part>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="IC4" library="Epson_TSX-3225" deviceset="ASTMLP-E" device="-OSC" value="ASEM1-12.000MHZ-LC-T">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
+<attribute name="CLASS" value="IC / XTAL / XO"/>
 <attribute name="DESCRIPTION" value="MEMS OSC XO 12.0000MHZ CMOS SMD"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/abracon-llc/ASEM1-12-000MHZ-LC-T/535-9757-1-ND"/>
 <attribute name="MANUFACTURER" value="Abracon LLC"/>
@@ -8986,16 +8986,16 @@ TLV702xx and TLV733xx</description>
 </part>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="R15" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="68">
+<part name="R15" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="330">
 <attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="DESCRIPTION" value="RES SMD 330 OHM 1%% 1/10W 0603"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/yageo/RC0603FR-07330RL/311-330HRCT-ND"/>
+<attribute name="MANUFACTURER" value="Yageo"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RC0603FR-07330RL"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCE" value="DIGIKEY"/>
+<attribute name="SOURCEPARTNUMBER" value="311-330HRCT-ND"/>
 </part>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
@@ -9024,7 +9024,7 @@ TLV702xx and TLV733xx</description>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="IC1" library="MCP170x" deviceset="MCP1700" device="" value="MCP1703T-1202E/CB">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
+<attribute name="CLASS" value="IC"/>
 <attribute name="DESCRIPTION" value="IC REG LIN 1.2V 200MA SOT23A-3"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/microchip-technology/MCP1703T-1202E-CB/MCP1703T-1202E-CBCT-ND/1994670"/>
 <attribute name="MANUFACTURER" value="Microchip Technology"/>
@@ -9115,7 +9115,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT2K20CT-ND"/>
 </part>
 <part name="CDONE" library="led" deviceset="LED" device="CHIPLED_0603" value="BLUE">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
+<attribute name="CLASS" value="LED"/>
 <attribute name="DESCRIPTION" value="LED BLUE CLEAR CHIP SMD"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/lite-on-inc/LTST-C193TBKT-5A/160-1827-1-ND"/>
 <attribute name="MANUFACTURER" value="Lite-On Inc."/>
@@ -9149,22 +9149,22 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT1K00CT-ND"/>
 </part>
 <part name="M1" library="Mentor_lightpipe" deviceset="MENTOR_12701001" device="">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
+<attribute name="CLASS" value="LIGHT GUIDE"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
 <attribute name="MANUFACTURER" value="Mentor"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="1270.1001"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
 <part name="M2" library="Mentor_lightpipe" deviceset="MENTOR_12701001" device="">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
+<attribute name="CLASS" value="LIGHT GUIDE"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="UNKNOWN LINK"/>
 <attribute name="MANUFACTURER" value="Mentor"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="1270.1001"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
@@ -9446,7 +9446,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
 <part name="SW1" library="tact-switches" deviceset="TL3340" device="" value="TACTSW-TL3340">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
+<attribute name="CLASS" value="SWITCH"/>
 <attribute name="DESCRIPTION" value="SWITCH TACTILE SPST-NO 0.05A 12V"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/e-switch/TL3340AF160QG/EG4627CT-ND/1885974"/>
 <attribute name="MANUFACTURER" value="E-Switch"/>
@@ -9481,7 +9481,7 @@ TLV702xx and TLV733xx</description>
 </part>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
 <part name="IC3" library="tlv700xx" deviceset="TLV700*" device="-SOT" technology="33" value="TLV70233DBVR">
-<attribute name="CLASS" value="UNKNOWN CLASS"/>
+<attribute name="CLASS" value="IC"/>
 <attribute name="DESCRIPTION" value="IC REG LINEAR 3.3V 300MA SOT23-5"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/texas-instruments/TLV70233DBVR/296-32415-1-ND"/>
 <attribute name="MANUFACTURER" value="Texas Instruments"/>

@@ -28,9 +28,9 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
@@ -2134,7 +2134,7 @@ design rules under a new name.</description>
 <attribute name="MANUFACTURERPARTNUMBER" value="LTST-C193TBKT-5A" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCE" value="DIGIKEY" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CLASS" value="LED" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURER" value="Lite-On Inc." x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DESCRIPTION" value="LED BLUE CLEAR CHIP SMD" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
@@ -2251,7 +2251,7 @@ design rules under a new name.</description>
 <attribute name="MANUFACTURERPARTNUMBER" value="W25Q80DVSNIG" x="84.725" y="31.845" size="1.778" layer="27" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="84.725" y="31.845" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCE" value="DIGIKEY" x="84.725" y="31.845" size="1.778" layer="27" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="84.725" y="31.845" size="1.778" layer="27" display="off"/>
+<attribute name="CLASS" value="IC" x="84.725" y="31.845" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURER" value="Winbond Electronics" x="84.725" y="31.845" size="1.778" layer="27" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="84.725" y="31.845" size="1.778" layer="27" display="off"/>
 <attribute name="DESCRIPTION" value="IC FLASH 8M SPI 104MHZ 8SOIC" x="84.725" y="31.845" size="1.778" layer="27" display="off"/>
@@ -2264,7 +2264,7 @@ design rules under a new name.</description>
 <attribute name="MANUFACTURERPARTNUMBER" value="MCP1703T-1202E/CB" x="88.2175" y="47.3075" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="88.2175" y="47.3075" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCE" value="DIGIKEY" x="88.2175" y="47.3075" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="88.2175" y="47.3075" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CLASS" value="IC" x="88.2175" y="47.3075" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURER" value="Microchip Technology" x="88.2175" y="47.3075" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="88.2175" y="47.3075" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DESCRIPTION" value="IC REG LIN 1.2V 200MA SOT23A-3" x="88.2175" y="47.3075" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2277,7 +2277,7 @@ design rules under a new name.</description>
 <attribute name="MANUFACTURERPARTNUMBER" value="ASEM1-12.000MHZ-LC-T" x="79.645" y="40.1" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="79.645" y="40.1" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCE" value="DIGIKEY" x="79.645" y="40.1" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="79.645" y="40.1" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CLASS" value="IC / XTAL / XO" x="79.645" y="40.1" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURER" value="Abracon LLC" x="79.645" y="40.1" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="79.645" y="40.1" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DESCRIPTION" value="MEMS OSC XO 12.0000MHZ CMOS SMD" x="79.645" y="40.1" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2588,42 +2588,42 @@ design rules under a new name.</description>
 <attribute name="NAME" x="79.9625" y="46.7675" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="80.5023" y="42.9575" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
-<element name="R15" library="rc-sysmocom" package="_0603" value="68" x="23.8125" y="11.1125" smashed="yes" rot="R90">
-<attribute name="LINK" value="UNKNOWN LINK" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="R15" library="rc-sysmocom" package="_0603" value="330" x="23.8125" y="11.1125" smashed="yes" rot="R90">
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/yageo/RC0603FR-07330RL/311-330HRCT-ND" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="311-330HRCT-ND" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RC0603FR-07330RL" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Yageo" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="RES SMD 330 OHM 1%% 1/10W 0603" x="23.8125" y="11.1125" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="24.4475" y="14.2875" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="25.3048" y="9.525" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
 <element name="T1" library="transistor" package="SOT23-BEC" value="BC847C" x="15.24" y="26.67" smashed="yes" rot="R180">
-<attribute name="LINK" value="UNKNOWN LINK" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/nexperia-usa-inc/BC847C,215/1727-2924-1-ND" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="1727-2924-1-ND" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="BC847C,215" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CLASS" value="TRANSISTOR" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Nexperia USA Inc." x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="TRANS NPN 45V 0.1A SOT23" x="15.24" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="17.145" y="26.67" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="17.145" y="29.845" size="1.1" layer="27" rot="R180"/>
 </element>
 <element name="T2" library="transistor" package="SOT23-BEC" value="BC847C" x="10.795" y="26.67" smashed="yes" rot="R180">
-<attribute name="LINK" value="UNKNOWN LINK" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/nexperia-usa-inc/BC847C,215/1727-2924-1-ND" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="1727-2924-1-ND" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="BC847C,215" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CLASS" value="TRANSISTOR" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Nexperia USA Inc." x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="TRANS NPN 45V 0.1A SOT23" x="10.795" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="7.62" y="26.67" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="12.7" y="29.845" size="1.1" layer="27" rot="R180"/>
 </element>
@@ -2748,15 +2748,15 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="35.259" y="63.6351" size="1.1" layer="27" rot="R180"/>
 </element>
 <element name="U5" library="laforge" package="TQFP44" value="IDT82V2081" x="60.405" y="61.865" smashed="yes" rot="R180">
-<attribute name="LINK" value="UNKNOWN LINK" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/renesas-electronics-america-inc/82V2081PPG/800-2347-ND" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="800-2347-ND" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="82V2081PPG" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="IC" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Renesas Electronics America Inc." x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="IC TELECOM INTERFACE 44TQFP" x="60.405" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="53.674" y="68.977" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="64.469" y="63.6351" size="1.1" layer="27" rot="R180"/>
 </element>
@@ -2766,7 +2766,7 @@ design rules under a new name.</description>
 <attribute name="MANUFACTURERPARTNUMBER" value="XLH736002.048000I" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCE" value="DIGIKEY" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="CLASS" value="IC" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="CLASS" value="IC / XTAL / XO" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" value="Renesas Electronics America Inc." x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="DESCRIPTION" value="XTAL OSC XO 2.0480MHZ HCMOS SMD" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2777,9 +2777,9 @@ design rules under a new name.</description>
 <attribute name="LINK" value="UNKNOWN LINK" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="POPULATED" value="TRUE" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="POPULATED" value="FALSE" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="CLASS" value="IC" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CLASS" value="IC / XTAL / XO" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION" x="82.9475" y="63.4525" size="1.778" layer="27" rot="R180" display="off"/>
@@ -2806,23 +2806,23 @@ design rules under a new name.</description>
 <element name="M1" library="Mentor_lightpipe" package="1270.1001" value="MENTOR_12701001" x="12.7" y="4.445" smashed="yes" rot="R90">
 <attribute name="DESCRIPTION" value="NO DESCRIPTION" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" value="Mentor" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="1270.1001" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="CLASS" value="LIGHT GUIDE" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="LINK" value="UNKNOWN LINK" x="12.7" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="M2" library="Mentor_lightpipe" package="1270.1001" value="MENTOR_12701001" x="19.05" y="4.445" smashed="yes" rot="R90">
 <attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURER" value="Mentor" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="1270.1001" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="CLASS" value="LIGHT GUIDE" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="LINK" value="UNKNOWN LINK" x="19.05" y="4.445" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R16" library="rc-sysmocom" package="_0603" value="10k" x="19.765" y="54.245" smashed="yes" rot="R180">
@@ -3156,7 +3156,7 @@ design rules under a new name.</description>
 <attribute name="POPULATED" value="TRUE" x="86.63" y="2.69875" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCE" value="DIGIKEY" x="86.63" y="2.69875" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="EG4627CT-ND" x="86.63" y="2.69875" size="1.778" layer="27" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="86.63" y="2.69875" size="1.778" layer="27" display="off"/>
+<attribute name="CLASS" value="SWITCH" x="86.63" y="2.69875" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURER" value="E-Switch" x="86.63" y="2.69875" size="1.778" layer="27" display="off"/>
 <attribute name="DESCRIPTION" value="SWITCH TACTILE SPST-NO 0.05A 12V" x="86.63" y="2.69875" size="1.778" layer="27" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/e-switch/TL3340AF160QG/EG4627CT-ND/1885974" x="86.63" y="2.69875" size="1.778" layer="27" display="off"/>
@@ -3201,7 +3201,7 @@ design rules under a new name.</description>
 <attribute name="SOURCEPARTNUMBER" value="296-32415-1-ND" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
-<attribute name="CLASS" value="UNKNOWN CLASS" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="CLASS" value="IC" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/texas-instruments/TLV70233DBVR/296-32415-1-ND" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U$1" library="oshw" package="OSHW_8MM_COPPER" value="" x="17.1725" y="44.4175" smashed="yes" rot="R90"/>
