@@ -8312,35 +8312,35 @@ TLV702xx and TLV733xx</description>
 <part name="U4" library="laforge" deviceset="IDT82V2081" device="">
 <attribute name="CLASS" value="IC"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/renesas-electronics-america-inc/82V2081PPG/800-2347-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="800-2347-ND"/>
 </part>
 <part name="R34" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="3k 1%">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT3K00/RMCF0603FT3K00CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCE" value="RMCF0603FT3K00CT-ND"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
 <part name="R38" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="120">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT120R/RMCF0603JT120RCT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT120RCT-ND"/>
 </part>
 <part name="D5" library="semicon-smd-ipc" deviceset="D-FILL-" device="SOD123" value="MBR0540T1">
 <attribute name="CLASS" value="DIODE"/>
@@ -8389,24 +8389,24 @@ TLV702xx and TLV733xx</description>
 <part name="L2" library="inductor-neosid" deviceset="SM-1206" device="" value="47nH">
 <attribute name="CLASS" value="INDUCTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/bourns-inc/CE201210-47NJ/CE201210-47NJCT-ND/3438045"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="CE201210-47NJCT-ND"/>
 </part>
 <part name="U6" library="laforge" deviceset="FOX_FXO-HC73" device="" value="2.048 Mhz">
 <attribute name="CLASS" value="IC"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/renesas-electronics-america-inc/XLH736002-048000I/631-1182-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="XLH736002.048000I"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="631-1182-ND"/>
 </part>
 <part name="U7" library="laforge" deviceset="FOX_FXO-HC73" device="" value="1.544 MHz">
 <attribute name="CLASS" value="IC"/>
@@ -8422,13 +8422,13 @@ TLV702xx and TLV733xx</description>
 <part name="R24" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="TP1" library="testpad" deviceset="TP" device="TP12R" value="TPTP12R">
 <attribute name="CLASS" value="UNKNOWN CLASS"/>
@@ -8466,13 +8466,13 @@ TLV702xx and TLV733xx</description>
 <part name="R36" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="FRAME3" library="frames" deviceset="A3L-LOC" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
@@ -8528,25 +8528,25 @@ TLV702xx and TLV733xx</description>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="R10" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="RES 10K OHM 1%% 1/10W 0603"/>
-<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT10K0/RMCF0603FT10K0CT-ND"/>
-<attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603FT10K0"/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="DIGIKEY"/>
-<attribute name="SOURCEPARTNUMBER" value="RMCF0603FT10K0CT-ND"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R8" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="RES 10K OHM 1%% 1/10W 0603"/>
-<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT10K0/RMCF0603FT10K0CT-ND"/>
-<attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="YPE HTML PUBLIC "/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS3-konform"/>
-<attribute name="SOURCE" value="DIGIKEY"/>
-<attribute name="SOURCEPARTNUMBER" value="RMCF0603FT10K0CT-ND"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="X1" library="con-hirose" deviceset="MINI-USB-SHIELD-" device="UX60-MB-5ST" value="MINI-USB-SHIELD-UX60-MB-5ST">
 <attribute name="CLASS" value="CONNECTOR"/>
@@ -8618,13 +8618,13 @@ TLV702xx and TLV733xx</description>
 <part name="R9" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="1k5">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT1K50/RMCF0603JT1K50CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value=" RMCF0603JT1K50CT-ND "/>
 </part>
 <part name="C8" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="_0603" value="1u">
 <attribute name="CLASS" value="CAPACITOR"/>
@@ -8674,13 +8674,13 @@ TLV702xx and TLV733xx</description>
 <part name="R1" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="100R">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT100R/RMCF0603JT100RCT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT100RCT-ND"/>
 </part>
 <part name="C4" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="_0603" value="100n">
 <attribute name="CLASS" value="CAPACITOR"/>
@@ -8757,24 +8757,24 @@ TLV702xx and TLV733xx</description>
 <part name="R35" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="3k 1%">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT3K00/RMCF0603FT3K00CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCE" value="RMCF0603FT3K00CT-ND"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
 <part name="R39" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="120">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT120R/RMCF0603JT120RCT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT120RCT-ND"/>
 </part>
 <part name="D7" library="semicon-smd-ipc" deviceset="D-FILL-" device="SOD123" value="MBR0540T1">
 <attribute name="CLASS" value="DIODE"/>
@@ -8823,24 +8823,24 @@ TLV702xx and TLV733xx</description>
 <part name="L3" library="inductor-neosid" deviceset="SM-1206" device="" value="47nH">
 <attribute name="CLASS" value="INDUCTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/bourns-inc/CE201210-47NJ/CE201210-47NJCT-ND/3438045"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="CE201210-47NJCT-ND"/>
 </part>
 <part name="R33" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="TP3" library="testpad" deviceset="TP" device="TP12R" value="TPTP12R">
 <attribute name="CLASS" value="UNKNOWN CLASS"/>
@@ -8929,13 +8929,13 @@ TLV702xx and TLV733xx</description>
 <part name="R37" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
@@ -8964,14 +8964,14 @@ TLV702xx and TLV733xx</description>
 </part>
 <part name="R13" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="RES 10K OHM 1%% 1/10W 0603"/>
-<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT10K0/RMCF0603FT10K0CT-ND"/>
-<attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="YPE HTML PUBLIC "/>
+<attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
+<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="Bleifrei / RoHS3-konform"/>
-<attribute name="SOURCE" value="DIGIKEY"/>
-<attribute name="SOURCEPARTNUMBER" value="RMCF0603FT10K0CT-ND"/>
+<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="C16" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="_0603" value="100n">
 <attribute name="CLASS" value="CAPACITOR"/>
@@ -9106,13 +9106,13 @@ TLV702xx and TLV733xx</description>
 <part name="R14" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="2.2k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT2K20/RMCF0603JT2K20CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT2K20CT-ND"/>
 </part>
 <part name="CDONE" library="led" deviceset="LED" device="CHIPLED_0603" value="BLUE">
 <attribute name="CLASS" value="UNKNOWN CLASS"/>
@@ -9123,29 +9123,29 @@ TLV702xx and TLV733xx</description>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="160-1827-1-ND"/>
 </part>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="R43" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="1k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT1K00/RMCF0603JT1K00CT-ND/1943173"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCE" value="RMCF0603JT1K00CT-ND"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
 <part name="R42" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="1k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT1K00/RMCF0603JT1K00CT-ND/1943173"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE"/>
+<attribute name="SOURCE" value="RMCF0603JT1K00CT-ND"/>
 <attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
 </part>
 <part name="M1" library="Mentor_lightpipe" deviceset="MENTOR_12701001" device="">
@@ -9173,178 +9173,178 @@ TLV702xx and TLV733xx</description>
 <part name="R16" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R17" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R18" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R19" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R20" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R21" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R22" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R23" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R25" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R26" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R27" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R28" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R29" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R30" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R31" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="R32" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M08" device="LOCK">
 <attribute name="CLASS" value="CONNECTOR\JUMPER"/>
@@ -9410,7 +9410,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="511-1645-1-ND"/>
 </part>
 <part name="R44" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="DNP">
 <attribute name="CLASS" value="RESISTOR"/>
@@ -9483,36 +9483,36 @@ TLV702xx and TLV733xx</description>
 <part name="IC3" library="tlv700xx" deviceset="TLV700*" device="-SOT" technology="33" value="TLV70233DBVR">
 <attribute name="CLASS" value="UNKNOWN CLASS"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/texas-instruments/TLV70233DBVR/296-32415-1-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="OC_DIGIKEY" value="296-32415-1-ND"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="296-32415-1-ND"/>
 </part>
 <part name="R6" library="rc-sysmocom" deviceset="RESISTOR" device="_0402" value="33">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT33R0/RMCF0603JT33R0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT33R0CT-ND"/>
 </part>
 <part name="R7" library="rc-sysmocom" deviceset="RESISTOR" device="_0402" value="33">
 <attribute name="CLASS" value="RESISTOR"/>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
-<attribute name="LINK" value="UNKNOWN LINK"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT33R0/RMCF0603JT33R0CT-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT33R0CT-ND"/>
 </part>
 <part name="C28" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="_0805" value="22u">
 <attribute name="CLASS" value="CAPACITOR"/>
@@ -9541,7 +9541,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="DESCRIPTION" value="NO DESCRIPTION"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/kemet/C0805C226M9PACTU/399-4696-1-ND"/>
 <attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="399-4696-1-ND"/>
 <attribute name="POPULATED" value="TRUE"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
 <attribute name="SOURCE" value="UNKNOWN SOURCE"/>
