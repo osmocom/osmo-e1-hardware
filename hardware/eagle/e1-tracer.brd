@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.15875" altunitdist="mm" altunit="mm"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="0.15875" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -2131,13 +2131,13 @@ design rules under a new name.</description>
 <element name="CDONE" library="led" package="CHIPLED_0603" value="BLUE" x="70.755" y="18.0975" smashed="yes" rot="R180">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/lite-on-inc/LTST-C193TBKT-5A/160-1827-1-ND" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="160-1827-1-ND" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="LTST-C193TBKT-5A" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="UNKNOWN CLASS" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Lite-On Inc." x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="LED BLUE CLEAR CHIP SMD" x="70.755" y="18.0975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="69.485" y="15.5575" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="68.215" y="19.3675" size="1.1" layer="27" rot="R270"/>
 </element>
@@ -2286,13 +2286,13 @@ design rules under a new name.</description>
 <element name="J1" library="con-amp" package="557560-1" value="PASSTHROUGH" x="42.545" y="7.08" smashed="yes">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/te-connectivity-amp-connectors/5557560-1/A31449-ND" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="A31449-ND" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="5557560-1" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
 <attribute name="CLASS" value="CONNECTOR\JUMPER" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER" value="TE Connectivity AMP Connectors" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="CONN MOD JACK 8P8C R/A UNSHLD" x="42.545" y="7.08" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="30.131" y="19.558" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="59.182" y="2.254" size="1.1" layer="27" rot="R90"/>
 </element>
@@ -2314,15 +2314,15 @@ design rules under a new name.</description>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/bourns-inc/CE201210-47NJ/CE201210-47NJCT-ND/3438045" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="CE201210-47NJCT-ND" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="CE201210-47NJ" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="CLASS" value="INDUCTOR" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER" value="Bourns Inc." x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value="FIXED IND 47NH 300MA 700MOHM SMD" x="38.02125" y="51.54625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="39.33575" y="52.10175" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="35.71325" y="53.75425" size="1.1" layer="27" rot="R270"/>
 </element>
@@ -2331,15 +2331,15 @@ design rules under a new name.</description>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/bourns-inc/CE201210-47NJ/CE201210-47NJCT-ND/3438045" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="CE201210-47NJCT-ND" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="CE201210-47NJ" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="CLASS" value="INDUCTOR" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER" value="Bourns Inc." x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value="FIXED IND 47NH 300MA 700MOHM SMD" x="67.7075" y="51.22875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="69.212" y="52.38675" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="65.3995" y="53.43675" size="1.1" layer="27" rot="R270"/>
 </element>
@@ -2357,169 +2357,169 @@ design rules under a new name.</description>
 <element name="R1" library="rc-sysmocom" package="_0603" value="100R" x="74.565" y="41.37" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT100R/RMCF0603JT100RCT-ND" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT100RCT-ND" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT100R" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="RES 100 OHM 5%% 1/10W 0603" x="74.565" y="41.37" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="76.47" y="41.37" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="76.0573" y="39.7825" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
 <element name="R24" library="rc-sysmocom" package="_0603" value="10k" x="37.1" y="70.0875" smashed="yes">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="37.1" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="35.83" y="71.3575" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="35.5125" y="68.5952" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
 <element name="R33" library="rc-sysmocom" package="_0603" value="10k" x="66.31" y="70.0875" smashed="yes">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="66.31" y="70.0875" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="65.04" y="71.04" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="64.7225" y="68.5952" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
 <element name="R34" library="rc-sysmocom" package="_0603" value="3k 1%" x="38.4975" y="55.1975" smashed="yes" rot="R180">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT3K00/RMCF0603FT3K00CT-ND" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603FT3K00CT-ND" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603FT3K00" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="RMCF0603FT3K00CT-ND" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 3K OHM 1%% 1/10W 0603" x="38.4975" y="55.1975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="40.4025" y="54.5625" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="40.085" y="56.6898" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R35" library="rc-sysmocom" package="_0603" value="3k 1%" x="67.9925" y="54.69" smashed="yes" rot="R180">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603FT3K00/RMCF0603FT3K00CT-ND" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603FT3K00CT-ND" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603FT3K00" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="RMCF0603FT3K00CT-ND" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 3K OHM 1%% 1/10W 0603" x="67.9925" y="54.69" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="69.6125" y="55.515" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="69.58" y="56.1823" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R36" library="rc-sysmocom" package="_0603" value="10k" x="16.1925" y="30.48" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="16.1925" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="18.415" y="28.8925" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="17.6848" y="28.8925" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
 <element name="R37" library="rc-sysmocom" package="_0603" value="10k" x="11.7475" y="30.7975" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="11.7475" y="30.7975" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="10.795" y="29.21" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="13.2398" y="29.21" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
 <element name="R38" library="rc-sysmocom" package="_0603" value="120" x="38.4175" y="35.02" smashed="yes">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT120R/RMCF0603JT120RCT-ND" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT120RCT-ND" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT120R" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="RES 120 OHM 5%% 1/10W 0603" x="38.4175" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="40.64" y="33.4325" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="36.83" y="33.5277" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
 <element name="R39" library="rc-sysmocom" package="_0603" value="120" x="53.34" y="35.02" smashed="yes">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT120R/RMCF0603JT120RCT-ND" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT120RCT-ND" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT120R" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="RES 120 OHM 5%% 1/10W 0603" x="53.34" y="35.02" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="55.5625" y="33.4325" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="51.7525" y="33.5277" size="1.1" layer="27" font="vector" ratio="16"/>
 </element>
 <element name="R9" library="rc-sysmocom" package="_0603" value="1k5" x="76.47" y="16.51" smashed="yes" rot="R180">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT1K50/RMCF0603JT1K50CT-ND" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value=" RMCF0603JT1K50CT-ND " x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT1K50CT-ND" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT1K50" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 1.5K OHM 5%% 1/10W 0603" x="76.47" y="16.51" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="78.0575" y="15.875" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="78.0575" y="18.0023" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R42" library="rc-sysmocom" package="_0603" value="1k" x="39.37" y="20.415" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT1K00/RMCF0603JT1K00CT-ND/1943173" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT1K00CT-ND" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT1K00" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="RMCF0603JT1K00CT-ND" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="RES 1K OHM 5%% 1/10W 0603" x="39.37" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="38.4175" y="18.8275" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="40.8623" y="18.8275" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
 <element name="R43" library="rc-sysmocom" package="_0603" value="1k" x="55.88" y="20.415" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT1K00/RMCF0603JT1K00CT-ND/1943173" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT1K00CT-ND" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT1K00" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="RMCF0603JT1K00CT-ND" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="RES 1K OHM 5%% 1/10W 0603" x="55.88" y="20.415" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="56.8325" y="22.0025" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="57.3723" y="18.8275" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
 <element name="R8" library="rc-sysmocom" package="_0603" value="10k" x="82.82" y="22.955" smashed="yes" rot="R270">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="82.82" y="22.955" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="82.185" y="21.3675" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="81.3277" y="24.5425" size="1.1" layer="27" font="vector" ratio="16" rot="R270"/>
 </element>
@@ -2552,23 +2552,23 @@ design rules under a new name.</description>
 <element name="R10" library="rc-sysmocom" package="_0603" value="10k" x="85.36" y="39.465" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="85.36" y="39.465" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="87.265" y="38.5125" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="86.8523" y="37.8775" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
 <element name="R14" library="rc-sysmocom" package="_0603" value="2.2k" x="72.66" y="18.0975" smashed="yes" rot="R90">
 <attribute name="NAME" x="73.6125" y="16.3511" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="73.9936" y="16.8275" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="RES 2.2K OHM 5%% 1/10W 0603" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT2K20" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT2K20CT-ND" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="72.66" y="18.0975" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2578,13 +2578,13 @@ design rules under a new name.</description>
 <element name="R13" library="rc-sysmocom" package="_0603" value="10k" x="79.01" y="44.545" smashed="yes" rot="R90">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="79.01" y="44.545" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="79.9625" y="46.7675" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="80.5023" y="42.9575" size="1.1" layer="27" font="vector" ratio="16" rot="R90"/>
 </element>
@@ -2737,13 +2737,13 @@ design rules under a new name.</description>
 <element name="U4" library="laforge" package="TQFP44" value="IDT82V2081" x="31.195" y="61.865" smashed="yes" rot="R180">
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/renesas-electronics-america-inc/82V2081PPG/800-2347-ND" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="800-2347-ND" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="82V2081PPG" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="IC" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Renesas Electronics America Inc." x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="IC TELECOM INTERFACE 44TQFP" x="31.195" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="24.1465" y="68.342" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="35.259" y="63.6351" size="1.1" layer="27" rot="R180"/>
 </element>
@@ -2765,11 +2765,11 @@ design rules under a new name.</description>
 <attribute name="SOURCEPARTNUMBER" value="631-1182-ND" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="XLH736002.048000I" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="IC" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="Renesas Electronics America Inc." x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="XTAL OSC XO 2.0480MHZ HCMOS SMD" x="78.0575" y="53.26" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="80.6575" y="52.56" size="1.27" layer="47" rot="R90"/>
 <attribute name="NAME" x="86.9475" y="56.435" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 </element>
@@ -2827,208 +2827,208 @@ design rules under a new name.</description>
 </element>
 <element name="R16" library="rc-sysmocom" package="_0603" value="10k" x="19.765" y="54.245" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="19.765" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="18.1775" y="54.5625" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="21.3525" y="55.7373" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R17" library="rc-sysmocom" package="_0603" value="10k" x="19.765" y="55.515" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="19.765" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="18.1775" y="55.8325" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="21.3525" y="57.0073" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R18" library="rc-sysmocom" package="_0603" value="10k" x="19.765" y="56.785" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="19.765" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="18.1775" y="57.1025" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="21.3525" y="58.2773" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R19" library="rc-sysmocom" package="_0603" value="10k" x="19.765" y="58.055" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="19.765" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="18.1775" y="58.3725" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="21.3525" y="59.5473" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R20" library="rc-sysmocom" package="_0603" value="10k" x="19.765" y="59.325" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="19.765" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="18.1775" y="59.6425" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="21.3525" y="60.8173" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R21" library="rc-sysmocom" package="_0603" value="10k" x="19.765" y="60.595" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="19.765" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="18.1775" y="60.9125" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="21.3525" y="62.0873" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R22" library="rc-sysmocom" package="_0603" value="10k" x="19.765" y="61.865" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="19.765" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="18.1775" y="62.1825" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="21.3525" y="63.3573" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R23" library="rc-sysmocom" package="_0603" value="10k" x="19.765" y="63.135" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="19.765" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="18.1775" y="63.4525" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="21.3525" y="64.6273" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R25" library="rc-sysmocom" package="_0603" value="10k" x="48.975" y="54.245" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="48.975" y="54.245" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="47.3875" y="54.5625" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="50.5625" y="55.7373" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R26" library="rc-sysmocom" package="_0603" value="10k" x="48.975" y="55.515" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="48.975" y="55.515" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="47.3875" y="55.8325" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="50.5625" y="57.0073" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R27" library="rc-sysmocom" package="_0603" value="10k" x="48.975" y="56.785" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="48.975" y="56.785" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="47.3875" y="57.1025" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="50.5625" y="58.2773" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R28" library="rc-sysmocom" package="_0603" value="10k" x="48.975" y="58.055" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="48.975" y="58.055" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="47.3875" y="58.3725" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="50.5625" y="59.5473" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R29" library="rc-sysmocom" package="_0603" value="10k" x="48.975" y="59.325" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="48.975" y="59.325" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="47.3875" y="59.6425" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="50.5625" y="60.8173" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R30" library="rc-sysmocom" package="_0603" value="10k" x="48.975" y="60.595" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="48.975" y="60.595" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="47.3875" y="60.9125" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="50.5625" y="62.0873" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R31" library="rc-sysmocom" package="_0603" value="10k" x="48.975" y="61.865" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="48.975" y="61.865" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="47.3875" y="62.1825" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="50.5625" y="63.3573" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
 </element>
 <element name="R32" library="rc-sysmocom" package="_0603" value="10k" x="48.975" y="63.135" smashed="yes" rot="R180">
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="RES 10K OHM 5%% 1/10W 0603" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT10K0/RMCF0603JT10K0CT-ND" x="48.975" y="63.135" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="47.3875" y="63.4525" size="1.1" layer="25" font="vector" ratio="16" rot="R180"/>
 <attribute name="VALUE" x="50.5625" y="64.6273" size="1.1" layer="27" font="vector" ratio="16" rot="R180"/>
@@ -3099,10 +3099,10 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="15.24" y="17.145" size="1.1" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="PWR" library="LED-PLCC2" package="PLCC2-MIN" value="LEDPLCC2-MIN-green" x="19.05" y="8.255" smashed="yes">
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="LED GREEN CLEAR 2PLCC SMD" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER" value="Rohm Semiconductor" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="SML-Z14PTT86A" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="511-1645-1-ND" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="19.05" y="8.255" size="1.778" layer="27" display="off"/>
@@ -3194,10 +3194,10 @@ design rules under a new name.</description>
 <attribute name="OC_DIGIKEY" value="296-32415-1-ND" x="88.8525" y="14.9225" size="1.1" layer="27" ratio="16" display="off"/>
 <attribute name="NAME" x="91.075" y="12.3825" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="86.9475" y="11.4935" size="1.1" layer="27" font="vector" ratio="16"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="IC REG LINEAR 3.3V 300MA SOT23-5" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER" value="Texas Instruments" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="TLV70233DBVR" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
 <attribute name="SOURCEPARTNUMBER" value="296-32415-1-ND" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="88.8525" y="14.9225" size="1.778" layer="27" display="off"/>
@@ -3208,36 +3208,36 @@ design rules under a new name.</description>
 <element name="U$3" library="oshw" package="OSHW_8MM_COPPER" value="" x="17.1725" y="44.4825" smashed="yes" rot="MR270"/>
 <element name="R6" library="rc-sysmocom" package="_0402" value="33" x="74.3225" y="23.33625" smashed="yes" rot="R270">
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT33R0CT-ND" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value="RES 33 OHM 5%% 1/10W 0603" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT33R0/RMCF0603JT33R0CT-ND" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT33R0" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="74.3225" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="73.5286" y="22.38375" size="1.1" layer="25" font="vector" ratio="16" rot="R90"/>
 <attribute name="VALUE" x="72.9889" y="24.60625" size="0.508" layer="27" font="vector" ratio="10" rot="R270"/>
 </element>
 <element name="R7" library="rc-sysmocom" package="_0402" value="33" x="75.43375" y="23.33625" smashed="yes" rot="R270">
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT33R0CT-ND" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER" value="Stackpole Electronics Inc" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value="RES 33 OHM 5%% 1/10W 0603" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT33R0/RMCF0603JT33R0CT-ND" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT33R0" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="CLASS" value="RESISTOR" x="75.43375" y="23.33625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="76.22765" y="24.60625" size="1.1" layer="25" font="vector" ratio="16" rot="R270"/>
 <attribute name="VALUE" x="74.10015" y="24.60625" size="0.508" layer="27" font="vector" ratio="10" rot="R270"/>
 </element>
 <element name="C28" library="rc-sysmocom" package="_0805" value="22u" x="29.5275" y="53.0225" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="CAP CER 22UF 6.3V X5R 0805" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="KEMET" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="C0805C226M9PACTU" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="399-4696-1-ND" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CLASS" value="CAPACITOR" x="29.5275" y="53.0225" size="1.778" layer="27" rot="R90" display="off"/>
@@ -3246,40 +3246,40 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="31.1785" y="51.1176" size="0.508" layer="27" font="vector" ratio="10" rot="R90"/>
 </element>
 <element name="C26" library="rc-sysmocom" package="_0805" value="22u" x="65.24625" y="51.91125" smashed="yes" rot="R90">
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="399-4696-1-ND" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="KEMET" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="CAP CER 22UF 6.3V X5R 0805" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/kemet/C0805C226M9PACTU/399-4696-1-ND" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="C0805C226M9PACTU" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="CLASS" value="CAPACITOR" x="65.24625" y="51.91125" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="NAME" x="64.61125" y="50.00625" size="1.016" layer="25" font="vector" ratio="14" rot="R270"/>
 <attribute name="VALUE" x="66.89725" y="50.00635" size="0.508" layer="27" font="vector" ratio="10" rot="R90"/>
 </element>
 <element name="C25" library="rc-sysmocom" package="_0805" value="22u" x="35.8775" y="52.22875" smashed="yes" rot="R90">
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="399-4696-1-ND" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="MANUFACTURER" value="KEMET" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="CAP CER 22UF 6.3V X5R 0805" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/kemet/C0805C226M9PACTU/399-4696-1-ND" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="399-4696-1-ND" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="C0805C226M9PACTU" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="CLASS" value="CAPACITOR" x="35.8775" y="52.22875" size="1.1" layer="27" ratio="16" rot="R90" display="off"/>
 <attribute name="NAME" x="35.8775" y="49.37125" size="1.016" layer="25" font="vector" ratio="14" rot="R270"/>
 <attribute name="VALUE" x="37.5285" y="50.32385" size="0.508" layer="27" font="vector" ratio="10" rot="R90"/>
 </element>
 <element name="C27" library="rc-sysmocom" package="_0805" value="22u" x="54.61" y="53.975" smashed="yes">
-<attribute name="SOURCEPARTNUMBER" value="UNKNOWN SOURCE PART NUMBER" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
-<attribute name="MANUFACTURER" value="UNKNOWN MANUFACTURER" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
-<attribute name="SOURCE" value="UNKNOWN SOURCE" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="SOURCEPARTNUMBER" value="399-4696-1-ND" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="MANUFACTURER" value="KEMET" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="SOURCE" value="DIGIKEY" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
 <attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
-<attribute name="DESCRIPTION" value="NO DESCRIPTION" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="DESCRIPTION" value="CAP CER 22UF 6.3V X5R 0805" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/kemet/C0805C226M9PACTU/399-4696-1-ND" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
 <attribute name="POPULATED" value="TRUE" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="UNKNOWN MANUFACTURER PART NUMBER" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="C0805C226M9PACTU" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
 <attribute name="CLASS" value="CAPACITOR" x="54.61" y="53.975" size="1.1" layer="27" ratio="16" display="off"/>
 <attribute name="NAME" x="52.705" y="55.245" size="1.1" layer="25" font="vector" ratio="16"/>
 <attribute name="VALUE" x="52.7051" y="52.324" size="0.508" layer="27" font="vector" ratio="10"/>
