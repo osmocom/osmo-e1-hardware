@@ -1,6 +1,16 @@
 osmo-e1-xcvr -- (C) 2011 by Harald Welte <laforge@gnumonks.org>
 ======================================================================
 
+This repository hosts three different sub-projects:
+
+* osmo-e1-xcvr (E1 LIU + magnetics)
+  https://osmocom.org/projects/e1-t1-adapter/wiki/Osmo-e1-xcvr
+* osmo-e1-tracer (fully integrated passive raw bitstream tracer)
+  https://osmocom.org/projects/e1-t1-adapter/wiki/E1_tracer
+* osmo-e1-tap (passive high-impedance tap)
+
+== osmo-e1-xcvr ==
+
 This is a simple hardware project that aims to generate a reusable module
 for interfacing E1/T1/J1 lines from various custom FPGA/CPLD/microcontroller
 projects.
@@ -19,71 +29,19 @@ are interfaced with the SSC of an AT91SAM3S and subsequently passed into a PC
 via USB.  The 2Mbps signal is very low-bandwidth, so that a pure software
 implementation should be absolutely no problem for todays computing power.
 
-== Status ==
+See https://osmocom.org/projects/e1-t1-adapter/wiki/Osmo-e1-xcvr for more details
 
-The project is in design phase.  Initial design has finished, but needs to be
-reviewed.  First prototype PCBs will be expected in January 2012
 
-== Hardware Documentation ==
+== osmo-e1-tap ==
 
-=== JP2: TDM interface ===
+This is a small passive board that allows you to perform high-impedance tracing on an E1
+or T1 line.
 
-JP2 contains the serial TDM bitstream + clock for Rx and Tx direction.  The signals are
-||Pin||Name||Description||
-||1||GND||Ground||
-||2||nRST||low-active reset line, uC can reset the transceiver by pulling this low||
-||3||NC||||
-||4||LOS||Loss of Signal||
-||5||TDN||Transmit Data Negative||
-||6||RCLK||Receive Clock||
-||7||TD/TDP||Transmit Data / Transmit Data Positive||
-||8||RD/RDP||Receive Data / Receive Data Positive||
-||9||TCLK||Transmitter Clock.  Depending on JP9, this is an input into the board, or an output
-||10||RDN/CV||Receive Data Negative / Code Violation||
 
-=== JP1: SPI control ===
+== osmo-e1-tracer ==
 
-This is how the external microcontroller can control the transceiver chip.
+This is a fully integrated design that allows you to obtainm bi-directional high-impedance
+bitstream E1 traces.  It features an iCE40 FPGA with USB + E1 cores from Sylvain Munaut,
+as well as two E1 LIUs.
 
-||Pin||Name||Description||
-||1||GND||Ground||
-||2||NC||Not connected||
-||3||NC||Not connected||
-||4||nINT||low-active interrupt output, when transceiver wants to interrupt uC""
-||5||NC||Not connected||
-||6||nCS||low-active chip-select of the SPI||
-||7||NC||Not connected||
-||8||SDO||Serial Data Out (MISO)||
-||9||SDI||Serial Data In (MOSI)||
-||10||SCLK||Serial Clock||
-
-=== JP9 ===
-
-JP10 switches the master clock (MCLK) of the transceiver between two on-board oscillators
-of 2.048 MHz and 1.544 MHz.  This is required for selecting between E1 or T1/J1 mode.
-
-||1-2||2.048 MHz (E1) mode||
-||2-3||1.544 MHz (T1/J1) mode||
-
-=== JP10 ===
-
-This jumper decides if the 2.048/1.544 MHz MCLK should also be used as TDM Transmit Clock.
-
-||closed||use MCLK as TCLK source, TCLK pin on JP2 is output||
-||open||external circuit provides TCLK on JP2||
-
-=== JP3 + JP4 ===
-
-JP3+JP4 can be used to select which of the pins on the RJ45 connector should be used:
-
-They should either all be in setting 1-2, or all be in 2-3, but never mixed.
-
-||1-2||Use pins 3+6 as one pair||
-||2-3||Use pins 1+2 as one pair||
-
-=== JP5, JP6, JP7, JP8 ==
-
-Those select between TE mode and NT mode.
-
-They should either all be in setting 1-2, or all be in 2-3, but never mixed.
-
+See https://osmocom.org/projects/e1-t1-adapter/wiki/E1_tracer for more details.
