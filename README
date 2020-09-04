@@ -1,4 +1,4 @@
-osmo-e1-xcvr -- (C) 2011 by Harald Welte <laforge@gnumonks.org>
+osmo-e1-hardware - Collection of various E1/TDM hardware projects
 ======================================================================
 
 This repository hosts three different sub-projects:
