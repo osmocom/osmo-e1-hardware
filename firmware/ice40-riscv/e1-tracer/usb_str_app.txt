@@ -1,0 +1,8 @@
+0000000000000000
+osmocom
+e1-tracer
+Main
+E1
+Console (control)
+Console (data)
+DFU runtime
