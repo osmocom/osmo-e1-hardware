@@ -1,0 +1,15 @@
+Firmware for iCE40 based board
+==============================
+
+The icE1usb, icE1usb-proto and e1-tracer boards are running very similar
+gateware, all based around a PicoRV32 RISC-V softcore supported by custom
+hardware cores to deal with USB and E1.
+
+
+License
+-------
+
+Files in here are licended either under GPLv3 or LGPLv3 depending on the
+specific file. Refer to the notice at the top of each file.
+
+Full text for both licenses is included next to this README.
