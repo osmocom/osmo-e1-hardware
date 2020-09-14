@@ -1,0 +1,41 @@
+# E1 PHY
+set_io e1_rx_hi_p 43
+set_io e1_rx_hi_n 36
+set_io e1_rx_lo_p 42
+set_io e1_rx_lo_n 38
+set_io e1_tx_hi   32
+set_io e1_tx_lo   31
+
+set_io e1_vref_ct_pdm 46
+set_io e1_vref_p_pdm  34
+set_io e1_vref_n_pdm  28
+
+# USB
+set_io usb_dp 4
+set_io usb_dn 3
+set_io usb_pu 2
+set_io -nowarn usb_vsense 48
+
+# Flash
+set_io -pullup yes flash_mosi 14
+set_io -pullup yes flash_miso 17
+set_io -pullup yes flash_clk  15
+set_io -pullup yes flash_cs_n 16
+
+# Button
+set_io -pullup yes btn 10
+
+# Clock
+set_io clk_in 44
+
+set_io clk_tune_hi 47
+set_io clk_tune_lo 45
+
+# Debug UART
+set_io -pullup yes dbg_rx 6
+set_io -pullup yes dbg_tx 9
+
+# RGB LEDs
+set_io rgb[0] 39
+set_io rgb[1] 40
+set_io rgb[2] 41
