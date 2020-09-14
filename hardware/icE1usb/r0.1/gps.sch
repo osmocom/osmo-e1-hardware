@@ -1,0 +1,474 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 7
+Title "icE1usb - GPS"
+Date "2020-08-19"
+Rev "0.1"
+Comp ""
+Comment1 "CERN-OHL-S"
+Comment2 "(C) 2020 Sylvain Munaut"
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L RF_GPS:MAX-M8W U?
+U 1 1 5F27F978
+P 4000 3800
+AR Path="/5F27F978" Ref="U?"  Part="1" 
+AR Path="/5F27E0F4/5F27F978" Ref="U8"  Part="1" 
+F 0 "U8" H 3500 3100 50  0000 C CNN
+F 1 "MAX-M8W" H 3600 3000 50  0000 C CNN
+F 2 "s47-misc:ublox_MAX" H 4400 3150 50  0001 C CNN
+F 3 "https://www.u-blox.com/sites/default/files/MAX-M8-FW3_DataSheet_%28UBX-15031506%29.pdf" H 4000 3800 50  0001 C CNN
+	1    4000 3800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR046
+U 1 1 5F2E5DB9
+P 4000 4600
+F 0 "#PWR046" H 4000 4350 50  0001 C CNN
+F 1 "GND" H 4005 4427 50  0000 C CNN
+F 2 "" H 4000 4600 50  0001 C CNN
+F 3 "" H 4000 4600 50  0001 C CNN
+	1    4000 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 4500 4000 4600
+Text HLabel 1500 3800 0    50   Input ~ 0
+RF
+Wire Wire Line
+	1500 3800 2000 3800
+Text HLabel 5500 3700 2    50   BiDi ~ 0
+i2c_sda
+Text HLabel 5500 3800 2    50   BiDi ~ 0
+i2c_scl
+Text HLabel 5500 4200 2    50   Input ~ 0
+~reset
+Text HLabel 5500 5000 2    50   Output ~ 0
+pps
+Wire Wire Line
+	5500 3500 5300 3500
+Wire Wire Line
+	5500 3600 5300 3600
+Wire Wire Line
+	5500 3700 5300 3700
+Wire Wire Line
+	5500 3800 5300 3800
+Wire Wire Line
+	5500 4200 4600 4200
+Wire Wire Line
+	3400 4100 3200 4100
+Wire Wire Line
+	3200 4100 3200 5000
+Wire Wire Line
+	3200 5000 5500 5000
+$Comp
+L Device:C_Small C23
+U 1 1 5F3311E6
+P 4700 2500
+F 0 "C23" H 4792 2546 50  0000 L CNN
+F 1 "100n" H 4792 2455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4700 2500 50  0001 C CNN
+F 3 "~" H 4700 2500 50  0001 C CNN
+	1    4700 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:L_Small L1
+U 1 1 5F334BA8
+P 2800 3500
+F 0 "L1" H 2848 3546 50  0000 L CNN
+F 1 "47n" H 2848 3455 50  0000 L CNN
+F 2 "Inductor_SMD:L_0402_1005Metric" H 2800 3500 50  0001 C CNN
+F 3 "~" H 2800 3500 50  0001 C CNN
+F 4 "Murata LQW15AN47NG00D" H 2800 3500 50  0001 C CNN "MPN"
+	1    2800 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 3600 2800 3800
+Connection ~ 2800 3800
+Wire Wire Line
+	2800 3800 3400 3800
+$Comp
+L power:+3V3 #PWR047
+U 1 1 5F336762
+P 4200 2200
+F 0 "#PWR047" H 4200 2050 50  0001 C CNN
+F 1 "+3V3" H 4215 2373 50  0000 C CNN
+F 2 "" H 4200 2200 50  0001 C CNN
+F 3 "" H 4200 2200 50  0001 C CNN
+	1    4200 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 2200 4200 2300
+$Comp
+L Device:C_Small C24
+U 1 1 5F337095
+P 5000 2500
+F 0 "C24" H 5092 2546 50  0000 L CNN
+F 1 "1u" H 5092 2455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 5000 2500 50  0001 C CNN
+F 3 "~" H 5000 2500 50  0001 C CNN
+	1    5000 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 2300 4400 2300
+Wire Wire Line
+	5000 2300 5000 2400
+Connection ~ 4200 2300
+Wire Wire Line
+	4200 2300 4200 3000
+Wire Wire Line
+	4700 2300 4700 2400
+Connection ~ 4700 2300
+Wire Wire Line
+	4700 2300 5000 2300
+$Comp
+L Device:C_Small C22
+U 1 1 5F337E6D
+P 4400 2500
+F 0 "C22" H 4492 2546 50  0000 L CNN
+F 1 "100n" H 4492 2455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4400 2500 50  0001 C CNN
+F 3 "~" H 4400 2500 50  0001 C CNN
+	1    4400 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 2300 4400 2400
+Connection ~ 4400 2300
+Wire Wire Line
+	4400 2300 4700 2300
+Wire Wire Line
+	4100 3100 4100 3000
+Wire Wire Line
+	4100 3000 4200 3000
+Connection ~ 4200 3000
+Wire Wire Line
+	4200 3000 4200 3100
+$Comp
+L power:GND #PWR048
+U 1 1 5F33D588
+P 4400 2700
+F 0 "#PWR048" H 4400 2450 50  0001 C CNN
+F 1 "GND" H 4405 2527 50  0000 C CNN
+F 2 "" H 4400 2700 50  0001 C CNN
+F 3 "" H 4400 2700 50  0001 C CNN
+	1    4400 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR049
+U 1 1 5F33DC6F
+P 4700 2700
+F 0 "#PWR049" H 4700 2450 50  0001 C CNN
+F 1 "GND" H 4705 2527 50  0000 C CNN
+F 2 "" H 4700 2700 50  0001 C CNN
+F 3 "" H 4700 2700 50  0001 C CNN
+	1    4700 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR050
+U 1 1 5F33DD47
+P 5000 2700
+F 0 "#PWR050" H 5000 2450 50  0001 C CNN
+F 1 "GND" H 5005 2527 50  0000 C CNN
+F 2 "" H 5000 2700 50  0001 C CNN
+F 3 "" H 5000 2700 50  0001 C CNN
+	1    5000 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 2600 5000 2700
+Wire Wire Line
+	4700 2600 4700 2700
+Wire Wire Line
+	4400 2600 4400 2700
+NoConn ~ 4600 4000
+NoConn ~ 4600 4100
+$Comp
+L Device:R_Small R18
+U 1 1 5F33F9B7
+P 3800 2500
+F 0 "R18" H 3859 2591 50  0000 L CNN
+F 1 "10R" H 3859 2500 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3800 2500 50  0001 C CNN
+F 3 "~" H 3800 2500 50  0001 C CNN
+F 4 "DNP" H 3859 2409 50  0000 L CNN "DNP"
+	1    3800 2500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C21
+U 1 1 5F33FEBE
+P 3500 2500
+F 0 "C21" H 3408 2409 50  0000 R CNN
+F 1 "100n" H 3408 2500 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3500 2500 50  0001 C CNN
+F 3 "~" H 3500 2500 50  0001 C CNN
+F 4 "DNP" H 3408 2591 50  0000 R CNN "DNP"
+	1    3500 2500
+	1    0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR045
+U 1 1 5F341049
+P 3500 2700
+F 0 "#PWR045" H 3500 2450 50  0001 C CNN
+F 1 "GND" H 3505 2527 50  0000 C CNN
+F 2 "" H 3500 2700 50  0001 C CNN
+F 3 "" H 3500 2700 50  0001 C CNN
+	1    3500 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 3000 3800 3100
+Wire Wire Line
+	2800 3000 2800 3400
+Wire Wire Line
+	3500 2600 3500 2700
+Wire Wire Line
+	3800 3000 3800 2600
+Connection ~ 3800 3000
+Wire Wire Line
+	3900 3100 3900 2300
+Wire Wire Line
+	3900 2300 3800 2300
+Wire Wire Line
+	3800 2300 3800 2400
+Wire Wire Line
+	3800 2300 3500 2300
+Wire Wire Line
+	3500 2300 3500 2400
+Connection ~ 3800 2300
+Wire Wire Line
+	2800 3000 3800 3000
+Text Notes 2100 2800 0    50   ~ 0
+For M8W:\n - Place C & R between\n   Vcc_RF and V_ant\n\nFor ATGM336H:\n - Place the bias inductor\n
+$Comp
+L Device:Battery_Cell BT1
+U 1 1 5F34DAE6
+P 8000 4200
+F 0 "BT1" H 7883 4341 50  0000 R CNN
+F 1 "VL-1220/VCN" H 7883 4250 50  0000 R CNN
+F 2 "Battery:Battery_Panasonic_CR1220-VCN_Vertical_CircularHoles" V 8000 4260 50  0001 C CNN
+F 3 "~" V 8000 4260 50  0001 C CNN
+F 4 "DNP" H 7883 4159 50  0000 R CNN "DNP"
+	1    8000 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR052
+U 1 1 5F34E154
+P 8000 4400
+F 0 "#PWR052" H 8000 4150 50  0001 C CNN
+F 1 "GND" H 8005 4227 50  0000 C CNN
+F 2 "" H 8000 4400 50  0001 C CNN
+F 3 "" H 8000 4400 50  0001 C CNN
+	1    8000 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper_NC_Small JP1
+U 1 1 5F34E744
+P 7800 3500
+F 0 "JP1" H 7800 3712 50  0000 C CNN
+F 1 "BatBypass" H 7800 3621 50  0000 C CNN
+F 2 "s47-misc:J_NC_0603_30" H 7800 3500 50  0001 C CNN
+F 3 "~" H 7800 3500 50  0001 C CNN
+	1    7800 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 4300 8000 4400
+Wire Wire Line
+	8000 4000 8000 3900
+Wire Wire Line
+	8000 3900 8300 3900
+Wire Wire Line
+	4000 2300 4000 3100
+Text Label 4000 2300 3    50   ~ 0
+vbackup
+Text Label 8900 3900 2    50   ~ 0
+vbackup
+$Comp
+L power:+3V3 #PWR051
+U 1 1 5F35197E
+P 7000 3300
+F 0 "#PWR051" H 7000 3150 50  0001 C CNN
+F 1 "+3V3" H 7015 3473 50  0000 C CNN
+F 2 "" H 7000 3300 50  0001 C CNN
+F 3 "" H 7000 3300 50  0001 C CNN
+	1    7000 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C25
+U 1 1 5F3521E0
+P 8300 4200
+F 0 "C25" H 8392 4246 50  0000 L CNN
+F 1 "100n" H 8392 4155 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 8300 4200 50  0001 C CNN
+F 3 "~" H 8300 4200 50  0001 C CNN
+	1    8300 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 3900 8300 4100
+Connection ~ 8300 3900
+Wire Wire Line
+	8300 3900 8900 3900
+$Comp
+L power:GND #PWR053
+U 1 1 5F353C3F
+P 8300 4400
+F 0 "#PWR053" H 8300 4150 50  0001 C CNN
+F 1 "GND" H 8305 4227 50  0000 C CNN
+F 2 "" H 8300 4400 50  0001 C CNN
+F 3 "" H 8300 4400 50  0001 C CNN
+	1    8300 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 4300 8300 4400
+Wire Wire Line
+	7000 3300 7000 3500
+Wire Wire Line
+	7000 3500 7700 3500
+Wire Wire Line
+	7900 3500 8000 3500
+Wire Wire Line
+	8000 3500 8000 3900
+Connection ~ 8000 3900
+$Comp
+L Device:R_Small R19
+U 1 1 5F357044
+P 7700 3900
+F 0 "R19" V 7414 3900 50  0000 C CNN
+F 1 "330R" V 7505 3900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 7700 3900 50  0001 C CNN
+F 3 "~" H 7700 3900 50  0001 C CNN
+F 4 "DNP" V 7596 3900 50  0000 C CNN "DNP"
+	1    7700 3900
+	0    -1   1    0   
+$EndComp
+$Comp
+L Device:D_Schottky_Small D4
+U 1 1 5F35AA23
+P 7300 3900
+F 0 "D4" H 7300 3605 50  0000 C CNN
+F 1 "SDM02U30LP3" H 7300 3696 50  0000 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" V 7300 3900 50  0001 C CNN
+F 3 "~" V 7300 3900 50  0001 C CNN
+F 4 "DNP" H 7300 3787 50  0000 C CNN "DNP"
+	1    7300 3900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7800 3900 8000 3900
+Wire Wire Line
+	7600 3900 7400 3900
+Wire Wire Line
+	7000 3500 7000 3900
+Wire Wire Line
+	7000 3900 7200 3900
+Connection ~ 7000 3500
+$Comp
+L Device:D_TVS D3
+U 1 1 5F37B3C0
+P 2000 4250
+F 0 "D3" V 1954 4329 50  0000 L CNN
+F 1 "PESD0402-140" V 2045 4329 50  0000 L CNN
+F 2 "Diode_SMD:D_0402_1005Metric" H 2000 4250 50  0001 C CNN
+F 3 "~" H 2000 4250 50  0001 C CNN
+F 4 "Little Fuse PESD0402-140" V 2000 4250 50  0001 C CNN "MPN"
+	1    2000 4250
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR044
+U 1 1 5F37BB33
+P 2000 4600
+F 0 "#PWR044" H 2000 4350 50  0001 C CNN
+F 1 "GND" H 2005 4427 50  0000 C CNN
+F 2 "" H 2000 4600 50  0001 C CNN
+F 3 "" H 2000 4600 50  0001 C CNN
+	1    2000 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 4400 2000 4600
+Wire Wire Line
+	2000 4100 2000 3800
+Connection ~ 2000 3800
+Wire Wire Line
+	2000 3800 2800 3800
+Text Notes 8300 3500 0    50   ~ 0
+Battery and charging circuit\nis DNP by default
+$Comp
+L power:PWR_FLAG #FLG03
+U 1 1 5F6D51CD
+P 8300 3800
+F 0 "#FLG03" H 8300 3875 50  0001 C CNN
+F 1 "PWR_FLAG" H 8300 3973 50  0001 C CNN
+F 2 "" H 8300 3800 50  0001 C CNN
+F 3 "~" H 8300 3800 50  0001 C CNN
+	1    8300 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 3800 8300 3900
+$Comp
+L power:PWR_FLAG #FLG02
+U 1 1 5F6DA120
+P 3800 2200
+F 0 "#FLG02" H 3800 2275 50  0001 C CNN
+F 1 "PWR_FLAG" H 3800 2373 50  0001 C CNN
+F 2 "" H 3800 2200 50  0001 C CNN
+F 3 "~" H 3800 2200 50  0001 C CNN
+	1    3800 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 2200 3800 2300
+Text HLabel 5500 3600 2    50   Output ~ 0
+tx
+Text HLabel 5500 3500 2    50   Input ~ 0
+rx
+$Comp
+L Device:R_Pack04 RN6
+U 1 1 5F77D81A
+P 5100 3700
+F 0 "RN6" V 4683 3700 50  0000 C CNN
+F 1 "33R" V 4774 3700 50  0000 C CNN
+F 2 "Resistor_SMD:R_Array_Convex_4x0603" V 5375 3700 50  0001 C CNN
+F 3 "~" H 5100 3700 50  0001 C CNN
+	1    5100 3700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4900 3500 4800 3500
+Wire Wire Line
+	4800 3500 4800 3400
+Wire Wire Line
+	4800 3400 4600 3400
+Wire Wire Line
+	4600 3500 4700 3500
+Wire Wire Line
+	4700 3500 4700 3600
+Wire Wire Line
+	4700 3600 4900 3600
+Wire Wire Line
+	4900 3700 4600 3700
+Wire Wire Line
+	4900 3800 4600 3800
+$EndSCHEMATC

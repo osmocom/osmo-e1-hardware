@@ -1,0 +1,9 @@
+PCB material: FR-4
+Board thickness: 1.6MM
+Copper thickness: 1oz
+Stackup:
+	* L1-L2 is 0.1MM
+	* 50R traces 6.5mil
+Surface finishing: ENIG
+Solder mask: Green
+Silkscreen: White
