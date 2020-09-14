@@ -1,0 +1,40 @@
+# LIU data
+set_io -pullup yes e1A_rx_data 45	# B1
+set_io -pullup yes e1A_rx_clk  44	# B0
+set_io -pullup yes e1B_rx_data 47	# B3
+set_io -pullup yes e1B_rx_clk  46	# B2
+
+# LIU control
+set_io -pullup yes liu_mosi 31		# A0
+set_io -pullup yes liu_miso 32		# A1
+set_io -pullup yes liu_clk  34		# A2
+set_io -pullup yes liu_cs_n[0] 42	# A4
+set_io -pullup yes liu_cs_n[1] 43	# A5
+
+# USB
+set_io usb_dp 10
+set_io usb_dn 9
+set_io usb_pu 6
+
+# Flash
+set_io -pullup yes flash_mosi 14
+set_io -pullup yes flash_miso 17
+set_io -pullup yes flash_clk 15
+set_io -pullup yes flash_cs_n 16
+
+# Vio
+set_io -pullup yes vio_pdm 19
+
+# Button
+set_io -pullup yes btn 25
+
+# Clock
+set_io clk_in 20
+
+# Debug UART
+set_io -pullup yes dbg_tx 38
+
+# Leds
+set_io rgb[0] 39
+set_io rgb[1] 40
+set_io rgb[2] 41
