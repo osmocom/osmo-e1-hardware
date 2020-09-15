@@ -53,7 +53,7 @@ boot_dfu(void)
 	usb_disconnect();
 
 	/* Boot firmware */
-	volatile uint32_t *boot = (void*)0x80000000;
+	volatile uint32_t *boot = (void*)(MISC_BASE);
 	*boot = (1 << 2) | (1 << 0);
 }
 
