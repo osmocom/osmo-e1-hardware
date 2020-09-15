@@ -80,19 +80,27 @@ void main()
 
 	/* SPI */
 	spi_init();
+	serial_no_init();
+
+	/* Enable LED now that we're done with SPI */
+	e1_led_set(true, 0x00);
 
 	/* Setup E1 Vref */
 	int d = 25;
+#if defined(BOARD_ICE1USB_PROTO_ICEBREAKER) || defined(BOARD_ICE1USB_PROTO_BITSY)
 	pdm_set(PDM_E1_CT, true, 128, false);
 	pdm_set(PDM_E1_P,  true, 128 - d, false);
 	pdm_set(PDM_E1_N,  true, 128 + d, false);
+#else
+	pdm_set(PDM_E1_RX0,  true, 128 + d, false);
+	pdm_set(PDM_E1_RX1,  true, 128 + d, false);
+#endif
 
 	/* Setup clock tuning */
 	pdm_set(PDM_CLK_HI, true, 2048, false);
 	pdm_set(PDM_CLK_LO, false,   0, false);
 
 	/* Enable USB directly */
-	serial_no_init();
 	usb_init(&app_stack_desc);
 	usb_dfu_rt_init();
 	usb_e1_init();

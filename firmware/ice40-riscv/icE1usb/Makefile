@@ -2,7 +2,7 @@
 #ice1usb-proto-icebreaker
 #ice1usb-proto-bitsty
 #e1-tracer
-BOARD ?= ice1usb-proto-icebreaker
+BOARD ?= ice1usb
 CROSS ?= riscv-none-embed-
 CC = $(CROSS)gcc
 OBJCOPY = $(CROSS)objcopy
