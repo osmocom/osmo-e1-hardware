@@ -1,0 +1,61 @@
+# E1 PHY
+set_io e1A_rx_hi_p 42
+set_io e1A_rx_hi_n 38
+set_io e1A_rx_lo_p 32
+set_io e1A_rx_lo_n 31
+set_io e1A_tx_hi   43
+set_io e1A_tx_lo   36
+
+set_io e1B_rx_hi_p 23
+set_io e1B_rx_hi_n 25
+set_io e1B_rx_lo_p 26
+set_io e1B_rx_lo_n 27
+set_io e1B_tx_hi   34
+set_io e1B_tx_lo   37
+
+set_io e1_rx_bias[0] 28
+set_io e1_rx_bias[1] 35
+
+# USB
+set_io usb_dp 10
+set_io usb_dn  9
+set_io usb_pu 11
+
+# Flash
+set_io -pullup yes flash_mosi 14
+set_io -pullup yes flash_miso 17
+set_io -pullup yes flash_clk  15
+set_io -pullup yes flash_cs_n 16
+
+# LED Shift register + Button input
+set_io -pullup yes e1_led_rclk 18
+
+# GPS
+set_io -pullup yes gps_reset_n 6
+set_io -pullup yes gps_rx 47
+set_io -pullup yes gps_tx 46
+set_io             gps_pps 2
+
+# I2C
+set_io i2c_sda 3
+set_io i2c_scl 4
+
+# GPIOs
+set_io -pullup yes gpio[0] 13
+set_io -pullup yes gpio[1] 20
+set_io -pullup yes gpio[2] 19
+
+# Clock
+set_io clk_in 44
+
+set_io clk_tune_hi 48
+set_io clk_tune_lo 45
+
+# Debug UART
+set_io -pullup yes dbg_rx 21
+set_io -pullup yes dbg_tx 12
+
+# RGB LEDs
+set_io rgb[0] 39
+set_io rgb[1] 40
+set_io rgb[2] 41
