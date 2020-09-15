@@ -18,8 +18,8 @@ struct misc {
 	uint32_t e1_led;
 	uint32_t _rsvd;
 	struct {
-		uint16_t tx;
 		uint16_t rx;
+		uint16_t tx;
 	} e1_tick[2];
 	uint32_t gps;
 	uint32_t time;

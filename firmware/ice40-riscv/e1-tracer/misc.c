@@ -16,8 +16,8 @@ struct misc {
 	uint32_t warmboot;
 	uint32_t _rsvd0[3];;
 	struct {
-		uint16_t tx;
 		uint16_t rx;
+		uint16_t tx;
 	} e1_tick[2];
 	uint32_t _rsvd1;
 	uint32_t time;

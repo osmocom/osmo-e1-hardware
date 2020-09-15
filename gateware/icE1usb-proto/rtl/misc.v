@@ -102,7 +102,7 @@ module misc (
 			wb_rdata <= 32'h00000000;
 		else
 			case (wb_addr[3:0])
-				4'h4:    wb_rdata <= { cap_e1_rx, cap_e1_tx };
+				4'h4:    wb_rdata <= { cap_e1_tx, cap_e1_rx };
 				4'h7:    wb_rdata <= cnt_time;
 				4'h8:    wb_rdata <= { pdm_clk[0][12], 19'h00000, pdm_clk[0][11:0] };
 				4'h9:    wb_rdata <= { pdm_clk[1][12], 19'h00000, pdm_clk[1][11:0] };

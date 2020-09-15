@@ -76,8 +76,8 @@ module misc (
 			wb_rdata <= 32'h00000000;
 		else
 			case (wb_addr[3:0])
-				4'h4:    wb_rdata <= { cap_e1_rx[0], 16'h0000 };
-				4'h5:    wb_rdata <= { cap_e1_rx[1], 16'h0000 };
+				4'h4:    wb_rdata <= { 16'h000, cap_e1_rx[0] };
+				4'h5:    wb_rdata <= { 16'h000, cap_e1_rx[1] };
 				4'h7:    wb_rdata <= cnt_time;
 				default: wb_rdata <= 32'hxxxxxxxx;
 			endcase
