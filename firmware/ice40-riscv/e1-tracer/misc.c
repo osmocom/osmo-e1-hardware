@@ -17,10 +17,12 @@ struct misc {
 	uint32_t _rsvd0[3];;
 	struct {
 		uint16_t rx;
-		uint16_t tx;
+		uint16_t _rsvd1;
 	} e1_tick[2];
-	uint32_t _rsvd1;
-	uint32_t time;
+	struct {
+		uint32_t _rsvd2;
+		uint32_t now;
+	} time;
 } __attribute__((packed,aligned(4)));
 
 static volatile struct misc * const misc_regs = (void*)(MISC_BASE);

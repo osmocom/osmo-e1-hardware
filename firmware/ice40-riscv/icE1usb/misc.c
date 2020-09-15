@@ -21,8 +21,10 @@ struct misc {
 		uint16_t rx;
 		uint16_t tx;
 	} e1_tick[2];
-	uint32_t gps;
-	uint32_t time;
+	struct {
+		uint32_t pps;
+		uint32_t now;
+	} time;
 	uint32_t pdm[8];
 } __attribute__((packed,aligned(4)));
 
