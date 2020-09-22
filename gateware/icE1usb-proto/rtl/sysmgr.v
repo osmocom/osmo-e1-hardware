@@ -33,10 +33,10 @@ module sysmgr (
 
 	// Global input buffer for 30.72 MHz clock
 	SB_GB_IO #(
-		.PIN_TYPE(6'b000001),
+		.PIN_TYPE(6'b000001)
 	) gb_in (
 		.PACKAGE_PIN(clk_in),
-		.GLOBAL_BUFFER_OUTPUT(clk_30m72_i),
+		.GLOBAL_BUFFER_OUTPUT(clk_30m72_i)
 	);
 
 	// PLL instance
@@ -50,7 +50,7 @@ module sysmgr (
 		.FDA_FEEDBACK(4'b0000),
 		.SHIFTREG_DIV_MODE(2'b00),
 		.PLLOUT_SELECT("GENCLK"),
-		.ENABLE_ICEGATE(1'b0),
+		.ENABLE_ICEGATE(1'b0)
 	) pll_I (
 		.REFERENCECLK(clk_30m72_i),
 		.PLLOUTCORE(),

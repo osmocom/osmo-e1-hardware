@@ -37,7 +37,7 @@ module sysmgr (
 		.PIN_TYPE(6'b000001)
 	) gb_in (
 		.PACKAGE_PIN(clk_in),
-		.GLOBAL_BUFFER_OUTPUT(clk_12m_i),
+		.GLOBAL_BUFFER_OUTPUT(clk_12m_i)
 	);
 
 	// PLL instance

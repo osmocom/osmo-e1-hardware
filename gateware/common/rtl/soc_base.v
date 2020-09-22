@@ -261,7 +261,7 @@ module soc_base #(
 	// Boot memory - 1k
 	soc_bram #(
 		.AW(8),
-		.INIT_FILE("boot.hex"),
+		.INIT_FILE("boot.hex")
 	) bram_I (
 		.addr (bram_addr),
 		.rdata(bram_rdata),

@@ -75,7 +75,7 @@ module led_blinker (
 
 	// Per-led
 	always @(*)
-	begin : led_state
+	begin : led_state_proc
 		integer i;
 		for (i=0; i<4; i=i+1)
 			led[i] = led_state[2*i+1] ? (led_state[2*i] ? blink_fast : blink_slow) : led_state[2*i];
