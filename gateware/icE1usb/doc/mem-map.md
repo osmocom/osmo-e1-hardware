@@ -18,7 +18,8 @@ Overview
 |`0x87000000` |                  | E1 core         | [`no2e1`](../../cores/no2e1/doc/mem-map.md). See notes below.
 |`0x88000000` |                  | Misc            | See below
 |`0x89000000` |                  | GPS UART        | [`no2misc/uart_wb`](../../cores/no2misc/doc/uart_wb.md)
-|`0x8a000000` |                  | I2C             | See below
+|`0x8a000000` |                  | I2C (\*)        | See below
+|`0x8a000000` |                  | I2C (\*)        | [`no2ice40/ice40_i2c_wb`](../../cores/no2ice40/doc/ice40_i2c_wb.md)
 
 
 Memory
@@ -292,6 +293,9 @@ Channels :
 ### `0x8a000000`: I2C
 
 Very simple I2C core.
+
+Note: This is only one of the possible build option. Alternatively the bitstream can be built
+using a `SB_I2C` wrapper for I2C support. In which case, refer to the lattice documentation.
 
 #### Command (Write Only, addr `0x00`)
 

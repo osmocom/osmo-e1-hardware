@@ -11,6 +11,9 @@
 
 `default_nettype none
 
+`define WITH_SB_I2C
+// `define WITH_CUSTOM_I2C
+
 module top (
 	// E1 PHY
 	input  wire e1A_rx_hi_p,
@@ -281,6 +284,27 @@ module top (
 	// I2C [2]
 	// ---
 
+`ifdef WITH_SB_I2C
+
+	// Hard-IP
+	ice40_i2c_wb #(
+		.WITH_IOB(1),
+		.UNIT(0)
+	) i2c_I (
+		.i2c_scl  (i2c_scl),
+		.i2c_sda  (i2c_sda),
+		.wb_addr  (wb_addr[3:0]),
+		.wb_rdata (wb_rdata[2]),
+		.wb_wdata (wb_wdata),
+		.wb_we    (wb_we),
+		.wb_cyc   (wb_cyc[2]),
+		.wb_ack   (wb_ack[2]),
+		.clk      (clk_sys),
+		.rst      (rst_sys)
+	);
+
+`elsif WITH_CUSTOM_I2C
+
 	// Controller
 	i2c_master_wb #(
 		.DW(3),
@@ -323,6 +347,14 @@ module top (
 		.D_OUT_0      (1'b0),
 		.D_IN_0       (i2c_sda_i)
 	);
+
+`else
+
+	// Dummy
+	assign wb_ack[2] = wb_cyc[2];
+	assign wb_rdata[2] = 32'h00000000;
+
+`endif
 
 
 	// E1 LEDs & Button
