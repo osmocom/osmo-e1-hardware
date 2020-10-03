@@ -13,6 +13,7 @@ PROJ_RTL_SRCS := $(addprefix rtl/, \
 PROJ_RTL_SRCS += $(addprefix ../common/rtl/, \
 	dfu_helper.v \
 	picorv32.v \
+	picorv32_ice40_regs.v \
 	soc_base.v \
 	soc_bram.v \
 	soc_iobuf.v \
