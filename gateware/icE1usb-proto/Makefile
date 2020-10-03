@@ -7,6 +7,8 @@ PROJ_RTL_SRCS := $(addprefix rtl/, \
 	sysmgr.v \
 )
 PROJ_RTL_SRCS += $(addprefix ../common/rtl/, \
+	capcnt.v \
+	capcnt_sb_mac16.v \
 	dfu_helper.v \
 	picorv32.v \
 	picorv32_ice40_regs.v \

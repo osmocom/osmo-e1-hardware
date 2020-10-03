@@ -54,11 +54,9 @@ module misc (
 	reg  [ 2:0] bus_we_pdm_e1;
 
 	// Counters
-	reg  [15:0] cnt_e1_rx;
-	reg  [15:0] cap_e1_rx;
-	reg  [15:0] cnt_e1_tx;
-	reg  [15:0] cap_e1_tx;
-	reg  [31:0] cnt_time;
+	wire [15:0] cap_e1_rx;
+	wire [15:0] cap_e1_tx;
+	wire [31:0] cnt_time;
 
 	// PDM
 	reg  [12:0] pdm_clk[0:1];
@@ -117,30 +115,28 @@ module misc (
 	// --------
 
 	// E1 ticks
-	always @(posedge clk or posedge rst)
-		if (rst)
-			cnt_e1_rx <= 16'h0000;
-		else if (tick_e1_rx)
-			cnt_e1_rx <= cnt_e1_rx + 1;
+	capcnt #(
+		.W(16)
+	) e1_cnt_I[1:0] (
+		.cnt_cur (),
+		.cnt_cap ({cap_e1_tx,  cap_e1_rx }),
+		.inc     ({tick_e1_tx, tick_e1_rx}),
+		.cap     (tick_usb_sof),
+		.clk     (clk),
+		.rst     (rst)
+	);
 
-	always @(posedge clk or posedge rst)
-		if (rst)
-			cnt_e1_tx <= 16'h0000;
-		else if (tick_e1_tx)
-			cnt_e1_tx <= cnt_e1_tx + 1;
-
-	always @(posedge clk)
-		if (tick_usb_sof) begin
-			cap_e1_rx <= cnt_e1_rx;
-			cap_e1_tx <= cnt_e1_tx;
-		end
-
-	// Time counter
-	always @(posedge clk)
-		if (rst)
-			cnt_time <= 32'h00000000;
-		else
-			cnt_time <= cnt_time + 1;
+	// Time
+	capcnt #(
+		.W(32)
+	) time_cnt_I (
+		.cnt_cur (cnt_time),
+		.cnt_cap (),
+		.inc     (1'b1),
+		.cap     (1'b0),
+		.clk     (clk),
+		.rst     (rst)
+	);
 
 
 	// PDM outputs

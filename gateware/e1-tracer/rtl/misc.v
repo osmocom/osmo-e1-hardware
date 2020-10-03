@@ -45,9 +45,8 @@ module misc (
 	reg  bus_we_boot;
 
 	// Counters
-	reg  [15:0] cnt_e1_rx[0:1];
-	reg  [15:0] cap_e1_rx[0:1];
-	reg  [31:0] cnt_time;
+	wire [15:0] cap_e1_rx[0:1];
+	wire [31:0] cnt_time;
 
 	// Boot
 	reg   [1:0] boot_sel;
@@ -87,26 +86,28 @@ module misc (
 	// --------
 
 	// E1 ticks
-	for (i=0; i<2; i=i+1) begin
+	capcnt #(
+		.W(16)
+	) e1_cnt_I[1:0] (
+		.cnt_cur (),
+		.cnt_cap ({cap_e1_rx[1],  cap_e1_rx[0] }),
+		.inc     ({tick_e1_rx[1], tick_e1_rx[0]}),
+		.cap     (tick_usb_sof),
+		.clk     (clk),
+		.rst     (rst)
+	);
 
-		always @(posedge clk or posedge rst)
-			if (rst)
-				cnt_e1_rx[i] <= 16'h0000;
-			else if (tick_e1_rx[i])
-				cnt_e1_rx[i] <= cnt_e1_rx[i] + 1;
-
-		always @(posedge clk)
-			if (tick_usb_sof)
-				cap_e1_rx[i] <= cnt_e1_rx[i];
-
-	end
-
-	// Time counter
-	always @(posedge clk)
-		if (rst)
-			cnt_time <= 32'h00000000;
-		else
-			cnt_time <= cnt_time + 1;
+	// Time
+	capcnt #(
+		.W(32)
+	) time_cnt_I (
+		.cnt_cur (cnt_time),
+		.cnt_cap (),
+		.inc     (1'b1),
+		.cap     (1'b0),
+		.clk     (clk),
+		.rst     (rst)
+	);
 
 
 	// DFU / Reboot

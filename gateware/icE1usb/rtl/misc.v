@@ -81,12 +81,10 @@ module misc (
 	wire gps_pps_r;
 
 	// Counters
-	reg  [15:0] cnt_e1_rx[0:1];
-	reg  [15:0] cap_e1_rx[0:1];
-	reg  [15:0] cnt_e1_tx[0:1];
-	reg  [15:0] cap_e1_tx[0:1];
-	reg  [31:0] cap_gps;
-	reg  [31:0] cnt_time;
+	wire [15:0] cap_e1_rx[0:1];
+	wire [15:0] cap_e1_tx[0:1];
+	wire [31:0] cap_gps;
+	wire [31:0] cnt_time;
 
 	// PDM
 	reg  [12:0] pdm_clk[0:1];
@@ -227,41 +225,28 @@ module misc (
 	// --------
 
 	// E1 ticks
-	for (i=0; i<2; i=i+1) begin
+	capcnt #(
+		.W(16)
+	) e1_cnt_I[3:0] (
+		.cnt_cur (),
+		.cnt_cap ({cap_e1_tx[1],  cap_e1_rx[1],  cap_e1_tx[0],  cap_e1_rx[0] }),
+		.inc     ({tick_e1_tx[1], tick_e1_rx[1], tick_e1_tx[0], tick_e1_rx[0]}),
+		.cap     (tick_usb_sof),
+		.clk     (clk),
+		.rst     (rst)
+	);
 
-		always @(posedge clk or posedge rst)
-			if (rst)
-				cnt_e1_rx[i] <= 16'h0000;
-			else if (tick_e1_rx[i])
-				cnt_e1_rx[i] <= cnt_e1_rx[i] + 1;
-
-		always @(posedge clk or posedge rst)
-			if (rst)
-				cnt_e1_tx[i] <= 16'h0000;
-			else if (tick_e1_tx[i])
-				cnt_e1_tx[i] <= cnt_e1_tx[i] + 1;
-
-		always @(posedge clk)
-			if (tick_usb_sof) begin
-				cap_e1_rx[i] <= cnt_e1_rx[i];
-				cap_e1_tx[i] <= cnt_e1_tx[i];
-			end
-
-	end
-
-	// GPS
-	always @(posedge clk or posedge rst)
-		if (rst)
-			cap_gps <= 32'h00000000;
-		else if (gps_pps_r)
-			cap_gps <= cnt_time;
-
-	// Time counter
-	always @(posedge clk)
-		if (rst)
-			cnt_time <= 32'h00000000;
-		else
-			cnt_time <= cnt_time + 1;
+	// Time / GPS
+	capcnt #(
+		.W(32)
+	) time_cnt_I (
+		.cnt_cur (cnt_time),
+		.cnt_cap (cap_gps),
+		.inc     (1'b1),
+		.cap     (gps_pps_r),
+		.clk     (clk),
+		.rst     (rst)
+	);
 
 
 	// PDM outputs
