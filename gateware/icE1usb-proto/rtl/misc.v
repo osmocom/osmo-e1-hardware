@@ -11,6 +11,8 @@
 
 `default_nettype none
 
+// `define WITH_PDM_READBACK
+
 module misc (
 	// PDM outputs
 	output wire e1_vref_ct_pdm,
@@ -102,11 +104,13 @@ module misc (
 			case (wb_addr[3:0])
 				4'h4:    wb_rdata <= { cap_e1_tx, cap_e1_rx };
 				4'h7:    wb_rdata <= cnt_time;
+`ifdef WITH_PDM_READBACK
 				4'h8:    wb_rdata <= { pdm_clk[0][12], 19'h00000, pdm_clk[0][11:0] };
 				4'h9:    wb_rdata <= { pdm_clk[1][12], 19'h00000, pdm_clk[1][11:0] };
 				4'ha:    wb_rdata <= {  pdm_e1[0][8], 23'h000000,  pdm_e1[0][ 7:0] };
 				4'hb:    wb_rdata <= {  pdm_e1[1][8], 23'h000000,  pdm_e1[1][ 7:0] };
 				4'hc:    wb_rdata <= {  pdm_e1[2][8], 23'h000000,  pdm_e1[2][ 7:0] };
+`endif
 				default: wb_rdata <= 32'hxxxxxxxx;
 			endcase
 

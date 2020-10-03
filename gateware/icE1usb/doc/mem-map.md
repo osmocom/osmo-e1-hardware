@@ -251,7 +251,7 @@ Time register value (see below) captured at the previous PPS rising edge.
 32 bit counter incremented at the system clock rate ( 30.72 MHz )
 
 
-#### PDM (Read/Write, addr `0x08-0x0f`)
+#### PDM (Write Only, addr `0x08-0x0f`)
 
 This exposes configurable voltages ( DACs ). Some channels are 12 bits, some are 8 bits.
 
