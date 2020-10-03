@@ -35,7 +35,7 @@ PACKAGE = sg48
 NEXTPNR_ARGS = --pre-pack data/clocks.py --seed 19
 
 # Include default rules
-NO2BUILD_DIR := ../build
+NO2BUILD_DIR ?= ../build
 include $(NO2BUILD_DIR)/project-rules.mk
 
 # Custom rules

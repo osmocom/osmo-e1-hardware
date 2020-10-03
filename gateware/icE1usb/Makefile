@@ -40,7 +40,7 @@ YOSYS_SYNTH_ARGS = -dffe_min_ce_use 4
 NEXTPNR_ARGS = --pre-pack data/clocks.py --no-promote-globals --seed 2
 
 # Include default rules
-NO2BUILD_DIR := ../build
+NO2BUILD_DIR ?= ../build
 include $(NO2BUILD_DIR)/project-rules.mk
 
 # Custom rules
