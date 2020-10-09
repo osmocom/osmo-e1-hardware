@@ -36,9 +36,9 @@ BOARD ?= ice1usb
 DEVICE := up5k
 PACKAGE := sg48
 
-YOSYS_SYNTH_ARGS = -dffe_min_ce_use 4
 SEED ?= 15
-NEXTPNR_ARGS := --no-promote-globals --pre-pack data/clocks.py --seed $(SEED)
+YOSYS_SYNTH_ARGS :=
+NEXTPNR_ARGS := --pre-pack data/clocks.py --pre-pack data/opt.py --seed $(SEED)
 
 ifeq ($(IGNORE_TIMING),1)
 	NEXTPNR_ARGS += --timing-allow-fail
