@@ -133,7 +133,7 @@ module misc (
 		else
 			case (wb_addr[3:0])
 				4'h1:    wb_rdata <= { 12'h000, gpio_in, 4'h0, gpio_oe, 4'h0, gpio_out };
-				4'h2:    wb_rdata <= { 22'h000000, e1_led_active, e1_led_run, e1_led };
+				4'h2:    wb_rdata <= { 22'h000000, e1_led_active, e1_led };
 				4'h4:    wb_rdata <= { cap_e1_tx[0], cap_e1_rx[0] };
 				4'h5:    wb_rdata <= { cap_e1_tx[1], cap_e1_rx[1] };
 				4'h6:    wb_rdata <= cap_gps;
