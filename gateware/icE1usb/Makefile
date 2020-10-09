@@ -43,6 +43,9 @@ NEXTPNR_ARGS := --no-promote-globals --pre-pack data/clocks.py --seed $(SEED)
 ifeq ($(IGNORE_TIMING),1)
 	NEXTPNR_ARGS += --timing-allow-fail
 endif
+ifeq ($(SINGLE_CHANNEL),1)
+	YOSYS_READ_ARGS += -DWITH_SINGLE_CHANNEL
+endif
 
 # Include default rules
 NO2BUILD_DIR ?= ../build

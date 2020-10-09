@@ -11,6 +11,7 @@
 
 `default_nettype none
 
+// `define WITH_SINGLE_CHANNEL
 `define WITH_SB_I2C
 // `define WITH_CUSTOM_I2C
 
@@ -138,8 +139,13 @@ module top (
 	soc_base #(
 		.WB_N(WB_N),
 		.E1_N(2),
+`ifdef WITH_SINGLE_CHANNEL
 		.E1_UNIT_HAS_RX(2'b01),
 		.E1_UNIT_HAS_TX(2'b01),
+`else
+		.E1_UNIT_HAS_RX(2'b11),
+		.E1_UNIT_HAS_TX(2'b11),
+`endif
 		.E1_LIU(0)
 	) soc_I (
 		.e1_rx_hi_p   ({e1B_rx_hi_p, e1A_rx_hi_p}),
@@ -192,6 +198,7 @@ module top (
 	// Dummy channel
 	// -------------
 
+`ifdef WITH_SINGLE_CHANNEL
 	wire [1:0] e1_dummy;
 
 	SB_IO #(
@@ -229,6 +236,7 @@ module top (
 		.D_IN_0(),
 		.D_IN_1()
 	);
+`endif
 
 
 	// Misc [0]
