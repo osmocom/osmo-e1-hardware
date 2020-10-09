@@ -226,7 +226,7 @@ module soc_base #(
 		.WB_DW (32),
 		.WB_AW (16),
 		.WB_AI ( 2),
-		.WB_REG( 0)
+		.WB_REG( 4)
 	) bridge_I (
 		.pb_addr    (pb_addr),
 		.pb_rdata   (pb_rdata),
