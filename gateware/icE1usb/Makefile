@@ -33,11 +33,16 @@ PROJ_TOP_MOD := top
 
 # Target config
 BOARD ?= ice1usb
-DEVICE = up5k
-PACKAGE = sg48
+DEVICE := up5k
+PACKAGE := sg48
 
 YOSYS_SYNTH_ARGS = -dffe_min_ce_use 4
-NEXTPNR_ARGS = --pre-pack data/clocks.py --no-promote-globals --seed 2
+SEED ?= 15
+NEXTPNR_ARGS := --no-promote-globals --pre-pack data/clocks.py --seed $(SEED)
+
+ifeq ($(IGNORE_TIMING),1)
+	NEXTPNR_ARGS += --timing-allow-fail
+endif
 
 # Include default rules
 NO2BUILD_DIR ?= ../build
