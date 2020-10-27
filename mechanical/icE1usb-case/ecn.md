@@ -80,8 +80,21 @@ Production version, sent to manufacturer for production.
 
 ### Manufactured
 
-n/a
+* A run of 55 cases has been done, with end panels cut by the manufacturer.
 
 ### Issues noticed
 
-n/a
+* The cases are nominally 85 mm long, however seems all of them (both from prototype and
+  production were slightly longer by about 0.2-0.4mm). This might be a result of the surface
+  processing.
+
+* The SMA hole is very close to the chamfer of the screw hole, leaving very little material
+  between the two and on a couple of panels, it was ripped out or slightly bent by the end-mill
+  during manufacturing. Most panels were fine and some slightly bent one could be corrected,
+  but something to keep in mind.
+
+* Also as a consequence of that we can't put a nut on the SMA on the inside (to grab panel by
+  both side). Although I'm not sure it'd be good anyway. The SMA is the only element fixed to
+  the panel (and thus the case), so all the forces of plugging connector are transfered through
+  the PCB, through the SMA to the case. (because the PCB is slightly loose in the case to account
+  for possible tolerances, see also comments in the PCB ECN).
