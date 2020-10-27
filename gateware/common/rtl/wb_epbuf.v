@@ -22,13 +22,13 @@ module wb_epbuf #(
 	output wire          wb_ack,
 
 	// USB EP-Buf master
-    output wire [AW-1:0] ep_tx_addr_0,
-    output wire [DW-1:0] ep_tx_data_0,
-    output wire          ep_tx_we_0,
+	output wire [AW-1:0] ep_tx_addr_0,
+	output wire [DW-1:0] ep_tx_data_0,
+	output wire          ep_tx_we_0,
 
-    output wire [AW-1:0] ep_rx_addr_0,
-    input  wire [DW-1:0] ep_rx_data_1,
-    output wire          ep_rx_re_0,
+	output wire [AW-1:0] ep_rx_addr_0,
+	input  wire [DW-1:0] ep_rx_data_1,
+	output wire          ep_rx_re_0,
 
 	// Clock / Reset
 	input  wire clk,
