@@ -115,6 +115,21 @@ Production version, sent to manufacturer for production.
 * Rerouted 1v2 on the bottom to add more distance from GND vias. Also widened the
   T junction to one of the via to 0.6 mm
 
+### Manufactured
+
+* 52 units ( 26 panels ) were manufactured in Aug/Sep 2020 and all came back in perfect working
+  order.
+
+### Issues noticed
+
+* PCB is slightly loose in the case because the case we used were slightly over size.
+    * The "side tabs" could be made slightly larger (and possibly slight round curve) to
+      have a bit more friction.
+    * The "front/back" edge part that touches the silicone ring could be made a bit longer
+      to compress the silicone a bit.
+    * Those 2 would be very slight changes, like ~ 0.1mm on each side, still have to account
+      for possible tolerance in the cases that could be smaller than nominal !
+
 ### Notes
 
 * Adding series resistor for `gps_reset_n` and `gps_pps` was considered, but deemed not necessary.
@@ -127,3 +142,16 @@ Production version, sent to manufacturer for production.
   peak current (and thus stress on the UP5k drivers). I considered adding a DNP footprint but area
   was a bit cramped and some more work would have been needed for something that would most likely
   stay unpopulated.
+
+* A thought that occured to me to improve pulse shape is to use an external buffered gate (those
+  sot-23/sc-67 single/double gate buffer ICs) and possibly putting it in parallel :
+
+```
+From  -----,----------,--\/\/\/--->  To TX
+FPGA        \        /     R         Magnetics
+             \__|\__/
+	        |/
+```
+
+  This would take strain off the FPGA driver, provide more current and the  delay of the gate
+  might actually help make the pulse shape more correct.
