@@ -86,11 +86,11 @@ spi_init(void)
 void
 spi_xfer(unsigned cs, const struct spi_xfer_chunk *xfer, unsigned n)
 {
+	uint8_t rxd;
 	unsigned chan = (cs >> 2);
 	cs &= 3;
 
 	/* Setup CS */
-	//spi_regs[chan]->cr2 |= SPI_CR2_MCSH;
 	spi_regs[chan]->csr = 0xf ^ (1 << cs);
 
 	/* Run the chunks */
@@ -99,14 +99,14 @@ spi_xfer(unsigned cs, const struct spi_xfer_chunk *xfer, unsigned n)
 		{
 			spi_regs[chan]->txdr = xfer->write ? xfer->data[i] : 0x00;
 			while (!(spi_regs[chan]->sr & SPI_SR_RRDY));
+			rxd = spi_regs[chan]->rxdr;
 			if (xfer->read)
-				xfer->data[i] = spi_regs[chan]->rxdr;
+				xfer->data[i] = rxd;
 		}
 		xfer++;
 	}
 
 	/* Clear CS */
-	//spi_regs[chan]->cr2 &= ~SPI_CR2_MCSH;
 	spi_regs[chan]->csr = 0xf;
 }
 
