@@ -31,9 +31,8 @@ static volatile struct misc * const misc_regs = (void*)(MISC_BASE);
 void
 e1_tick_read(uint16_t *ticks)
 {
-	uint32_t v = misc_regs->e1_tick;
-	ticks[0] = (v      ) & 0xffff;
-	ticks[1] = (v >> 16) & 0xffff;
+	ticks[0] = misc_regs->e1_tick[0].rx;
+	ticks[1] = misc_regs->e1_tick[1].rx;
 }
 
 
