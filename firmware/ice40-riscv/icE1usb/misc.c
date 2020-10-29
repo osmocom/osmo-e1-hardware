@@ -56,3 +56,9 @@ e1_tick_read(void)
 {
 	return misc_regs->e1_tick[0].tx;
 }
+
+void
+reboot(int fw)
+{
+	misc_regs->warmboot = (1 << 2) | (fw << 0);
+}

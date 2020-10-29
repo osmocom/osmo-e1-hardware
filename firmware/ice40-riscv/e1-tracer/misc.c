@@ -35,3 +35,10 @@ e1_tick_read(uint16_t *ticks)
 	ticks[0] = (v      ) & 0xffff;
 	ticks[1] = (v >> 16) & 0xffff;
 }
+
+
+void
+reboot(int fw)
+{
+	misc_regs->warmboot = (1 << 2) | (fw << 0);
+}

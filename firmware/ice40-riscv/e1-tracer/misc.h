@@ -13,3 +13,5 @@
 void vio_set(unsigned value);
 
 void e1_tick_read(uint16_t *ticks);
+
+void reboot(int fw);
