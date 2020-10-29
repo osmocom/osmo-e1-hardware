@@ -6,6 +6,7 @@
  */
 
 #include <no2usb/usb_proto.h>
+#include <no2usb/usb_dfu_proto.h>
 #include <no2usb/usb.h>
 
 #define NULL ((void*)0)
@@ -48,7 +49,7 @@ static const struct {
 	/* DFU Runtime */
 	struct {
 		struct usb_intf_desc intf;
-		struct usb_dfu_desc func;
+		struct usb_dfu_func_desc func;
 	} __attribute__ ((packed)) dfu;
 } __attribute__ ((packed)) _app_conf_desc = {
 	.conf = {
@@ -211,8 +212,8 @@ static const struct {
 			.iInterface		= 8,
 		},
 		.func = {
-			.bLength		= sizeof(struct usb_dfu_desc),
-			.bDescriptorType	= USB_DT_DFU,
+			.bLength		= sizeof(struct usb_dfu_func_desc),
+			.bDescriptorType	= USB_DFU_DT_FUNC,
 			.bmAttributes		= 0x0d,
 			.wDetachTimeOut		= 1000,
 			.wTransferSize		= 4096,
