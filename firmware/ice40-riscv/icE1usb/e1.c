@@ -191,7 +191,7 @@ e1f_frame_write(struct e1_fifo *fifo, unsigned int *ofs, unsigned int max_frames
 }
 
 static unsigned int
-e1f_frame_read(struct e1_fifo *fifo, unsigned int *ofs, int max_frames)
+e1f_frame_read(struct e1_fifo *fifo, unsigned int *ofs, unsigned int max_frames)
 {
 	unsigned int lu, le;
 

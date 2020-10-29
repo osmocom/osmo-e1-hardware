@@ -95,7 +95,7 @@ spi_xfer(unsigned cs, const struct spi_xfer_chunk *xfer, unsigned n)
 
 	/* Run the chunks */
 	while (n--) {
-		for (int i=0; i<xfer->len; i++)
+		for (unsigned int i=0; i<xfer->len; i++)
 		{
 			spi_regs[chan]->txdr = xfer->write ? xfer->data[i] : 0x00;
 			while (!(spi_regs[chan]->sr & SPI_SR_RRDY));
