@@ -31,21 +31,6 @@ static const struct {
 		} __attribute__ ((packed)) on;
 	} __attribute__ ((packed)) e1;
 
-	/* CDC */
-#if 0
-	struct {
-		struct usb_intf_desc intf_ctl;
-		struct usb_cs_intf_hdr_desc cs_intf_hdr;
-		struct usb_cs_intf_acm_desc cs_intf_acm;
-		struct usb_cs_intf_union_desc cs_intf_union;
-		uint8_t cs_intf_union_slave;
-		struct usb_ep_desc ep_ctl;
-		struct usb_intf_desc intf_data;
-		struct usb_ep_desc ep_data_out;
-		struct usb_ep_desc ep_data_in;
-	} __attribute__ ((packed)) cdc;
-#endif
-
 	/* DFU Runtime */
 	struct {
 		struct usb_intf_desc intf;
@@ -56,11 +41,7 @@ static const struct {
 		.bLength                = sizeof(struct usb_conf_desc),
 		.bDescriptorType        = USB_DT_CONF,
 		.wTotalLength           = sizeof(_app_conf_desc),
-#if 0
-		.bNumInterfaces         = 4,
-#else
 		.bNumInterfaces         = 2,
-#endif
 		.bConfigurationValue    = 1,
 		.iConfiguration         = 4,
 		.bmAttributes           = 0x80,
@@ -126,90 +107,17 @@ static const struct {
 			},
 		},
 	},
-#if 0
-	.cdc = {
-		.intf_ctl = {
-			.bLength		= sizeof(struct usb_intf_desc),
-			.bDescriptorType	= USB_DT_INTF,
-			.bInterfaceNumber	= 1,
-			.bAlternateSetting	= 0,
-			.bNumEndpoints		= 1,
-			.bInterfaceClass	= 0x02,
-			.bInterfaceSubClass	= 0x02,
-			.bInterfaceProtocol	= 0x00,
-			.iInterface		= 6,
-		},
-		.cs_intf_hdr = {
-			.bLength		= sizeof(struct usb_cs_intf_hdr_desc),
-			.bDescriptorType	= USB_DT_CS_INTF,
-			.bDescriptorsubtype	= 0x00,
-			.bcdCDC			= 0x0110,
-		},
-		.cs_intf_acm = {
-			.bLength		= sizeof(struct usb_cs_intf_acm_desc),
-			.bDescriptorType	= USB_DT_CS_INTF,
-			.bDescriptorsubtype	= 0x02,
-			.bmCapabilities		= 0x00,
-		},
-		.cs_intf_union = {
-			.bLength		= sizeof(struct usb_cs_intf_union_desc) + 1,
-			.bDescriptorType	= USB_DT_CS_INTF,
-			.bDescriptorsubtype	= 0x06,
-			.bMasterInterface	= 1,
-		},
-		.cs_intf_union_slave = 2,
-		.ep_ctl = {
-			.bLength		= sizeof(struct usb_ep_desc),
-			.bDescriptorType	= USB_DT_EP,
-			.bEndpointAddress	= 0x84,
-			.bmAttributes		= 0x03,
-			.wMaxPacketSize		= 64,
-			.bInterval		= 0xff,
-		},
-		.intf_data = {
-			.bLength		= sizeof(struct usb_intf_desc),
-			.bDescriptorType	= USB_DT_INTF,
-			.bInterfaceNumber	= 2,
-			.bAlternateSetting	= 0,
-			.bNumEndpoints		= 2,
-			.bInterfaceClass	= 0x0a,
-			.bInterfaceSubClass	= 0x00,
-			.bInterfaceProtocol	= 0x00,
-			.iInterface		= 7,
-		},
-		.ep_data_out = {
-			.bLength		= sizeof(struct usb_ep_desc),
-			.bDescriptorType	= USB_DT_EP,
-			.bEndpointAddress	= 0x05,
-			.bmAttributes		= 0x02,
-			.wMaxPacketSize		= 64,
-			.bInterval		= 0x00,
-		},
-		.ep_data_in = {
-			.bLength		= sizeof(struct usb_ep_desc),
-			.bDescriptorType	= USB_DT_EP,
-			.bEndpointAddress	= 0x85,
-			.bmAttributes		= 0x02,
-			.wMaxPacketSize		= 64,
-			.bInterval		= 0x01,
-		},
-	},
-#endif
 	.dfu = {
 		.intf = {
 			.bLength		= sizeof(struct usb_intf_desc),
 			.bDescriptorType	= USB_DT_INTF,
-#if 0
-			.bInterfaceNumber	= 3,
-#else
 			.bInterfaceNumber	= 1,
-#endif
 			.bAlternateSetting	= 0,
 			.bNumEndpoints		= 0,
 			.bInterfaceClass	= 0xfe,
 			.bInterfaceSubClass	= 0x01,
 			.bInterfaceProtocol	= 0x01,
-			.iInterface		= 8,
+			.iInterface		= 6,
 		},
 		.func = {
 			.bLength		= sizeof(struct usb_dfu_func_desc),
