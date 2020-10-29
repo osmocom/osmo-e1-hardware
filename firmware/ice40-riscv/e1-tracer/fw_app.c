@@ -18,14 +18,11 @@
 #include "misc.h"
 #include "mini-printf.h"
 #include "spi.h"
+#include "usb_e1.h"
 #include "utils.h"
 
 
 extern const struct usb_stack_descriptors app_stack_desc;
-
-void usb_e1_init(void);
-void usb_e1_run(void);
-
 
 static void
 serial_no_init()

@@ -20,6 +20,7 @@
 #include "misc.h"
 #include "mini-printf.h"
 #include "spi.h"
+#include "usb_e1.h"
 #include "utils.h"
 
 
