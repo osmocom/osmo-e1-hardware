@@ -12,8 +12,6 @@
 #include <no2usb/usb.h>
 #include <no2usb/usb_dfu_rt.h>
 
-#include "config.h"
-
 #include "console.h"
 #include "e1.h"
 #include "led.h"
@@ -63,8 +61,6 @@ usb_dfu_rt_cb_reboot(void)
         boot_dfu();
 }
 
-
-static volatile uint32_t * const misc_regs = (void*)(MISC_BASE);
 
 void main()
 {
@@ -142,8 +138,6 @@ void main()
 			case 'O':
 				e1_debug_print(true);
 				break;
-			case 't':
-				printf("%08x\n", misc_regs[0]);
 			case 'e':
 				e1_init(true);
 				e1_active = true;
