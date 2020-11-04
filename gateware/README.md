@@ -8,7 +8,7 @@ in this repository.
 Licensing
 ---------
 
-Most of the cores/HDL in here is licensed under one of the CERL OHL 2.0
+Most of the cores/HDL in here is licensed under one of the CERN OHL 2.0
 license. See the `doc/` subdirectory for the full license texts and refer
 to each file header to know the license applicable to each file.
 
