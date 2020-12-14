@@ -16,9 +16,9 @@
 #include "misc.h"
 
 struct {
-	bool running;
-	int out_bdi;
-	int in_bdi;
+	bool running;		/* are we running (transceiving USB data)? */
+	int out_bdi;		/* buffer descriptor index for OUT EP */
+	int in_bdi;		/* buffer descriptor index for IN EP */
 } g_usb_e1;
 
 

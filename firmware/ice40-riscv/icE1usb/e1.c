@@ -30,37 +30,45 @@ struct e1_core {
 	struct e1_chan tx;
 } __attribute__((packed,aligned(4)));
 
-#define E1_RX_CR_ENABLE		(1 <<  0)
-#define E1_RX_CR_MODE_TRSP	(0 <<  1)
-#define E1_RX_CR_MODE_BYTE	(1 <<  1)
-#define E1_RX_CR_MODE_BFA	(2 <<  1)
-#define E1_RX_CR_MODE_MFA	(3 <<  1)
-#define E1_RX_CR_OVFL_CLR	(1 << 12)
-#define E1_RX_SR_ENABLED	(1 <<  0)
-#define E1_RX_SR_ALIGNED	(1 <<  1)
+/* E1 receiver control register */
+#define E1_RX_CR_ENABLE		(1 <<  0)	/* Enable receiver */
+#define E1_RX_CR_MODE_TRSP	(0 <<  1)	/* Request no alignment at all */
+#define E1_RX_CR_MODE_BYTE	(1 <<  1)	/* Request byte-level alignment */
+#define E1_RX_CR_MODE_BFA	(2 <<  1)	/* Request Basic Frame Alignment */
+#define E1_RX_CR_MODE_MFA	(3 <<  1)	/* Request Multi-Frame Alignment */
+#define E1_RX_CR_OVFL_CLR	(1 << 12)	/* Clear Rx overflow condition */
+
+/* E1 receiver status register */
+#define E1_RX_SR_ENABLED	(1 <<  0)	/* Indicate Rx is enabled */
+#define E1_RX_SR_ALIGNED	(1 <<  1)	/* Indicate Alignment achieved */
 #define E1_RX_SR_BD_IN_EMPTY	(1 <<  8)
 #define E1_RX_SR_BD_IN_FULL	(1 <<  9)
 #define E1_RX_SR_BD_OUT_EMPTY	(1 << 10)
 #define E1_RX_SR_BD_OUT_FULL	(1 << 11)
-#define E1_RX_SR_OVFL		(1 << 12)
+#define E1_RX_SR_OVFL		(1 << 12)	/* Indicate Rx overflow */
 
-#define E1_TX_CR_ENABLE		(1 <<  0)
-#define E1_TX_CR_MODE_TRSP	(0 <<  1)
-#define E1_TX_CR_MODE_TS0	(1 <<  1)
-#define E1_TX_CR_MODE_TS0_CRC	(2 <<  1)
-#define E1_TX_CR_MODE_TS0_CRC_E	(3 <<  1)
-#define E1_TX_CR_TICK_LOCAL	(0 <<  3)
-#define E1_TX_CR_TICK_REMOTE	(1 <<  3)
-#define E1_TX_CR_ALARM		(1 <<  4)
-#define E1_TX_CR_LOOPBACK	(1 <<  5)
-#define E1_TX_CR_UNFL_CLR	(1 << 12)
-#define E1_TX_SR_ENABLED	(1 <<  0)
+/* E1 transmitter control register */
+#define E1_TX_CR_ENABLE		(1 <<  0)	/* Enable transmitter */
+#define E1_TX_CR_MODE_TRSP	(0 <<  1)	/* Transparent bit-stream mode */
+#define E1_TX_CR_MODE_TS0	(1 <<  1)	/* Generate TS0 in framer */
+#define E1_TX_CR_MODE_TS0_CRC	(2 <<  1)	/* Generate TS0 + CRC4 in framer */
+#define E1_TX_CR_MODE_TS0_CRC_E	(3 <<  1)	/* Generate TS0 + CRC4 + E-bits (based on Rx) in framer */
+#define E1_TX_CR_TICK_LOCAL	(0 <<  3)	/* use local clock for Tx */
+#define E1_TX_CR_TICK_REMOTE	(1 <<  3)	/* use recovered remote clock for Tx */
+#define E1_TX_CR_ALARM		(1 <<  4)	/* indicate ALARM to remote */
+#define E1_TX_CR_LOOPBACK	(1 <<  5)	/* external loopback enable/diasble */
+#define E1_TX_CR_LOOPBACK_CROSS	(1 <<  6)	/* source of loopback: local (0) or other (1) port */
+#define E1_TX_CR_UNFL_CLR	(1 << 12)	/* Clear Tx underflow condition */
+
+/* E1 transmitter status register */
+#define E1_TX_SR_ENABLED	(1 <<  0)	/* Indicate Tx is enabled */
 #define E1_TX_SR_BD_IN_EMPTY	(1 <<  8)
 #define E1_TX_SR_BD_IN_FULL	(1 <<  9)
 #define E1_TX_SR_BD_OUT_EMPTY	(1 << 10)
 #define E1_TX_SR_BD_OUT_FULL	(1 << 11)
-#define E1_TX_SR_UNFL		(1 << 12)
+#define E1_TX_SR_UNFL		(1 << 12)	/* Indicate Tx underflow */
 
+/* E1 buffer descriptor flags */
 #define E1_BD_VALID		(1 << 15)
 #define E1_BD_CRC1		(1 << 14)
 #define E1_BD_CRC0		(1 << 13)
@@ -265,10 +273,10 @@ e1f_multiframe_empty(struct e1_fifo *fifo)
 // ----------
 
 enum e1_pipe_state {
-	IDLE	= 0,
-	BOOT	= 1,
-	RUN	= 2,
-	RECOVER	= 3,
+	IDLE	= 0,	/* not yet initialized */
+	BOOT	= 1,	/* after e1_init(), regiters are programmed */
+	RUN	= 2,	/* normal operation */
+	RECOVER	= 3,	/* after underflow, overflow or alignment  error */
 };
 
 static struct {
