@@ -25,6 +25,7 @@ struct {
 	int in_bdi;		/* buffer descriptor index for IN EP */
 	struct ice1usb_tx_config tx_cfg;
 	struct ice1usb_rx_config rx_cfg;
+	struct e1_error_count last_err;
 } g_usb_e1;
 
 /* default configuration at power-up */
@@ -86,6 +87,29 @@ usb_e1_run(void)
 
 	if (!g_usb_e1.running)
 		return;
+
+	/* EP3 IRQ */
+	if ((usb_ep_regs[3].in.bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA) {
+		const struct e1_error_count *cur_err = e1_get_error_count();
+		if (memcmp(cur_err, &g_usb_e1.last_err, sizeof(*cur_err))) {
+			struct ice1usb_irq errmsg = {
+				.type = ICE1USB_IRQ_T_ERRCNT,
+				.u = {
+					.errors = {
+						.crc = cur_err->crc,
+						.align = cur_err->align,
+						.ovfl = cur_err->ovfl,
+						.unfl = cur_err->unfl,
+						.flags = cur_err->flags,
+					}
+				}
+			};
+			printf("E");
+			usb_data_write(usb_ep_regs[3].in.bd[0].ptr, &errmsg, sizeof(errmsg));
+			usb_ep_regs[3].in.bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(sizeof(errmsg));
+			g_usb_e1.last_err = *cur_err;
+		}
+	}
 
 	/* EP2 IN */
 	bdi = g_usb_e1.in_bdi;
@@ -213,6 +237,7 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	usb_ep_boot(intf, 0x01, true);
 	usb_ep_boot(intf, 0x81, true);
 	usb_ep_boot(intf, 0x82, true);
+	usb_ep_boot(intf, 0x83, true);
 
 	return USB_FND_SUCCESS;
 }
@@ -273,6 +298,11 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 
 	/* EP1 IN: Queue buffer */
 	_usb_fill_feedback_ep();
+
+	/* EP3 IN: Interrupt */
+	usb_ep_regs[3].in.status = USB_EP_TYPE_INT;
+	usb_ep_regs[3].in.bd[0].ptr = 68;
+	usb_ep_regs[3].in.bd[0].csr = 0;
 
 	return USB_FND_SUCCESS;
 }

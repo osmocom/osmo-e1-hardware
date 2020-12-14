@@ -75,3 +75,32 @@ enum ice1usb_rx_mode {
 struct ice1usb_rx_config {
 	uint8_t mode;		/*!< enum ice1usb_rx_mode */
 } __attribute__((packed));
+
+
+/***********************************************************************
+ * Interrupt Endpoint
+ ***********************************************************************/
+
+enum ice1usb_irq_type {
+	ICE1USB_IRQ_T_ERRCNT		= 1,
+};
+
+/* Ensue ro keep those in sync with e1.h */
+#define ICE1USB_ERR_F_ALIGN_ERR	0x01
+#define ICE1USB_ERR_F_LOS	0x02
+
+struct ice1usb_irq_err {
+	/* 16-bit little-endian counters */
+	uint16_t crc;
+	uint16_t align;
+	uint16_t ovfl;
+	uint16_t unfl;
+	uint8_t flags;
+} __attribute__((packed));
+
+struct ice1usb_irq {
+	uint8_t type; 		/*!< enum ice1usb_irq_type */
+	union {
+		struct ice1usb_irq_err errors;
+	} u;
+} __attribute__((packed));
