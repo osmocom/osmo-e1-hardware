@@ -14,6 +14,7 @@
 
 #include "console.h"
 #include "misc.h"
+#include "e1.h"
 
 struct {
 	bool running;		/* are we running (transceiving USB data)? */
@@ -76,6 +77,7 @@ usb_e1_run(void)
 	{
 		uint32_t ptr = usb_ep_regs[2].in.bd[bdi].ptr;
 		uint32_t hdr;
+		unsigned int pos;
 
 		/* Error check */
 		if ((usb_ep_regs[2].in.bd[bdi].csr & USB_BD_STATE_MSK) == USB_BD_STATE_DONE_ERR)
@@ -93,10 +95,10 @@ usb_e1_run(void)
 		else if (!n)
 			break;
 
-		n = e1_rx_need_data((ptr >> 2) + 1, n, NULL);
+		n = e1_rx_need_data((ptr >> 2) + 1, n, &pos);
 
-		/* Write header */
-		hdr = 0x616b00b5;
+		/* Write header: currently version and pos (mfr/fr number) */
+		hdr = (0 << 28) | (pos & 0xff);
 		usb_data_write(ptr, &hdr, 4);
 
 		/* Resubmit */
