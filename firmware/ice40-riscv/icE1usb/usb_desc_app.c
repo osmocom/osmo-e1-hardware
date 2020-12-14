@@ -19,6 +19,10 @@ static const struct {
 
 	/* E1 */
 	struct {
+		/* Two altsettings are required, as isochronous
+		 * interfaces must have a setting where they don't
+		 * transceive any data. wMaxPacketSize is 0 for
+		 * all endpoints in the 'off' altsetting */
 		struct {
 			struct usb_intf_desc intf;
 			struct usb_ep_desc ep_data_in;
