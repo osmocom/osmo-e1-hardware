@@ -328,7 +328,7 @@ e1_init(bool clk_mode)
 #include "dma.h"
 
 unsigned int
-e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames)
+e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames, unsigned int *pos)
 {
 	unsigned int ofs;
 	int tot_frames = 0;
@@ -339,6 +339,12 @@ e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames)
 		n_frames = e1f_frame_read(&g_e1.rx.fifo, &ofs, max_frames);
 		if (!n_frames)
 			break;
+
+		/* Give pos */
+		if (pos) {
+			*pos = ofs & g_e1.rx.fifo.mask;
+			pos = NULL;
+		}
 
 		/* Copy from FIFO to USB */
 		dma_exec(e1f_ofs_to_dma(ofs), usb_addr, n_frames * (32 / 4), false, NULL, NULL);
