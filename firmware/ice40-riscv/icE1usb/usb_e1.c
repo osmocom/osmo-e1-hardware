@@ -175,7 +175,8 @@ _find_intf(const struct usb_conf_desc *conf, uint8_t idx)
 
 	return NULL;
 }
-enum usb_fnd_resp
+
+static enum usb_fnd_resp
 _e1_set_conf(const struct usb_conf_desc *conf)
 {
 	const struct usb_intf_desc *intf;
@@ -197,7 +198,7 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	return USB_FND_SUCCESS;
 }
 
-enum usb_fnd_resp
+static enum usb_fnd_resp
 _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 {
 	if (base->bInterfaceNumber != 0)
@@ -239,7 +240,7 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 	return USB_FND_SUCCESS;
 }
 
-enum usb_fnd_resp
+static enum usb_fnd_resp
 _e1_get_intf(const struct usb_intf_desc *base, uint8_t *alt)
 {
 	if (base->bInterfaceNumber != 0)
