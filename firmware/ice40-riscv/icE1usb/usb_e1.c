@@ -23,7 +23,7 @@ struct {
 
 
 /* Hack */
-unsigned int e1_rx_need_data(unsigned int usb_addr, unsigned int max_len);
+unsigned int e1_rx_need_data(unsigned int usb_addr, unsigned int max_len, unsigned int *pos);
 unsigned int e1_tx_feed_data(unsigned int usb_addr, unsigned int len);
 unsigned int e1_tx_level(void);
 unsigned int e1_rx_level(void);
@@ -93,7 +93,7 @@ usb_e1_run(void)
 		else if (!n)
 			break;
 
-		n = e1_rx_need_data((ptr >> 2) + 1, n);
+		n = e1_rx_need_data((ptr >> 2) + 1, n, NULL);
 
 		/* Write header */
 		hdr = 0x616b00b5;
