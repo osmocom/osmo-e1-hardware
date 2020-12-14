@@ -406,7 +406,7 @@ e1_poll(void)
 		return;
 
 	/* HACK: LED link status */
-	if (e1_regs->rx.csr & 2)
+	if (e1_regs->rx.csr & E1_RX_SR_ALIGNED)
 		led_color(0, 48, 0);
 	else
 		led_color(48, 0, 0);
