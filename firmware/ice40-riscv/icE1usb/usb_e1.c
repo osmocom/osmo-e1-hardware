@@ -40,7 +40,7 @@ _usb_fill_feedback_ep(void)
 	uint32_t val = 8192;
 	unsigned int level;
 
-	/* Compute real E1 tick count (with safety agains bad values) */
+	/* Compute real E1 tick count (with safety against bad values) */
 	ticks = e1_tick_read();
 	val = (ticks - ticks_prev) & 0xffff;
 	ticks_prev = ticks;
