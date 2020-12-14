@@ -232,6 +232,7 @@ static struct {
 		int in_flight;
 		enum e1_pipe_state state;
 	} tx;
+	struct e1_error_count errors;
 } g_e1;
 
 
@@ -360,6 +361,12 @@ e1_rx_level(void)
 	return e1f_valid_frames(&g_e1.rx.fifo);
 }
 
+const struct e1_error_count *
+e1_get_error_count(void)
+{
+	return &g_e1.errors;
+}
+
 void
 e1_poll(void)
 {
@@ -374,10 +381,12 @@ e1_poll(void)
 	if (e1_regs->rx.csr & E1_RX_SR_ALIGNED) {
 		e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_ON);
 		led_color(0, 48, 0);
+		g_e1.errors.flags &= ~(E1_ERR_F_LOS|E1_ERR_F_ALIGN_ERR);
 	} else {
 		e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_BLINK);
-		/* TODO: completely off if rx tick counter not incrementing */
 		led_color(48, 0, 0);
+		g_e1.errors.flags |= E1_ERR_F_ALIGN_ERR;
+		/* TODO: completely off if rx tick counter not incrementing */
 	}
 
 	/* Recover any done TX BD */
@@ -390,8 +399,10 @@ e1_poll(void)
 	while ( (bd = e1_regs->rx.bd) & E1_BD_VALID ) {
 		/* FIXME: CRC status ? */
 		e1f_multiframe_write_commit(&g_e1.rx.fifo);
-		if ((bd & (E1_BD_CRC0 | E1_BD_CRC1)) != (E1_BD_CRC0 | E1_BD_CRC1))
+		if ((bd & (E1_BD_CRC0 | E1_BD_CRC1)) != (E1_BD_CRC0 | E1_BD_CRC1)) {
 			printf("b: %03x\n", bd);
+			g_e1.errors.crc++;
+		}
 		g_e1.rx.in_flight--;
 	}
 
@@ -410,6 +421,7 @@ e1_poll(void)
 		if (!(e1_regs->rx.csr & E1_RX_SR_ALIGNED)) {
 			printf("[!] E1 rx misalign\n");
 			g_e1.rx.state = RECOVER;
+			g_e1.errors.align++;
 		}
 	}
 
@@ -418,6 +430,7 @@ e1_poll(void)
 		if (e1_regs->rx.csr & E1_RX_SR_OVFL) {
 			printf("[!] E1 overflow %d\n", g_e1.rx.in_flight);
 			g_e1.rx.state = RECOVER;
+			g_e1.errors.ovfl++;
 		}
 	}
 
@@ -449,6 +462,7 @@ done_rx:
 		if (e1_regs->tx.csr & E1_TX_SR_UNFL) {
 			printf("[!] E1 underflow %d\n", g_e1.tx.in_flight);
 			g_e1.tx.state = RECOVER;
+			g_e1.errors.unfl++;
 		}
 	}
 
