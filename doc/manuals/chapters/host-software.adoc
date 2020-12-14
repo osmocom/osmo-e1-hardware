@@ -1,0 +1,34 @@
+== Host Software
+
+Host Software is software running on the USB host computer to which the
+icE1usb is attached.
+
+At the time of this writing, the only software implementing icE1usb
+support is `osmo-e1d`.
+
+=== `osmo-e1d`
+
+`osmo-e1d` utilizes `libusb` to talk to the icE1usb hardware and offers
+a unix domain socket based interface to application software.
+
+Software such as `osmo-bsc` and `osmo-mgw` can interface `osmo-e1d` via
+the `libosmo-abis` support for `osmo-e1d`.
+
+More information about `osmo-e1d` can be found at its homepage
+https://osmocom.org/projects/osmo-e1d/wiki
+
+=== Other software
+
+you can interface 3rd party applications with osmo-e1d in the following
+ways:
+
+* by adding support for `osmo-e1d`, e.g. via `libosmo-e1d` to the
+  respective appliation
+* by implementing a device driver for whatever hardware interface (e.g.
+  for DAHDI) supported by your software
+* by directly implementing the USB interface exposed by icE1usb in your
+  software
+
+Should you require any related development/porting services, please do
+not hesitate to reach out to sysmocom.
+

@@ -1,0 +1,17 @@
+:gfdl-enabled:
+
+icE1usb User Manual
+===================
+Harald Welte <hwelte@sysmocom.de>
+
+include::./common/chapters/preface.adoc[]
+
+include::./chapters/hardware.adoc[]
+
+include::./chapters/gateware.adoc[]
+
+include::./chapters/firmware.adoc[]
+
+include::./chapters/host-software.adoc[]
+
+include::./common/chapters/gfdl.adoc[]

@@ -1,0 +1,119 @@
+[[hardware]]
+== icE1usb Hardware
+
+The icE1usb Hardware consists of a single circuit board (in an optional
+enclosure).
+
+It's main building blocks are:
+
+* an iCE40 FPGA
+* Two E1 line interface (transformers, biasing networks and ESD protection) footnote:[Only one E1 line supported by firmware so far]
+* a GPS receiver module with 1PPS output to the FPGA footnote:[GPS-DO supported by firmware yet]
+
+=== Schematics
+
+As icE1usb is an OSHW (Open Source Hardware) project, the full schematics
+and design files are publicly available.
+
+The design files in KiCAD formwa are available at https://git.osmocom.org/osmo-e1-hardware/tree/hardware/icE1usb
+
+PDF rendered schematics are available at https://git.osmocom.org/osmo-e1-hardware/plain/hardware/icE1usb/r1.0/icE1usb.pdf
+
+=== Connectors
+
+==== X5A and X5B: E1 Interface Connectors
+
+On one side of the PCB there are two RJ45 connectors next to each other.
+
+Those are the two E1 line interfaces.  The interfaces are of symmetric
+120 Ohms type.
+
+Assuming the board is oriented with the tab of the RJ45 connectors facing
+up:
+
+* Interface 0 is on the right side
+* Interface 1 is on the left side (next to the button)
+
+The pin-out of the connectors can be swapped between TE and NT mode using
+the J4 and J5 jumper blocks on the circuit board.
+
+A GSM BTS typically implements TE pin-out, while the icE1usb should then
+use NT mode pin-out if no cross-over cable is used.
+
+.Pin-out of RJ45 E1 connectors
+[options="header"]
+|===
+| Pin | Function (TE) | Function (NT Mode)
+| 1   | Rx            | Tx
+| 2   | Rx            | Tx
+| 3   | not used      | not used
+| 4   | Tx            | Rx
+| 5   | Tx            | Rx
+| 7   | not used      | not used
+| 8   | not used      | not used
+|===
+
+NOTE: E1 cables use RJ45 like Ethernet, but Ethernet cables have a
+different pin-out.  Particularly, you cannot use an Ethernet cross-over
+cable as an E1 cross-over!
+
+==== X4: USB Connector
+
+The USB connector is a USB Type C connector.   However, it only carries
+USB 1.1 full-speed signals.  5V DC power is also sourced from this
+connector.
+
+==== X2: Serial Console Connector
+
+The serial console is used for development and debugging.  It uses an
+Osmocom-style 2.5mm stereo TRS jack.
+
+The serial console uses 3.3V CMOS logic levels
+
+The serial console uses a rate of 1000000 bps.
+
+The pin-out is as follows:
+
+* Tip: Tx output from PC (Rx input of icE1usb)
+* Ring: Rx input of PC (Tx output of icE1usb)
+* Shield: GND
+
+A compatible cable can be sourced from the sysmocom web-shop at
+http://shop.sysmocom.de/.
+
+==== X1: GPS Antenna Connector
+
+The GPS antenna connector is a female SMA connector.
+
+You can connect most standard active GPS antennas with built-in LNA.
+
+icE1us provide phantom voltage.
+
+The use of a GPS antenna is only required when you need a high precision
+clock reference for the 2.048 MHz E1 bit clock, e.g. to provide a clock
+reference to a cellular base station on the A-bis interface.
+
+==== X3: GPIO / Extension Connector
+
+This is a RJ45 connector adjacent to the USB connector.
+
+It is currently unused and reserved for future use.
+
+
+[[hw-pushbutton]]
+=== Pushbutton
+
+This is a push-button next to the _E1 interface '1'_.   It is recessed
+to protect against accidental use.   You will need to use a paper clip,
+pen tip or other similar object to push it.
+
+The button can be used to force booting into the DFU loader in order to
+recover from a broken firmware installation.
+
+
+=== Multi-Color LED
+
+Above the USB-C connector, there is a multi-color RGB LED.
+
+This LED is used by the firmware to indicate a variety of status
+information.  Pleas see the firmware documentation in <<firmware>>.

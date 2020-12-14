@@ -1,0 +1,137 @@
+[[firmware]]
+== icE1usb Firmware
+
+The icE1usb _firmware_ is a small amount of bare-iron software running
+on the picoRISCV soft-core of the _gateware_.
+
+It mainly consists of drivers for the no2e1 E1 Framer IP core and the
+no2usb USB Device IP core which are part of the gateware described in
+<<gateware>>.
+
+=== Firmware Upgrade (DFU)
+
+icE1usb contains support for the USB DFU (Device Firmware Upgrade)
+standard.
+
+As such, you can use any USB DFU compliant utility to upgrade the
+firmware of the icE1usb device.
+
+DFU mode can be entered in two ways:
+
+1. by performing a DFU detach from the normal application firmware
+   (obviously that requires a [still] working firmware present on the
+   device).  To do so, please use `dfu-util -e`
+
+1. by pushing the push-button (see <<hw-pushbutton>>) during power-up.
+   Simply disconnect the USB cable, then push that button and keep it
+   pushed while re-attaching the USB cable.
+
+The icE1usb boot loader enumerates as VID:PID `1d50:6145`, while the
+normal application firmware enumerates as `1d50:6144`,
+
+You can for example use `lsusb` to check the VID:PID:
+
+----
+$ lsusb -d 1d50:
+Bus 001 Device 042: ID 1d50:6145<1> OpenMoko, Inc. icE1usb
+$ sudo dfu-util -d 1d50:6145 -e <2>
+...
+$ lsusb -d 1d50:
+Bus 001 Device 043: ID 1d50:6144<3> OpenMoko, Inc. icE1usb (DFU)
+----
+<1> initially the device is in normal runtime mode
+<2> we use `dfu-util -e` to switch to DFU mode
+<3> we can see, the device is now in DFU mode
+
+==== Obtaining firmware upgrades
+
+The latest firmware can currently be found at the personal developer
+directory of tnt at https://people.osmocom.org/tnt/e1/
+
+A more official download location will be provided shortly.
+
+==== Upgrading the FPGA gateware
+
+Gateware files are called `icE1usb-*.bin`.
+
+The gateware can be upgraded by accessing the DFU _altsetting 0_ using `dfu-util` *`-a 0`*
+
+Assuming you already are in DFU mode, you would typically use a command
+like `dfu-util -d 1d50:6144 -a 0 -D icE1usb-202010-bd3999e96.bin -R` to perform the upgrade.
+
+NOTE: The `-R` will switch the device back to runtime mode after the
+upgrade.   If you want to upgrade the firmware in the same session, skip
+the `-R` in the above command.
+
+==== Upgrading the picoRISCV firmware
+
+Firmware files are called `fw_app*.bin`.
+
+The firmware can be upgraded by accessing the DFU _altsetting 1_ using `dfu-util` *`-a 1`*
+
+Assuming you already are in DFU mode, you would typically use a command
+like `dfu-util -d 1d50:6144 -a 1 -D fw_app-202011-4d9a04e2.bin -R` to perform the upgrade.
+
+.Typical output during upgrade of the firmware
+----
+$ sudo dfu-util -d 1d50:6144 -a 1 -D ./fw_app.bin -R
+dfu-util 0.9
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2016 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+dfu-util: Invalid DFU suffix signature
+dfu-util: A valid DFU suffix will be required in a future dfu-util release!!!
+Opening DFU capable USB device...
+ID 1d50:6144
+Run-time device DFU version 0101
+Claiming USB DFU Interface...
+Setting Alternate Setting #1 ...
+Determining device status: state = dfuIDLE, status = 0
+dfuIDLE, continuing
+DFU mode device DFU version 0101
+Device returned transfer size 4096
+Copying data from PC to DFU device
+Download        [=========================] 100%        11256 bytes
+Download done.
+state(2) = dfuIDLE, status(0) = No error condition is present
+Done!
+Resetting USB to switch back to runtime mode
+----
+
+As the `-R` option was used, the device will reset and re-enumerate in
+the newly programmed firmware.
+
+You can verify this as follows:
+
+----
+$ lsusb -d 1d50:
+Bus 001 Device 042: ID 1d50:6145 OpenMoko, Inc. icE1usb
+----
+
+or alternatively:
+
+----
+$ dfu-util -l -d 1d50:
+dfu-util 0.9
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2016 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+Found Runtime: [1d50:6145] ver=0003, devnum=44, cfg=1, intf=1, path="1-2", alt=0, name="DFU runtime", serial="dc697407e7881531"
+----
+
+
+=== Use of the E1 Interface LEDs
+
+Each E1 interface has two LEDs integrated into the RJ45 connector.
+
+FIXME: describe how they are used.
+
+=== Use of the Multi-Color RGB LED
+
+FIXME: describe how it is used.
