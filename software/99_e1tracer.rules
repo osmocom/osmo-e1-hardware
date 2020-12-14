@@ -1,0 +1,13 @@
+# copy this file to /etc/udev/rules.d/
+
+# If not adding the device, go away
+ACTION!="add", GOTO="e1_tracer_rules_end"
+SUBSYSTEM!="usb", GOTO="e1_tracer_rules_end"
+
+# Osmocom e1-tracer, DFU mode
+ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="6150", GROUP="plugdev"
+# Osmocom e1-tracer, runtime
+ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="6151", GROUP="plugdev"
+
+# All done
+LABEL="e1_tracer_rules_end"

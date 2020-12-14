@@ -1,0 +1,13 @@
+# copy this file to /etc/udev/rules.d/
+
+# If not adding the device, go away
+ACTION!="add", GOTO="ice40_e1_rules_end"
+SUBSYSTEM!="usb", GOTO="ice40_e1_rules_end"
+
+# Osmocom icE1usb USB E1 interface, DFU mode
+ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="6144", GROUP="plugdev"
+# Osmocom icE1usb USB E1 interface, runtime
+ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="6145", GROUP="plugdev"
+
+# All done
+LABEL="ice40_e1_rules_end"
