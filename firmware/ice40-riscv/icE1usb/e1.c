@@ -263,6 +263,29 @@ e1_init(bool clk_mode)
 	g_e1.tx.state = BOOT;
 }
 
+#define TXCR_PERMITTED (			\
+		E1_TX_CR_MODE_TS0_CRC_E	|	\
+		E1_TX_CR_TICK_REMOTE |		\
+		E1_TX_CR_ALARM	|		\
+		E1_TX_CR_LOOPBACK |		\
+		E1_TX_CR_LOOPBACK_CROSS	)
+
+void
+e1_tx_config(uint16_t cr)
+{
+	g_e1.tx.cr = (cr & TXCR_PERMITTED);
+	e1_regs->tx.csr = (e1_regs->tx.csr & ~TXCR_PERMITTED) | g_e1.tx.cr;
+}
+
+#define RXCR_PERMITTED (			\
+		E1_RX_CR_MODE_MFA )
+
+void
+e1_rx_config(uint16_t cr)
+{
+	g_e1.rx.cr = (cr & RXCR_PERMITTED);
+	e1_regs->rx.csr = (e1_regs->rx.csr & ~RXCR_PERMITTED) | g_e1.rx.cr;
+}
 
 #include "dma.h"
 
