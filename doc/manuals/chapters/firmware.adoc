@@ -128,9 +128,17 @@ Found Runtime: [1d50:6145] ver=0003, devnum=44, cfg=1, intf=1, path="1-2", alt=0
 
 === Use of the E1 Interface LEDs
 
-Each E1 interface has two LEDs integrated into the RJ45 connector.
+Each E1 interface has two LEDs integrated into the RJ45 connector. They
+are (starting to get) used by the firmware to indicate status
+information to the user.
 
-FIXME: describe how they are used.
+[options="header"]
+|===
+|Color  | Pattern         | Meaning
+|Green  | Blinking (slow) | E1 Receiver attempting to align
+|Green  | On              | E1 Receiver fully aligned
+|===
+
 
 === Use of the Multi-Color RGB LED
 
