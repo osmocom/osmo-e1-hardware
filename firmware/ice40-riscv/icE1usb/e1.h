@@ -7,7 +7,7 @@
 
 #pragma once
 
-void e1_init(bool clk_mode);
+void e1_init(uint16_t rx_cr, uint16_t tx_cr);
 void e1_poll(void);
 void e1_debug_print(bool data);
 

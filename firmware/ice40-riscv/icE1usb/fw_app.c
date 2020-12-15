@@ -102,7 +102,7 @@ void main()
 	usb_e1_init();
 
 	/* Start */
-	e1_init(false);		// local tick
+	e1_init(0, 0);
 	e1_active = true;
 	led_state(true);
 	usb_connect();
@@ -137,16 +137,6 @@ void main()
 				break;
 			case 'O':
 				e1_debug_print(true);
-				break;
-			case 'e':
-				e1_init(true);
-				e1_active = true;
-				led_state(true);
-				break;
-			case 'E':
-				e1_init(false);
-				e1_active = true;
-				led_state(true);
 				break;
 			case 'c':
 				usb_connect();
