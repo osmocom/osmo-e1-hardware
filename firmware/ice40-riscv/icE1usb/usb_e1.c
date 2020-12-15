@@ -15,12 +15,29 @@
 #include "console.h"
 #include "misc.h"
 #include "e1.h"
+#include "e1_hw.h"
+
+#include "ice1usb_proto.h"
 
 struct {
 	bool running;		/* are we running (transceiving USB data)? */
 	int out_bdi;		/* buffer descriptor index for OUT EP */
 	int in_bdi;		/* buffer descriptor index for IN EP */
+	struct ice1usb_tx_config tx_cfg;
+	struct ice1usb_rx_config rx_cfg;
 } g_usb_e1;
+
+/* default configuration at power-up */
+static const struct ice1usb_tx_config tx_cfg_default = {
+	.mode		= ICE1USB_TX_MODE_TS0_CRC4_E,
+	.timing		= ICE1USB_TX_TIME_SRC_LOCAL,
+	.ext_loopback	= ICE1USB_TX_EXT_LOOPBACK_OFF,
+	.alarm		= 0,
+};
+
+static const struct ice1usb_rx_config rx_cfg_default = {
+	.mode		= ICE1USB_RX_MODE_MULTIFRAME,
+};
 
 
 /* Hack */
@@ -200,6 +217,21 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	return USB_FND_SUCCESS;
 }
 
+static void _perform_tx_config(void)
+{
+	const struct ice1usb_tx_config *cfg = &g_usb_e1.tx_cfg;
+	e1_tx_config(   ((cfg->mode & 3) << 1) |
+			((cfg->timing & 1) << 3) |
+			((cfg->alarm & 1) << 4) |
+			((cfg->ext_loopback & 3) << 5) );
+}
+
+static void _perform_rx_config(void)
+{
+	const struct ice1usb_rx_config *cfg = &g_usb_e1.rx_cfg;
+	e1_rx_config((cfg->mode << 1));
+}
+
 static enum usb_fnd_resp
 _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 {
@@ -212,6 +244,9 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 	/* Hack to avoid re-setting while running ... avoid BD desync */
 	if (g_usb_e1.running)
 		return USB_FND_SUCCESS;
+
+	_perform_rx_config();
+	_perform_tx_config();
 
 	g_usb_e1.running = true;
 
@@ -253,15 +288,122 @@ _e1_get_intf(const struct usb_intf_desc *base, uint8_t *alt)
 	return USB_FND_SUCCESS;
 }
 
+static bool
+_set_tx_mode_done(struct usb_xfer *xfer)
+{
+	const struct ice1usb_tx_config *cfg = (const struct ice1usb_tx_config *) xfer->data;
+	printf("set_tx_mode %02x%02x%02x%02x\r\n",
+		xfer->data[0], xfer->data[1], xfer->data[2], xfer->data[3]);
+	g_usb_e1.tx_cfg = *cfg;
+	_perform_tx_config();
+	return true;
+}
+
+static bool
+_set_rx_mode_done(struct usb_xfer *xfer)
+{
+	const struct ice1usb_rx_config *cfg = (const struct ice1usb_rx_config *) xfer->data;
+	printf("set_rx_mode %02x\r\n", xfer->data[0]);
+	g_usb_e1.rx_cfg = *cfg;
+	_perform_rx_config();
+	return true;
+}
+
+/* per-interface requests */
+static enum usb_fnd_resp
+_e1_ctrl_req_intf(struct usb_ctrl_req *req, struct usb_xfer *xfer)
+{
+	unsigned int i;
+
+	switch (req->bRequest) {
+	case ICE1USB_INTF_GET_CAPABILITIES:
+		/* no optional capabilities yet */
+		xfer->len = 0;
+		break;
+	case ICE1USB_INTF_SET_TX_CFG:
+		if (req->wLength < sizeof(struct ice1usb_tx_config))
+			return USB_FND_ERROR;
+		xfer->cb_done = _set_tx_mode_done;
+		xfer->cb_ctx = req;
+		xfer->len = sizeof(struct ice1usb_tx_config);
+		break;
+	case ICE1USB_INTF_GET_TX_CFG:
+		if (req->wLength < sizeof(struct ice1usb_tx_config))
+			return USB_FND_ERROR;
+		memcpy(xfer->data, &g_usb_e1.tx_cfg, sizeof(struct ice1usb_tx_config));
+		xfer->len = sizeof(struct ice1usb_tx_config);
+		break;
+	case ICE1USB_INTF_SET_RX_CFG:
+		if (req->wLength < sizeof(struct ice1usb_rx_config))
+			return USB_FND_ERROR;
+		xfer->cb_done = _set_rx_mode_done;
+		xfer->cb_ctx = req;
+		xfer->len = sizeof(struct ice1usb_rx_config);
+		break;
+	case ICE1USB_INTF_GET_RX_CFG:
+		if (req->wLength < sizeof(struct ice1usb_rx_config))
+			return USB_FND_ERROR;
+		memcpy(xfer->data, &g_usb_e1.rx_cfg, sizeof(struct ice1usb_rx_config));
+		xfer->len = sizeof(struct ice1usb_rx_config);
+		break;
+	default:
+		return USB_FND_ERROR;
+	}
+
+	return USB_FND_SUCCESS;
+}
+
+/* device-global requests */
+static enum usb_fnd_resp
+_e1_ctrl_req_dev(struct usb_ctrl_req *req, struct usb_xfer *xfer)
+{
+	switch (req->bRequest) {
+	case ICE1USB_DEV_GET_CAPABILITIES:
+		xfer->data[0] = (1 << ICE1USB_DEV_CAP_GPSDO);
+		xfer->len = 1;
+		break;
+	default:
+		return USB_FND_ERROR;
+	}
+
+	return USB_FND_SUCCESS;
+}
+
+
+/* USB host issues a control request to us */
+static enum usb_fnd_resp
+_e1_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
+{
+	if (USB_REQ_TYPE(req) != USB_REQ_TYPE_VENDOR)
+		return USB_FND_CONTINUE;
+
+	switch (USB_REQ_RCPT(req)) {
+	case USB_REQ_RCPT_DEV:
+		return _e1_ctrl_req_dev(req, xfer);
+	case USB_REQ_RCPT_INTF:
+		if (req->wIndex != 0)
+			return USB_FND_ERROR;
+		return _e1_ctrl_req_intf(req, xfer);
+	case USB_REQ_RCPT_EP:
+	case USB_REQ_RCPT_OTHER:
+	default:
+		return USB_FND_ERROR;
+	}
+}
+
+
 static struct usb_fn_drv _e1_drv = {
 	.set_conf	= _e1_set_conf,
         .set_intf       = _e1_set_intf,
         .get_intf       = _e1_get_intf,
+	.ctrl_req	= _e1_ctrl_req,
 };
 
 void
 usb_e1_init(void)
 {
 	memset(&g_usb_e1, 0x00, sizeof(g_usb_e1));
+	g_usb_e1.tx_cfg = tx_cfg_default;
+	g_usb_e1.rx_cfg = rx_cfg_default;
 	usb_register_function_driver(&_e1_drv);
 }

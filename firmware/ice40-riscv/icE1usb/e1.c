@@ -238,7 +238,7 @@ static struct {
 
 
 void
-e1_init(bool clk_mode)
+e1_init(uint16_t rx_cr, uint16_t tx_cr)
 {
 	/* Global state init */
 	memset(&g_e1, 0x00, sizeof(g_e1));
@@ -248,14 +248,11 @@ e1_init(bool clk_mode)
 	e1f_reset(&g_e1.tx.fifo, 128, 128);
 
 	/* Enable Rx */
-	g_e1.rx.cr = E1_RX_CR_MODE_MFA |
-	             E1_RX_CR_ENABLE;
+	g_e1.rx.cr = E1_RX_CR_ENABLE | rx_cr;
 	e1_regs->rx.csr = E1_RX_CR_OVFL_CLR | g_e1.rx.cr;
 
 	/* Enable Tx */
-	g_e1.tx.cr = (clk_mode ? E1_TX_CR_TICK_REMOTE : E1_TX_CR_TICK_LOCAL) |
-	             E1_TX_CR_MODE_TS0_CRC_E |
-		     E1_TX_CR_ENABLE;
+	g_e1.tx.cr = E1_TX_CR_ENABLE | tx_cr;
 	e1_regs->tx.csr = E1_TX_CR_UNFL_CLR | g_e1.tx.cr;
 
 	/* State */
