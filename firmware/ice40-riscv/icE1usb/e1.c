@@ -16,6 +16,8 @@
 #include "dma.h"
 #include "led.h" // FIXME
 
+#include "misc.h"	// needed to get the E1 tick for "LOS" detection
+
 
 // Hardware
 // --------
@@ -283,6 +285,7 @@ static struct {
 		struct e1_fifo fifo;
 		int in_flight;
 		enum e1_pipe_state state;
+		uint16_t last_tick;
 	} rx;
 
 	struct {
@@ -426,8 +429,12 @@ e1_poll(void)
 		e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_ON);
 		led_color(0, 48, 0);
 	} else {
-		e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_BLINK);
-		/* TODO: completely off if rx tick counter not incrementing */
+		uint16_t cur_tick = e1_tick_read(0);
+		if (g_e1.rx.last_tick == cur_tick)
+			e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_OFF);
+		else
+			e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_BLINK);
+		g_e1.rx.last_tick = cur_tick;
 		led_color(48, 0, 0);
 	}
 
