@@ -422,10 +422,14 @@ e1_poll(void)
 		return;
 
 	/* HACK: LED link status */
-	if (e1_regs->rx.csr & E1_RX_SR_ALIGNED)
+	if (e1_regs->rx.csr & E1_RX_SR_ALIGNED) {
+		e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_ON);
 		led_color(0, 48, 0);
-	else
+	} else {
+		e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_BLINK);
+		/* TODO: completely off if rx tick counter not incrementing */
 		led_color(48, 0, 0);
+	}
 
 	/* Recover any done TX BD */
 	while ( (bd = e1_regs->tx.bd) & E1_BD_VALID ) {
