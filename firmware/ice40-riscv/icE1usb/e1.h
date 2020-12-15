@@ -11,6 +11,9 @@ void e1_init(bool clk_mode);
 void e1_poll(void);
 void e1_debug_print(bool data);
 
+void e1_tx_config(uint16_t cr);
+void e1_rx_config(uint16_t cr);
+
 volatile uint8_t *e1_data_ptr(int mf, int frame, int ts);
 unsigned int e1_data_ofs(int mf, int frame, int ts);
 
