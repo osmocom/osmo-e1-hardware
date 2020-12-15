@@ -135,6 +135,7 @@ information to the user.
 [options="header"]
 |===
 |Color  | Pattern         | Meaning
+|Green  | Off             | E1 Receiver detects no signal
 |Green  | Blinking (slow) | E1 Receiver attempting to align
 |Green  | On              | E1 Receiver fully aligned
 |===

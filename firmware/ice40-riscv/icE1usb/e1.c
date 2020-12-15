@@ -17,6 +17,8 @@
 #include "dma.h"
 #include "led.h" // FIXME
 
+#include "misc.h"	// needed to get the E1 tick for "LOS" detection
+
 
 static volatile struct e1_core * const e1_regs = (void *)(E1_CORE_BASE);
 static volatile uint8_t * const e1_data = (void *)(E1_DATA_BASE);
@@ -224,6 +226,7 @@ static struct {
 		struct e1_fifo fifo;
 		int in_flight;
 		enum e1_pipe_state state;
+		uint16_t last_tick;
 	} rx;
 
 	struct {
@@ -383,7 +386,15 @@ e1_poll(void)
 		led_color(0, 48, 0);
 		g_e1.errors.flags &= ~(E1_ERR_F_LOS|E1_ERR_F_ALIGN_ERR);
 	} else {
-		e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_BLINK);
+		uint16_t cur_tick = e1_tick_read_rx(0);
+		if (g_e1.rx.last_tick == cur_tick) {
+			e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_OFF);
+			g_e1.errors.flags |= E1_ERR_F_LOS;
+		} else {
+			e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_BLINK);
+			g_e1.errors.flags &= ~E1_ERR_F_LOS;
+		}
+		g_e1.rx.last_tick = cur_tick;
 		led_color(48, 0, 0);
 		g_e1.errors.flags |= E1_ERR_F_ALIGN_ERR;
 		/* TODO: completely off if rx tick counter not incrementing */
