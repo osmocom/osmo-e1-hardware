@@ -198,6 +198,7 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	usb_ep_boot(intf, 0x01, true);
 	usb_ep_boot(intf, 0x81, true);
 	usb_ep_boot(intf, 0x82, true);
+	usb_ep_boot(intf, 0x83, true);
 
 	return USB_FND_SUCCESS;
 }
@@ -240,6 +241,11 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 
 	/* EP1 IN: Queue buffer */
 	_usb_fill_feedback_ep();
+
+	/* EP3 IN: Interrupt */
+	usb_ep_regs[3].in.status = USB_EP_TYPE_INT;
+	usb_ep_regs[3].in.bd[0].ptr = 0;
+	usb_ep_regs[3].in.bd[0].csr = 0;
 
 	return USB_FND_SUCCESS;
 }

@@ -28,12 +28,14 @@ static const struct {
 			struct usb_ep_desc ep_data_in;
 			struct usb_ep_desc ep_data_out;
 			struct usb_ep_desc ep_fb;
+			struct usb_ep_desc ep_interrupt;
 		} __attribute__ ((packed)) off;
 		struct {
 			struct usb_intf_desc intf;
 			struct usb_ep_desc ep_data_in;
 			struct usb_ep_desc ep_data_out;
 			struct usb_ep_desc ep_fb;
+			struct usb_ep_desc ep_interrupt;
 		} __attribute__ ((packed)) on;
 	} __attribute__ ((packed)) e1;
 
@@ -79,7 +81,7 @@ static const struct {
 				.bDescriptorType	= USB_DT_INTF,
 				.bInterfaceNumber	= 0,
 				.bAlternateSetting	= 0,
-				.bNumEndpoints		= 3,
+				.bNumEndpoints		= 4,
 				.bInterfaceClass	= 0xff,
 				.bInterfaceSubClass	= 0xe1,
 				.bInterfaceProtocol	= 0x00,
@@ -109,6 +111,14 @@ static const struct {
 				.wMaxPacketSize		= 0,
 				.bInterval		= 3,
 			},
+			.ep_interrupt = {
+				.bLength		= sizeof(struct usb_ep_desc),
+				.bDescriptorType	= USB_DT_EP,
+				.bEndpointAddress	= 0x83,
+				.bmAttributes		= 0x03,
+				.wMaxPacketSize		= 0,
+				.bInterval		= 3,
+			},
 		},
 		.on = {
 			.intf = {
@@ -116,7 +126,7 @@ static const struct {
 				.bDescriptorType	= USB_DT_INTF,
 				.bInterfaceNumber	= 0,
 				.bAlternateSetting	= 1,
-				.bNumEndpoints		= 3,
+				.bNumEndpoints		= 4,
 				.bInterfaceClass	= 0xff,
 				.bInterfaceSubClass	= 0xe1,
 				.bInterfaceProtocol	= 0x00,
@@ -143,6 +153,14 @@ static const struct {
 				.bDescriptorType	= USB_DT_EP,
 				.bEndpointAddress	= 0x81,
 				.bmAttributes		= 0x11,
+				.wMaxPacketSize		= 8,
+				.bInterval		= 3,
+			},
+			.ep_interrupt = {
+				.bLength		= sizeof(struct usb_ep_desc),
+				.bDescriptorType	= USB_DT_EP,
+				.bEndpointAddress	= 0x83,
+				.bmAttributes		= 0x03,
 				.wMaxPacketSize		= 8,
 				.bInterval		= 3,
 			},
