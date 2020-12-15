@@ -268,6 +268,19 @@ e1_init(bool clk_mode)
 	g_e1.tx.state = BOOT;
 }
 
+void
+e1_tx_config(uint16_t cr)
+{
+	g_e1.tx.cr = cr;
+	e1_regs->tx.csr = g_e1.tx.cr;
+}
+
+void
+e1_rx_config(uint16_t cr)
+{
+	g_e1.rx.cr = cr;
+	e1_regs->rx.csr = g_e1.rx.cr;
+}
 
 #include "dma.h"
 
