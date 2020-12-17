@@ -263,46 +263,74 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 	if (base->bInterfaceNumber != 0)
 		return USB_FND_CONTINUE;
 
-	if (sel->bAlternateSetting != 1)
-		return USB_FND_SUCCESS;
+	switch (sel->bAlternateSetting) {
+	case 0:
+		if (!g_usb_e1.running)
+			return USB_FND_SUCCESS;
 
-	/* Hack to avoid re-setting while running ... avoid BD desync */
-	if (g_usb_e1.running)
-		return USB_FND_SUCCESS;
+		/* disable E1 rx/tx */
+		e1_init(0, 0);
 
-	_perform_rx_config();
-	_perform_tx_config();
+		/* EP1 OUT */
+		usb_ep_regs[1].out.bd[0].csr = 0;
+		usb_ep_regs[1].out.bd[1].csr = 0;
 
-	g_usb_e1.running = true;
+		/* EP1 IN (feedback) */
+		usb_ep_regs[1].in.bd[0].csr = 0;
 
-	/* Configure EP1 OUT / EP2 IN */
-	usb_ep_regs[1].out.status = USB_EP_TYPE_ISOC | USB_EP_BD_DUAL;	/* Type=Isochronous, dual buffered */
-	usb_ep_regs[2].in.status  = USB_EP_TYPE_ISOC | USB_EP_BD_DUAL;	/* Type=Isochronous, dual buffered */
+		/* EP2 IN (data) */
+		usb_ep_regs[2].in.bd[0].csr = 0;
+		usb_ep_regs[2].in.bd[1].csr = 0;
 
-	/* Configure EP1 IN (feedback) */
-	usb_ep_regs[1].in.status  = USB_EP_TYPE_ISOC; /* Type=Isochronous, single buffered */
+		/* EP3 IN: Interrupt */
+		usb_ep_regs[3].in.bd[0].csr = 0;
 
-	/* EP2 IN: Prepare two buffers */
-	usb_ep_regs[2].in.bd[0].ptr = 1024;
-	usb_ep_regs[2].in.bd[0].csr = 0;
+		g_usb_e1.running = false;
+		break;
+	case 1:
+		/* Hack to avoid re-setting while running ... avoid BD desync */
+		if (g_usb_e1.running)
+			return USB_FND_SUCCESS;
 
-	usb_ep_regs[2].in.bd[1].ptr = 1536;
-	usb_ep_regs[2].in.bd[1].csr = 0;
+		_perform_rx_config();
+		_perform_tx_config();
 
-	/* EP1 OUT: Queue two buffers */
-	usb_ep_regs[1].out.bd[0].ptr = 1024;
-	usb_ep_regs[1].out.bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
+		g_usb_e1.running = true;
 
-	usb_ep_regs[1].out.bd[1].ptr = 1536;
-	usb_ep_regs[1].out.bd[1].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
+		/* Configure EP1 OUT / EP2 IN */
+		usb_ep_regs[1].out.status = USB_EP_TYPE_ISOC | USB_EP_BD_DUAL;	/* Type=Isochronous, dual buffered */
+		usb_ep_regs[2].in.status  = USB_EP_TYPE_ISOC | USB_EP_BD_DUAL;	/* Type=Isochronous, dual buffered */
 
-	/* EP1 IN: Queue buffer */
-	_usb_fill_feedback_ep();
+		/* Configure EP1 IN (feedback) */
+		usb_ep_regs[1].in.status  = USB_EP_TYPE_ISOC; /* Type=Isochronous, single buffered */
 
-	/* EP3 IN: Interrupt */
-	usb_ep_regs[3].in.status = USB_EP_TYPE_INT;
-	usb_ep_regs[3].in.bd[0].ptr = 68;
-	usb_ep_regs[3].in.bd[0].csr = 0;
+		/* EP2 IN: Prepare two buffers */
+		g_usb_e1.in_bdi = 0;
+		usb_ep_regs[2].in.bd[0].ptr = 1024;
+		usb_ep_regs[2].in.bd[0].csr = 0;
+
+		usb_ep_regs[2].in.bd[1].ptr = 1536;
+		usb_ep_regs[2].in.bd[1].csr = 0;
+
+		/* EP1 OUT: Queue two buffers */
+		g_usb_e1.out_bdi = 0;
+		usb_ep_regs[1].out.bd[0].ptr = 1024;
+		usb_ep_regs[1].out.bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
+
+		usb_ep_regs[1].out.bd[1].ptr = 1536;
+		usb_ep_regs[1].out.bd[1].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
+
+		/* EP1 IN: Queue buffer */
+		_usb_fill_feedback_ep();
+
+		/* EP3 IN: Interrupt */
+		usb_ep_regs[3].in.status = USB_EP_TYPE_INT;
+		usb_ep_regs[3].in.bd[0].ptr = 68;
+		usb_ep_regs[3].in.bd[0].csr = 0;
+		break;
+	default:
+		return USB_FND_ERROR;
+	}
 
 	return USB_FND_SUCCESS;
 }
