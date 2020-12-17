@@ -56,10 +56,10 @@ SOURCES_app=\
 	$(NULL)
 
 
-all: fw_app.bin
+all: e1_tracer-fw.bin
 
 
-fw_app.elf: $(LNK) $(HEADERS_app) $(SOURCES_app) $(HEADERS_common) $(SOURCES_common)
+e1_tracer-fw.elf: $(LNK) $(HEADERS_app) $(SOURCES_app) $(HEADERS_common) $(SOURCES_common)
 	$(CC) $(CFLAGS) -Wl,-Bstatic,-T,$(LNK),--strip-debug -o $@ $(SOURCES_common) $(SOURCES_app)
 
 
@@ -69,10 +69,10 @@ fw_app.elf: $(LNK) $(HEADERS_app) $(SOURCES_app) $(HEADERS_common) $(SOURCES_com
 %.bin: %.elf
 	$(OBJCOPY) -O binary $< $@
 
-prog: fw_app.bin
+prog: e1_tracer-fw.bin
 	$(ICEPROG) -o 640k $<
 
-dfuprog: fw_app.bin
+dfuprog: e1_tracer-fw.bin
 	$(DFU_UTIL) -R -a 1 -D $<
 
 
