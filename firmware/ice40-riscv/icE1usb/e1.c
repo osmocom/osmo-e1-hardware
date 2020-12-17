@@ -389,7 +389,9 @@ e1_poll(void)
 		uint16_t cur_tick = e1_tick_read_rx(0);
 		if (g_e1.rx.last_tick == cur_tick) {
 			e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_OFF);
-			g_e1.errors.flags |= E1_ERR_F_LOS;
+			/* FIXME: this is very flaky, we are probably getting some noise
+			 * at the Rx tick counter if the cable is disconnected? */
+			//g_e1.errors.flags |= E1_ERR_F_LOS;
 		} else {
 			e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_BLINK);
 			g_e1.errors.flags &= ~E1_ERR_F_LOS;
