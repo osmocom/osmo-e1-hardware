@@ -5,10 +5,24 @@
 # * WITH_MANUALS: build manual PDFs if set to "1"
 # * PUBLISH: upload manuals after building if set to "1" (ignored without WITH_MANUALS = "1")
 
+if ! [ -x "$(command -v osmo-build-dep.sh)" ]; then
+	echo "Error: We need to have scripts/osmo-deps.sh from http://git.osmocom.org/osmo-ci/ in PATH !"
+	exit 2
+fi
+
 set -e
 
 TOPDIR=`pwd`
 publish="$1"
+
+base="$PWD"
+deps="$base/deps"
+inst="$deps/install"
+export deps inst
+
+osmo-clean-workspace.sh
+
+mkdir "$deps" || true
 
 # we assume that PATH includes the path to the respective toolchain
 
@@ -33,13 +47,14 @@ if [ "x$publish" = "x--publish" ]; then
 EOF
 	SSH_COMMAND="ssh -o 'UserKnownHostsFile=/build/known_hosts' -p 48"
 	rsync --archive --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/icE1usb/*-*-*-*.{bin,elf} binaries@rita.osmocom.org:web-files/icE1usb/firmware/all/
-	rsync --archive --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/icE1usb/icE1usb-fw.{bin,elf} binaries@rita.osmocom.org:web-files/e1-tracer/firmware/latest/
+	rsync --archive --copy-links --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/icE1usb/icE1usb-fw.{bin,elf} binaries@rita.osmocom.org:web-files/icE1usb/firmware/latest/
 	rsync --archive --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/e1-tracer/*-*-*-*.{bin,elf} binaries@rita.osmocom.org:web-files/e1-tracer/firmware/all/
-	rsync --archive --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/e1-tracer/e1_tracer-fw.{bin,elf} binaries@rita.osmocom.org:web-files/e1-tracer/firmware/latest/
+	rsync --verbose --copy-links --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/e1-tracer/e1_tracer-fw.{bin,elf} binaries@rita.osmocom.org:web-files/e1-tracer/firmware/latest/
 fi
 
 # manuals build + optional publication
 if [ "$WITH_MANUALS" = "1" ]; then
+	osmo-build-dep.sh osmo-gsm-manuals
 	make -C doc/manuals clean all
 	if [ "$PUBLISH" = "1" ]; then
 		make -C doc/manuals publish
@@ -57,3 +72,5 @@ if [ "$WITH_GATEWARE" = "1" ]; then
 		make -C $d ${GATE_VARS}
 	done
 fi
+
+osmo-clean-workspace.sh
