@@ -9,6 +9,10 @@ OBJCOPY = $(CROSS)objcopy
 ICEPROG = iceprog
 DFU_UTIL = dfu-util
 
+TAG_PREFIX = icE1usb-fw
+GITVER = $(shell git describe --match '$(TAG_PREFIX)*')
+TARGET = $(GITVER)
+
 BOARD_DEFINE=BOARD_$(shell echo $(BOARD) | tr a-z\- A-Z_)
 CFLAGS=-Wall -Wextra -Wno-unused -Os -march=rv32i -mabi=ilp32 -ffreestanding -flto -nostartfiles -fomit-frame-pointer -Wl,--gc-section --specs=nano.specs -D$(BOARD_DEFINE) -I. -I../common
 
@@ -56,10 +60,10 @@ SOURCES_app=\
 	$(NULL)
 
 
-all: icE1usb-fw.bin
+all: $(GITVER).bin $(TAG_PREFIX).bin $(TAG_PREFIX).elf
 
 
-icE1usb-fw.elf: $(LNK) $(HEADERS_app) $(SOURCES_app) $(HEADERS_common) $(SOURCES_common)
+$(GITVER).elf: $(LNK) $(HEADERS_app) $(SOURCES_app) $(HEADERS_common) $(SOURCES_common)
 	$(CC) $(CFLAGS) -Wl,-Bstatic,-T,$(LNK),--strip-debug -o $@ $(SOURCES_common) $(SOURCES_app)
 
 
@@ -69,10 +73,16 @@ icE1usb-fw.elf: $(LNK) $(HEADERS_app) $(SOURCES_app) $(HEADERS_common) $(SOURCES
 %.bin: %.elf
 	$(OBJCOPY) -O binary $< $@
 
-prog: icE1usb-fw.bin
+$(TAG_PREFIX).bin: $(GITVER).bin
+	ln -sf $< $@
+
+$(TAG_PREFIX).elf: $(GITVER).elf
+	ln -sf $< $@
+
+prog: $(GITVER).bin
 	$(ICEPROG) -o 640k $<
 
-dfuprog: icE1usb-fw.bin
+dfuprog: $(GITVER).bin
 	$(DFU_UTIL) -R -a 1 -D $<
 
 
