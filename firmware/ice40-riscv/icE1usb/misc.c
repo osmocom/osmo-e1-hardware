@@ -71,11 +71,19 @@ e1_platform_led_set(uint8_t port, enum e1_platform_led led,
 }
 
 uint16_t
-e1_tick_read(uint8_t port)
+e1_tick_read_tx(uint8_t port)
 {
 	if (port >= 2)
 		return 0xffff;
 	return misc_regs->e1_tick[port].tx;
+}
+
+uint16_t
+e1_tick_read_rx(uint8_t port)
+{
+	if (port >= 2)
+		return 0xffff;
+	return misc_regs->e1_tick[port].rx;
 }
 
 void
