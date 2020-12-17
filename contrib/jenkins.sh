@@ -29,6 +29,10 @@ deps="$base/deps"
 inst="$deps/install"
 export deps inst
 
+export PKG_CONFIG_PATH="$inst/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LD_LIBRARY_PATH="$inst/lib"
+export PATH="$inst/bin:$PATH"
+
 osmo-clean-workspace.sh
 
 mkdir "$deps" || true
