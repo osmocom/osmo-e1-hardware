@@ -233,7 +233,7 @@ static uint8_t e1_pull_ts0(struct osmo_e1f_instance *e1i)
 		case 13:
 		case 15:
 			ret = 0x40;
-			if (e1i->tx.crc4_error)
+			if (!e1i->tx.crc4_error)
 				ret |= 0x80;
 			break;
 		}
