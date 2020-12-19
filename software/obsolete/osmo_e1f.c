@@ -208,6 +208,12 @@ static uint8_t e1_pull_ts0(struct osmo_e1f_instance *e1i)
 {
 	uint8_t ret = 0;
 
+	/* re-set CRC4 at start of sub-multiframe */
+	if (e1i->tx.frame_nr == 0 || e1i->tx.frame_nr == 8) {
+		e1i->tx.crc4_last_smf = e1i->tx.crc4;
+		e1i->tx.crc4 = 0;
+	}
+
 	/* according to Table 5B/G.704 - CRC-4 multiframe structure */
 	if ((e1i->tx.frame_nr % 2) == 0) {
 		/* FAS */
@@ -234,12 +240,6 @@ static uint8_t e1_pull_ts0(struct osmo_e1f_instance *e1i)
 		ret |= e1i->tx.sa4_sa8;
 		if (e1i->tx.remote_alarm)
 			ret |= 0x20;
-	}
-
-	/* re-set CRC4 at start of sub-multiframe */
-	if (e1i->tx.frame_nr == 0 || e1i->tx.frame_nr == 8) {
-		e1i->tx.crc4_last_smf = e1i->tx.crc4;
-		e1i->tx.crc4 = 0;
 	}
 
 	/* increment frame number modulo 16 */
