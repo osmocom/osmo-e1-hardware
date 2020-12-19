@@ -10,6 +10,7 @@
 struct osmo_e1f_tx_state {
 	bool remote_alarm;
 	bool crc4_error;
+	bool ais;
 	/* lower 5 bits: Sa4..Sa8 */
 	uint8_t sa4_sa8;
 	/* frame number 0..15 */

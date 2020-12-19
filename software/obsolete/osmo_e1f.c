@@ -292,6 +292,11 @@ int osmo_e1f_pull_tx_frame(struct osmo_e1f_instance *e1i, uint8_t *out_frame)
 {
 	int i;
 
+	if (e1i->tx.ais) {
+		memset(out_frame, 0xff, 32);
+		return 0;
+	}
+
 	/* generate TS0 */
 	out_frame[0] = e1_pull_ts0(e1i);
 
