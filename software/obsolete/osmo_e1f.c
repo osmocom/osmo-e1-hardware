@@ -206,7 +206,7 @@ static uint8_t e1_pull_crc4_bit(struct osmo_e1f_instance *e1i)
 /* pull a single to-be-transmitted byte for TS0 */
 static uint8_t e1_pull_ts0(struct osmo_e1f_instance *e1i)
 {
-	uint8_t ret;
+	uint8_t ret = 0;
 
 	/* according to Table 5B/G.704 - CRC-4 multiframe structure */
 	if ((e1i->tx.frame_nr % 2) == 0) {
