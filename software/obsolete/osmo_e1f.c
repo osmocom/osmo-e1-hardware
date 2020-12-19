@@ -59,7 +59,7 @@ int osmo_e1f_instance_init(struct osmo_e1f_instance *e1i, const char *name, e1_n
 
 	e1i->crc4_enabled = crc4_enabled;
 	e1i->notify_cb = cb;
-	e1i->tx.sa4_sa8 = 0x00;
+	e1i->tx.sa4_sa8 = 0x1f;
 
 	e1i->priv = priv;
 
