@@ -8417,7 +8417,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Lattice Semiconductor Corporation"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="ICE40UP5K-SG48I"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="220-2212-1-ND"/>
 </part>
@@ -8461,10 +8461,10 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" value="IC"/>
 <attribute name="DESCRIPTION" value="IC TELECOM INTERFACE 44TQFP"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/renesas-electronics-america-inc/82V2081PPG/800-2347-ND"/>
-<attribute name="MANUFACTURER" value="Renesas Electronics America Inc."/>
+<attribute name="MANUFACTURER" value="Renesas Electronics America Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="82V2081PPG"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="800-2347-ND"/>
 </part>
@@ -8475,7 +8475,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603FT3K00"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603FT3K00CT-ND"/>
 </part>
@@ -8486,7 +8486,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT120R"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT120RCT-ND"/>
 </part>
@@ -8497,7 +8497,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="ON Semiconductor"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="MBR0540T1G"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="MBR0540T1GOSCT-ND"/>
 </part>
@@ -8508,7 +8508,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="ON Semiconductor"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="MBR0540T1G"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="MBR0540T1GOSCT-ND"/>
 </part>
@@ -8519,7 +8519,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="ON Semiconductor"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="MBR0540T1G"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="MBR0540T1GOSCT-ND"/>
 </part>
@@ -8530,7 +8530,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="ON Semiconductor"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="MBR0540T1G"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="MBR0540T1GOSCT-ND"/>
 </part>
@@ -8541,7 +8541,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Bourns Inc."/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CE201210-47NJ"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="CE201210-47NJCT-ND"/>
 </part>
@@ -8549,10 +8549,10 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" value="IC / XTAL / XO"/>
 <attribute name="DESCRIPTION" value="XTAL OSC XO 2.0480MHZ HCMOS SMD"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/renesas-electronics-america-inc/XLH736002-048000I/631-1182-ND"/>
-<attribute name="MANUFACTURER" value="Renesas Electronics America Inc."/>
+<attribute name="MANUFACTURER" value="Renesas Electronics America Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="XLH736002.048000I"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="631-1182-ND"/>
 </part>
@@ -8574,7 +8574,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -8607,7 +8607,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Nexperia USA Inc."/>
 <attribute name="MANUFACTURERPARTNUMBER" value="BC847C,215"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="1727-2924-1-ND"/>
 </part>
@@ -8618,7 +8618,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -8657,7 +8657,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Winbond Electronics"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="W25Q80DVSNIG"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="W25Q80DVSNIG-ND"/>
 </part>
@@ -8681,7 +8681,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -8692,7 +8692,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -8770,7 +8770,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT1K50"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT1K50CT-ND"/>
 </part>
@@ -8826,7 +8826,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT100R"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT100RCT-ND"/>
 </part>
@@ -8895,10 +8895,10 @@ TLV702xx and TLV733xx</description>
 <attribute name="CLASS" value="IC"/>
 <attribute name="DESCRIPTION" value="IC TELECOM INTERFACE 44TQFP"/>
 <attribute name="LINK" value="https://www.digikey.de/product-detail/de/renesas-electronics-america-inc/82V2081PPG/800-2347-ND"/>
-<attribute name="MANUFACTURER" value="Renesas Electronics America Inc."/>
+<attribute name="MANUFACTURER" value="Renesas Electronics America Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="82V2081PPG"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="800-2347-ND"/>
 </part>
@@ -8909,7 +8909,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603FT3K00"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603FT3K00CT-ND"/>
 </part>
@@ -8920,7 +8920,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT120R"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT120RCT-ND"/>
 </part>
@@ -8931,7 +8931,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="ON Semiconductor"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="MBR0540T1G"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="MBR0540T1GOSCT-ND"/>
 </part>
@@ -8942,7 +8942,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="ON Semiconductor"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="MBR0540T1G"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="MBR0540T1GOSCT-ND"/>
 </part>
@@ -8953,7 +8953,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="ON Semiconductor"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="MBR0540T1G"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="MBR0540T1GOSCT-ND"/>
 </part>
@@ -8964,7 +8964,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="ON Semiconductor"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="MBR0540T1G"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="MBR0540T1GOSCT-ND"/>
 </part>
@@ -8975,7 +8975,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Bourns Inc."/>
 <attribute name="MANUFACTURERPARTNUMBER" value="CE201210-47NJ"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="CE201210-47NJCT-ND"/>
 </part>
@@ -8986,7 +8986,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9070,7 +9070,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Nexperia USA Inc."/>
 <attribute name="MANUFACTURERPARTNUMBER" value="BC847C,215"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="1727-2924-1-ND"/>
 </part>
@@ -9081,7 +9081,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9099,16 +9099,16 @@ TLV702xx and TLV733xx</description>
 <attribute name="SOURCEPARTNUMBER" value="1276-1182-1-ND"/>
 </part>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
-<part name="IC4" library="Epson_TSX-3225" deviceset="ASTMLP-E" device="-OSC" value="ASEM1-12.000MHZ-LC-T">
-<attribute name="CLASS" value="IC / XTAL / XO"/>
+<part name="IC4" library="Epson_TSX-3225" deviceset="ASTMLP-E" device="-OSC" value="ASEMB-12.000MHZ-LC-T">
+<attribute name="CLASS" value="UNKNOWN CLASS"/>
 <attribute name="DESCRIPTION" value="MEMS OSC XO 12.0000MHZ CMOS SMD"/>
-<attribute name="LINK" value="https://www.digikey.de/product-detail/de/abracon-llc/ASEM1-12-000MHZ-LC-T/535-9757-1-ND"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/abracon-llc/ASEMB-12-000MHZ-LC-T/535-11744-1-ND"/>
 <attribute name="MANUFACTURER" value="Abracon LLC"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="ASEM1-12.000MHZ-LC-T"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="ASEMB-12.000MHZ-LC-T"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
-<attribute name="SOURCEPARTNUMBER" value="535-9757-1-ND"/>
+<attribute name="SOURCEPARTNUMBER" value="535-11744-1-ND"/>
 </part>
 <part name="R13" library="rc-sysmocom" deviceset="RESISTOR" device="_0603" value="10k">
 <attribute name="CLASS" value="RESISTOR"/>
@@ -9117,7 +9117,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9141,7 +9141,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Yageo"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RC0603FR-07330RL"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="311-330HRCT-ND"/>
 </part>
@@ -9178,7 +9178,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Microchip Technology"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="MCP1703T-1202E/CB"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="MCP1703T-1202E/CBCT-ND"/>
 </part>
@@ -9214,7 +9214,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="TE Connectivity AMP Connectors"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="5557560-1"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="A31449-ND"/>
 </part>
@@ -9225,7 +9225,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Pulse Electronics Network"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="T1094NL"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="553-1449-ND"/>
 </part>
@@ -9236,7 +9236,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Pulse Electronics Network"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="T1094NL"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="553-1449-ND"/>
 </part>
@@ -9247,7 +9247,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="TT Electronics/Optek Technology"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="OVSARGB4R8"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="365-1561-2-ND"/>
 </part>
@@ -9258,7 +9258,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT2K20"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT2K20CT-ND"/>
 </part>
@@ -9269,7 +9269,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Lite-On Inc."/>
 <attribute name="MANUFACTURERPARTNUMBER" value="LTST-C193TBKT-5A"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="160-1827-1-ND"/>
 </part>
@@ -9281,7 +9281,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT1K00"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT1K00CT-ND"/>
 </part>
@@ -9292,7 +9292,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT1K00"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT1K00CT-ND"/>
 </part>
@@ -9325,7 +9325,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9336,7 +9336,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9347,7 +9347,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9358,7 +9358,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9369,7 +9369,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9380,7 +9380,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9391,7 +9391,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9402,7 +9402,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9413,7 +9413,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9424,7 +9424,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9435,7 +9435,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9446,7 +9446,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9457,7 +9457,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9468,7 +9468,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9479,7 +9479,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9490,7 +9490,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT10K0"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="RMCF0603JT10K0CT-ND"/>
 </part>
@@ -9512,7 +9512,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Yageo"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RC0603FR-07330RL"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="311-330HRCT-ND"/>
 </part>
@@ -9523,7 +9523,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Yageo"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="RC0603FR-07330RL"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="311-330HRCT-ND"/>
 </part>
@@ -9534,7 +9534,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="OSRAM Opto Semiconductors Inc."/>
 <attribute name="MANUFACTURERPARTNUMBER" value="LS T676-R1S1-1-Z"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="475-2683-1-ND"/>
 </part>
@@ -9545,7 +9545,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="OSRAM Opto Semiconductors Inc."/>
 <attribute name="MANUFACTURERPARTNUMBER" value="LS T676-R1S1-1-Z"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="475-2683-1-ND"/>
 </part>
@@ -9556,7 +9556,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Rohm Semiconductor"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="SML-Z14PTT86A"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="511-1645-1-ND"/>
 </part>
@@ -9567,7 +9567,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Panasonic Electronic Components"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="ERJ-3GEY0R00V"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
@@ -9578,7 +9578,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Panasonic Electronic Components"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="ERJ-3GEY0R00V"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
@@ -9589,7 +9589,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Panasonic Electronic Components"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="ERJ-3GEY0R00V"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
@@ -9636,31 +9636,31 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURERPARTNUMBER" value="TLV70233DBVR"/>
 <attribute name="OC_DIGIKEY" value="296-32415-1-ND"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="296-32415-1-ND"/>
 </part>
 <part name="R6" library="rc-sysmocom" deviceset="RESISTOR" device="_0402" value="33">
 <attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="RES 33 OHM 5%% 1/10W 0603"/>
-<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT33R0/RMCF0603JT33R0CT-ND"/>
-<attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT33R0"/>
+<attribute name="DESCRIPTION" value="RES SMD 33 OHM 1%% 1/16W 0402"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/yageo/RC0402FR-0733RL/311-33-0LRCT-ND/729540"/>
+<attribute name="MANUFACTURER" value="Yageo"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RC0402FR-0733RL"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
-<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT33R0CT-ND"/>
+<attribute name="SOURCEPARTNUMBER" value="311-33.0LRCT-ND"/>
 </part>
 <part name="R7" library="rc-sysmocom" deviceset="RESISTOR" device="_0402" value="33">
 <attribute name="CLASS" value="RESISTOR"/>
-<attribute name="DESCRIPTION" value="RES 33 OHM 5%% 1/10W 0603"/>
-<attribute name="LINK" value="https://www.digikey.de/product-detail/de/stackpole-electronics-inc/RMCF0603JT33R0/RMCF0603JT33R0CT-ND"/>
-<attribute name="MANUFACTURER" value="Stackpole Electronics Inc"/>
-<attribute name="MANUFACTURERPARTNUMBER" value="RMCF0603JT33R0"/>
+<attribute name="DESCRIPTION" value="RES SMD 33 OHM 1%% 1/16W 0402"/>
+<attribute name="LINK" value="https://www.digikey.de/product-detail/de/yageo/RC0402FR-0733RL/311-33-0LRCT-ND/729540"/>
+<attribute name="MANUFACTURER" value="Yageo"/>
+<attribute name="MANUFACTURERPARTNUMBER" value="RC0402FR-0733RL"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
-<attribute name="SOURCEPARTNUMBER" value="RMCF0603JT33R0CT-ND"/>
+<attribute name="SOURCEPARTNUMBER" value="311-33.0LRCT-ND"/>
 </part>
 <part name="C28" library="rc-sysmocom" deviceset="CAP_CERAMIC" device="_0805" value="22u">
 <attribute name="CLASS" value="CAPACITOR"/>
@@ -9669,7 +9669,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="KEMET"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="C0805C226M9PACTU"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="399-4696-1-ND"/>
 </part>
@@ -9680,7 +9680,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="KEMET"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="C0805C226M9PACTU"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="399-4696-1-ND"/>
 </part>
@@ -9691,7 +9691,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="KEMET"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="C0805C226M9PACTU"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="399-4696-1-ND"/>
 </part>
@@ -9702,7 +9702,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="KEMET"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="C0805C226M9PACTU"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="399-4696-1-ND"/>
 </part>
@@ -9713,7 +9713,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Panasonic Electronic Components"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="ERJ-3GEY0R00V"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
@@ -9724,7 +9724,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Panasonic Electronic Components"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="ERJ-3GEY0R00V"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
@@ -9735,7 +9735,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Panasonic Electronic Components"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="ERJ-3GEY0R00V"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
@@ -9746,7 +9746,7 @@ TLV702xx and TLV733xx</description>
 <attribute name="MANUFACTURER" value="Panasonic Electronic Components"/>
 <attribute name="MANUFACTURERPARTNUMBER" value="ERJ-3GEY0R00V"/>
 <attribute name="POPULATED" value="TRUE"/>
-<attribute name="ROHSCERTIFICATE" value="UNKNOWN ROHS CERTIFICATE"/>
+<attribute name="ROHSCERTIFICATE" value="RoHS3-konform"/>
 <attribute name="SOURCE" value="DIGIKEY"/>
 <attribute name="SOURCEPARTNUMBER" value="P0.0GCT-ND"/>
 </part>
@@ -10100,15 +10100,15 @@ TLV702xx and TLV733xx</description>
 <instance part="IC4" gate="G$1" x="337.82" y="134.62" smashed="yes" rot="MR0">
 <attribute name="NAME" x="334.772" y="128.27" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="335.28" y="124.46" size="1.778" layer="96" rot="MR0"/>
-<attribute name="DESCRIPTION" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
-<attribute name="MANUFACTURER" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
-<attribute name="SOURCE" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
-<attribute name="SOURCEPARTNUMBER" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
-<attribute name="ROHSCERTIFICATE" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
-<attribute name="POPULATED" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
-<attribute name="CLASS" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
-<attribute name="LINK" x="337.82" y="134.62" size="1.27" layer="97" rot="MR0" display="off"/>
+<attribute name="DESCRIPTION" x="337.82" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="MANUFACTURER" x="337.82" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" x="337.82" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="SOURCE" x="337.82" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="SOURCEPARTNUMBER" x="337.82" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="ROHSCERTIFICATE" x="337.82" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="POPULATED" x="337.82" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="CLASS" x="337.82" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="LINK" x="337.82" y="134.62" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="R13" gate="G$1" x="330.2" y="142.24" smashed="yes" rot="MR180">
 <attribute name="DESCRIPTION" x="330.2" y="142.24" size="1.778" layer="96" rot="MR90" display="off"/>
@@ -10380,28 +10380,28 @@ TLV702xx and TLV733xx</description>
 <instance part="R6" gate="G$1" x="182.88" y="152.4" smashed="yes" rot="MR180">
 <attribute name="NAME" x="181.61" y="154.178" size="1.27" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="186.436" y="154.305" size="1.27" layer="96" rot="MR0"/>
-<attribute name="DESCRIPTION" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
-<attribute name="MANUFACTURER" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
-<attribute name="SOURCE" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
-<attribute name="SOURCEPARTNUMBER" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
-<attribute name="ROHSCERTIFICATE" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
-<attribute name="POPULATED" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
-<attribute name="CLASS" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
-<attribute name="LINK" x="182.88" y="152.4" size="1.27" layer="96" display="off"/>
+<attribute name="DESCRIPTION" x="182.88" y="152.4" size="1.778" layer="96" display="off"/>
+<attribute name="MANUFACTURER" x="182.88" y="152.4" size="1.778" layer="96" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" x="182.88" y="152.4" size="1.778" layer="96" display="off"/>
+<attribute name="SOURCE" x="182.88" y="152.4" size="1.778" layer="96" display="off"/>
+<attribute name="SOURCEPARTNUMBER" x="182.88" y="152.4" size="1.778" layer="96" display="off"/>
+<attribute name="ROHSCERTIFICATE" x="182.88" y="152.4" size="1.778" layer="96" display="off"/>
+<attribute name="POPULATED" x="182.88" y="152.4" size="1.778" layer="96" display="off"/>
+<attribute name="CLASS" x="182.88" y="152.4" size="1.778" layer="96" display="off"/>
+<attribute name="LINK" x="182.88" y="152.4" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="R7" gate="G$1" x="182.88" y="144.78" smashed="yes" rot="MR180">
 <attribute name="NAME" x="182.118" y="146.812" size="1.27" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="186.436" y="146.685" size="1.27" layer="96" rot="MR0"/>
-<attribute name="DESCRIPTION" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
-<attribute name="MANUFACTURER" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
-<attribute name="MANUFACTURERPARTNUMBER" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
-<attribute name="SOURCE" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
-<attribute name="SOURCEPARTNUMBER" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
-<attribute name="ROHSCERTIFICATE" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
-<attribute name="POPULATED" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
-<attribute name="CLASS" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
-<attribute name="LINK" x="182.88" y="144.78" size="1.27" layer="96" display="off"/>
+<attribute name="DESCRIPTION" x="182.88" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="MANUFACTURER" x="182.88" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="MANUFACTURERPARTNUMBER" x="182.88" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="SOURCE" x="182.88" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="SOURCEPARTNUMBER" x="182.88" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="ROHSCERTIFICATE" x="182.88" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="POPULATED" x="182.88" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="CLASS" x="182.88" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="LINK" x="182.88" y="144.78" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="R4" gate="G$1" x="134.62" y="68.58" smashed="yes" rot="MR270">
 <attribute name="NAME" x="136.398" y="68.58" size="1.27" layer="95" rot="MR90"/>
