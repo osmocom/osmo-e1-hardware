@@ -1,4 +1,4 @@
-OSMO_GSM_MANUALS_DIR:=$(shell pkg-config osmo-gsm-manuals --variable=osmogsmmanualsdir)
+OSMO_GSM_MANUALS_DIR:=$(shell ./osmo-gsm-manuals-dir.sh)
 
 sdcdir = .
 
