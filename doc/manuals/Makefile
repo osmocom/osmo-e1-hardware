@@ -1,6 +1,6 @@
 OSMO_GSM_MANUALS_DIR:=$(shell ./osmo-gsm-manuals-dir.sh)
 
-sdcdir = .
+srcdir = .
 
 ASCIIDOC = icE1usb-usermanual.adoc
 include $(OSMO_GSM_MANUALS_DIR)/build/Makefile.asciidoc.inc
