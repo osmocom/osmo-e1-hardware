@@ -67,7 +67,6 @@ fi
 
 # manuals build + optional publication
 if [ "$WITH_MANUALS" = "1" ]; then
-	osmo-build-dep.sh osmo-gsm-manuals
 	make -C doc/manuals clean all
 	if [ "$PUBLISH" = "1" ]; then
 		make -C doc/manuals publish
