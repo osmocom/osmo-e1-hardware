@@ -39,7 +39,7 @@ you can interface 3rd party applications with osmo-e1d in the following
 ways:
 
 * by adding support for `osmo-e1d`, e.g. via `libosmo-e1d` to the
-  respective appliation
+  respective application
 * by directly implementing the USB interface exposed by icE1usb in your
   software
 
