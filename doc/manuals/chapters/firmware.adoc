@@ -54,7 +54,7 @@ A more official download location for the gateware will be provided shortly.
 
 ==== Upgrading the FPGA gateware
 
-Gateware files are called `icE1usb-*.bin`.
+Gateware files are called `icE1usb-*.bin`. (without 'fw' in the name)
 
 The gateware can be upgraded by accessing the DFU _altsetting 0_ using `dfu-util` *`-a 0`*
 
@@ -67,7 +67,7 @@ the `-R` in the above command.
 
 ==== Upgrading the picoRISCV firmware
 
-Firmware files are called `fw_app*.bin`.
+Firmware files are called `icE1usb-fw*.bin`.
 
 The firmware can be upgraded by accessing the DFU _altsetting 1_ using `dfu-util` *`-a 1`*
 
