@@ -45,10 +45,12 @@ Bus 001 Device 043: ID 1d50:6144<3> OpenMoko, Inc. icE1usb (DFU)
 
 ==== Obtaining firmware upgrades
 
-The latest firmware can currently be found at the personal developer
-directory of tnt at https://people.osmocom.org/tnt/e1/
+The latest firmware can be found at
+https://ftp.osmocom.org/binaries/icE1usb/firmware/latest/
 
-A more official download location will be provided shortly.
+The latest gateware can currently only be found at the personal developer
+directory of tnt at https://people.osmocom.org/tnt/e1/icE1usb-202010-bd399e96.bin
+A more official download location for the gateware will be provided shortly.
 
 ==== Upgrading the FPGA gateware
 
