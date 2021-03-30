@@ -17,6 +17,22 @@ the `libosmo-abis` support for `osmo-e1d`.
 More information about `osmo-e1d` can be found at its homepage
 https://osmocom.org/projects/osmo-e1d/wiki
 
+=== DAHDI driver
+
+DAHDI (Digium Asterisk Hardware Driver Interface) is an extremely
+popular driver for a variety of POTS/PSTN and also TDM interface boards
+by originally Zaptel, later Digium and now most recently Sangoma.
+
+DAHDI is supported by a wide range of open source PBX / softswitch software,
+including Asterisk, FreeSWITCH and yate.
+
+There is an experimental DAHDI driver for the icE1usb available from
+the `laforge/icE1usb` branch of the https://github.com/osmocom/dahdi-linux
+git repository.
+
+When using that DAHDI Linux kernel driver, there is no need for
+osmo-e1d.  The USB interface is directly managed inside the kernel.
+
 === Other software
 
 you can interface 3rd party applications with osmo-e1d in the following
@@ -24,8 +40,6 @@ ways:
 
 * by adding support for `osmo-e1d`, e.g. via `libosmo-e1d` to the
   respective appliation
-* by implementing a device driver for whatever hardware interface (e.g.
-  for DAHDI) supported by your software
 * by directly implementing the USB interface exposed by icE1usb in your
   software
 
