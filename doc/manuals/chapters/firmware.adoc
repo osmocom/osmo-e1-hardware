@@ -26,8 +26,8 @@ DFU mode can be entered in two ways:
    Simply disconnect the USB cable, then push that button and keep it
    pushed while re-attaching the USB cable.
 
-The icE1usb boot loader enumerates as VID:PID `1d50:6145`, while the
-normal application firmware enumerates as `1d50:6144`,
+The icE1usb boot loader enumerates as VID:PID `1d50:6144`, while the
+normal application firmware enumerates as `1d50:6145`,
 
 You can for example use `lsusb` to check the VID:PID:
 
