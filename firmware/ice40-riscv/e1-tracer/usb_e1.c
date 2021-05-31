@@ -28,9 +28,6 @@ unsigned int e1_rx_level(int chan);
 uint8_t e1_get_pending_flags(int chan);
 /* ---- */
 
-bool
-usb_ep_boot(const struct usb_intf_desc *intf, uint8_t ep_addr, bool dual_bd);
-
 
 void
 usb_e1_run(void)

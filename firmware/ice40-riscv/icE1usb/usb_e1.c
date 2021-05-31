@@ -48,9 +48,6 @@ unsigned int e1_tx_level(void);
 unsigned int e1_rx_level(void);
 /* ---- */
 
-bool
-usb_ep_boot(const struct usb_intf_desc *intf, uint8_t ep_addr, bool dual_bd);
-
 static void
 _usb_fill_feedback_ep(void)
 {
