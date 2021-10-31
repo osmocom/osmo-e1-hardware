@@ -555,12 +555,20 @@ e1_poll(int port)
 	/* HACK: LED link status */
 	if (e1_regs->rx.csr & E1_RX_SR_ALIGNED) {
 		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_ON);
+#ifdef TEST
+		e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_OFF);
+#endif
 		led_color(0, 48, 0);
 		e1->errors.flags &= ~(E1_ERR_F_LOS|E1_ERR_F_ALIGN_ERR);
 	} else {
 		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_BLINK);
+#ifdef TEST
+		e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_BLINK_FAST);
+		led_color(48, 48, 48);
+#else
 		e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_OFF);
 		led_color(48, 0, 0);
+#endif
 		e1->errors.flags |= E1_ERR_F_ALIGN_ERR;
 		/* TODO: completely off if rx tick counter not incrementing */
 	}
