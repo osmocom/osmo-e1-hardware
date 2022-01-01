@@ -290,9 +290,11 @@ e1_rx_config(uint16_t cr)
 unsigned int
 e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames, unsigned int *pos)
 {
+	bool rai_received = false;
+	bool rai_possible = false;
 	unsigned int ofs;
 	int tot_frames = 0;
-	int n_frames;
+	int n_frames, i;
 
 	while (max_frames) {
 		/* Get some data from the FIFO */
@@ -314,8 +316,32 @@ e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames, unsigned int *po
 		max_frames -= n_frames;
 		tot_frames += n_frames;
 
+		/* While DMA is running: Determine if remote end indicates any alarms */
+		for (i = 0; i < n_frames; i++) {
+			unsigned int frame_nr = ofs + i;
+			/* A bit is present in every odd frame TS0 */
+			if (frame_nr & 1) {
+				uint8_t ts0 = *e1_data_ptr(0, ofs + i, 0);
+				rai_possible = true;
+				if (ts0 & 0x20) {
+					rai_received = true;
+					break;
+				}
+			}
+		}
+
 		/* Wait for DMA completion */
 		while (dma_poll());
+	}
+
+	if (rai_possible) {
+		if (rai_received) {
+			g_e1.errors.flags |= E1_ERR_F_RAI;
+			e1_platform_led_set(0, E1P_LED_YELLOW, E1P_LED_ST_ON);
+		} else {
+			g_e1.errors.flags &= ~E1_ERR_F_RAI;
+			e1_platform_led_set(0, E1P_LED_YELLOW, E1P_LED_ST_OFF);
+		}
 	}
 
 	return tot_frames;

@@ -85,9 +85,10 @@ enum ice1usb_irq_type {
 	ICE1USB_IRQ_T_ERRCNT		= 1,
 };
 
-/* Ensue ro keep those in sync with e1.h */
+/* Ensue to keep those in sync with e1.h */
 #define ICE1USB_ERR_F_ALIGN_ERR	0x01
 #define ICE1USB_ERR_F_LOS	0x02
+#define ICE1USB_ERR_F_RAI	0x04
 
 struct ice1usb_irq_err {
 	/* 16-bit little-endian counters */
