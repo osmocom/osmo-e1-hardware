@@ -29,4 +29,13 @@ void pdm_set(int chan, bool enable, unsigned value, bool normalize);
 void e1_led_set(bool enable, uint8_t cfg);
 uint16_t e1_tick_read(void);
 
+bool time_elapsed(uint32_t ref, int tick);
+void delay(int ms);
+uint32_t time_pps_read(void);
+uint32_t time_now_read(void);
+
+void gpio_dir(int n, bool output);
+void gpio_out(int n, bool val);
+bool gpio_in(int n);
+
 void reboot(int fw);

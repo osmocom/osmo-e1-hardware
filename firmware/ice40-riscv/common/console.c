@@ -20,13 +20,15 @@ static volatile struct wb_uart * const uart_regs = (void*)(UART_BASE);
 
 
 static char _printf_buf[128];
+#define SYS_CLK_FREQ 30720000
+#define UART_DIV(baud) ((SYS_CLK_FREQ+(baud)/2)/(baud)-2)
 
 void console_init(void)
 {
 #ifdef BOARD_E1_TRACER
 	uart_regs->clkdiv = 22;	/* ~1 Mbaud with clk=24MHz */
 #else
-	uart_regs->clkdiv = 29;	/* ~1 Mbaud with clk=30.72MHz */
+	uart_regs->clkdiv = UART_DIV(115200);	/* ~1 Mbaud with clk=30.72MHz */
 #endif
 }
 
