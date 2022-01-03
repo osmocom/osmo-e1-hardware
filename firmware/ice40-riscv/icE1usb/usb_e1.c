@@ -13,8 +13,9 @@
 #include <no2usb/usb_priv.h>
 
 #include "console.h"
-#include "misc.h"
 #include "e1.h"
+#include "misc.h"
+#include "usb_desc_ids.h"
 
 #include "ice1usb_proto.h"
 
@@ -40,6 +41,12 @@ static const struct ice1usb_rx_config rx_cfg_default = {
 };
 
 
+static volatile struct usb_ep *
+_get_ep_regs(uint8_t ep)
+{
+	return (ep & 0x80) ? &usb_ep_regs[ep & 0x1f].in : &usb_ep_regs[ep & 0x1f].out;
+}
+
 static void
 _usb_fill_feedback_ep(void)
 {
@@ -47,6 +54,7 @@ _usb_fill_feedback_ep(void)
 	uint16_t ticks;
 	uint32_t val = 8192;
 	unsigned int level;
+	volatile struct usb_ep *ep_regs;
 
 	/* Compute real E1 tick count (with safety against bad values) */
 	ticks = e1_tick_read();
@@ -63,21 +71,25 @@ _usb_fill_feedback_ep(void)
 		val -= 256;
 
 	/* Prepare buffer */
-	usb_data_write(usb_ep_regs[1].in.bd[0].ptr, &val, 4);
-	usb_ep_regs[1].in.bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(3);
+	ep_regs = _get_ep_regs(USB_EP_E1_FB(0));
+	usb_data_write(ep_regs->bd[0].ptr, &val, 4);
+	ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(3);
 }
 
 
 void
 usb_e1_run(void)
 {
+	volatile struct usb_ep *ep_regs;
 	int bdi;
 
 	if (!g_usb_e1.running)
 		return;
 
-	/* EP3 IRQ */
-	if ((usb_ep_regs[3].in.bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA) {
+	/* Interrupt endpoint */
+	ep_regs = _get_ep_regs(USB_EP_E1_INT(0));
+
+	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA) {
 		const struct e1_error_count *cur_err = e1_get_error_count();
 		if (memcmp(cur_err, &g_usb_e1.last_err, sizeof(*cur_err))) {
 			struct ice1usb_irq errmsg = {
@@ -93,24 +105,25 @@ usb_e1_run(void)
 				}
 			};
 			printf("E");
-			usb_data_write(usb_ep_regs[3].in.bd[0].ptr, &errmsg, sizeof(errmsg));
-			usb_ep_regs[3].in.bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(sizeof(errmsg));
+			usb_data_write(ep_regs->bd[0].ptr, &errmsg, sizeof(errmsg));
+			ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(sizeof(errmsg));
 			g_usb_e1.last_err = *cur_err;
 		}
 	}
 
-	/* EP2 IN */
+	/* Data IN endpoint */
+	ep_regs = _get_ep_regs(USB_EP_E1_IN(0));
 	bdi = g_usb_e1.in_bdi;
 
-	while ((usb_ep_regs[2].in.bd[bdi].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
+	while ((ep_regs->bd[bdi].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
 	{
-		uint32_t ptr = usb_ep_regs[2].in.bd[bdi].ptr;
+		uint32_t ptr = ep_regs->bd[bdi].ptr;
 		uint32_t hdr;
 		unsigned int pos;
 
 		/* Error check */
-		if ((usb_ep_regs[2].in.bd[bdi].csr & USB_BD_STATE_MSK) == USB_BD_STATE_DONE_ERR)
-			puts("Err EP2 IN\n");
+		if ((ep_regs->bd[bdi].csr & USB_BD_STATE_MSK) == USB_BD_STATE_DONE_ERR)
+			puts("Err EP IN\n");
 
 		/* Get some data from E1 */
 		int n = e1_rx_level();
@@ -131,25 +144,26 @@ usb_e1_run(void)
 		usb_data_write(ptr, &hdr, 4);
 
 		/* Resubmit */
-		usb_ep_regs[2].in.bd[bdi].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN((n * 32) + 4);
+		ep_regs->bd[bdi].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN((n * 32) + 4);
 
 		/* Next BDI */
 		bdi ^= 1;
 		g_usb_e1.in_bdi = bdi;
 	}
 
-	/* EP1 OUT */
+	/* Data OUT endpoint */
+	ep_regs = _get_ep_regs(USB_EP_E1_OUT(0));
 	bdi = g_usb_e1.out_bdi;
 
-	while ((usb_ep_regs[1].out.bd[bdi].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
+	while ((ep_regs->bd[bdi].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
 	{
-		uint32_t ptr = usb_ep_regs[1].out.bd[bdi].ptr;
-		uint32_t csr = usb_ep_regs[1].out.bd[bdi].csr;
+		uint32_t ptr = ep_regs->bd[bdi].ptr;
+		uint32_t csr = ep_regs->bd[bdi].csr;
 		uint32_t hdr;
 
 		/* Error check */
 		if ((csr & USB_BD_STATE_MSK) == USB_BD_STATE_DONE_ERR) {
-			puts("Err EP1 OUT\n");
+			puts("Err EP OUT\n");
 			goto refill;
 		}
 
@@ -162,7 +176,7 @@ usb_e1_run(void)
 
 refill:
 		/* Refill it */
-		usb_ep_regs[1].out.bd[bdi].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
+		ep_regs->bd[bdi].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
 
 		/* Next BDI */
 		bdi ^= 1;
@@ -173,8 +187,10 @@ refill:
 			puts(".");
 	}
 
-	/* EP1 IN */
-	if ((usb_ep_regs[1].in.bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
+	/* Feedback endpoint */
+	ep_regs = _get_ep_regs(USB_EP_E1_FB(0));
+
+	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
 	{
 		_usb_fill_feedback_ep();
 	}
@@ -189,16 +205,16 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	if (!conf)
 		return USB_FND_SUCCESS;
 
-	intf = usb_desc_find_intf(conf, 0, 0, NULL);
+	intf = usb_desc_find_intf(conf, USB_INTF_E1(0), 0, NULL);
 	if (!intf)
 		return USB_FND_ERROR;
 
 	printf("e1 set_conf %08x\n", intf);
 
-	usb_ep_boot(intf, 0x01, true);
-	usb_ep_boot(intf, 0x81, false);
-	usb_ep_boot(intf, 0x82, true);
-	usb_ep_boot(intf, 0x83, false);
+	usb_ep_boot(intf, USB_EP_E1_IN(0),  true);
+	usb_ep_boot(intf, USB_EP_E1_OUT(0), true);
+	usb_ep_boot(intf, USB_EP_E1_FB(0),  false);
+	usb_ep_boot(intf, USB_EP_E1_INT(0), false);
 
 	return USB_FND_SUCCESS;
 }
@@ -221,8 +237,10 @@ static void _perform_rx_config(void)
 static enum usb_fnd_resp
 _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 {
+	volatile struct usb_ep *ep_regs;
+
 	/* Validity checks */
-	if (base->bInterfaceNumber != 0)
+	if ((base->bInterfaceClass != 0xff) || (base->bInterfaceSubClass != 0xe1))
 		return USB_FND_CONTINUE;
 
 	if (sel->bAlternateSetting > 1)
@@ -235,10 +253,10 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 	g_usb_e1.running = (sel->bAlternateSetting != 0);
 
 	/* Reconfigure the endpoints */
-	usb_ep_reconf(sel, 0x01);
-	usb_ep_reconf(sel, 0x81);
-	usb_ep_reconf(sel, 0x82);
-	usb_ep_reconf(sel, 0x83);
+	usb_ep_reconf(sel, USB_EP_E1_IN(0));
+	usb_ep_reconf(sel, USB_EP_E1_OUT(0));
+	usb_ep_reconf(sel, USB_EP_E1_FB(0));
+	usb_ep_reconf(sel, USB_EP_E1_INT(0));
 
 	/* Update E1 and USB state */
 	switch (g_usb_e1.running) {
@@ -257,11 +275,12 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 		g_usb_e1.in_bdi = 0;
 		g_usb_e1.out_bdi = 0;
 
-		/* EP1 OUT: Queue two buffers */
-		usb_ep_regs[1].out.bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
-		usb_ep_regs[1].out.bd[1].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
+		/* EP OUT: Queue two buffers */
+		ep_regs = _get_ep_regs(USB_EP_E1_FB(0));
+		ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
+		ep_regs->bd[1].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
 
-		/* EP1 IN: Queue buffer */
+		/* EP Feedback: Pre-fill */
 		_usb_fill_feedback_ep();
 
 		break;
@@ -273,7 +292,7 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 static enum usb_fnd_resp
 _e1_get_intf(const struct usb_intf_desc *base, uint8_t *alt)
 {
-	if (base->bInterfaceNumber != 0)
+	if ((base->bInterfaceClass != 0xff) || (base->bInterfaceSubClass != 0xe1))
 		return USB_FND_CONTINUE;
 
 	*alt = g_usb_e1.running ? 1 : 0;
@@ -374,7 +393,7 @@ _e1_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 	case USB_REQ_RCPT_DEV:
 		return _e1_ctrl_req_dev(req, xfer);
 	case USB_REQ_RCPT_INTF:
-		if (req->wIndex != 0)
+		if (req->wIndex != USB_INTF_E1(0))
 			return USB_FND_CONTINUE;
 		return _e1_ctrl_req_intf(req, xfer);
 	case USB_REQ_RCPT_EP:
