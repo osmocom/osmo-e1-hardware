@@ -64,7 +64,6 @@ usb_dfu_rt_cb_reboot(void)
 
 void main()
 {
-	bool e1_active = false;
 	int cmd = 0;
 
 	/* Init console IO */
@@ -103,7 +102,6 @@ void main()
 
 	/* Start */
 	e1_init(0, 0);
-	e1_active = true;
 	led_state(true);
 	usb_connect();
 
@@ -153,9 +151,7 @@ void main()
 		usb_poll();
 
 		/* E1 poll */
-		if (e1_active) {
-			e1_poll();
-			usb_e1_run();
-		}
+		e1_poll();
+		usb_e1_run();
 	}
 }
