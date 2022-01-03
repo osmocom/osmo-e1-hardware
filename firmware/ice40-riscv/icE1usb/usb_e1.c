@@ -57,7 +57,7 @@ _usb_fill_feedback_ep(void)
 	volatile struct usb_ep *ep_regs;
 
 	/* Compute real E1 tick count (with safety against bad values) */
-	ticks = e1_tick_read();
+	ticks = e1_tick_read(0);
 	val = (ticks - ticks_prev) & 0xffff;
 	ticks_prev = ticks;
 	if ((val < 7168) | (val > 9216))

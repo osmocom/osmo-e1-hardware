@@ -27,6 +27,6 @@ enum pdm_chan {
 void pdm_set(int chan, bool enable, unsigned value, bool normalize);
 
 void e1_led_set(bool enable, uint8_t cfg);
-uint16_t e1_tick_read(void);
+uint16_t e1_tick_read(int port);
 
 void reboot(int fw);
