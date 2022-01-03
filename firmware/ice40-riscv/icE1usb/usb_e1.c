@@ -15,7 +15,6 @@
 #include "console.h"
 #include "misc.h"
 #include "e1.h"
-#include "e1_hw.h"
 
 #include "ice1usb_proto.h"
 
@@ -40,13 +39,6 @@ static const struct ice1usb_rx_config rx_cfg_default = {
 	.mode		= ICE1USB_RX_MODE_MULTIFRAME,
 };
 
-
-/* Hack */
-unsigned int e1_rx_need_data(unsigned int usb_addr, unsigned int max_len, unsigned int *pos);
-unsigned int e1_tx_feed_data(unsigned int usb_addr, unsigned int len);
-unsigned int e1_tx_level(void);
-unsigned int e1_rx_level(void);
-/* ---- */
 
 static void
 _usb_fill_feedback_ep(void)

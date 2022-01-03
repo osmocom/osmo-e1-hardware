@@ -7,12 +7,26 @@
 
 #pragma once
 
+
+/* control */
+
 void e1_init(uint16_t rx_cr, uint16_t tx_cr);
 void e1_poll(void);
 void e1_debug_print(bool data);
 
 void e1_tx_config(uint16_t cr);
 void e1_rx_config(uint16_t cr);
+
+
+/* data flow */
+
+unsigned int e1_rx_need_data(unsigned int usb_addr, unsigned int max_len, unsigned int *pos);
+unsigned int e1_tx_feed_data(unsigned int usb_addr, unsigned int len);
+unsigned int e1_tx_level(void);
+unsigned int e1_rx_level(void);
+
+
+/* error reporting */
 
 #define E1_ERR_F_ALIGN_ERR	0x01
 #define E1_ERR_F_LOS		0x02
@@ -28,6 +42,9 @@ struct e1_error_count {
 
 const struct e1_error_count *e1_get_error_count(void);
 
+
+/* external function provided by the platform; used by E1 driver to control LEDs */
+
 enum e1_platform_led {
 	E1P_LED_GREEN		= 0,
 	E1P_LED_YELLOW		= 1,
@@ -40,6 +57,5 @@ enum e1_platform_led_state {
 	E1P_LED_ST_BLINK_FAST	= 3
 };
 
-/* external function provided by the platform; used by E1 driver to control LEDs */
 extern void e1_platform_led_set(uint8_t port, enum e1_platform_led led,
 				enum e1_platform_led_state state);

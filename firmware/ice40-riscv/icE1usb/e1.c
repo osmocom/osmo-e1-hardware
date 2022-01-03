@@ -18,8 +18,15 @@
 #include "led.h" // FIXME
 
 
+// HW access
+// ---------
+
 static volatile struct e1_core * const e1_regs = (void *)(E1_CORE_BASE);
 static volatile uint8_t * const e1_data = (void *)(E1_DATA_BASE);
+
+
+// Helpers
+// -------
 
 static unsigned int
 e1_data_ofs(int mf, int frame, int ts)
@@ -32,6 +39,7 @@ e1_data_ptr(int mf, int frame, int ts)
 {
 	return &e1_data[e1_data_ofs(mf, frame, ts)];
 }
+
 
 // FIFOs
 // -----
@@ -97,7 +105,6 @@ e1f_ofs_to_mf(unsigned int ofs)
 	/* E1 Buffer Descriptors are always multiframe aligned */
 	return (ofs >> 4);
 }
-
 
 	/* Debug */
 static void
@@ -207,7 +214,6 @@ e1f_multiframe_empty(struct e1_fifo *fifo)
 }
 
 
-
 // Main logic
 // ----------
 
@@ -232,10 +238,9 @@ static struct {
 		int in_flight;
 		enum e1_pipe_state state;
 	} tx;
+
 	struct e1_error_count errors;
 } g_e1;
-
-
 
 
 void
@@ -284,8 +289,6 @@ e1_rx_config(uint16_t cr)
 	g_e1.rx.cr = (g_e1.rx.cr & ~RXCR_PERMITTED) | (cr & RXCR_PERMITTED);
 	e1_regs->rx.csr = g_e1.rx.cr;
 }
-
-#include "dma.h"
 
 unsigned int
 e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames, unsigned int *pos)
