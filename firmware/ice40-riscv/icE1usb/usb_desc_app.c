@@ -10,6 +10,8 @@
 #include <no2usb/usb_dfu_proto.h>
 #include <no2usb/usb.h>
 
+#include "usb_desc_ids.h"
+
 #define NULL ((void*)0)
 #define num_elem(a) (sizeof(a) / sizeof(a[0]))
 
@@ -63,11 +65,7 @@ static const struct {
 		.bLength                = sizeof(struct usb_conf_desc),
 		.bDescriptorType        = USB_DT_CONF,
 		.wTotalLength           = sizeof(_app_conf_desc),
-#if 0
-		.bNumInterfaces         = 4,
-#else
-		.bNumInterfaces         = 2,
-#endif
+		.bNumInterfaces         = USB_INTF_NUM,
 		.bConfigurationValue    = 1,
 		.iConfiguration         = 4,
 		.bmAttributes           = 0x80,
@@ -78,7 +76,7 @@ static const struct {
 			.intf = {
 				.bLength		= sizeof(struct usb_intf_desc),
 				.bDescriptorType	= USB_DT_INTF,
-				.bInterfaceNumber	= 0,
+				.bInterfaceNumber	= USB_INTF_E1(0),
 				.bAlternateSetting	= 0,
 				.bNumEndpoints		= 1,
 				.bInterfaceClass	= 0xff,
@@ -89,7 +87,7 @@ static const struct {
 			.ep_interrupt = {
 				.bLength		= sizeof(struct usb_ep_desc),
 				.bDescriptorType	= USB_DT_EP,
-				.bEndpointAddress	= 0x83,
+				.bEndpointAddress	= USB_EP_E1_INT(0),
 				.bmAttributes		= 0x03,
 				.wMaxPacketSize		= 10,
 				.bInterval		= 3,
@@ -99,7 +97,7 @@ static const struct {
 			.intf = {
 				.bLength		= sizeof(struct usb_intf_desc),
 				.bDescriptorType	= USB_DT_INTF,
-				.bInterfaceNumber	= 0,
+				.bInterfaceNumber	= USB_INTF_E1(0),
 				.bAlternateSetting	= 1,
 				.bNumEndpoints		= 4,
 				.bInterfaceClass	= 0xff,
@@ -110,7 +108,7 @@ static const struct {
 			.ep_data_in = {
 				.bLength		= sizeof(struct usb_ep_desc),
 				.bDescriptorType	= USB_DT_EP,
-				.bEndpointAddress	= 0x82,
+				.bEndpointAddress	= USB_EP_E1_IN(0),
 				.bmAttributes		= 0x05,
 				.wMaxPacketSize		= 388,
 				.bInterval		= 1,
@@ -118,7 +116,7 @@ static const struct {
 			.ep_data_out = {
 				.bLength		= sizeof(struct usb_ep_desc),
 				.bDescriptorType	= USB_DT_EP,
-				.bEndpointAddress	= 0x01,
+				.bEndpointAddress	= USB_EP_E1_OUT(0),
 				.bmAttributes		= 0x05,
 				.wMaxPacketSize		= 388,
 				.bInterval		= 1,
@@ -126,7 +124,7 @@ static const struct {
 			.ep_fb = {
 				.bLength		= sizeof(struct usb_ep_desc),
 				.bDescriptorType	= USB_DT_EP,
-				.bEndpointAddress	= 0x81,
+				.bEndpointAddress	= USB_EP_E1_FB(0),
 				.bmAttributes		= 0x11,
 				.wMaxPacketSize		= 8,
 				.bInterval		= 3,
@@ -134,7 +132,7 @@ static const struct {
 			.ep_interrupt = {
 				.bLength		= sizeof(struct usb_ep_desc),
 				.bDescriptorType	= USB_DT_EP,
-				.bEndpointAddress	= 0x83,
+				.bEndpointAddress	= USB_EP_E1_INT(0),
 				.bmAttributes		= 0x03,
 				.wMaxPacketSize		= 10,
 				.bInterval		= 3,
@@ -146,7 +144,7 @@ static const struct {
 		.intf_ctl = {
 			.bLength		= sizeof(struct usb_intf_desc),
 			.bDescriptorType	= USB_DT_INTF,
-			.bInterfaceNumber	= 1,
+			.bInterfaceNumber	= USB_INTF_GPS_CDC_CTL,
 			.bAlternateSetting	= 0,
 			.bNumEndpoints		= 1,
 			.bInterfaceClass	= USB_CLS_CDC_CONTROL,
@@ -176,7 +174,7 @@ static const struct {
 		.ep_ctl = {
 			.bLength		= sizeof(struct usb_ep_desc),
 			.bDescriptorType	= USB_DT_EP,
-			.bEndpointAddress	= 0x84,
+			.bEndpointAddress	= USB_EP_GPS_CDC_CTL,
 			.bmAttributes		= 0x03,
 			.wMaxPacketSize		= 64,
 			.bInterval		= 0x40,
@@ -184,7 +182,7 @@ static const struct {
 		.intf_data = {
 			.bLength		= sizeof(struct usb_intf_desc),
 			.bDescriptorType	= USB_DT_INTF,
-			.bInterfaceNumber	= 2,
+			.bInterfaceNumber	= USB_INTF_GPS_CDC_DATA,
 			.bAlternateSetting	= 0,
 			.bNumEndpoints		= 2,
 			.bInterfaceClass	= USB_CLS_CDC_DATA,
@@ -195,7 +193,7 @@ static const struct {
 		.ep_data_out = {
 			.bLength		= sizeof(struct usb_ep_desc),
 			.bDescriptorType	= USB_DT_EP,
-			.bEndpointAddress	= 0x05,
+			.bEndpointAddress	= USB_EP_GPS_CDC_OUT,
 			.bmAttributes		= 0x02,
 			.wMaxPacketSize		= 64,
 			.bInterval		= 0x00,
@@ -203,7 +201,7 @@ static const struct {
 		.ep_data_in = {
 			.bLength		= sizeof(struct usb_ep_desc),
 			.bDescriptorType	= USB_DT_EP,
-			.bEndpointAddress	= 0x85,
+			.bEndpointAddress	= USB_EP_GPS_CDC_IN,
 			.bmAttributes		= 0x02,
 			.wMaxPacketSize		= 64,
 			.bInterval		= 0x00,
@@ -214,11 +212,7 @@ static const struct {
 		.intf = {
 			.bLength		= sizeof(struct usb_intf_desc),
 			.bDescriptorType	= USB_DT_INTF,
-#if 0
-			.bInterfaceNumber	= 3,
-#else
-			.bInterfaceNumber	= 1,
-#endif
+			.bInterfaceNumber	= USB_INTF_DFU,
 			.bAlternateSetting	= 0,
 			.bNumEndpoints		= 0,
 			.bInterfaceClass	= 0xfe,
