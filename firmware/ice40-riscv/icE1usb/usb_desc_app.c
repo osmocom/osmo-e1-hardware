@@ -24,13 +24,10 @@ static const struct {
 	struct {
 		/* Two altsettings are required, as isochronous
 		 * interfaces must have a setting where they don't
-		 * transceive any data. wMaxPacketSize is 0 for
-		 * all endpoints in the 'off' altsetting */
+		 * transceive any data. We just remove the isochronous
+		 * endpoints in the 'off' altsetting */
 		struct {
 			struct usb_intf_desc intf;
-			struct usb_ep_desc ep_data_in;
-			struct usb_ep_desc ep_data_out;
-			struct usb_ep_desc ep_fb;
 			struct usb_ep_desc ep_interrupt;
 		} __attribute__ ((packed)) off;
 		struct {
@@ -83,35 +80,11 @@ static const struct {
 				.bDescriptorType	= USB_DT_INTF,
 				.bInterfaceNumber	= 0,
 				.bAlternateSetting	= 0,
-				.bNumEndpoints		= 4,
+				.bNumEndpoints		= 1,
 				.bInterfaceClass	= 0xff,
 				.bInterfaceSubClass	= 0xe1,
 				.bInterfaceProtocol	= 0x00,
 				.iInterface		= 5,
-			},
-			.ep_data_in = {
-				.bLength		= sizeof(struct usb_ep_desc),
-				.bDescriptorType	= USB_DT_EP,
-				.bEndpointAddress	= 0x82,
-				.bmAttributes		= 0x05,
-				.wMaxPacketSize		= 0,
-				.bInterval		= 1,
-			},
-			.ep_data_out = {
-				.bLength		= sizeof(struct usb_ep_desc),
-				.bDescriptorType	= USB_DT_EP,
-				.bEndpointAddress	= 0x01,
-				.bmAttributes		= 0x05,
-				.wMaxPacketSize		= 0,
-				.bInterval		= 1,
-			},
-			.ep_fb = {
-				.bLength		= sizeof(struct usb_ep_desc),
-				.bDescriptorType	= USB_DT_EP,
-				.bEndpointAddress	= 0x81,
-				.bmAttributes		= 0x11,
-				.wMaxPacketSize		= 0,
-				.bInterval		= 3,
 			},
 			.ep_interrupt = {
 				.bLength		= sizeof(struct usb_ep_desc),

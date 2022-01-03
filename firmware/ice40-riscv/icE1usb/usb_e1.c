@@ -71,8 +71,7 @@ _usb_fill_feedback_ep(void)
 		val -= 256;
 
 	/* Prepare buffer */
-	usb_data_write(64, &val, 4);
-	usb_ep_regs[1].in.bd[0].ptr = 64;
+	usb_data_write(usb_ep_regs[1].in.bd[0].ptr, &val, 4);
 	usb_ep_regs[1].in.bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(3);
 }
 
@@ -189,33 +188,6 @@ refill:
 	}
 }
 
-static const struct usb_intf_desc *
-_find_intf(const struct usb_conf_desc *conf, uint8_t idx)
-{
-	const struct usb_intf_desc *intf = NULL;
-	const void *sod, *eod;
-
-	if (!conf)
-		return NULL;
-
-	sod = conf;
-	eod = sod + conf->wTotalLength;
-
-	while (1) {
-		sod = usb_desc_find(sod, eod, USB_DT_INTF);
-		if (!sod)
-			break;
-
-		intf = (void*)sod;
-		if (intf->bInterfaceNumber == idx)
-			return intf;
-
-		sod = usb_desc_next(sod);
-	}
-
-	return NULL;
-}
-
 static enum usb_fnd_resp
 _e1_set_conf(const struct usb_conf_desc *conf)
 {
@@ -225,16 +197,16 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	if (!conf)
 		return USB_FND_SUCCESS;
 
-	intf = _find_intf(conf, 0);
+	intf = usb_desc_find_intf(conf, 0, 0, NULL);
 	if (!intf)
 		return USB_FND_ERROR;
 
 	printf("e1 set_conf %08x\n", intf);
 
 	usb_ep_boot(intf, 0x01, true);
-	usb_ep_boot(intf, 0x81, true);
+	usb_ep_boot(intf, 0x81, false);
 	usb_ep_boot(intf, 0x82, true);
-	usb_ep_boot(intf, 0x83, true);
+	usb_ep_boot(intf, 0x83, false);
 
 	return USB_FND_SUCCESS;
 }
@@ -257,76 +229,50 @@ static void _perform_rx_config(void)
 static enum usb_fnd_resp
 _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 {
+	/* Validity checks */
 	if (base->bInterfaceNumber != 0)
 		return USB_FND_CONTINUE;
 
-	switch (sel->bAlternateSetting) {
-	case 0:
-		if (!g_usb_e1.running)
-			return USB_FND_SUCCESS;
+	if (sel->bAlternateSetting > 1)
+		return USB_FND_ERROR;
 
-		/* disable E1 rx/tx */
+	/* Don't do anything if no change */
+	if (g_usb_e1.running == (sel->bAlternateSetting != 0))
+		return USB_FND_SUCCESS;
+
+	g_usb_e1.running = (sel->bAlternateSetting != 0);
+
+	/* Reconfigure the endpoints */
+	usb_ep_reconf(sel, 0x01);
+	usb_ep_reconf(sel, 0x81);
+	usb_ep_reconf(sel, 0x82);
+	usb_ep_reconf(sel, 0x83);
+
+	/* Update E1 and USB state */
+	switch (g_usb_e1.running) {
+	case false:
+		/* Disable E1 rx/tx */
 		e1_init(0, 0);
-
-		/* EP1 OUT */
-		usb_ep_regs[1].out.bd[0].csr = 0;
-		usb_ep_regs[1].out.bd[1].csr = 0;
-
-		/* EP1 IN (feedback) */
-		usb_ep_regs[1].in.bd[0].csr = 0;
-
-		/* EP2 IN (data) */
-		usb_ep_regs[2].in.bd[0].csr = 0;
-		usb_ep_regs[2].in.bd[1].csr = 0;
-
-		/* EP3 IN: Interrupt */
-		usb_ep_regs[3].in.bd[0].csr = 0;
-
-		g_usb_e1.running = false;
 		break;
-	case 1:
-		/* Hack to avoid re-setting while running ... avoid BD desync */
-		if (g_usb_e1.running)
-			return USB_FND_SUCCESS;
 
+	case true:
+		/* Reset and Re-Enable E1 */
+		e1_init(0, 0);
 		_perform_rx_config();
 		_perform_tx_config();
 
-		g_usb_e1.running = true;
-
-		/* Configure EP1 OUT / EP2 IN */
-		usb_ep_regs[1].out.status = USB_EP_TYPE_ISOC | USB_EP_BD_DUAL;	/* Type=Isochronous, dual buffered */
-		usb_ep_regs[2].in.status  = USB_EP_TYPE_ISOC | USB_EP_BD_DUAL;	/* Type=Isochronous, dual buffered */
-
-		/* Configure EP1 IN (feedback) */
-		usb_ep_regs[1].in.status  = USB_EP_TYPE_ISOC; /* Type=Isochronous, single buffered */
-
-		/* EP2 IN: Prepare two buffers */
+		/* Reset BDI */
 		g_usb_e1.in_bdi = 0;
-		usb_ep_regs[2].in.bd[0].ptr = 1024;
-		usb_ep_regs[2].in.bd[0].csr = 0;
-
-		usb_ep_regs[2].in.bd[1].ptr = 1536;
-		usb_ep_regs[2].in.bd[1].csr = 0;
+		g_usb_e1.out_bdi = 0;
 
 		/* EP1 OUT: Queue two buffers */
-		g_usb_e1.out_bdi = 0;
-		usb_ep_regs[1].out.bd[0].ptr = 1024;
 		usb_ep_regs[1].out.bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
-
-		usb_ep_regs[1].out.bd[1].ptr = 1536;
 		usb_ep_regs[1].out.bd[1].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
 
 		/* EP1 IN: Queue buffer */
 		_usb_fill_feedback_ep();
 
-		/* EP3 IN: Interrupt */
-		usb_ep_regs[3].in.status = USB_EP_TYPE_INT;
-		usb_ep_regs[3].in.bd[0].ptr = 68;
-		usb_ep_regs[3].in.bd[0].csr = 0;
 		break;
-	default:
-		return USB_FND_ERROR;
 	}
 
 	return USB_FND_SUCCESS;
