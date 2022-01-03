@@ -375,7 +375,7 @@ _e1_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 		return _e1_ctrl_req_dev(req, xfer);
 	case USB_REQ_RCPT_INTF:
 		if (req->wIndex != 0)
-			return USB_FND_ERROR;
+			return USB_FND_CONTINUE;
 		return _e1_ctrl_req_intf(req, xfer);
 	case USB_REQ_RCPT_EP:
 	case USB_REQ_RCPT_OTHER:
