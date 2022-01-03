@@ -57,5 +57,5 @@ enum e1_platform_led_state {
 	E1P_LED_ST_BLINK_FAST	= 3
 };
 
-extern void e1_platform_led_set(uint8_t port, enum e1_platform_led led,
+extern void e1_platform_led_set(int port, enum e1_platform_led led,
 				enum e1_platform_led_state state);

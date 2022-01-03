@@ -53,7 +53,7 @@ e1_led_set(bool enable, uint8_t cfg)
 }
 
 void
-e1_platform_led_set(uint8_t port, enum e1_platform_led led,
+e1_platform_led_set(int port, enum e1_platform_led led,
 		    enum e1_platform_led_state state)
 {
 	uint32_t tmp;
