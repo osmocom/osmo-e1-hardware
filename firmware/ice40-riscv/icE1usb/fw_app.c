@@ -101,7 +101,7 @@ void main()
 	usb_e1_init();
 
 	/* Start */
-	e1_init(0, 0);
+	e1_init(0, 0, 0);
 	led_state(true);
 	usb_connect();
 
@@ -131,10 +131,10 @@ void main()
 				boot_dfu();
 				break;
 			case 'o':
-				e1_debug_print(false);
+				e1_debug_print(0, false);
 				break;
 			case 'O':
-				e1_debug_print(true);
+				e1_debug_print(0, true);
 				break;
 			case 'c':
 				usb_connect();
@@ -151,7 +151,7 @@ void main()
 		usb_poll();
 
 		/* E1 poll */
-		e1_poll();
+		e1_poll(0);
 		usb_e1_run();
 	}
 }

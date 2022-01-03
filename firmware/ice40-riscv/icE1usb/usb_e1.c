@@ -64,7 +64,7 @@ _usb_fill_feedback_ep(void)
 		val = 8192;
 
 	/* Bias depending on TX fifo level */
-	level = e1_tx_level();
+	level = e1_tx_level(0);
 	if (level < (3 * 16))
 		val += 256;
 	else if (level > (8 * 16))
@@ -90,7 +90,7 @@ usb_e1_run(void)
 	ep_regs = _get_ep_regs(USB_EP_E1_INT(0));
 
 	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA) {
-		const struct e1_error_count *cur_err = e1_get_error_count();
+		const struct e1_error_count *cur_err = e1_get_error_count(0);
 		if (memcmp(cur_err, &g_usb_e1.last_err, sizeof(*cur_err))) {
 			struct ice1usb_irq errmsg = {
 				.type = ICE1USB_IRQ_T_ERRCNT,
@@ -126,7 +126,7 @@ usb_e1_run(void)
 			puts("Err EP IN\n");
 
 		/* Get some data from E1 */
-		int n = e1_rx_level();
+		int n = e1_rx_level(0);
 
 		if (n > 64)
 			n = 12;
@@ -137,7 +137,7 @@ usb_e1_run(void)
 		else if (!n)
 			break;
 
-		n = e1_rx_need_data((ptr >> 2) + 1, n, &pos);
+		n = e1_rx_need_data(0, (ptr >> 2) + 1, n, &pos);
 
 		/* Write header: currently version and pos (mfr/fr number) */
 		hdr = (0 << 28) | (pos & 0xff);
@@ -173,7 +173,7 @@ usb_e1_run(void)
 		/* Empty data into the FIFO */
 		int n = ((int)(csr & USB_BD_LEN_MSK) - 6) / 32;
 		if (n > 0)
-			e1_tx_feed_data((ptr >> 2) + 1, n);
+			e1_tx_feed_data(0, (ptr >> 2) + 1, n);
 
 refill:
 		/* Refill it */
@@ -223,16 +223,20 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 static void _perform_tx_config(void)
 {
 	const struct ice1usb_tx_config *cfg = &g_usb_e1.tx_cfg;
-	e1_tx_config(   ((cfg->mode & 3) << 1) |
-			((cfg->timing & 1) << 3) |
-			((cfg->alarm & 1) << 4) |
-			((cfg->ext_loopback & 3) << 5) );
+	e1_tx_config(0,
+		((cfg->mode & 3) << 1) |
+		((cfg->timing & 1) << 3) |
+		((cfg->alarm & 1) << 4) |
+		((cfg->ext_loopback & 3) << 5)
+	);
 }
 
 static void _perform_rx_config(void)
 {
 	const struct ice1usb_rx_config *cfg = &g_usb_e1.rx_cfg;
-	e1_rx_config((cfg->mode << 1));
+	e1_rx_config(0,
+		(cfg->mode << 1)
+	);
 }
 
 static enum usb_fnd_resp
@@ -263,12 +267,12 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 	switch (g_usb_e1.running) {
 	case false:
 		/* Disable E1 rx/tx */
-		e1_init(0, 0);
+		e1_init(0, 0, 0);
 		break;
 
 	case true:
 		/* Reset and Re-Enable E1 */
-		e1_init(0, 0);
+		e1_init(0, 0, 0);
 		_perform_rx_config();
 		_perform_tx_config();
 

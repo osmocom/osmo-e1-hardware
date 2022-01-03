@@ -16,12 +16,13 @@
 
 #include "dma.h"
 #include "led.h" // FIXME
+#include "utils.h"
 
 
 // HW access
 // ---------
 
-static volatile struct e1_core * const e1_regs = (void *)(E1_CORE_BASE);
+static volatile struct e1_core * const e1_regs_base = (void *)(E1_CORE_BASE);
 static volatile uint8_t * const e1_data = (void *)(E1_DATA_BASE);
 
 
@@ -224,7 +225,7 @@ enum e1_pipe_state {
 	RECOVER	= 3,	/* after underflow, overflow or alignment  error */
 };
 
-static struct {
+struct e1_state {
 	struct {
 		uint32_t cr;
 		struct e1_fifo fifo;
@@ -240,30 +241,52 @@ static struct {
 	} tx;
 
 	struct e1_error_count errors;
-} g_e1;
+};
+
+static struct e1_state g_e1[2];
+
+
+static volatile struct e1_core *
+_get_regs(int port)
+{
+	if ((port < 0) || (port > 1))
+		panic("_get_regs invalid port %d", port);
+	return &e1_regs_base[port];
+}
+
+static struct e1_state *
+_get_state(int port)
+{
+	if ((port < 0) || (port > 1))
+		panic("_get_state invalid port %d", port);
+	return &g_e1[port];
+}
 
 
 void
-e1_init(uint16_t rx_cr, uint16_t tx_cr)
+e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 {
+	volatile struct e1_core *e1_regs = _get_regs(port);
+	struct e1_state *e1 = _get_state(port);
+
 	/* Global state init */
-	memset(&g_e1, 0x00, sizeof(g_e1));
+	memset(e1, 0x00, sizeof(struct e1_state));
 
 	/* Reset FIFOs */
-	e1f_reset(&g_e1.rx.fifo,   0, 128);
-	e1f_reset(&g_e1.tx.fifo, 128, 128);
+	e1f_reset(&e1->rx.fifo, (256 * port) +   0, 128);
+	e1f_reset(&e1->tx.fifo, (256 * port) + 128, 128);
 
 	/* Enable Rx */
-	g_e1.rx.cr = E1_RX_CR_ENABLE | rx_cr;
-	e1_regs->rx.csr = E1_RX_CR_OVFL_CLR | g_e1.rx.cr;
+	e1->rx.cr = E1_RX_CR_ENABLE | rx_cr;
+	e1_regs->rx.csr = E1_RX_CR_OVFL_CLR | e1->rx.cr;
 
 	/* Enable Tx */
-	g_e1.tx.cr = E1_TX_CR_ENABLE | tx_cr;
-	e1_regs->tx.csr = E1_TX_CR_UNFL_CLR | g_e1.tx.cr;
+	e1->tx.cr = E1_TX_CR_ENABLE | tx_cr;
+	e1_regs->tx.csr = E1_TX_CR_UNFL_CLR | e1->tx.cr;
 
 	/* State */
-	g_e1.rx.state = BOOT;
-	g_e1.tx.state = BOOT;
+	e1->rx.state = BOOT;
+	e1->tx.state = BOOT;
 }
 
 #define TXCR_PERMITTED (			\
@@ -274,25 +297,30 @@ e1_init(uint16_t rx_cr, uint16_t tx_cr)
 		E1_TX_CR_LOOPBACK_CROSS	)
 
 void
-e1_tx_config(uint16_t cr)
+e1_tx_config(int port, uint16_t cr)
 {
-	g_e1.tx.cr = (g_e1.tx.cr & ~TXCR_PERMITTED) | (cr & TXCR_PERMITTED);
-	e1_regs->tx.csr = g_e1.tx.cr;
+	volatile struct e1_core *e1_regs = _get_regs(port);
+	struct e1_state *e1 = _get_state(port);
+	e1->tx.cr = (e1->tx.cr & ~TXCR_PERMITTED) | (cr & TXCR_PERMITTED);
+	e1_regs->tx.csr = e1->tx.cr;
 }
 
 #define RXCR_PERMITTED (			\
 		E1_RX_CR_MODE_MFA )
 
 void
-e1_rx_config(uint16_t cr)
+e1_rx_config(int port, uint16_t cr)
 {
-	g_e1.rx.cr = (g_e1.rx.cr & ~RXCR_PERMITTED) | (cr & RXCR_PERMITTED);
-	e1_regs->rx.csr = g_e1.rx.cr;
+	volatile struct e1_core *e1_regs = _get_regs(port);
+	struct e1_state *e1 = _get_state(port);
+	e1->rx.cr = (e1->rx.cr & ~RXCR_PERMITTED) | (cr & RXCR_PERMITTED);
+	e1_regs->rx.csr = e1->rx.cr;
 }
 
 unsigned int
-e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames, unsigned int *pos)
+e1_rx_need_data(int port, unsigned int usb_addr, unsigned int max_frames, unsigned int *pos)
 {
+	struct e1_state *e1 = _get_state(port);
 	bool rai_received = false;
 	bool rai_possible = false;
 	unsigned int ofs;
@@ -301,13 +329,13 @@ e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames, unsigned int *po
 
 	while (max_frames) {
 		/* Get some data from the FIFO */
-		n_frames = e1f_frame_read(&g_e1.rx.fifo, &ofs, max_frames);
+		n_frames = e1f_frame_read(&e1->rx.fifo, &ofs, max_frames);
 		if (!n_frames)
 			break;
 
 		/* Give pos */
 		if (pos) {
-			*pos = ofs & g_e1.rx.fifo.mask;
+			*pos = ofs & e1->rx.fifo.mask;
 			pos = NULL;
 		}
 
@@ -339,11 +367,11 @@ e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames, unsigned int *po
 
 	if (rai_possible) {
 		if (rai_received) {
-			g_e1.errors.flags |= E1_ERR_F_RAI;
-			e1_platform_led_set(0, E1P_LED_YELLOW, E1P_LED_ST_ON);
+			e1->errors.flags |= E1_ERR_F_RAI;
+			e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_ON);
 		} else {
-			g_e1.errors.flags &= ~E1_ERR_F_RAI;
-			e1_platform_led_set(0, E1P_LED_YELLOW, E1P_LED_ST_OFF);
+			e1->errors.flags &= ~E1_ERR_F_RAI;
+			e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_OFF);
 		}
 	}
 
@@ -351,16 +379,18 @@ e1_rx_need_data(unsigned int usb_addr, unsigned int max_frames, unsigned int *po
 }
 
 unsigned int
-e1_tx_feed_data(unsigned int usb_addr, unsigned int frames)
+e1_tx_feed_data(int port, unsigned int usb_addr, unsigned int frames)
 {
+	struct e1_state *e1 = _get_state(port);
 	unsigned int ofs;
 	int n_frames;
 
 	while (frames) {
 		/* Get some space in FIFO */
-		n_frames = e1f_frame_write(&g_e1.tx.fifo, &ofs, frames);
+		n_frames = e1f_frame_write(&e1->tx.fifo, &ofs, frames);
 		if (!n_frames) {
-			printf("[!] TX FIFO Overflow %d %d\n", frames, n_frames);
+			printf("[!] TX FIFO Overflow (port=%d, req=%d, done=%d)\n", port, frames, n_frames);
+			e1f_debug(&e1->tx.fifo, "TX");
 			break;
 		}
 
@@ -379,65 +409,70 @@ e1_tx_feed_data(unsigned int usb_addr, unsigned int frames)
 }
 
 unsigned int
-e1_tx_level(void)
+e1_tx_level(int port)
 {
-	return e1f_valid_frames(&g_e1.tx.fifo);
+	struct e1_state *e1 = _get_state(port);
+	return e1f_valid_frames(&e1->tx.fifo);
 }
 
 unsigned int
-e1_rx_level(void)
+e1_rx_level(int port)
 {
-	return e1f_valid_frames(&g_e1.rx.fifo);
+	struct e1_state *e1 = _get_state(port);
+	return e1f_valid_frames(&e1->rx.fifo);
 }
 
 const struct e1_error_count *
-e1_get_error_count(void)
+e1_get_error_count(int port)
 {
-	return &g_e1.errors;
+	struct e1_state *e1 = _get_state(port);
+	return &e1->errors;
 }
 
 void
-e1_poll(void)
+e1_poll(int port)
 {
+	volatile struct e1_core *e1_regs = _get_regs(port);
+	struct e1_state *e1 = _get_state(port);
 	uint32_t bd;
 	unsigned int ofs;
 
 	/* Active ? */
-	if ((g_e1.rx.state == IDLE) && (g_e1.tx.state == IDLE))
+	if ((e1->rx.state == IDLE) && (e1->tx.state == IDLE))
 		return;
 
 	/* HACK: LED link status */
 	if (e1_regs->rx.csr & E1_RX_SR_ALIGNED) {
-		e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_ON);
+		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_ON);
 		led_color(0, 48, 0);
-		g_e1.errors.flags &= ~(E1_ERR_F_LOS|E1_ERR_F_ALIGN_ERR);
+		e1->errors.flags &= ~(E1_ERR_F_LOS|E1_ERR_F_ALIGN_ERR);
 	} else {
-		e1_platform_led_set(0, E1P_LED_GREEN, E1P_LED_ST_BLINK);
+		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_BLINK);
 		led_color(48, 0, 0);
-		g_e1.errors.flags |= E1_ERR_F_ALIGN_ERR;
+		e1->errors.flags |= E1_ERR_F_ALIGN_ERR;
 		/* TODO: completely off if rx tick counter not incrementing */
 	}
 
 	/* Recover any done TX BD */
 	while ( (bd = e1_regs->tx.bd) & E1_BD_VALID ) {
-		e1f_multiframe_read_discard(&g_e1.tx.fifo);
-		g_e1.tx.in_flight--;
+		e1f_multiframe_read_discard(&e1->tx.fifo);
+		e1->tx.in_flight--;
 	}
 
 	/* Recover any done RX BD */
 	while ( (bd = e1_regs->rx.bd) & E1_BD_VALID ) {
 		/* FIXME: CRC status ? */
-		e1f_multiframe_write_commit(&g_e1.rx.fifo);
+		e1f_multiframe_write_commit(&e1->rx.fifo);
 		if ((bd & (E1_BD_CRC0 | E1_BD_CRC1)) != (E1_BD_CRC0 | E1_BD_CRC1)) {
-			printf("b: %03x\n", bd);
-			g_e1.errors.crc++;
+			printf("[!] E1 crc err (port=%d, bd=%03x)\n", port, bd);
+			e1->errors.crc++;
 		}
-		g_e1.rx.in_flight--;
+		e1->rx.in_flight--;
 	}
 
 	/* Boot procedure */
-	if (g_e1.tx.state == BOOT) {
-		if (e1f_unseen_frames(&g_e1.tx.fifo) < (16 * 5))
+	if (e1->tx.state == BOOT) {
+		if (e1f_unseen_frames(&e1->tx.fifo) < (16 * 5))
 			return;
 		/* HACK: LED flow status */
 		led_blink(true, 200, 1000);
@@ -446,88 +481,90 @@ e1_poll(void)
 
 	/* Handle RX */
 		/* Misalign ? */
-	if (g_e1.rx.state == RUN) {
+	if (e1->rx.state == RUN) {
 		if (!(e1_regs->rx.csr & E1_RX_SR_ALIGNED)) {
-			printf("[!] E1 rx misalign\n");
-			g_e1.rx.state = RECOVER;
-			g_e1.errors.align++;
+			printf("[!] E1 rx misalign (port=%d)\n", port);
+			e1->rx.state = RECOVER;
+			e1->errors.align++;
 		}
 	}
 
 		/* Overflow ? */
-	if (g_e1.rx.state == RUN) {
+	if (e1->rx.state == RUN) {
 		if (e1_regs->rx.csr & E1_RX_SR_OVFL) {
-			printf("[!] E1 overflow %d\n", g_e1.rx.in_flight);
-			g_e1.rx.state = RECOVER;
-			g_e1.errors.ovfl++;
+			printf("[!] E1 overflow (port=%d, inf=%d)\n", port, e1->rx.in_flight);
+			e1->rx.state = RECOVER;
+			e1->errors.ovfl++;
 		}
 	}
 
 		/* Recover ready ? */
-	if (g_e1.rx.state == RECOVER) {
-		if (g_e1.rx.in_flight != 0)
+	if (e1->rx.state == RECOVER) {
+		if (e1->rx.in_flight != 0)
 			goto done_rx;
-		e1f_multiframe_empty(&g_e1.rx.fifo);
+		e1f_multiframe_empty(&e1->rx.fifo);
 	}
 
 		/* Fill new RX BD */
-	while (g_e1.rx.in_flight < 4) {
-		if (!e1f_multiframe_write_prepare(&g_e1.rx.fifo, &ofs))
+	while (e1->rx.in_flight < 4) {
+		if (!e1f_multiframe_write_prepare(&e1->rx.fifo, &ofs))
 			break;
 		e1_regs->rx.bd = e1f_ofs_to_mf(ofs);
-		g_e1.rx.in_flight++;
+		e1->rx.in_flight++;
 	}
 
 		/* Clear overflow if needed */
-	if (g_e1.rx.state != RUN) {
-		e1_regs->rx.csr = g_e1.rx.cr | E1_RX_CR_OVFL_CLR;
-		g_e1.rx.state = RUN;
+	if (e1->rx.state != RUN) {
+		e1_regs->rx.csr = e1->rx.cr | E1_RX_CR_OVFL_CLR;
+		e1->rx.state = RUN;
 	}
 done_rx:
 
 	/* Handle TX */
 		/* Underflow ? */
-	if (g_e1.tx.state == RUN) {
+	if (e1->tx.state == RUN) {
 		if (e1_regs->tx.csr & E1_TX_SR_UNFL) {
-			printf("[!] E1 underflow %d\n", g_e1.tx.in_flight);
-			g_e1.tx.state = RECOVER;
-			g_e1.errors.unfl++;
+			printf("[!] E1 underflow (port=%d, inf=%d)\n", port, e1->tx.in_flight);
+			e1->tx.state = RECOVER;
+			e1->errors.unfl++;
 		}
 	}
 
 		/* Recover ready ? */
-	if (g_e1.tx.state == RECOVER) {
-		if (e1f_unseen_frames(&g_e1.tx.fifo) < (16 * 5))
+	if (e1->tx.state == RECOVER) {
+		if (e1f_unseen_frames(&e1->tx.fifo) < (16 * 5))
 			return;
 	}
 
 		/* Fill new TX BD */
-	while (g_e1.tx.in_flight < 4) {
-		if (!e1f_multiframe_read_peek(&g_e1.tx.fifo, &ofs))
+	while (e1->tx.in_flight < 4) {
+		if (!e1f_multiframe_read_peek(&e1->tx.fifo, &ofs))
 			break;
 		e1_regs->tx.bd = e1f_ofs_to_mf(ofs);
-		g_e1.tx.in_flight++;
+		e1->tx.in_flight++;
 	}
 
 		/* Clear underflow if needed */
-	if (g_e1.tx.state != RUN) {
-		e1_regs->tx.csr = g_e1.tx.cr | E1_TX_CR_UNFL_CLR;
-		g_e1.tx.state = RUN;
+	if (e1->tx.state != RUN) {
+		e1_regs->tx.csr = e1->tx.cr | E1_TX_CR_UNFL_CLR;
+		e1->tx.state = RUN;
 	}
 }
 
 void
-e1_debug_print(bool data)
+e1_debug_print(int port, bool data)
 {
+	volatile struct e1_core *e1_regs = _get_regs(port);
+	struct e1_state *e1 = _get_state(port);
 	volatile uint8_t *p;
 
-	puts("E1\n");
+	printf("E1 port %d\n", port);
 	printf("CSR: Rx %04x / Tx %04x\n", e1_regs->rx.csr, e1_regs->tx.csr);
-	printf("InF: Rx %d / Tx %d\n", g_e1.rx.in_flight, g_e1.tx.in_flight);
-	printf("Sta: Rx %d / Tx %d\n", g_e1.rx.state, g_e1.tx.state);
+	printf("InF: Rx %d / Tx %d\n", e1->rx.in_flight, e1->tx.in_flight);
+	printf("Sta: Rx %d / Tx %d\n", e1->rx.state, e1->tx.state);
 
-	e1f_debug(&g_e1.rx.fifo, "Rx FIFO");
-	e1f_debug(&g_e1.tx.fifo, "Tx FIFO");
+	e1f_debug(&e1->rx.fifo, "Rx FIFO");
+	e1f_debug(&e1->tx.fifo, "Tx FIFO");
 
 	if (data) {
 		puts("\nE1 Data\n");

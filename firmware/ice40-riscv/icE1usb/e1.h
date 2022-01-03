@@ -10,20 +10,20 @@
 
 /* control */
 
-void e1_init(uint16_t rx_cr, uint16_t tx_cr);
-void e1_poll(void);
-void e1_debug_print(bool data);
+void e1_init(int port, uint16_t rx_cr, uint16_t tx_cr);
+void e1_poll(int port);
+void e1_debug_print(int port, bool data);
 
-void e1_tx_config(uint16_t cr);
-void e1_rx_config(uint16_t cr);
+void e1_tx_config(int port, uint16_t cr);
+void e1_rx_config(int port, uint16_t cr);
 
 
 /* data flow */
 
-unsigned int e1_rx_need_data(unsigned int usb_addr, unsigned int max_len, unsigned int *pos);
-unsigned int e1_tx_feed_data(unsigned int usb_addr, unsigned int len);
-unsigned int e1_tx_level(void);
-unsigned int e1_rx_level(void);
+unsigned int e1_rx_need_data(int port, unsigned int usb_addr, unsigned int max_len, unsigned int *pos);
+unsigned int e1_tx_feed_data(int port, unsigned int usb_addr, unsigned int len);
+unsigned int e1_tx_level(int port);
+unsigned int e1_rx_level(int port);
 
 
 /* error reporting */
@@ -40,7 +40,7 @@ struct e1_error_count {
 	uint8_t flags;
 };
 
-const struct e1_error_count *e1_get_error_count(void);
+const struct e1_error_count *e1_get_error_count(int port);
 
 
 /* external function provided by the platform; used by E1 driver to control LEDs */
