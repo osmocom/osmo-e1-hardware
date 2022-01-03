@@ -171,8 +171,9 @@ usb_e1_run(void)
 		usb_data_read(&hdr, ptr, 4);
 
 		/* Empty data into the FIFO */
-		int n = ((csr & USB_BD_LEN_MSK) - 4) / 32;
-		n = e1_tx_feed_data((ptr >> 2) + 1, n);
+		int n = ((int)(csr & USB_BD_LEN_MSK) - 6) / 32;
+		if (n > 0)
+			e1_tx_feed_data((ptr >> 2) + 1, n);
 
 refill:
 		/* Refill it */
