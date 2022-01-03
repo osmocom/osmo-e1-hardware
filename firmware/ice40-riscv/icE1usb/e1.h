@@ -28,9 +28,6 @@ struct e1_error_count {
 
 const struct e1_error_count *e1_get_error_count(void);
 
-volatile uint8_t *e1_data_ptr(int mf, int frame, int ts);
-unsigned int e1_data_ofs(int mf, int frame, int ts);
-
 enum e1_platform_led {
 	E1P_LED_GREEN		= 0,
 	E1P_LED_YELLOW		= 1,

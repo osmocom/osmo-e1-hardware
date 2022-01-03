@@ -21,13 +21,13 @@
 static volatile struct e1_core * const e1_regs = (void *)(E1_CORE_BASE);
 static volatile uint8_t * const e1_data = (void *)(E1_DATA_BASE);
 
-unsigned int
+static unsigned int
 e1_data_ofs(int mf, int frame, int ts)
 {
 	return (mf << 9) | (frame << 5) | ts;
 }
 
-volatile uint8_t *
+static volatile uint8_t *
 e1_data_ptr(int mf, int frame, int ts)
 {
 	return &e1_data[e1_data_ofs(mf, frame, ts)];
