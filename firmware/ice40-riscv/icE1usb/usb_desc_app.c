@@ -90,7 +90,7 @@ static const struct {
 				.bEndpointAddress	= USB_EP_E1_INT(0),
 				.bmAttributes		= 0x03,
 				.wMaxPacketSize		= 10,
-				.bInterval		= 3,
+				.bInterval		= 4,	/* every 4 ms */
 			},
 		},
 		.on = {
@@ -110,7 +110,7 @@ static const struct {
 				.bDescriptorType	= USB_DT_EP,
 				.bEndpointAddress	= USB_EP_E1_IN(0),
 				.bmAttributes		= 0x05,
-				.wMaxPacketSize		= 388,
+				.wMaxPacketSize		= 292,
 				.bInterval		= 1,
 			},
 			.ep_data_out = {
@@ -118,7 +118,7 @@ static const struct {
 				.bDescriptorType	= USB_DT_EP,
 				.bEndpointAddress	= USB_EP_E1_OUT(0),
 				.bmAttributes		= 0x05,
-				.wMaxPacketSize		= 388,
+				.wMaxPacketSize		= 292,
 				.bInterval		= 1,
 			},
 			.ep_fb = {
@@ -126,8 +126,8 @@ static const struct {
 				.bDescriptorType	= USB_DT_EP,
 				.bEndpointAddress	= USB_EP_E1_FB(0),
 				.bmAttributes		= 0x11,
-				.wMaxPacketSize		= 8,
-				.bInterval		= 3,
+				.wMaxPacketSize		= 3,
+				.bInterval		= 3,	/* every 2^(3-1) = 4 ms */
 			},
 			.ep_interrupt = {
 				.bLength		= sizeof(struct usb_ep_desc),
@@ -135,7 +135,7 @@ static const struct {
 				.bEndpointAddress	= USB_EP_E1_INT(0),
 				.bmAttributes		= 0x03,
 				.wMaxPacketSize		= 10,
-				.bInterval		= 3,
+				.bInterval		= 4,	/* every 4 ms */
 			},
 		},
 	},

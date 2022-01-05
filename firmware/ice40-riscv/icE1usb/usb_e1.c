@@ -128,10 +128,8 @@ usb_e1_run(void)
 		/* Get some data from E1 */
 		int n = e1_rx_level(0);
 
-		if (n > 64)
-			n = 12;
-		else if (n > 32)
-			n = 10;
+		if (n > 32)
+			n = 9;
 		else if (n > 8)
 			n = 8;
 		else if (!n)
@@ -177,7 +175,7 @@ usb_e1_run(void)
 
 refill:
 		/* Refill it */
-		ep_regs->bd[bdi].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
+		ep_regs->bd[bdi].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(292);
 
 		/* Next BDI */
 		bdi ^= 1;
@@ -282,8 +280,8 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 
 		/* EP OUT: Queue two buffers */
 		ep_regs = _get_ep_regs(USB_EP_E1_FB(0));
-		ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
-		ep_regs->bd[1].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(388);
+		ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(292);
+		ep_regs->bd[1].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(292);
 
 		/* EP Feedback: Pre-fill */
 		_usb_fill_feedback_ep();
