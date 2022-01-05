@@ -230,7 +230,7 @@ static const struct {
 			.bLength		= sizeof(struct usb_dfu_func_desc),
 			.bDescriptorType	= USB_DFU_DT_FUNC,
 			.bmAttributes		= 0x0d,
-			.wDetachTimeOut		= 1000,
+			.wDetachTimeOut		= 0,
 			.wTransferSize		= 4096,
 			.bcdDFUVersion		= 0x0101,
 		},
