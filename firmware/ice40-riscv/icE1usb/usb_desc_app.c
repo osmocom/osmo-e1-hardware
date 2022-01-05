@@ -39,7 +39,7 @@ static const struct {
 			struct usb_ep_desc ep_fb;
 			struct usb_ep_desc ep_interrupt;
 		} __attribute__ ((packed)) on;
-	} __attribute__ ((packed)) e1;
+	} __attribute__ ((packed)) e1[2];
 
 	/* CDC */
 #if 0
@@ -71,7 +71,7 @@ static const struct {
 		.bmAttributes           = 0x80,
 		.bMaxPower              = 0x32, /* 100 mA */
 	},
-	.e1 = {
+	.e1[0] = {
 		.off = {
 			.intf = {
 				.bLength		= sizeof(struct usb_intf_desc),
@@ -103,7 +103,7 @@ static const struct {
 				.bInterfaceClass	= 0xff,
 				.bInterfaceSubClass	= 0xe1,
 				.bInterfaceProtocol	= 0x00,
-				.iInterface		= 5,
+				.iInterface		= 6,
 			},
 			.ep_data_in = {
 				.bLength		= sizeof(struct usb_ep_desc),
@@ -139,6 +139,74 @@ static const struct {
 			},
 		},
 	},
+	.e1[1] = {
+		.off = {
+			.intf = {
+				.bLength		= sizeof(struct usb_intf_desc),
+				.bDescriptorType	= USB_DT_INTF,
+				.bInterfaceNumber	= USB_INTF_E1(1),
+				.bAlternateSetting	= 0,
+				.bNumEndpoints		= 1,
+				.bInterfaceClass	= 0xff,
+				.bInterfaceSubClass	= 0xe1,
+				.bInterfaceProtocol	= 0x00,
+				.iInterface		= 7,
+			},
+			.ep_interrupt = {
+				.bLength		= sizeof(struct usb_ep_desc),
+				.bDescriptorType	= USB_DT_EP,
+				.bEndpointAddress	= USB_EP_E1_INT(1),
+				.bmAttributes		= 0x03,
+				.wMaxPacketSize		= 10,
+				.bInterval		= 4,	/* every 4 ms */
+			},
+		},
+		.on = {
+			.intf = {
+				.bLength		= sizeof(struct usb_intf_desc),
+				.bDescriptorType	= USB_DT_INTF,
+				.bInterfaceNumber	= USB_INTF_E1(1),
+				.bAlternateSetting	= 1,
+				.bNumEndpoints		= 4,
+				.bInterfaceClass	= 0xff,
+				.bInterfaceSubClass	= 0xe1,
+				.bInterfaceProtocol	= 0x00,
+				.iInterface		= 8,
+			},
+			.ep_data_in = {
+				.bLength		= sizeof(struct usb_ep_desc),
+				.bDescriptorType	= USB_DT_EP,
+				.bEndpointAddress	= USB_EP_E1_IN(1),
+				.bmAttributes		= 0x05,
+				.wMaxPacketSize		= 292,
+				.bInterval		= 1,
+			},
+			.ep_data_out = {
+				.bLength		= sizeof(struct usb_ep_desc),
+				.bDescriptorType	= USB_DT_EP,
+				.bEndpointAddress	= USB_EP_E1_OUT(1),
+				.bmAttributes		= 0x05,
+				.wMaxPacketSize		= 292,
+				.bInterval		= 1,
+			},
+			.ep_fb = {
+				.bLength		= sizeof(struct usb_ep_desc),
+				.bDescriptorType	= USB_DT_EP,
+				.bEndpointAddress	= USB_EP_E1_FB(1),
+				.bmAttributes		= 0x11,
+				.wMaxPacketSize		= 3,
+				.bInterval		= 3,	/* every 2^(3-1) = 4 ms */
+			},
+			.ep_interrupt = {
+				.bLength		= sizeof(struct usb_ep_desc),
+				.bDescriptorType	= USB_DT_EP,
+				.bEndpointAddress	= USB_EP_E1_INT(1),
+				.bmAttributes		= 0x03,
+				.wMaxPacketSize		= 10,
+				.bInterval		= 4,	/* every 4 ms */
+			},
+		},
+	},
 #if 0
 	.cdc = {
 		.intf_ctl = {
@@ -150,7 +218,7 @@ static const struct {
 			.bInterfaceClass	= USB_CLS_CDC_CONTROL,
 			.bInterfaceSubClass	= USB_CDC_SCLS_ACM,
 			.bInterfaceProtocol	= 0x00,
-			.iInterface		= 6,
+			.iInterface		= 9,
 		},
 		.cdc_hdr = {
 			.bLength		= sizeof(struct usb_cdc_hdr_desc),
@@ -188,7 +256,7 @@ static const struct {
 			.bInterfaceClass	= USB_CLS_CDC_DATA,
 			.bInterfaceSubClass	= 0x00,
 			.bInterfaceProtocol	= 0x00,
-			.iInterface		= 7,
+			.iInterface		= 10,
 		},
 		.ep_data_out = {
 			.bLength		= sizeof(struct usb_ep_desc),
@@ -218,7 +286,7 @@ static const struct {
 			.bInterfaceClass	= 0xfe,
 			.bInterfaceSubClass	= 0x01,
 			.bInterfaceProtocol	= 0x01,
-			.iInterface		= 8,
+			.iInterface		= 11,
 		},
 		.func = {
 			.bLength		= sizeof(struct usb_dfu_func_desc),

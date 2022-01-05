@@ -2,7 +2,10 @@
 osmocom
 icE1usb
 Main
-E1
-Console (control)
-Console (data)
+E1 port 0 (disabled)
+E1 port 0
+E1 port 1 (disabled)
+E1 port 1
+GPS (CDC control)
+GPS (CDC data)
 DFU runtime

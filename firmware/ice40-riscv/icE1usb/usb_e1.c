@@ -16,17 +16,20 @@
 #include "e1.h"
 #include "misc.h"
 #include "usb_desc_ids.h"
+#include "utils.h"
 
 #include "ice1usb_proto.h"
 
-struct {
+struct usb_e1_state {
 	bool running;		/* are we running (transceiving USB data)? */
 	int out_bdi;		/* buffer descriptor index for OUT EP */
 	int in_bdi;		/* buffer descriptor index for IN EP */
 	struct ice1usb_tx_config tx_cfg;
 	struct ice1usb_rx_config rx_cfg;
 	struct e1_error_count last_err;
-} g_usb_e1;
+};
+
+static struct usb_e1_state g_usb_e1[2];
 
 /* default configuration at power-up */
 static const struct ice1usb_tx_config tx_cfg_default = {
@@ -47,8 +50,29 @@ _get_ep_regs(uint8_t ep)
 	return (ep & 0x80) ? &usb_ep_regs[ep & 0x1f].in : &usb_ep_regs[ep & 0x1f].out;
 }
 
+static struct usb_e1_state *
+_get_state(int port)
+{
+	if ((port < 0) || (port > 1))
+		panic("_get_state invalid port %d", port);
+	return &g_usb_e1[port];
+}
+
+static int
+_ifnum2port(uint8_t bInterfaceNumber)
+{
+	switch (bInterfaceNumber) {
+	case USB_INTF_E1(0): return 0;
+	case USB_INTF_E1(1): return 1;
+	default:
+		/* Don't panic since this will be handled as USB STALL */
+		return -1;
+	}
+}
+
+
 static void
-_usb_fill_feedback_ep(void)
+_usb_fill_feedback_ep(int port)
 {
 	static uint16_t ticks_prev = 0;
 	uint16_t ticks;
@@ -57,41 +81,42 @@ _usb_fill_feedback_ep(void)
 	volatile struct usb_ep *ep_regs;
 
 	/* Compute real E1 tick count (with safety against bad values) */
-	ticks = e1_tick_read(0);
+	ticks = e1_tick_read(port);
 	val = (ticks - ticks_prev) & 0xffff;
 	ticks_prev = ticks;
 	if ((val < 7168) | (val > 9216))
 		val = 8192;
 
 	/* Bias depending on TX fifo level */
-	level = e1_tx_level(0);
+	level = e1_tx_level(port);
 	if (level < (3 * 16))
 		val += 256;
 	else if (level > (8 * 16))
 		val -= 256;
 
 	/* Prepare buffer */
-	ep_regs = _get_ep_regs(USB_EP_E1_FB(0));
+	ep_regs = _get_ep_regs(USB_EP_E1_FB(port));
 	usb_data_write(ep_regs->bd[0].ptr, &val, 4);
 	ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(3);
 }
 
 
 void
-usb_e1_run(void)
+usb_e1_run(int port)
 {
+	struct usb_e1_state *usb_e1 = _get_state(port);
 	volatile struct usb_ep *ep_regs;
 	int bdi;
 
-	if (!g_usb_e1.running)
+	if (!usb_e1->running)
 		return;
 
 	/* Interrupt endpoint */
-	ep_regs = _get_ep_regs(USB_EP_E1_INT(0));
+	ep_regs = _get_ep_regs(USB_EP_E1_INT(port));
 
 	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA) {
-		const struct e1_error_count *cur_err = e1_get_error_count(0);
-		if (memcmp(cur_err, &g_usb_e1.last_err, sizeof(*cur_err))) {
+		const struct e1_error_count *cur_err = e1_get_error_count(port);
+		if (memcmp(cur_err, &usb_e1->last_err, sizeof(*cur_err))) {
 			struct ice1usb_irq errmsg = {
 				.type = ICE1USB_IRQ_T_ERRCNT,
 				.u = {
@@ -107,13 +132,13 @@ usb_e1_run(void)
 			printf("E");
 			usb_data_write(ep_regs->bd[0].ptr, &errmsg, sizeof(errmsg));
 			ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(sizeof(errmsg));
-			g_usb_e1.last_err = *cur_err;
+			usb_e1->last_err = *cur_err;
 		}
 	}
 
 	/* Data IN endpoint */
-	ep_regs = _get_ep_regs(USB_EP_E1_IN(0));
-	bdi = g_usb_e1.in_bdi;
+	ep_regs = _get_ep_regs(USB_EP_E1_IN(port));
+	bdi = usb_e1->in_bdi;
 
 	while ((ep_regs->bd[bdi].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
 	{
@@ -126,7 +151,7 @@ usb_e1_run(void)
 			puts("Err EP IN\n");
 
 		/* Get some data from E1 */
-		int n = e1_rx_level(0);
+		int n = e1_rx_level(port);
 
 		if (n > 32)
 			n = 9;
@@ -135,7 +160,7 @@ usb_e1_run(void)
 		else if (!n)
 			break;
 
-		n = e1_rx_need_data(0, (ptr >> 2) + 1, n, &pos);
+		n = e1_rx_need_data(port, (ptr >> 2) + 1, n, &pos);
 
 		/* Write header: currently version and pos (mfr/fr number) */
 		hdr = (0 << 28) | (pos & 0xff);
@@ -146,12 +171,12 @@ usb_e1_run(void)
 
 		/* Next BDI */
 		bdi ^= 1;
-		g_usb_e1.in_bdi = bdi;
+		usb_e1->in_bdi = bdi;
 	}
 
 	/* Data OUT endpoint */
-	ep_regs = _get_ep_regs(USB_EP_E1_OUT(0));
-	bdi = g_usb_e1.out_bdi;
+	ep_regs = _get_ep_regs(USB_EP_E1_OUT(port));
+	bdi = usb_e1->out_bdi;
 
 	while ((ep_regs->bd[bdi].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
 	{
@@ -171,7 +196,7 @@ usb_e1_run(void)
 		/* Empty data into the FIFO */
 		int n = ((int)(csr & USB_BD_LEN_MSK) - 6) / 32;
 		if (n > 0)
-			e1_tx_feed_data(0, (ptr >> 2) + 1, n);
+			e1_tx_feed_data(port, (ptr >> 2) + 1, n);
 
 refill:
 		/* Refill it */
@@ -179,7 +204,7 @@ refill:
 
 		/* Next BDI */
 		bdi ^= 1;
-		g_usb_e1.out_bdi = bdi;
+		usb_e1->out_bdi = bdi;
 
 		static int x = 0;
 		if ((x++ & 0xff) == 0xff)
@@ -187,11 +212,11 @@ refill:
 	}
 
 	/* Feedback endpoint */
-	ep_regs = _get_ep_regs(USB_EP_E1_FB(0));
+	ep_regs = _get_ep_regs(USB_EP_E1_FB(port));
 
 	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
 	{
-		_usb_fill_feedback_ep();
+		_usb_fill_feedback_ep(port);
 	}
 }
 
@@ -204,24 +229,28 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	if (!conf)
 		return USB_FND_SUCCESS;
 
-	intf = usb_desc_find_intf(conf, USB_INTF_E1(0), 0, NULL);
-	if (!intf)
-		return USB_FND_ERROR;
+	for (int port=0; port<2; port++)
+	{
+		intf = usb_desc_find_intf(conf, USB_INTF_E1(port), 0, NULL);
+		if (!intf)
+			return USB_FND_ERROR;
 
-	printf("e1 set_conf %08x\n", intf);
+		printf("e1 set_conf[%d] %08x\n", port, intf);
 
-	usb_ep_boot(intf, USB_EP_E1_IN(0),  true);
-	usb_ep_boot(intf, USB_EP_E1_OUT(0), true);
-	usb_ep_boot(intf, USB_EP_E1_FB(0),  false);
-	usb_ep_boot(intf, USB_EP_E1_INT(0), false);
+		usb_ep_boot(intf, USB_EP_E1_IN(port),  true);
+		usb_ep_boot(intf, USB_EP_E1_OUT(port), true);
+		usb_ep_boot(intf, USB_EP_E1_FB(port),  false);
+		usb_ep_boot(intf, USB_EP_E1_INT(port), false);
+	}
 
 	return USB_FND_SUCCESS;
 }
 
-static void _perform_tx_config(void)
+static void _perform_tx_config(int port)
 {
-	const struct ice1usb_tx_config *cfg = &g_usb_e1.tx_cfg;
-	e1_tx_config(0,
+	struct usb_e1_state *usb_e1 = _get_state(port);
+	const struct ice1usb_tx_config *cfg = &usb_e1->tx_cfg;
+	e1_tx_config(port,
 		((cfg->mode & 3) << 1) |
 		((cfg->timing & 1) << 3) |
 		((cfg->alarm & 1) << 4) |
@@ -229,10 +258,11 @@ static void _perform_tx_config(void)
 	);
 }
 
-static void _perform_rx_config(void)
+static void _perform_rx_config(int port)
 {
-	const struct ice1usb_rx_config *cfg = &g_usb_e1.rx_cfg;
-	e1_rx_config(0,
+	struct usb_e1_state *usb_e1 = _get_state(port);
+	const struct ice1usb_rx_config *cfg = &usb_e1->rx_cfg;
+	e1_rx_config(port,
 		(cfg->mode << 1)
 	);
 }
@@ -241,50 +271,60 @@ static enum usb_fnd_resp
 _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 {
 	volatile struct usb_ep *ep_regs;
+	struct usb_e1_state *usb_e1;
+	int port;
 
-	/* Validity checks */
+	/* Is it for E1 interface ? */
 	if ((base->bInterfaceClass != 0xff) || (base->bInterfaceSubClass != 0xe1))
 		return USB_FND_CONTINUE;
 
+	/* Get matching port (if any) */
+	port = _ifnum2port(base->bInterfaceNumber);
+	if (port < 0)
+		return USB_FND_ERROR;
+
+	usb_e1 = _get_state(port);
+
+	/* Valid setting ? */
 	if (sel->bAlternateSetting > 1)
 		return USB_FND_ERROR;
 
 	/* Don't do anything if no change */
-	if (g_usb_e1.running == (sel->bAlternateSetting != 0))
+	if (usb_e1->running == (sel->bAlternateSetting != 0))
 		return USB_FND_SUCCESS;
 
-	g_usb_e1.running = (sel->bAlternateSetting != 0);
+	usb_e1->running = (sel->bAlternateSetting != 0);
 
 	/* Reconfigure the endpoints */
-	usb_ep_reconf(sel, USB_EP_E1_IN(0));
-	usb_ep_reconf(sel, USB_EP_E1_OUT(0));
-	usb_ep_reconf(sel, USB_EP_E1_FB(0));
-	usb_ep_reconf(sel, USB_EP_E1_INT(0));
+	usb_ep_reconf(sel, USB_EP_E1_IN(port));
+	usb_ep_reconf(sel, USB_EP_E1_OUT(port));
+	usb_ep_reconf(sel, USB_EP_E1_FB(port));
+	usb_ep_reconf(sel, USB_EP_E1_INT(port));
 
 	/* Update E1 and USB state */
-	switch (g_usb_e1.running) {
+	switch (usb_e1->running) {
 	case false:
 		/* Disable E1 rx/tx */
-		e1_init(0, 0, 0);
+		e1_init(port, 0, 0);
 		break;
 
 	case true:
 		/* Reset and Re-Enable E1 */
-		e1_init(0, 0, 0);
-		_perform_rx_config();
-		_perform_tx_config();
+		e1_init(port, 0, 0);
+		_perform_rx_config(port);
+		_perform_tx_config(port);
 
 		/* Reset BDI */
-		g_usb_e1.in_bdi = 0;
-		g_usb_e1.out_bdi = 0;
+		usb_e1->in_bdi = 0;
+		usb_e1->out_bdi = 0;
 
 		/* EP OUT: Queue two buffers */
-		ep_regs = _get_ep_regs(USB_EP_E1_FB(0));
+		ep_regs = _get_ep_regs(USB_EP_E1_OUT(port));
 		ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(292);
 		ep_regs->bd[1].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(292);
 
 		/* EP Feedback: Pre-fill */
-		_usb_fill_feedback_ep();
+		_usb_fill_feedback_ep(port);
 
 		break;
 	}
@@ -295,10 +335,22 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 static enum usb_fnd_resp
 _e1_get_intf(const struct usb_intf_desc *base, uint8_t *alt)
 {
+	struct usb_e1_state *usb_e1;
+	int port;
+
+	/* Is it for E1 interface ? */
 	if ((base->bInterfaceClass != 0xff) || (base->bInterfaceSubClass != 0xe1))
 		return USB_FND_CONTINUE;
 
-	*alt = g_usb_e1.running ? 1 : 0;
+	/* Get matching port (if any) */
+	port = _ifnum2port(base->bInterfaceNumber);
+	if (port < 0)
+		return USB_FND_ERROR;
+
+	usb_e1 = _get_state(port);
+
+	/* Return current alt-setting */
+	*alt = usb_e1->running ? 1 : 0;
 
 	return USB_FND_SUCCESS;
 }
@@ -307,10 +359,13 @@ static bool
 _set_tx_mode_done(struct usb_xfer *xfer)
 {
 	const struct ice1usb_tx_config *cfg = (const struct ice1usb_tx_config *) xfer->data;
-	printf("set_tx_mode %02x%02x%02x%02x\r\n",
+	struct usb_ctrl_req *req = xfer->cb_ctx;
+	int port = _ifnum2port(req->wIndex);
+	struct usb_e1_state *usb_e1 = _get_state(port);
+	printf("set_tx_mode[%d] %02x%02x%02x%02x\r\n", port,
 		xfer->data[0], xfer->data[1], xfer->data[2], xfer->data[3]);
-	g_usb_e1.tx_cfg = *cfg;
-	_perform_tx_config();
+	usb_e1->tx_cfg = *cfg;
+	_perform_tx_config(port);
 	return true;
 }
 
@@ -318,9 +373,12 @@ static bool
 _set_rx_mode_done(struct usb_xfer *xfer)
 {
 	const struct ice1usb_rx_config *cfg = (const struct ice1usb_rx_config *) xfer->data;
-	printf("set_rx_mode %02x\r\n", xfer->data[0]);
-	g_usb_e1.rx_cfg = *cfg;
-	_perform_rx_config();
+	struct usb_ctrl_req *req = xfer->cb_ctx;
+	int port = _ifnum2port(req->wIndex);
+	struct usb_e1_state *usb_e1 = _get_state(port);
+	printf("set_rx_mode[%d] %02x\r\n", port, xfer->data[0]);
+	usb_e1->rx_cfg = *cfg;
+	_perform_rx_config(port);
 	return true;
 }
 
@@ -328,8 +386,17 @@ _set_rx_mode_done(struct usb_xfer *xfer)
 static enum usb_fnd_resp
 _e1_ctrl_req_intf(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 {
-	unsigned int i;
+	struct usb_e1_state *usb_e1;
+	int port;
 
+	/* Get matching port (if any) */
+	port = _ifnum2port(req->wIndex);
+	if (port < 0)
+		return USB_FND_CONTINUE;
+
+	usb_e1 = _get_state(port);
+
+	/* Process request */
 	switch (req->bRequest) {
 	case ICE1USB_INTF_GET_CAPABILITIES:
 		/* no optional capabilities yet */
@@ -345,7 +412,7 @@ _e1_ctrl_req_intf(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 	case ICE1USB_INTF_GET_TX_CFG:
 		if (req->wLength < sizeof(struct ice1usb_tx_config))
 			return USB_FND_ERROR;
-		memcpy(xfer->data, &g_usb_e1.tx_cfg, sizeof(struct ice1usb_tx_config));
+		memcpy(xfer->data, &usb_e1->tx_cfg, sizeof(struct ice1usb_tx_config));
 		xfer->len = sizeof(struct ice1usb_tx_config);
 		break;
 	case ICE1USB_INTF_SET_RX_CFG:
@@ -358,7 +425,7 @@ _e1_ctrl_req_intf(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 	case ICE1USB_INTF_GET_RX_CFG:
 		if (req->wLength < sizeof(struct ice1usb_rx_config))
 			return USB_FND_ERROR;
-		memcpy(xfer->data, &g_usb_e1.rx_cfg, sizeof(struct ice1usb_rx_config));
+		memcpy(xfer->data, &usb_e1->rx_cfg, sizeof(struct ice1usb_rx_config));
 		xfer->len = sizeof(struct ice1usb_rx_config);
 		break;
 	default:
@@ -396,8 +463,6 @@ _e1_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 	case USB_REQ_RCPT_DEV:
 		return _e1_ctrl_req_dev(req, xfer);
 	case USB_REQ_RCPT_INTF:
-		if (req->wIndex != USB_INTF_E1(0))
-			return USB_FND_CONTINUE;
 		return _e1_ctrl_req_intf(req, xfer);
 	case USB_REQ_RCPT_EP:
 	case USB_REQ_RCPT_OTHER:
@@ -417,8 +482,12 @@ static struct usb_fn_drv _e1_drv = {
 void
 usb_e1_init(void)
 {
-	memset(&g_usb_e1, 0x00, sizeof(g_usb_e1));
-	g_usb_e1.tx_cfg = tx_cfg_default;
-	g_usb_e1.rx_cfg = rx_cfg_default;
+	for (int i=0; i<2; i++) {
+		struct usb_e1_state *usb_e1 = _get_state(i);
+		memset(usb_e1, 0x00, sizeof(struct usb_e1_state));
+		usb_e1->tx_cfg = tx_cfg_default;
+		usb_e1->rx_cfg = rx_cfg_default;
+	}
+
 	usb_register_function_driver(&_e1_drv);
 }

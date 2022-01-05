@@ -8,8 +8,8 @@
 #pragma once
 
 #define USB_INTF_E1(p)		(0 + (p))
-#define USB_INTF_DFU		1
-#define USB_INTF_NUM		2
+#define USB_INTF_DFU		2
+#define USB_INTF_NUM		3
 
 #define USB_EP_E1_IN(p)		(0x82 + (3 * (p)))
 #define USB_EP_E1_OUT(p)	(0x01 + (3 * (p)))

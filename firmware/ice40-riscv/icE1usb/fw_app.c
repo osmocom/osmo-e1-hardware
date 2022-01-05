@@ -102,6 +102,7 @@ void main()
 
 	/* Start */
 	e1_init(0, 0, 0);
+	e1_init(1, 0, 0);
 	led_state(true);
 	usb_connect();
 
@@ -151,7 +152,9 @@ void main()
 		usb_poll();
 
 		/* E1 poll */
-		e1_poll(0);
-		usb_e1_run();
+		for (int port=0; port<2; port++) {
+			e1_poll(port);
+			usb_e1_run(port);
+		}
 	}
 }
