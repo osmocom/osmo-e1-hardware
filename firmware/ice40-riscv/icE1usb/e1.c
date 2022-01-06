@@ -273,8 +273,8 @@ e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 	memset(e1, 0x00, sizeof(struct e1_state));
 
 	/* Reset FIFOs */
-	e1f_reset(&e1->rx.fifo, (256 * port) +   0, 128);
-	e1f_reset(&e1->tx.fifo, (256 * port) + 128, 128);
+	e1f_reset(&e1->rx.fifo, (512 * port) +   0, 256);
+	e1f_reset(&e1->tx.fifo, (512 * port) + 256, 256);
 
 	/* Enable Rx */
 	e1->rx.cr = E1_RX_CR_ENABLE | rx_cr;

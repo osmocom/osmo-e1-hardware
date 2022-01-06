@@ -74,30 +74,25 @@ _ifnum2port(uint8_t bInterfaceNumber)
 static void
 _usb_fill_feedback_ep(int port)
 {
-	static uint16_t ticks_prev = 0;
-	uint16_t ticks;
-	uint32_t val = 8192;
-	unsigned int level;
-	volatile struct usb_ep *ep_regs;
+	volatile struct usb_ep *ep_regs = _get_ep_regs(USB_EP_E1_FB(port));
 
-	/* Compute real E1 tick count (with safety against bad values) */
-	ticks = e1_tick_read(port);
-	val = (ticks - ticks_prev) & 0xffff;
-	ticks_prev = ticks;
-	if ((val < 7168) | (val > 9216))
-		val = 8192;
+	/* Always ensure we're ready to send */
+	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
+	{
+		uint32_t val = 8192;
 
-	/* Bias depending on TX fifo level */
-	level = e1_tx_level(port);
-	if (level < (3 * 16))
-		val += 256;
-	else if (level > (8 * 16))
-		val -= 256;
+		/* Add instant bias depending on TX fifo level */
+		unsigned int level = e1_tx_level(port);
 
-	/* Prepare buffer */
-	ep_regs = _get_ep_regs(USB_EP_E1_FB(port));
-	usb_data_write(ep_regs->bd[0].ptr, &val, 4);
-	ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(3);
+		if (level < (4 * 16))
+			val += 256;
+		else if (level > (6 * 16))
+			val -= 256;
+
+		/* Fill buffer and submit it */
+		usb_data_write(ep_regs->bd[0].ptr, &val, 4);
+		ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(3);
+	}
 }
 
 
@@ -212,12 +207,7 @@ refill:
 	}
 
 	/* Feedback endpoint */
-	ep_regs = _get_ep_regs(USB_EP_E1_FB(port));
-
-	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
-	{
-		_usb_fill_feedback_ep(port);
-	}
+	_usb_fill_feedback_ep(port);
 }
 
 static enum usb_fnd_resp
