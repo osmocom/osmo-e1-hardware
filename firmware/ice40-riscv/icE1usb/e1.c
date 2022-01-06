@@ -448,6 +448,7 @@ e1_poll(int port)
 		e1->errors.flags &= ~(E1_ERR_F_LOS|E1_ERR_F_ALIGN_ERR);
 	} else {
 		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_BLINK);
+		e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_OFF);
 		led_color(48, 0, 0);
 		e1->errors.flags |= E1_ERR_F_ALIGN_ERR;
 		/* TODO: completely off if rx tick counter not incrementing */
