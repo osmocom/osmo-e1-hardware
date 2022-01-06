@@ -117,31 +117,39 @@ void main()
 		cmd = getchar_nowait();
 
 		if (cmd >= 0) {
-			if (cmd > 32 && cmd < 127) {
+			if (cmd > 32 && cmd < 127)
 				putchar(cmd);
-				putchar('\r');
-				putchar('\n');
-			}
+			putchar('\r');
+			putchar('\n');
 
 			switch (cmd)
 			{
-			case 'p':
-				usb_debug_print();
-				break;
 			case 'b':
 				boot_dfu();
 				break;
-			case 'o':
+			case 'p':
+				panic("Test panic");
+				break;
+			case 'q':
 				e1_debug_print(0, false);
 				break;
-			case 'O':
+			case 'Q':
 				e1_debug_print(0, true);
+				break;
+			case 'w':
+				e1_debug_print(1, false);
+				break;
+			case 'W':
+				e1_debug_print(1, true);
 				break;
 			case 'c':
 				usb_connect();
 				break;
 			case 'd':
 				usb_disconnect();
+				break;
+			case 'u':
+				usb_debug_print();
 				break;
 			default:
 				break;
