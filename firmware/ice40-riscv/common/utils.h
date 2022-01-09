@@ -10,3 +10,6 @@
 #include <stdbool.h>
 
 char *hexstr(void *d, int n, bool space);
+
+void _panic(const char *file, int lineno, const char *fmt, ...);
+#define panic(fmt, ...) _panic(__FILE__, __LINE__, fmt, ##__VA_ARGS__)
