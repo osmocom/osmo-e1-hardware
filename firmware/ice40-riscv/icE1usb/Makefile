@@ -14,7 +14,7 @@ GITVER = $(shell git describe --match '$(TAG_PREFIX)*')
 TARGET = $(GITVER)
 
 BOARD_DEFINE=BOARD_$(shell echo $(BOARD) | tr a-z\- A-Z_)
-CFLAGS=-Wall -Wextra -Wno-unused -Os -march=rv32i -mabi=ilp32 -ffreestanding -flto -nostartfiles -fomit-frame-pointer -Wl,--gc-section --specs=nano.specs -D$(BOARD_DEFINE) -I. -I../common
+CFLAGS=-Wall -Wextra -Wno-unused-parameter -Os -march=rv32i -mabi=ilp32 -ffreestanding -flto -nostartfiles -fomit-frame-pointer -Wl,--gc-section --specs=nano.specs -D$(BOARD_DEFINE) -I. -I../common
 
 NO2USB_FW_VERSION=0
 include ../../../gateware/cores/no2usb/fw/fw.mk
