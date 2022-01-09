@@ -323,9 +323,6 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 		ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(292);
 		ep_regs->bd[1].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(292);
 
-		/* EP Feedback: Pre-fill */
-		_usb_fill_feedback_ep(port);
-
 		break;
 	}
 
