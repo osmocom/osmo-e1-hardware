@@ -58,11 +58,18 @@ struct e1_fifo {
 
 	/* Utils */
 static void
-e1f_reset(struct e1_fifo *fifo, unsigned int base, unsigned int len)
+e1f_init(struct e1_fifo *fifo, unsigned int base, unsigned int len)
 {
 	memset(fifo, 0x00, sizeof(struct e1_fifo));
 	fifo->base = base;
 	fifo->mask = len - 1;
+}
+
+static void
+e1f_reset(struct e1_fifo *fifo)
+{
+	fifo->wptr[0] = fifo->wptr[1] = 0;
+	fifo->rptr[0] = fifo->rptr[1] = 0;
 }
 
 static unsigned int
@@ -282,9 +289,9 @@ e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 	/* Global state init */
 	memset(e1, 0x00, sizeof(struct e1_state));
 
-	/* Reset FIFOs */
-	e1f_reset(&e1->rx.fifo, (512 * port) +   0, 256);
-	e1f_reset(&e1->tx.fifo, (512 * port) + 256, 256);
+	/* Initialize FIFOs */
+	e1f_init(&e1->rx.fifo, (512 * port) +   0, 256);
+	e1f_init(&e1->tx.fifo, (512 * port) + 256, 256);
 
 	/* Enable Rx */
 	e1->rx.cr = E1_RX_CR_ENABLE | (rx_cr & RXCR_PERMITTED);
