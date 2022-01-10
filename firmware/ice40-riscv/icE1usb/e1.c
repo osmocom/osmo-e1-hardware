@@ -234,14 +234,20 @@ enum e1_pipe_state {
 
 struct e1_state {
 	struct {
-		uint32_t cr;
+		struct {
+			uint32_t cfg;
+			uint32_t val;
+		} cr;
 		struct e1_fifo fifo;
 		int in_flight;
 		enum e1_pipe_state state;
 	} rx;
 
 	struct {
-		uint32_t cr;
+		struct {
+			uint32_t cfg;
+			uint32_t val;
+		} cr;
 		struct e1_fifo fifo;
 		int in_flight;
 		enum e1_pipe_state state;
@@ -280,6 +286,30 @@ _get_state(int port)
 		E1_TX_CR_LOOPBACK |		\
 		E1_TX_CR_LOOPBACK_CROSS )
 
+static void
+_e1_update_cr_val(int port)
+{
+	struct e1_state *e1 = _get_state(port);
+
+	/* RX */
+	if (e1->rx.state == IDLE) {
+		/* "Off" state: Force MFA mode to detect remote side */
+		e1->rx.cr.val = (e1->rx.cr.cfg & ~E1_RX_CR_MODE_MASK) | E1_RX_CR_ENABLE | E1_RX_CR_MODE_MFA;
+	} else {
+		/* "On state: Enabled + User config */
+		e1->rx.cr.val = e1->rx.cr.cfg | E1_RX_CR_ENABLE;
+	}
+
+	/* TX */
+	if (e1->tx.state == IDLE) {
+		/* "Off" state: We TX only OIS */
+		e1->tx.cr.val = (e1->tx.cr.cfg & ~(E1_TX_CR_MODE_MASK | E1_TX_CR_ALARM)) | E1_TX_CR_ENABLE | E1_TX_CR_MODE_TRSP;
+	} else {
+		/* "On state: Enabled + User config */
+		e1->tx.cr.val = e1->tx.cr.cfg | E1_TX_CR_ENABLE;
+	}
+}
+
 void
 e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 {
@@ -293,17 +323,18 @@ e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 	e1f_init(&e1->rx.fifo, (512 * port) +   0, 256);
 	e1f_init(&e1->tx.fifo, (512 * port) + 256, 256);
 
-	/* Enable Rx */
-	e1->rx.cr = E1_RX_CR_ENABLE | (rx_cr & RXCR_PERMITTED);
-	e1_regs->rx.csr = E1_RX_CR_OVFL_CLR | e1->rx.cr;
-
-	/* Enable Tx */
-	e1->tx.cr = E1_TX_CR_ENABLE | (tx_cr & TXCR_PERMITTED);
-	e1_regs->tx.csr = E1_TX_CR_UNFL_CLR | e1->tx.cr;
-
-	/* State */
+	/* Flow state */
 	e1->rx.state = BOOT;
 	e1->tx.state = BOOT;
+
+	/* Set config registers */
+	e1->rx.cr.cfg = rx_cr & RXCR_PERMITTED;
+	e1->tx.cr.cfg = tx_cr & TXCR_PERMITTED;
+
+	_e1_update_cr_val(port);
+
+	e1_regs->rx.csr = e1->rx.cr.val;
+	e1_regs->tx.csr = e1->tx.cr.val;
 }
 
 void
@@ -311,8 +342,9 @@ e1_rx_config(int port, uint16_t cr)
 {
 	volatile struct e1_core *e1_regs = _get_regs(port);
 	struct e1_state *e1 = _get_state(port);
-	e1->rx.cr = (e1->rx.cr & ~RXCR_PERMITTED) | (cr & RXCR_PERMITTED);
-	e1_regs->rx.csr = e1->rx.cr;
+	e1->rx.cr.cfg = cr & RXCR_PERMITTED;
+	_e1_update_cr_val(port);
+	e1_regs->rx.csr = e1->rx.cr.val;
 }
 
 void
@@ -320,8 +352,9 @@ e1_tx_config(int port, uint16_t cr)
 {
 	volatile struct e1_core *e1_regs = _get_regs(port);
 	struct e1_state *e1 = _get_state(port);
-	e1->tx.cr = (e1->tx.cr & ~TXCR_PERMITTED) | (cr & TXCR_PERMITTED);
-	e1_regs->tx.csr = e1->tx.cr;
+	e1->tx.cr.cfg = cr & TXCR_PERMITTED;
+	_e1_update_cr_val(port);
+	e1_regs->tx.csr = e1->tx.cr.val;
 }
 
 unsigned int
@@ -523,7 +556,7 @@ e1_poll(int port)
 
 		/* Clear overflow if needed */
 	if (e1->rx.state != RUN) {
-		e1_regs->rx.csr = e1->rx.cr | E1_RX_CR_OVFL_CLR;
+		e1_regs->rx.csr = e1->rx.cr.val | E1_RX_CR_OVFL_CLR;
 		e1->rx.state = RUN;
 	}
 done_rx:
@@ -554,7 +587,7 @@ done_rx:
 
 		/* Clear underflow if needed */
 	if (e1->tx.state != RUN) {
-		e1_regs->tx.csr = e1->tx.cr | E1_TX_CR_UNFL_CLR;
+		e1_regs->tx.csr = e1->tx.cr.val | E1_TX_CR_UNFL_CLR;
 		e1->tx.state = RUN;
 	}
 }
