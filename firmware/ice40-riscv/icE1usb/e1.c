@@ -444,10 +444,6 @@ e1_poll(int port)
 	uint32_t bd;
 	unsigned int ofs;
 
-	/* Active ? */
-	if ((e1->rx.state == IDLE) && (e1->tx.state == IDLE))
-		return;
-
 	/* HACK: LED link status */
 	if (e1_regs->rx.csr & E1_RX_SR_ALIGNED) {
 		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_ON);
@@ -460,6 +456,10 @@ e1_poll(int port)
 		e1->errors.flags |= E1_ERR_F_ALIGN_ERR;
 		/* TODO: completely off if rx tick counter not incrementing */
 	}
+
+	/* Active ? */
+	if ((e1->rx.state == IDLE) && (e1->tx.state == IDLE))
+		return;
 
 	/* Recover any done TX BD */
 	while ( (bd = e1_regs->tx.bd) & E1_BD_VALID ) {
