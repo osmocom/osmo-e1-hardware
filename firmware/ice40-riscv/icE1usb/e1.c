@@ -263,6 +263,16 @@ _get_state(int port)
 }
 
 
+#define RXCR_PERMITTED (			\
+		E1_RX_CR_MODE_MASK )
+
+#define TXCR_PERMITTED (			\
+		E1_TX_CR_MODE_MASK |		\
+		E1_TX_CR_TICK_MASK |		\
+		E1_TX_CR_ALARM |		\
+		E1_TX_CR_LOOPBACK |		\
+		E1_TX_CR_LOOPBACK_CROSS )
+
 void
 e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 {
@@ -277,24 +287,17 @@ e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 	e1f_reset(&e1->tx.fifo, (512 * port) + 256, 256);
 
 	/* Enable Rx */
-	e1->rx.cr = E1_RX_CR_ENABLE | rx_cr;
+	e1->rx.cr = E1_RX_CR_ENABLE | (rx_cr & RXCR_PERMITTED);
 	e1_regs->rx.csr = E1_RX_CR_OVFL_CLR | e1->rx.cr;
 
 	/* Enable Tx */
-	e1->tx.cr = E1_TX_CR_ENABLE | tx_cr;
+	e1->tx.cr = E1_TX_CR_ENABLE | (tx_cr & TXCR_PERMITTED);
 	e1_regs->tx.csr = E1_TX_CR_UNFL_CLR | e1->tx.cr;
 
 	/* State */
 	e1->rx.state = BOOT;
 	e1->tx.state = BOOT;
 }
-
-#define TXCR_PERMITTED (			\
-		E1_TX_CR_MODE_MASK |		\
-		E1_TX_CR_TICK_MASK |		\
-		E1_TX_CR_ALARM |		\
-		E1_TX_CR_LOOPBACK |		\
-		E1_TX_CR_LOOPBACK_CROSS )
 
 void
 e1_tx_config(int port, uint16_t cr)
@@ -304,9 +307,6 @@ e1_tx_config(int port, uint16_t cr)
 	e1->tx.cr = (e1->tx.cr & ~TXCR_PERMITTED) | (cr & TXCR_PERMITTED);
 	e1_regs->tx.csr = e1->tx.cr;
 }
-
-#define RXCR_PERMITTED (			\
-		E1_RX_CR_MODE_MASK )
 
 void
 e1_rx_config(int port, uint16_t cr)
