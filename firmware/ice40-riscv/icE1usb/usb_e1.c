@@ -236,25 +236,19 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	return USB_FND_SUCCESS;
 }
 
-static void _perform_tx_config(int port)
+static uint32_t
+_tx_config_reg(const struct ice1usb_tx_config *cfg)
 {
-	struct usb_e1_state *usb_e1 = _get_state(port);
-	const struct ice1usb_tx_config *cfg = &usb_e1->tx_cfg;
-	e1_tx_config(port,
-		((cfg->mode & 3) << 1) |
+	return	((cfg->mode & 3) << 1) |
 		((cfg->timing & 1) << 3) |
 		((cfg->alarm & 1) << 4) |
-		((cfg->ext_loopback & 3) << 5)
-	);
+		((cfg->ext_loopback & 3) << 5);
 }
 
-static void _perform_rx_config(int port)
+static uint32_t
+_rx_config_reg(const struct ice1usb_rx_config *cfg)
 {
-	struct usb_e1_state *usb_e1 = _get_state(port);
-	const struct ice1usb_rx_config *cfg = &usb_e1->rx_cfg;
-	e1_rx_config(port,
-		(cfg->mode << 1)
-	);
+	return	(cfg->mode << 1);
 }
 
 static enum usb_fnd_resp
@@ -300,9 +294,10 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 
 	case true:
 		/* Reset and Re-Enable E1 */
-		e1_init(port, 0, 0);
-		_perform_rx_config(port);
-		_perform_tx_config(port);
+		e1_init(port,
+			_rx_config_reg(&rx_cfg_default),
+			_tx_config_reg(&tx_cfg_default)
+		);
 
 		/* Reset BDI */
 		usb_e1->in_bdi = 0;
@@ -352,7 +347,7 @@ _set_tx_mode_done(struct usb_xfer *xfer)
 	printf("set_tx_mode[%d] %02x%02x%02x%02x\r\n", port,
 		xfer->data[0], xfer->data[1], xfer->data[2], xfer->data[3]);
 	usb_e1->tx_cfg = *cfg;
-	_perform_tx_config(port);
+	e1_tx_config(port, _tx_config_reg(cfg));
 	return true;
 }
 
@@ -365,7 +360,7 @@ _set_rx_mode_done(struct usb_xfer *xfer)
 	struct usb_e1_state *usb_e1 = _get_state(port);
 	printf("set_rx_mode[%d] %02x\r\n", port, xfer->data[0]);
 	usb_e1->rx_cfg = *cfg;
-	_perform_rx_config(port);
+	e1_rx_config(port, _rx_config_reg(cfg));
 	return true;
 }
 
