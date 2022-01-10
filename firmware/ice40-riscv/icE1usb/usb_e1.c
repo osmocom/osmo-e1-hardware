@@ -289,15 +289,12 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 	switch (usb_e1->running) {
 	case false:
 		/* Disable E1 rx/tx */
-		e1_init(port, 0, 0);
+		e1_stop(port);
 		break;
 
 	case true:
 		/* Reset and Re-Enable E1 */
-		e1_init(port,
-			_rx_config_reg(&rx_cfg_default),
-			_tx_config_reg(&tx_cfg_default)
-		);
+		e1_start(port);
 
 		/* Reset BDI */
 		usb_e1->in_bdi = 0;
@@ -464,11 +461,15 @@ static struct usb_fn_drv _e1_drv = {
 void
 usb_e1_init(void)
 {
+	uint32_t rx_cr = _rx_config_reg(&rx_cfg_default);
+	uint32_t tx_cr = _tx_config_reg(&tx_cfg_default);
+
 	for (int i=0; i<2; i++) {
 		struct usb_e1_state *usb_e1 = _get_state(i);
 		memset(usb_e1, 0x00, sizeof(struct usb_e1_state));
 		usb_e1->tx_cfg = tx_cfg_default;
 		usb_e1->rx_cfg = rx_cfg_default;
+		e1_init(i, rx_cr, tx_cr);
 	}
 
 	usb_register_function_driver(&_e1_drv);

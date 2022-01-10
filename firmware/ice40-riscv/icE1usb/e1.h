@@ -11,6 +11,9 @@
 /* control */
 
 void e1_init(int port, uint16_t rx_cr, uint16_t tx_cr);
+void e1_start(int port);
+void e1_stop(int port);
+
 void e1_poll(int port);
 void e1_debug_print(int port, bool data);
 

@@ -101,8 +101,6 @@ void main()
 	usb_e1_init();
 
 	/* Start */
-	e1_init(0, 0, 0);
-	e1_init(1, 0, 0);
 	led_state(true);
 	usb_connect();
 

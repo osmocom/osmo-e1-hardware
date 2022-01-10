@@ -226,10 +226,11 @@ e1f_multiframe_empty(struct e1_fifo *fifo)
 // ----------
 
 enum e1_pipe_state {
-	IDLE	= 0,	/* not yet initialized */
-	BOOT	= 1,	/* after e1_init(), regiters are programmed */
-	RUN	= 2,	/* normal operation */
-	RECOVER	= 3,	/* after underflow, overflow or alignment  error */
+	IDLE	 = 0,	/* not running */
+	STARTING = 1,	/* after e1_start(), waiting for priming */
+	RUN	 = 2,	/* normal operation */
+	RECOVER	 = 3,	/* after underflow, overflow or alignment  error */
+	SHUTDOWN = 4,	/* after e1_stop(), waiting for shutdown */
 };
 
 struct e1_state {
@@ -324,8 +325,8 @@ e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 	e1f_init(&e1->tx.fifo, (512 * port) + 256, 256);
 
 	/* Flow state */
-	e1->rx.state = BOOT;
-	e1->tx.state = BOOT;
+	e1->rx.state = IDLE;
+	e1->tx.state = IDLE;
 
 	/* Set config registers */
 	e1->rx.cr.cfg = rx_cr & RXCR_PERMITTED;
@@ -355,6 +356,48 @@ e1_tx_config(int port, uint16_t cr)
 	e1->tx.cr.cfg = cr & TXCR_PERMITTED;
 	_e1_update_cr_val(port);
 	e1_regs->tx.csr = e1->tx.cr.val;
+}
+
+void
+e1_start(int port)
+{
+	volatile struct e1_core *e1_regs = _get_regs(port);
+	struct e1_state *e1 = _get_state(port);
+
+	/* Checks */
+	while ((e1->rx.state == SHUTDOWN) || (e1->tx.state == SHUTDOWN))
+		e1_poll(port);
+
+	if ((e1->rx.state != IDLE) || (e1->tx.state != IDLE))
+		panic("Invalid E1 hardware state (port=%d, rxs=%d, txs=%d)",
+			port, e1->rx.state, e1->tx.state);
+
+	/* Clear FIFOs */
+	e1f_reset(&e1->rx.fifo);
+	e1f_reset(&e1->tx.fifo);
+
+	/* Flow state */
+	e1->rx.state = STARTING;
+	e1->tx.state = STARTING;
+
+	/* Update CRs */
+	_e1_update_cr_val(port);
+
+	e1_regs->rx.csr = e1->rx.cr.val | E1_RX_CR_OVFL_CLR;
+	e1_regs->tx.csr = e1->tx.cr.val | E1_TX_CR_UNFL_CLR;
+}
+
+void
+e1_stop(int port)
+{
+	struct e1_state *e1 = _get_state(port);
+
+	/* Flow state */
+	e1->rx.state = SHUTDOWN;
+	e1->tx.state = SHUTDOWN;
+
+	/* Nothing else to do, e1_poll will stop submitting data and
+	 * transition to IDLE when everything in-flight is done */
 }
 
 unsigned int
@@ -512,7 +555,7 @@ e1_poll(int port)
 	}
 
 	/* Boot procedure */
-	if (e1->tx.state == BOOT) {
+	if (e1->tx.state == STARTING) {
 		if (e1f_unseen_frames(&e1->tx.fifo) < (16 * 5))
 			return;
 		/* HACK: LED flow status */
@@ -521,6 +564,20 @@ e1_poll(int port)
 	}
 
 	/* Handle RX */
+		/* Bypass if OFF */
+	if (e1->rx.state == IDLE)
+		goto done_rx;
+
+		/* Shutdown */
+	if (e1->rx.state == SHUTDOWN) {
+		if (e1->rx.in_flight == 0) {
+			e1->rx.state = IDLE;
+			_e1_update_cr_val(port);
+			e1_regs->rx.csr = e1->rx.cr.val;
+		}
+		goto done_rx;
+	}
+
 		/* Misalign ? */
 	if (e1->rx.state == RUN) {
 		if (!(e1_regs->rx.csr & E1_RX_SR_ALIGNED)) {
@@ -562,6 +619,20 @@ e1_poll(int port)
 done_rx:
 
 	/* Handle TX */
+		/* Bypass if OFF */
+	if (e1->tx.state == IDLE)
+		return;
+
+		/* Shutdown */
+	if (e1->tx.state == SHUTDOWN) {
+		if (e1->tx.in_flight == 0) {
+			e1->tx.state = IDLE;
+			_e1_update_cr_val(port);
+			e1_regs->tx.csr = e1->tx.cr.val;
+		}
+		return;
+	}
+
 		/* Underflow ? */
 	if (e1->tx.state == RUN) {
 		if (e1_regs->tx.csr & E1_TX_SR_UNFL) {
