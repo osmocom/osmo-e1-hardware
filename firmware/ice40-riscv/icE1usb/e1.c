@@ -290,11 +290,11 @@ e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 }
 
 #define TXCR_PERMITTED (			\
-		E1_TX_CR_MODE_TS0_CRC_E	|	\
-		E1_TX_CR_TICK_REMOTE |		\
-		E1_TX_CR_ALARM	|		\
+		E1_TX_CR_MODE_MASK |		\
+		E1_TX_CR_TICK_MASK |		\
+		E1_TX_CR_ALARM |		\
 		E1_TX_CR_LOOPBACK |		\
-		E1_TX_CR_LOOPBACK_CROSS	)
+		E1_TX_CR_LOOPBACK_CROSS )
 
 void
 e1_tx_config(int port, uint16_t cr)
@@ -306,7 +306,7 @@ e1_tx_config(int port, uint16_t cr)
 }
 
 #define RXCR_PERMITTED (			\
-		E1_RX_CR_MODE_MFA )
+		E1_RX_CR_MODE_MASK )
 
 void
 e1_rx_config(int port, uint16_t cr)

@@ -27,6 +27,7 @@ struct e1_core {
 #define E1_RX_CR_MODE_BYTE	(1 <<  1)	/* Request byte-level alignment */
 #define E1_RX_CR_MODE_BFA	(2 <<  1)	/* Request Basic Frame Alignment */
 #define E1_RX_CR_MODE_MFA	(3 <<  1)	/* Request Multi-Frame Alignment */
+#define E1_RX_CR_MODE_MASK	(3 <<  1)
 #define E1_RX_CR_OVFL_CLR	(1 << 12)	/* Clear Rx overflow condition */
 
 /* E1 receiver status register */
@@ -44,8 +45,10 @@ struct e1_core {
 #define E1_TX_CR_MODE_TS0	(1 <<  1)	/* Generate TS0 in framer */
 #define E1_TX_CR_MODE_TS0_CRC	(2 <<  1)	/* Generate TS0 + CRC4 in framer */
 #define E1_TX_CR_MODE_TS0_CRC_E	(3 <<  1)	/* Generate TS0 + CRC4 + E-bits (based on Rx) in framer */
+#define E1_TX_CR_MODE_MASK	(3 <<  1)
 #define E1_TX_CR_TICK_LOCAL	(0 <<  3)	/* use local clock for Tx */
 #define E1_TX_CR_TICK_REMOTE	(1 <<  3)	/* use recovered remote clock for Tx */
+#define E1_TX_CR_TICK_MASK	(1 <<  3)
 #define E1_TX_CR_ALARM		(1 <<  4)	/* indicate ALARM to remote */
 #define E1_TX_CR_LOOPBACK	(1 <<  5)	/* external loopback enable/diasble */
 #define E1_TX_CR_LOOPBACK_CROSS	(1 <<  6)	/* source of loopback: local (0) or other (1) port */
