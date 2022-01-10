@@ -14,16 +14,16 @@ void e1_init(int port, uint16_t rx_cr, uint16_t tx_cr);
 void e1_poll(int port);
 void e1_debug_print(int port, bool data);
 
-void e1_tx_config(int port, uint16_t cr);
 void e1_rx_config(int port, uint16_t cr);
+void e1_tx_config(int port, uint16_t cr);
 
 
 /* data flow */
 
 unsigned int e1_rx_need_data(int port, unsigned int usb_addr, unsigned int max_len, unsigned int *pos);
 unsigned int e1_tx_feed_data(int port, unsigned int usb_addr, unsigned int len);
-unsigned int e1_tx_level(int port);
 unsigned int e1_rx_level(int port);
+unsigned int e1_tx_level(int port);
 
 
 /* error reporting */

@@ -300,21 +300,21 @@ e1_init(int port, uint16_t rx_cr, uint16_t tx_cr)
 }
 
 void
-e1_tx_config(int port, uint16_t cr)
-{
-	volatile struct e1_core *e1_regs = _get_regs(port);
-	struct e1_state *e1 = _get_state(port);
-	e1->tx.cr = (e1->tx.cr & ~TXCR_PERMITTED) | (cr & TXCR_PERMITTED);
-	e1_regs->tx.csr = e1->tx.cr;
-}
-
-void
 e1_rx_config(int port, uint16_t cr)
 {
 	volatile struct e1_core *e1_regs = _get_regs(port);
 	struct e1_state *e1 = _get_state(port);
 	e1->rx.cr = (e1->rx.cr & ~RXCR_PERMITTED) | (cr & RXCR_PERMITTED);
 	e1_regs->rx.csr = e1->rx.cr;
+}
+
+void
+e1_tx_config(int port, uint16_t cr)
+{
+	volatile struct e1_core *e1_regs = _get_regs(port);
+	struct e1_state *e1 = _get_state(port);
+	e1->tx.cr = (e1->tx.cr & ~TXCR_PERMITTED) | (cr & TXCR_PERMITTED);
+	e1_regs->tx.csr = e1->tx.cr;
 }
 
 unsigned int
@@ -409,17 +409,17 @@ e1_tx_feed_data(int port, unsigned int usb_addr, unsigned int frames)
 }
 
 unsigned int
-e1_tx_level(int port)
-{
-	struct e1_state *e1 = _get_state(port);
-	return e1f_valid_frames(&e1->tx.fifo);
-}
-
-unsigned int
 e1_rx_level(int port)
 {
 	struct e1_state *e1 = _get_state(port);
 	return e1f_valid_frames(&e1->rx.fifo);
+}
+
+unsigned int
+e1_tx_level(int port)
+{
+	struct e1_state *e1 = _get_state(port);
+	return e1f_valid_frames(&e1->tx.fifo);
 }
 
 const struct e1_error_count *
