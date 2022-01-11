@@ -122,6 +122,34 @@ e1_tick_read(int port)
 	return misc_regs->e1_tick[port].tx;
 }
 
+
+bool
+time_elapsed(uint32_t ref, unsigned int tick)
+{
+	return ((misc_regs->time.now - ref) & 0x7fffffff) >= tick;
+}
+
+void
+delay(unsigned int ms)
+{
+	uint32_t ref = misc_regs->time.now;
+	ms *= SYS_CLK_FREQ / 1000;
+	while (!time_elapsed(ref, ms));
+}
+
+uint32_t
+time_pps_read(void)
+{
+	return misc_regs->time.pps;
+}
+
+uint32_t
+time_now_read(void)
+{
+	return misc_regs->time.now;
+}
+
+
 void
 reboot(int fw)
 {
