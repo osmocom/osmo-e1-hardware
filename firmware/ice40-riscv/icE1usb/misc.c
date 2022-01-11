@@ -47,6 +47,18 @@ pdm_set(int chan, bool enable, unsigned value, bool normalize)
 
 
 void
+e1_led_run(void)
+{
+	misc_regs->e1_led |= 0x100;
+}
+
+void
+e1_led_pause(void)
+{
+	misc_regs->e1_led &= 0xff;
+}
+
+void
 e1_led_set(bool enable, uint8_t cfg)
 {
 	misc_regs->e1_led = (enable ? 0x100 : 0x000) | cfg;
@@ -66,9 +78,10 @@ e1_platform_led_set(int port, enum e1_platform_led led,
 
 	tmp = misc_regs->e1_led;
 	tmp &= ~(3 << shift);
-	tmp |= 0x100 | ((state & 3) << shift);
+	tmp |= ((state & 3) << shift);
 	misc_regs->e1_led = tmp;
 }
+
 
 uint16_t
 e1_tick_read(int port)
