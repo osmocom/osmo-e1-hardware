@@ -15,7 +15,11 @@
 
 struct misc {
 	uint32_t warmboot;
-	uint32_t gpio;
+	struct {
+		uint16_t oe_out;
+		uint8_t  in;
+		uint8_t  _rsvd;
+	} gpio;
 	uint32_t e1_led;
 	uint32_t _rsvd;
 	struct {
@@ -43,6 +47,35 @@ pdm_set(int chan, bool enable, unsigned value, bool normalize)
 	if (enable)
 		value |= 0x80000000;
 	misc_regs->pdm[chan] = value;
+}
+
+
+void
+gpio_dir(int n, bool output)
+{
+	uint16_t mask = 256 << n;
+
+	if (output)
+		misc_regs->gpio.oe_out |=  mask;
+	else
+		misc_regs->gpio.oe_out &= ~mask;
+}
+
+void
+gpio_out(int n, bool val)
+{
+	uint16_t mask = 1 << n;
+
+	if (val)
+		misc_regs->gpio.oe_out |=  mask;
+	else
+		misc_regs->gpio.oe_out &= ~mask;
+}
+
+bool
+gpio_in(int n)
+{
+	return (misc_regs->gpio.in & (1 << n)) != 0;
 }
 
 
