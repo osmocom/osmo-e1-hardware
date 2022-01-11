@@ -36,4 +36,9 @@ void e1_led_set(bool enable, uint8_t cfg);
 
 uint16_t e1_tick_read(int port);
 
+bool time_elapsed(uint32_t ref, unsigned int tick);
+void delay(unsigned int ms);
+uint32_t time_pps_read(void);
+uint32_t time_now_read(void);
+
 void reboot(int fw);
