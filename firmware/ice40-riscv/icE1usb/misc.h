@@ -26,6 +26,10 @@ enum pdm_chan {
 
 void pdm_set(int chan, bool enable, unsigned value, bool normalize);
 
+void gpio_dir(int n, bool output);
+void gpio_out(int n, bool val);
+bool gpio_in(int n);
+
 void e1_led_run(void);
 void e1_led_pause(void);
 void e1_led_set(bool enable, uint8_t cfg);
