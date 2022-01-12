@@ -18,6 +18,7 @@
 #include "misc.h"
 #include "mini-printf.h"
 #include "spi.h"
+#include "usb_dev.h"
 #include "usb_e1.h"
 #include "utils.h"
 
@@ -97,6 +98,7 @@ void main()
 
 	/* Enable USB directly */
 	usb_init(&app_stack_desc);
+	usb_dev_init();
 	usb_dfu_rt_init();
 	usb_e1_init();
 

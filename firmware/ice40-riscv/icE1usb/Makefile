@@ -49,6 +49,7 @@ HEADERS_app=\
 	e1.h \
 	misc.h \
 	usb_desc_ids.h \
+	usb_dev.h \
 	usb_e1.h \
 	usb_str_app.gen.h \
 	$(NULL)
@@ -58,6 +59,7 @@ SOURCES_app=\
 	fw_app.c \
 	misc.c \
 	usb_desc_app.c \
+	usb_dev.c \
 	usb_e1.c \
 	$(NULL)
 
