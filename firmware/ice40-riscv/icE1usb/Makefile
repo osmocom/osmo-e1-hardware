@@ -49,6 +49,7 @@ HEADERS_app=\
 	config.h \
 	e1.h \
 	gps.h \
+	gpsdo.h \
 	ice1usb_proto.h \
 	misc.h \
 	usb_desc_ids.h \
@@ -62,6 +63,7 @@ SOURCES_app=\
 	e1.c \
 	fw_app.c \
 	gps.c \
+	gpsdo.c \
 	misc.c \
 	usb_desc_app.c \
 	usb_dev.c \

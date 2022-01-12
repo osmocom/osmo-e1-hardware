@@ -15,6 +15,7 @@
 #include "console.h"
 #include "e1.h"
 #include "gps.h"
+#include "gpsdo.h"
 #include "led.h"
 #include "misc.h"
 #include "mini-printf.h"
@@ -94,12 +95,13 @@ void main()
 	pdm_set(PDM_E1_RX1,  true, 128 + d, false);
 #endif
 
-	/* Setup clock tuning */
-	pdm_set(PDM_CLK_HI, true, 2048, false);
-	pdm_set(PDM_CLK_LO, false,   0, false);
-
 	/* GPS init */
 	gps_init();
+#if defined(BOARD_ICE1USB_PROTO_ICEBREAKER) || defined(BOARD_ICE1USB_PROTO_BITSY)
+	gpsdo_init(VCTXO_TAITIEN_VT40);
+#else
+	gpsdo_init(VCTXO_SITIME_SIT3808_E);
+#endif
 
 	/* Enable USB directly */
 	usb_init(&app_stack_desc);
@@ -170,6 +172,7 @@ void main()
 
 		/* GPS poll */
 		gps_poll();
+		gpsdo_poll();
 		usb_gps_poll();
 	}
 }
