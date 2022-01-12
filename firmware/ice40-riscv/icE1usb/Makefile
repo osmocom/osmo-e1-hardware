@@ -50,6 +50,7 @@ HEADERS_app=\
 	e1.h \
 	gps.h \
 	gpsdo.h \
+	ice1usb_proto.h \
 	misc.h \
 	usb_desc_ids.h \
 	usb_dev.h \
