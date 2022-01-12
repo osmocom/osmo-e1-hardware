@@ -14,6 +14,7 @@
 
 #include "console.h"
 #include "e1.h"
+#include "gps.h"
 #include "led.h"
 #include "misc.h"
 #include "mini-printf.h"
@@ -96,6 +97,9 @@ void main()
 	pdm_set(PDM_CLK_HI, true, 2048, false);
 	pdm_set(PDM_CLK_LO, false,   0, false);
 
+	/* GPS init */
+	gps_init();
+
 	/* Enable USB directly */
 	usb_init(&app_stack_desc);
 	usb_dev_init();
@@ -161,5 +165,8 @@ void main()
 
 		/* E1 poll */
 		usb_e1_poll();
+
+		/* GPS poll */
+		gps_poll();
 	}
 }
