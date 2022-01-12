@@ -13,6 +13,8 @@
 #include "gpsdo.h"
 #include "misc.h"
 
+#include "ice1usb_proto.h"
+
 
 struct {
 	/* Current tuning */
@@ -72,6 +74,72 @@ vctxo_sensitivity[] = {
 #define MAX_DEV_VALID	1000
 #define MAX_DEV_FINE	3
 #define MAX_INVALID	5
+
+
+static void _gpsdo_coarse_start(void);
+
+
+void
+gpsdo_get_status(struct e1usb_gpsdo_status *status)
+{
+	const uint8_t state_map[] = {
+		[STATE_DISABLED]    = ICE1USB_GPSDO_STATE_DISABLED,
+		[STATE_HOLD_OVER]   = ICE1USB_GPSDO_STATE_HOLD_OVER,
+		[STATE_TUNE_COARSE] = ICE1USB_GPSDO_STATE_TUNE_COARSE,
+		[STATE_TUNE_FINE]   = ICE1USB_GPSDO_STATE_TUNE_FINE,
+	};
+	const uint8_t ant_map[] = {
+		[ANT_UNKNOWN] = ICE1USB_GPSDO_ANT_UNKNOWN,
+		[ANT_OK]      = ICE1USB_GPSDO_ANT_OK,
+		[ANT_OPEN]    = ICE1USB_GPSDO_ANT_OPEN,
+		[ANT_SHORT]   = ICE1USB_GPSDO_ANT_SHORT,
+	};
+
+	status->state          = state_map[g_gpsdo.state];
+	status->antenna_status = ant_map[gps_antenna_status()];
+	status->valid_fix      = gps_has_valid_fix();
+	status->mode           = (g_gpsdo.state == STATE_DISABLED) ? ICE1USB_GPSDO_MODE_DISABLED : ICE1USB_GPSDO_MODE_AUTO;
+	status->tune.coarse    = g_gpsdo.tune.coarse;
+	status->tune.fine      = g_gpsdo.tune.fine;
+	status->freq_est       = g_gpsdo.meas.last;
+}
+
+void
+gpsdo_enable(bool enable)
+{
+	if (!enable)
+		g_gpsdo.state = STATE_DISABLED;
+	else if (g_gpsdo.state == STATE_DISABLED)
+		g_gpsdo.state = STATE_HOLD_OVER;
+}
+
+bool
+gpsdo_enabled(void)
+{
+	return g_gpsdo.state != STATE_DISABLED;
+}
+
+void
+gpsdo_set_tune(uint16_t  coarse, uint16_t  fine)
+{
+	/* Set value */
+	g_gpsdo.tune.coarse = coarse;
+	g_gpsdo.tune.fine   = fine;
+
+	pdm_set(PDM_CLK_HI, true, g_gpsdo.tune.coarse, false);
+	pdm_set(PDM_CLK_LO, true, g_gpsdo.tune.fine,   false);
+
+	/* If we were in 'fine' mode, reset to coarse */
+	if (g_gpsdo.state == STATE_TUNE_FINE)
+		_gpsdo_coarse_start();
+}
+
+void
+gpsdo_get_tune(uint16_t *coarse, uint16_t *fine)
+{
+	*coarse = g_gpsdo.tune.coarse;
+	*fine   = g_gpsdo.tune.fine;
+}
 
 
 static void
