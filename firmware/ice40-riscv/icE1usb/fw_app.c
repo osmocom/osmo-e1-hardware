@@ -158,9 +158,6 @@ void main()
 		usb_poll();
 
 		/* E1 poll */
-		for (int port=0; port<2; port++) {
-			e1_poll(port);
-			usb_e1_run(port);
-		}
+		usb_e1_poll();
 	}
 }
