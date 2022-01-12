@@ -96,8 +96,8 @@ _usb_fill_feedback_ep(int port)
 }
 
 
-void
-usb_e1_run(int port)
+static void
+_usb_e1_run(int port)
 {
 	struct usb_e1_state *usb_e1 = _get_state(port);
 	volatile struct usb_ep *ep_regs;
@@ -209,6 +209,16 @@ refill:
 	/* Feedback endpoint */
 	_usb_fill_feedback_ep(port);
 }
+
+void
+usb_e1_poll(void)
+{
+	for (int i=0; i<2; i++) {
+		e1_poll(i);
+		_usb_e1_run(i);
+	}
+}
+
 
 static enum usb_fnd_resp
 _e1_set_conf(const struct usb_conf_desc *conf)

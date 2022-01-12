@@ -7,5 +7,5 @@
 
 #pragma once
 
-void usb_e1_run(int port);
+void usb_e1_poll(void);
 void usb_e1_init(void);
