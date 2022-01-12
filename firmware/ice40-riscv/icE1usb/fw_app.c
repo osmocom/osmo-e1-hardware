@@ -21,6 +21,7 @@
 #include "spi.h"
 #include "usb_dev.h"
 #include "usb_e1.h"
+#include "usb_gps.h"
 #include "utils.h"
 
 
@@ -105,6 +106,7 @@ void main()
 	usb_dev_init();
 	usb_dfu_rt_init();
 	usb_e1_init();
+	usb_gps_init();
 
 	/* Start */
 	led_state(true);
@@ -168,5 +170,6 @@ void main()
 
 		/* GPS poll */
 		gps_poll();
+		usb_gps_poll();
 	}
 }

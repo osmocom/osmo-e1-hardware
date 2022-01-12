@@ -13,6 +13,7 @@
 #include "console.h"
 #include "gps.h"
 #include "misc.h"
+#include "usb_gps.h"
 #include "utils.h"
 
 #include "config.h"
@@ -217,6 +218,9 @@ gps_poll(void)
 
 	/* If we do, process it locally to update our state */
 	_gps_parse_nmea(nmea);
+
+	/* And queue it for USB */
+	usb_gps_puts(nmea);
 }
 
 void
