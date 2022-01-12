@@ -42,7 +42,6 @@ static const struct {
 	} __attribute__ ((packed)) e1[2];
 
 	/* CDC */
-#if 0
 	struct {
 		struct usb_intf_desc intf_ctl;
 		struct usb_cdc_hdr_desc cdc_hdr;
@@ -53,7 +52,6 @@ static const struct {
 		struct usb_ep_desc ep_data_out;
 		struct usb_ep_desc ep_data_in;
 	} __attribute__ ((packed)) cdc;
-#endif
 
 	/* DFU Runtime */
 	struct {
@@ -207,7 +205,6 @@ static const struct {
 			},
 		},
 	},
-#if 0
 	.cdc = {
 		.intf_ctl = {
 			.bLength		= sizeof(struct usb_intf_desc),
@@ -230,21 +227,24 @@ static const struct {
 			.bLength		= sizeof(struct usb_cdc_acm_desc),
 			.bDescriptorType	= USB_CS_DT_INTF,
 			.bDescriptorsubtype	= USB_CDC_DST_ACM,
+				/* Set_Line_Coding, Set_Control_Line_State, Get_Line_Coding, */
+				/* and the notification Serial_State */
 			.bmCapabilities		= 0x02,
 		},
 		.cdc_union = {
 			.bLength		= sizeof(struct usb_cdc_union_desc) + 1,
 			.bDescriptorType	= USB_CS_DT_INTF,
 			.bDescriptorsubtype	= USB_CDC_DST_UNION,
-			.bMasterInterface	= 1,
-			.bSlaveInterface	= { 2 },
+			.bMasterInterface	= USB_INTF_GPS_CDC_CTL,
+			.bSlaveInterface	= { USB_INTF_GPS_CDC_DATA },
 		},
 		.ep_ctl = {
 			.bLength		= sizeof(struct usb_ep_desc),
 			.bDescriptorType	= USB_DT_EP,
 			.bEndpointAddress	= USB_EP_GPS_CDC_CTL,
 			.bmAttributes		= 0x03,
-			.wMaxPacketSize		= 64,
+				/* Longest notif is SERIAL_STATE with 2 data bytes */
+			.wMaxPacketSize		= sizeof(struct usb_ctrl_req) + 2,
 			.bInterval		= 0x40,
 		},
 		.intf_data = {
@@ -275,7 +275,6 @@ static const struct {
 			.bInterval		= 0x00,
 		},
 	},
-#endif
 	.dfu = {
 		.intf = {
 			.bLength		= sizeof(struct usb_intf_desc),
