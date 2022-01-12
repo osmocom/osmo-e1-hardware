@@ -47,6 +47,7 @@ SOURCES_common += $(SOURCES_no2usb)
 HEADERS_app=\
 	config.h \
 	e1.h \
+	ice1usb_proto.h \
 	misc.h \
 	usb_desc_ids.h \
 	usb_e1.h \
