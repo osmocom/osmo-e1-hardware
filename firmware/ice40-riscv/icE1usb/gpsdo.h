@@ -12,5 +12,16 @@ enum gpsdo_vctxo_model {
 	VCTXO_SITIME_SIT3808_E = 1,	/* SIT3808AI-D2-33EE-30.720000T */
 };
 
+struct e1usb_gpsdo_status;
+
+
+void gpsdo_get_status(struct e1usb_gpsdo_status *status);
+
+void gpsdo_enable(bool enable);
+bool gpsdo_enabled(void);
+
+void gpsdo_set_tune(uint16_t  coarse, uint16_t  fine);
+void gpsdo_get_tune(uint16_t *coarse, uint16_t *fine);
+
 void gpsdo_poll(void);
 void gpsdo_init(enum gpsdo_vctxo_model vctxo);
