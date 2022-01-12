@@ -10,11 +10,12 @@ ICEPROG = iceprog
 DFU_UTIL = dfu-util
 
 TAG_PREFIX = icE1usb-fw
-GITVER = $(shell git describe --match '$(TAG_PREFIX)*')
+GITVER = $(shell git describe --match '$(TAG_PREFIX)*' --dirty)
 TARGET = $(GITVER)
 
 BOARD_DEFINE=BOARD_$(shell echo $(BOARD) | tr a-z\- A-Z_)
 CFLAGS=-Wall -Wextra -Wno-unused-parameter -Os -march=rv32i -mabi=ilp32 -ffreestanding -flto -nostartfiles -fomit-frame-pointer -Wl,--gc-section --specs=nano.specs -D$(BOARD_DEFINE) -I. -I../common
+CFLAGS += -DBUILD_INFO="\"$(GITVER) built $(shell date) on $(shell hostname)\""
 
 NO2USB_FW_VERSION=0
 include ../../../gateware/cores/no2usb/fw/fw.mk

@@ -7,4 +7,6 @@
 
 #pragma once
 
+extern const char *fw_build_str;
+
 void usb_dev_init(void);

@@ -69,7 +69,7 @@ void main()
 
 	/* Init console IO */
 	console_init();
-	puts("Booting App image..\n");
+	printf("\n\nBooting %s\n", fw_build_str);
 
 	/* LED */
 	led_init();
