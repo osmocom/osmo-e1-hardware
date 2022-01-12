@@ -49,6 +49,7 @@ HEADERS_app=\
 	e1.h \
 	misc.h \
 	usb_desc_ids.h \
+	usb_e1.h \
 	usb_str_app.gen.h \
 	$(NULL)
 
