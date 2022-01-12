@@ -6,6 +6,7 @@
  */
 
 #include <stdint.h>
+#include <string.h>
 
 #include <no2usb/usb.h>
 #include <no2usb/usb_proto.h>
@@ -14,6 +15,9 @@
 #include "misc.h"
 
 #include "ice1usb_proto.h"
+
+
+const char *fw_build_str = BUILD_INFO;
 
 
 static enum usb_fnd_resp
@@ -28,6 +32,10 @@ _usb_dev_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 	case ICE1USB_DEV_GET_CAPABILITIES:
 		xfer->data[0] = (1 << ICE1USB_DEV_CAP_GPSDO);
 		xfer->len = 1;
+		break;
+	case ICE1USB_DEV_GET_FW_BUILD:
+		xfer->data = (void*) fw_build_str;
+		xfer->len  = strlen(fw_build_str);
 		break;
 	default:
 		return USB_FND_ERROR;
