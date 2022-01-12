@@ -371,12 +371,15 @@ _set_rx_mode_done(struct usb_xfer *xfer)
 	return true;
 }
 
-/* per-interface requests */
 static enum usb_fnd_resp
-_e1_ctrl_req_intf(struct usb_ctrl_req *req, struct usb_xfer *xfer)
+_e1_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 {
 	struct usb_e1_state *usb_e1;
 	int port;
+
+	/* Check it's for an E1 interface */
+	if (USB_REQ_TYPE_RCPT(req) != (USB_REQ_TYPE_VENDOR | USB_REQ_RCPT_INTF))
+		return USB_FND_CONTINUE;
 
 	/* Get matching port (if any) */
 	port = _ifnum2port(req->wIndex);
@@ -422,42 +425,6 @@ _e1_ctrl_req_intf(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 	}
 
 	return USB_FND_SUCCESS;
-}
-
-/* device-global requests */
-static enum usb_fnd_resp
-_e1_ctrl_req_dev(struct usb_ctrl_req *req, struct usb_xfer *xfer)
-{
-	switch (req->bRequest) {
-	case ICE1USB_DEV_GET_CAPABILITIES:
-		xfer->data[0] = (1 << ICE1USB_DEV_CAP_GPSDO);
-		xfer->len = 1;
-		break;
-	default:
-		return USB_FND_ERROR;
-	}
-
-	return USB_FND_SUCCESS;
-}
-
-
-/* USB host issues a control request to us */
-static enum usb_fnd_resp
-_e1_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
-{
-	if (USB_REQ_TYPE(req) != USB_REQ_TYPE_VENDOR)
-		return USB_FND_CONTINUE;
-
-	switch (USB_REQ_RCPT(req)) {
-	case USB_REQ_RCPT_DEV:
-		return _e1_ctrl_req_dev(req, xfer);
-	case USB_REQ_RCPT_INTF:
-		return _e1_ctrl_req_intf(req, xfer);
-	case USB_REQ_RCPT_EP:
-	case USB_REQ_RCPT_OTHER:
-	default:
-		return USB_FND_ERROR;
-	}
 }
 
 
