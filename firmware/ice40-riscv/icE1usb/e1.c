@@ -216,9 +216,15 @@ e1f_multiframe_read_discard(struct e1_fifo *fifo)
 }
 
 static void
-e1f_multiframe_empty(struct e1_fifo *fifo)
+e1f_multiframe_empty_tail(struct e1_fifo *fifo)
 {
 	fifo->rptr[0] = fifo->rptr[1] = (fifo->wptr[0] & ~15);
+}
+
+static void
+e1f_multiframe_empty_head(struct e1_fifo *fifo)
+{
+	fifo->wptr[0] = fifo->wptr[1] = ((fifo->rptr[1] + 15) & ~15);
 }
 
 
@@ -364,21 +370,47 @@ e1_start(int port)
 	volatile struct e1_core *e1_regs = _get_regs(port);
 	struct e1_state *e1 = _get_state(port);
 
-	/* Checks */
-	while ((e1->rx.state == SHUTDOWN) || (e1->tx.state == SHUTDOWN))
-		e1_poll(port);
+	/* RX */
+	switch (e1->rx.state) {
+	case IDLE:
+		/* We're idle, clear fifo and normal start */
+		e1f_reset(&e1->rx.fifo);
+		e1->rx.state = STARTING;
+		break;
 
-	if ((e1->rx.state != IDLE) || (e1->tx.state != IDLE))
-		panic("Invalid E1 hardware state (port=%d, rxs=%d, txs=%d)",
-			port, e1->rx.state, e1->tx.state);
+	case SHUTDOWN:
+		/* Shutdown is pending, go to recover which is basically
+		 * a shutdown with auto-restart */
+		e1->rx.state = RECOVER;
+		break;
 
-	/* Clear FIFOs */
-	e1f_reset(&e1->rx.fifo);
-	e1f_reset(&e1->tx.fifo);
+	default:
+		/* Huh ... hope for the best */
+		printf("[!] E1 RX start while not stopped ...\n");
+	}
 
-	/* Flow state */
-	e1->rx.state = STARTING;
-	e1->tx.state = STARTING;
+	/* TX */
+	switch (e1->tx.state) {
+	case IDLE:
+		/* We're idle, clear fifo and normal start */
+		e1f_reset(&e1->tx.fifo);
+		e1->tx.state = STARTING;
+		break;
+
+	case SHUTDOWN:
+		/* Shutdown is pending, go to recover which is basically
+		 * a shutdown with auto-restart */
+		e1->tx.state = RECOVER;
+
+		/* We also prune any pending data in FIFO that's not
+		 * already queued to hw */
+		e1f_multiframe_empty_head(&e1->rx.fifo);
+		break;
+
+	default:
+		/* Huh ... hope for the best */
+		printf("[!] E1 TX start while not stopped ...\n");
+	}
 
 	/* Update CRs */
 	_e1_update_cr_val(port);
@@ -600,7 +632,7 @@ e1_poll(int port)
 	if (e1->rx.state == RECOVER) {
 		if (e1->rx.in_flight != 0)
 			goto done_rx;
-		e1f_multiframe_empty(&e1->rx.fifo);
+		e1f_multiframe_empty_tail(&e1->rx.fifo);
 	}
 
 		/* Fill new RX BD */
