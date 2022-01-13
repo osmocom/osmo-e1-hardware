@@ -95,6 +95,15 @@ _usb_fill_feedback_ep(int port)
 	}
 }
 
+static void
+_fill_irq_err(struct ice1usb_irq_err *out, const struct e1_error_count *cur_err)
+{
+	out->crc = cur_err->crc;
+	out->align = cur_err->align;
+	out->ovfl = cur_err->ovfl;
+	out->unfl = cur_err->unfl;
+	out->flags = cur_err->flags;
+}
 
 static void
 _usb_e1_run(int port)
@@ -112,18 +121,9 @@ _usb_e1_run(int port)
 	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA) {
 		const struct e1_error_count *cur_err = e1_get_error_count(port);
 		if (memcmp(cur_err, &usb_e1->last_err, sizeof(*cur_err))) {
-			struct ice1usb_irq errmsg = {
-				.type = ICE1USB_IRQ_T_ERRCNT,
-				.u = {
-					.errors = {
-						.crc = cur_err->crc,
-						.align = cur_err->align,
-						.ovfl = cur_err->ovfl,
-						.unfl = cur_err->unfl,
-						.flags = cur_err->flags,
-					}
-				}
-			};
+			struct ice1usb_irq errmsg;
+			errmsg.type = ICE1USB_IRQ_T_ERRCNT;
+			_fill_irq_err(&errmsg.u.errors, cur_err);
 			printf("E");
 			usb_data_write(ep_regs->bd[0].ptr, &errmsg, sizeof(errmsg));
 			ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(sizeof(errmsg));
@@ -374,6 +374,7 @@ _set_rx_mode_done(struct usb_xfer *xfer)
 static enum usb_fnd_resp
 _e1_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 {
+	const struct e1_error_count *cur_err;
 	struct usb_e1_state *usb_e1;
 	int port;
 
@@ -419,6 +420,13 @@ _e1_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 			return USB_FND_ERROR;
 		memcpy(xfer->data, &usb_e1->rx_cfg, sizeof(struct ice1usb_rx_config));
 		xfer->len = sizeof(struct ice1usb_rx_config);
+		break;
+	case ICE1USB_INTF_GET_ERRORS:
+		if (req->wLength < sizeof(struct ice1usb_irq_err))
+			return USB_FND_ERROR;
+		cur_err = e1_get_error_count(port);
+		_fill_irq_err((struct ice1usb_irq_err *)xfer->data, cur_err);
+		xfer->len = sizeof(struct ice1usb_irq_err);
 		break;
 	default:
 		return USB_FND_ERROR;
