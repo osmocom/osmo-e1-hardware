@@ -71,6 +71,7 @@ struct e1usb_gpsdo_status {
 #define ICE1USB_INTF_GET_TX_CFG		0x03	/*!< struct ice1usb_tx_config */
 #define ICE1USB_INTF_SET_RX_CFG		0x04	/*!< struct ice1usb_rx_config */
 #define ICE1USB_INTF_GET_RX_CFG		0x05	/*!< struct ice1usb_rx_config */
+#define ICE1USB_INTF_GET_ERRORS		0x06	/*!< struct ice1usb_irq_err */
 
 //enum e1usb_intf_capability { };
 
