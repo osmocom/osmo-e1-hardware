@@ -26,7 +26,7 @@ by originally Zaptel, later Digium and now most recently Sangoma.
 DAHDI is supported by a wide range of open source PBX / softswitch software,
 including Asterisk, FreeSWITCH and yate.
 
-There is an experimental DAHDI driver for the icE1usb available from
+There is a DAHDI driver for the icE1usb available from
 the `laforge/icE1usb` branch of the https://github.com/osmocom/dahdi-linux
 git repository.
 
