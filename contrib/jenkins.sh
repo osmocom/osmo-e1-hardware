@@ -50,9 +50,9 @@ if [ "x$publish" = "x--publish" ]; then
 [ftp.osmocom.org]:48 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8iivY70EiR5NiGChV39gRLjNpC8lvu1ZdHtdMw2zuX
 EOF
 	SSH_COMMAND="ssh -o 'UserKnownHostsFile=/build/known_hosts' -p 48"
-	rsync --archive --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/icE1usb/*-*-*-*.{bin,elf} binaries@ftp.osmocom.org:web-files/icE1usb/firmware/all/
+	rsync --archive --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/icE1usb/icE1usb-fw-*.{bin,elf} binaries@ftp.osmocom.org:web-files/icE1usb/firmware/all/
 	rsync --archive --copy-links --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/icE1usb/icE1usb-fw.{bin,elf} binaries@ftp.osmocom.org:web-files/icE1usb/firmware/latest/
-	rsync --archive --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/e1-tracer/*-*-*-*.{bin,elf} binaries@ftp.osmocom.org:web-files/e1-tracer/firmware/all/
+	rsync --archive --verbose --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/e1-tracer/e1_tracer-fw-*.{bin,elf} binaries@ftp.osmocom.org:web-files/e1-tracer/firmware/all/
 	rsync --verbose --copy-links --compress --rsh "$SSH_COMMAND" $TOPDIR/firmware/ice40-riscv/e1-tracer/e1_tracer-fw.{bin,elf} binaries@ftp.osmocom.org:web-files/e1-tracer/firmware/latest/
 fi
 
