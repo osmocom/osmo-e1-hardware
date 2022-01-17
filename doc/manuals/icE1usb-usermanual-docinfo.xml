@@ -1,5 +1,13 @@
 <revhistory>
   <revision>
+    <revnumber>2</revnumber>
+    <date>January 17, 2022</date>
+    <authorinitials>HW</authorinitials>
+    <revremark>
+      Update documentation to firmware 0.2 (GPS-DO, second E1 port)
+    </revremark>
+  </revision>
+  <revision>
     <revnumber>1</revnumber>
     <date>December 13, 2020</date>
     <authorinitials>HW</authorinitials>
@@ -24,7 +32,7 @@
 </authorgroup>
 
 <copyright>
-  <year>2020</year>
+  <year>2020-2022</year>
   <holder>sysmocom - s.f.m.c. GmbH</holder>
 </copyright>
 

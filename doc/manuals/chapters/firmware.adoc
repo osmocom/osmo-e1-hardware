@@ -145,3 +145,70 @@ information to the user.
 === Use of the Multi-Color RGB LED
 
 FIXME: describe how it is used.
+
+
+=== Firmware <-> USB Host Interface
+
+The icE1usb firmware provides a USB 1.1 full-speed (FS) device with
+
+* one configuration
+* 5 interfaces
+** E1 port 0
+** E1 port 1
+** CDC-ACM (control + data)
+** DFU (device firmware upgrade)
+
+The interfaces have self-explanatory string descriptors like
+
+----
+      iInterface              6 E1 port 0
+      iInterface              8 E1 port 1
+      iInterface              9 GPS (CDC control)
+      iInterface             10 GPS (CDC data)
+      iInterface             11 DFU runtime
+----
+
+==== E1 ports
+
+There are two physical E1 ports in the icE1usb.  Each is exposed via its own USB _interface_.
+
+Each port (USB _interface_) contains two _altsettings_:
+
+* one altsetting with no data endpoints (E1 disabled, this is the default)
+* one altsetting with isochronous IN/OUT endpoints (E1 enabled)
+
+In order to activate one E1 port, the driver must perform a USB standard
+request to activate the _enabled_ altsetting.
+
+NOTE:: Please note that on many XHCI host controllers there seem to be
+implementation flaws in the XHCI host controller firmware preventing the
+activation of both icE1usb ports simultaneously.  The XHCI controller
+firmware erroneously claims that there is insufficient bus bandwidth.
+However, the same icE1usb hardware/firmware works perfectly fine with
+OHCI, UHCI and EHCI host controllers.
+
+As most modern [PC] hardware has XHCI host controllers, you need to
+choose your hardware carefully if concurrent operation of both icE1usb
+ports is required in your application.
+
+==== CDC-ACM with GPS NMEA
+
+There's a CDC-ACM (virtual com port) interface available in the icE1usb.
+This will be supported by the standard `cdc_acm` driver of your
+operating system, and will expose a `/dev/ttyACMx` device on Linux.
+
+The port provides read-only access to the GPS receiver on-board the
+icE1usb.  You can use this to
+
+* determine the GPS fix (and hence 1PPS frequency reference)
+  availability
+* obtain the GPS position of the device
+
+NOTE:: Write access to the GPS receiver is not permitted as the icE1usb
+firmware needs to control the GPS receiver for frequency reference
+purposes.
+
+==== DFU (Device Firmware Upgrade)
+
+There's a DFU interface available in order to update the icE1usb
+gateware and firmware.  For more information, see [[firmware]] above.

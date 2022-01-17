@@ -3,13 +3,19 @@
 Host Software is software running on the USB host computer to which the
 icE1usb is attached.
 
-At the time of this writing, the only software implementing icE1usb
-support is `osmo-e1d`.
+At the time of this writing, there are two options for icE1usb driver interfaces:
+`osmo-e1d` and `DAHDI`.
 
 === `osmo-e1d`
 
-`osmo-e1d` utilizes `libusb` to talk to the icE1usb hardware and offers
-a unix domain socket based interface to application software.
+`osmo-e1d` is a pure user-space driver, not requiring any specific Linux kernel,
+kernel patches or out-of-tree kernel modules.  It utilizes `libusb` to
+talk to the icE1usb hardware and offers a unix domain socket based
+interface to application software.
+
+In theory, `osmo-e1d` should work on any operating system with libusb
+support for isochronous transfers.  However, official support is limited
+to GNU/Linux at this point.
 
 Software such as `osmo-bsc` and `osmo-mgw` can interface `osmo-e1d` via
 the `libosmo-abis` support for `osmo-e1d`.
@@ -22,6 +28,11 @@ https://osmocom.org/projects/osmo-e1d/wiki
 DAHDI (Digium Asterisk Hardware Driver Interface) is an extremely
 popular driver for a variety of POTS/PSTN and also TDM interface boards
 by originally Zaptel, later Digium and now most recently Sangoma.
+
+DAHDI is available only for Linux, and is provided as source code for a
+set of out-of-tree kernel modules.  You must compile those modules for
+each specific Linux kernel version you are using.  Keep this in mind
+when performing kernel upgrades and the like.
 
 DAHDI is supported by a wide range of open source PBX / softswitch software,
 including Asterisk, FreeSWITCH and yate.

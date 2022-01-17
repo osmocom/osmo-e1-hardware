@@ -7,8 +7,8 @@ enclosure).
 It's main building blocks are:
 
 * an iCE40 FPGA
-* Two E1 line interface (transformers, biasing networks and ESD protection) footnote:[Only one E1 line supported by firmware so far]
-* a GPS receiver module with 1PPS output to the FPGA footnote:[GPS-DO supported by firmware yet]
+* Two E1 line interface (transformers, biasing networks and ESD protection) footnote:[Second interface requires firmware >= 0.2 and OHCI/OHCI/EHCI host controller]
+* a GPS receiver module with 1PPS output to the FPGA footnote:[Requires firmware >= 0.2]
 
 === Schematics
 
