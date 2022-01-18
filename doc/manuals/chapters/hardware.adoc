@@ -19,7 +19,14 @@ The design files in KiCAD formwa are available at https://git.osmocom.org/osmo-e
 
 PDF rendered schematics are available at https://git.osmocom.org/osmo-e1-hardware/plain/hardware/icE1usb/r1.0/icE1usb.pdf
 
-=== Connectors
+=== Connectors on E1 side
+
+image::images/icE1usb-e1_side.jpg[width=400,title="E1 side of icE1usb"]
+
+From left to right, there are the following connectors:
+
+* X5A: Primary E1 Port
+* X5B: Secondary E1 Port
 
 ==== X5A and X5B: E1 Interface Connectors
 
@@ -56,6 +63,17 @@ use NT mode pin-out if no cross-over cable is used.
 NOTE: E1 cables use RJ45 like Ethernet, but Ethernet cables have a
 different pin-out.  Particularly, you cannot use an Ethernet cross-over
 cable as an E1 cross-over!
+
+=== Connectors on USB side
+
+image::images/icE1usb-usb_side.jpg[width=400,title="USB side of icE1usb"]
+
+From left to right, there are the following connectors:
+
+* X1: GPS Antenna Connector
+* X2: Serial Console Connector
+* X4: USB Connector
+* X3: GPIO / Extension Connector
 
 ==== X4: USB Connector
 
