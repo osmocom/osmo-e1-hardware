@@ -185,7 +185,8 @@ implementation flaws in the XHCI host controller firmware preventing the
 activation of both icE1usb ports simultaneously.  The XHCI controller
 firmware erroneously claims that there is insufficient bus bandwidth.
 However, the same icE1usb hardware/firmware works perfectly fine with
-OHCI, UHCI and EHCI host controllers.
+OHCI, UHCI and EHCI host controllers.  See
+https://osmocom.org/projects/e1-t1-adapter/wiki/Isochronous_USB_Issues for a user-maintained list of USB hosts / controllers and whether or not they work with two E1 ports.
 
 As most modern [PC] hardware has XHCI host controllers, you need to
 choose your hardware carefully if concurrent operation of both icE1usb
