@@ -56,6 +56,7 @@ HEADERS_app=\
 	usb_dev.h \
 	usb_e1.h \
 	usb_gps.h \
+	usb_gpsdo.h \
 	usb_str_app.gen.h \
 	$(NULL)
 
@@ -69,6 +70,7 @@ SOURCES_app=\
 	usb_dev.c \
 	usb_e1.c \
 	usb_gps.c \
+	usb_gpsdo.c \
 	$(NULL)
 
 

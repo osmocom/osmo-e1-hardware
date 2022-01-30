@@ -23,6 +23,7 @@
 #include "usb_dev.h"
 #include "usb_e1.h"
 #include "usb_gps.h"
+#include "usb_gpsdo.h"
 #include "utils.h"
 
 
@@ -109,6 +110,7 @@ void main()
 	usb_dfu_rt_init();
 	usb_e1_init();
 	usb_gps_init();
+	usb_gpsdo_init();
 
 	/* Start */
 	led_state(true);

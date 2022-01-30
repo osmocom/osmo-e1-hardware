@@ -96,7 +96,7 @@ gpsdo_get_status(struct e1usb_gpsdo_status *status)
 	};
 
 	status->state          = state_map[g_gpsdo.state];
-	status->antenna_status = ant_map[gps_antenna_status()];
+	status->antenna_state  = ant_map[gps_antenna_status()];
 	status->valid_fix      = gps_has_valid_fix();
 	status->mode           = (g_gpsdo.state == STATE_DISABLED) ? ICE1USB_GPSDO_MODE_DISABLED : ICE1USB_GPSDO_MODE_AUTO;
 	status->tune.coarse    = g_gpsdo.tune.coarse;

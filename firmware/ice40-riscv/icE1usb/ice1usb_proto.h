@@ -17,16 +17,21 @@
 /*! returns a bit-mask of optional device capabilities (see enum e1usb_dev_capability) */
 #define ICE1USB_DEV_GET_CAPABILITIES	0x01
 #define ICE1USB_DEV_GET_FW_BUILD	0x02
-#define ICE1USB_DEV_GET_GPSDO_STATUS	0x10
-#define ICE1USB_DEV_GET_GPSDO_MODE	0x12	/*!< uint8_t */
-#define ICE1USB_DEV_SET_GPSDO_MODE	0x13	/*!< wValue = mode */
-#define ICE1USB_DEV_GET_GPSDO_TUNE	0x14	/*!< data   = struct e1usb_gpsdo_tune */
-#define ICE1USB_DEV_SET_GPSDO_TUNE	0x15	/*!< data   = struct e1usb_gpsdo_tune */
 
 enum e1usb_dev_capability {
 	/*! Does this board have a GPS-DO */
 	ICE1USB_DEV_CAP_GPSDO,
 };
+
+/***********************************************************************
+ * Control Endpoint / GPS-DO Interface Requests
+ ***********************************************************************/
+
+#define ICE1USB_INTF_GET_GPSDO_STATUS	0x10
+#define ICE1USB_INTF_GET_GPSDO_MODE	0x12	/*!< uint8_t */
+#define ICE1USB_INTF_SET_GPSDO_MODE	0x13	/*!< wValue = mode */
+#define ICE1USB_INTF_GET_GPSDO_TUNE	0x14	/*!< data   = struct e1usb_gpsdo_tune */
+#define ICE1USB_INTF_SET_GPSDO_TUNE	0x15	/*!< data   = struct e1usb_gpsdo_tune */
 
 enum ice1usb_gpsdo_mode {
 	ICE1USB_GPSDO_MODE_DISABLED	= 0,
@@ -55,7 +60,7 @@ struct e1usb_gpsdo_tune {
 
 struct e1usb_gpsdo_status {
 	uint8_t state;
-	uint8_t antenna_status;		/*!< Antenna status */
+	uint8_t antenna_state;		/*!< Antenna state */
 	uint8_t valid_fix;		/*!< Valid GPS Fix (0/1) */
 	uint8_t mode;			/*!< Current configured operating mode */
 	struct e1usb_gpsdo_tune tune;	/*!< Current VCXO tuning values */
@@ -63,7 +68,9 @@ struct e1usb_gpsdo_status {
 } __attribute__((packed));
 
 
-/* Interface Requests */
+/***********************************************************************
+ * Control Endpoint / E1 Interface Requests
+ ***********************************************************************/
 
 /*! returns a bit-mask of optional device capabilities (see enum e1usb_intf_capability) */
 #define ICE1USB_INTF_GET_CAPABILITIES	0x01

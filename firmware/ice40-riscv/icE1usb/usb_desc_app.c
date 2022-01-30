@@ -53,6 +53,11 @@ static const struct {
 		struct usb_ep_desc ep_data_in;
 	} __attribute__ ((packed)) cdc;
 
+	/* GPS-DO (control EP only) */
+	struct {
+		struct usb_intf_desc intf;
+	} __attribute__ ((packed)) gpsdo;
+
 	/* DFU Runtime */
 	struct {
 		struct usb_intf_desc intf;
@@ -275,6 +280,19 @@ static const struct {
 			.bInterval		= 0x00,
 		},
 	},
+	.gpsdo = {
+		.intf = {
+			.bLength		= sizeof(struct usb_intf_desc),
+			.bDescriptorType	= USB_DT_INTF,
+			.bInterfaceNumber	= USB_INTF_GPSDO,
+			.bAlternateSetting	= 0,
+			.bNumEndpoints		= 0,
+			.bInterfaceClass	= 0xff,
+			.bInterfaceSubClass	= 0xe1,
+			.bInterfaceProtocol	= 0xd0,
+			.iInterface		= 11,
+		}
+	},
 	.dfu = {
 		.intf = {
 			.bLength		= sizeof(struct usb_intf_desc),
@@ -285,7 +303,7 @@ static const struct {
 			.bInterfaceClass	= 0xfe,
 			.bInterfaceSubClass	= 0x01,
 			.bInterfaceProtocol	= 0x01,
-			.iInterface		= 11,
+			.iInterface		= 12,
 		},
 		.func = {
 			.bLength		= sizeof(struct usb_dfu_func_desc),

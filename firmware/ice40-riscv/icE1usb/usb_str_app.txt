@@ -8,4 +8,5 @@ E1 port 1 (disabled)
 E1 port 1
 GPS (CDC control)
 GPS (CDC data)
+GPS-DO control
 DFU runtime
