@@ -44,6 +44,49 @@ git repository.
 When using that DAHDI Linux kernel driver, there is no need for
 osmo-e1d.  The USB interface is directly managed inside the kernel.
 
+
+==== Installing DAHDI driver
+Example installation steps, tested on Debian 11, for installing DAHDI Linux & DAHDI Tools.
+Note: Plugging in the device prior to installing may lead to issues.
+
+----
+$ sudo apt-get install -y linux-headers-`uname -r` git dfu-util make gcc autoconf libtool libnewt-dev
+$ git clone https://git.osmocom.org/dahdi-linux/
+$ git clone https://github.com/asterisk/dahdi-tools
+$ cd dahdi-linux
+$ sudo make install
+$ cd ../dahdi-tools
+$ sudo autoreconf -i
+$ ./configure
+$ sudo make install
+$ sudo make install-config
+$ sudo modprobe icE1usb
+$ sudo /etc/init.d/dahdi start
+----
+
+At this point you can plug in the icE1usb, which
+
+* should make the icE1usb enumerate on USB (dmesg, lsusb)
+* should and scan for it with `sudo dahdi_scan` which should list the two E1 ports on the iCE1usb.
+* see a `/proc/dahdi/N` file (with N being the span number, typically 1 unless you have other spans)
+* see the device listed in `dahdi_scan` or `dahdi_tool`
+
+.Example `dmesg` output when icE1usb is plugged in
+----
+usb 2-1: new full-speed USB device number 5 using xhci_hcd
+usb 2-1: New USB device found, idVendor=1d50, idProduct=6145, bcdDevice= 0.03
+usb 2-1: New USB device strings: Mfr=2, Product=3, SerialNumber=1
+usb 2-1: Product: icE1usb
+usb 2-1: Manufacturer: osmocom
+usb 2-1: SerialNumber: dc697407e7682731
+----
+
+.Example `lsusb` output after icE1usb is plugged in
+----
+$ lsusb -d 1d50:
+Bus 002 Device 005: ID 1d50:6145 OpenMoko, Inc. icE1usb
+----
+
 === Other software
 
 you can interface 3rd party applications with osmo-e1d in the following
