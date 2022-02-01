@@ -8,9 +8,9 @@
 #pragma once
 
 #define USB_INTF_E1(p)		(0 + (p))
-#define USB_INTF_DFU		2
-#define USB_INTF_GPS_CDC_CTL	3
-#define USB_INTF_GPS_CDC_DATA	4
+#define USB_INTF_GPS_CDC_CTL	2
+#define USB_INTF_GPS_CDC_DATA	3
+#define USB_INTF_DFU		4
 #define USB_INTF_NUM		5
 
 #define USB_EP_E1_IN(p)		(0x82 + (3 * (p)))
