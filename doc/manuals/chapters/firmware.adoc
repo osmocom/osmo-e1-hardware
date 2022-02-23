@@ -49,7 +49,7 @@ The latest firmware can be found at
 https://ftp.osmocom.org/binaries/icE1usb/firmware/latest/
 
 The latest gateware can currently only be found at the personal developer
-directory of tnt at https://people.osmocom.org/tnt/e1/icE1usb-202010-bd399e96.bin
+directory of tnt at https://people.osmocom.org/tnt/ice1usb/icE1usb-202010-bd399e96.bin
 A more official download location for the gateware will be provided shortly.
 
 ==== Upgrading the FPGA gateware
