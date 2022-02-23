@@ -44,8 +44,13 @@ up:
 The pin-out of the connectors can be swapped between TE and NT mode using
 the J4 and J5 jumper blocks on the circuit board.
 
-A GSM BTS typically implements TE pin-out, while the icE1usb should then
-use NT mode pin-out if no cross-over cable is used.
+The factory default setting of the jumpers is TE-mode.
+
+In case you're using the icE1usb with user-side equipment such as a GSM BTS,
+a PBX, a Router or the like which traditionally was attached to the public
+network, those devices all implement TE mode.  In such situations you need
+to either switch the icE1usb to NT mode (and use straight wiring), or use
+an E1 cross-over cable.
 
 .Pin-out of RJ45 E1 connectors
 [options="header"]
