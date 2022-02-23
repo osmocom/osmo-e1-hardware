@@ -69,6 +69,20 @@ NOTE: E1 cables use RJ45 like Ethernet, but Ethernet cables have a
 different pin-out.  Particularly, you cannot use an Ethernet cross-over
 cable as an E1 cross-over!
 
+==== Switching between TE/NT mode
+
+To change the mode, unscrew the 2 PH0 screws on the side with the 2 RJ45 jacks. You'll also need to unscrew the nut on the SMA jack on the other side.
+After that, the cover plate and rubber gasket around the 2 RJ45 jacks can be removed. The PCB can be slid out of the case.
+
+[frame="none"]
+[grid="none"]
+|===
+|image:images/te_t.png[width=250,title="icE1usb jumpered for TE mode"] |image:images/nt_t.png[width=250,title="icE1usb jumpered for NT mode"]
+| *TE mode* (default)  | *NT mode*  |
+|===
+
+Each 2x4 jumper block is connected to the nearest RJ45 connector.
+
 === Connectors on USB side
 
 image::images/icE1usb-usb_side.jpg[width=400,title="USB side of icE1usb"]
