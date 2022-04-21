@@ -204,7 +204,7 @@ _gpsdo_fine_track(uint32_t tick_diff)
 	uint16_t tune;
 
 	/* Did we deviate too much ? */
-	if ((freq_diff < -2*MAX_DEV_FINE) && (freq_diff > 2*MAX_DEV_FINE)) {
+	if ((freq_diff < -2*MAX_DEV_FINE) || (freq_diff > 2*MAX_DEV_FINE)) {
 		_gpsdo_coarse_start();
 		return;
 	}
