@@ -286,10 +286,11 @@ gpsdo_poll(void)
 	} else {
 		/* Count invalid measurements and if too many of
 		 * them, we go back to hold-over */
-		if (++g_gpsdo.meas.invalid >= MAX_INVALID) {
+		if (++g_gpsdo.meas.invalid >= MAX_INVALID)
 			g_gpsdo.state = STATE_HOLD_OVER;
-			return;
-		}
+
+		/* In all cases, invalid measurements are not used */
+		return;
 	}
 
 	g_gpsdo.meas.invalid = 0;
