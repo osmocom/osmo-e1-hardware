@@ -145,6 +145,11 @@ gpsdo_get_tune(uint16_t *coarse, uint16_t *fine)
 static void
 _gpsdo_coarse_start(void)
 {
+	/* Debug */
+#ifdef GPSDO_DEBUG
+	printf("[+] GPSDO Coarse Start: tune=%d:%d\n", g_gpsdo.tune.coarse, g_gpsdo.tune.fine);
+#endif
+
 	/* Set the state */
 	g_gpsdo.state = STATE_TUNE_COARSE;
 
@@ -165,6 +170,10 @@ _gpsdo_coarse_start(void)
 static void
 _gpsdo_fine_start(void)
 {
+#ifdef GPSDO_DEBUG
+	printf("[+] GPSDO Fine Start\n");
+#endif
+
 	/* Set the state */
 	g_gpsdo.state = STATE_TUNE_FINE;
 
