@@ -280,6 +280,7 @@ gpsdo_poll(void)
 	if (!gps_has_valid_fix()) {
 		/* No GPS fix, go to hold-over */
 		g_gpsdo.state = STATE_HOLD_OVER;
+		g_gpsdo.meas.invalid = 0;
 		return;
 	}
 
@@ -293,10 +294,22 @@ gpsdo_poll(void)
 			return;
 		}
 	} else {
-		/* Count invalid measurements and if too many of
-		 * them, we go back to hold-over */
-		if (++g_gpsdo.meas.invalid >= MAX_INVALID)
-			g_gpsdo.state = STATE_HOLD_OVER;
+		/* Count invalid measurements */
+		if (++g_gpsdo.meas.invalid >= MAX_INVALID) {
+			if (g_gpsdo.state != STATE_HOLD_OVER) {
+				/* We go back to hold-over */
+				g_gpsdo.state = STATE_HOLD_OVER;
+				g_gpsdo.meas.invalid = 0;
+			} else {
+				/* We're in hold-over, with valid fix, and
+				 * still get a bunch of invalid. Reset tuning */
+				g_gpsdo.tune.coarse = 2048;
+				g_gpsdo.tune.fine   = 2048;
+
+				pdm_set(PDM_CLK_HI, true, g_gpsdo.tune.coarse, false);
+				pdm_set(PDM_CLK_LO, true, g_gpsdo.tune.fine,   false);
+			}
+		}
 
 		/* In all cases, invalid measurements are not used */
 		return;
