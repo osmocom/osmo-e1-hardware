@@ -240,8 +240,23 @@ _gpsdo_fine_track(uint32_t tick_diff)
 		g_gpsdo.fine.div = 0;
 	}
 
-	/* Apply value with a bias from long term accumulator */
+	/* Compute value with a bias from long term accumulator */
 	tune = g_gpsdo.tune.fine - (g_gpsdo.fine.acc / 2);
+
+	/* If fine tune is getting close to boundary, do our
+	 * best to transfer part of it to coarse tuning */
+	if ((g_gpsdo.tune.fine < 512) || (g_gpsdo.tune.fine > 3584))
+	{
+		int coarse_adj = ((int)g_gpsdo.tune.fine - 2048) >> 6;
+
+		g_gpsdo.tune.coarse += coarse_adj;
+		g_gpsdo.tune.fine   -= coarse_adj << 6;
+		tune                -= coarse_adj << 6;
+
+		pdm_set(PDM_CLK_HI, true, g_gpsdo.tune.coarse, false);
+	}
+
+	/* Apply fine */
 	pdm_set(PDM_CLK_LO, true, tune, false);
 
 	/* Debug */
