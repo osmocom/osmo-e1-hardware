@@ -10,11 +10,11 @@
 `default_nettype none
 
 module soc_picorv32_bridge #(
-	parameter integer WB_N  =  8,
-	parameter integer WB_DW = 32,
-	parameter integer WB_AW = 16,
-	parameter integer WB_AI =  2,
-	parameter integer WB_REG = 0	// [0] = cyc / [1] = addr/wdata/wstrb / [2] = ack/rdata
+	parameter integer WB_N   =  8,
+	parameter integer WB_DW  = 32,
+	parameter integer WB_AW  = 16,
+	parameter integer WB_AI  =  2,
+	parameter integer WB_REG =  0	// [0] = cyc / [1] = addr/wdata/wstrb / [2] = ack/rdata
 )(
 	/* PicoRV32 bus */
 	input  wire [31:0] pb_addr,

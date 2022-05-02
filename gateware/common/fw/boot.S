@@ -3,9 +3,12 @@
  *
  * SPI boot code
  *
- * Copyright (C) 2020 Sylvain Munaut <tnt@246tNt.com>
+ * Copyright (C) 2020-2022 Sylvain Munaut <tnt@246tNt.com>
  * SPDX-License-Identifier: MIT
  */
+
+// #define BOOT_DEBUG
+// (also set UART_DIV for the board below !)
 
 #ifndef APP_FLASH_ADDR
 #define APP_FLASH_ADDR 0x00100000
@@ -19,17 +22,49 @@
 #define APP_SIZE 0x00010000
 #endif
 
+	.equ	UART_BASE, 0x81000000
+	.equ	UART_DIV, 29	// 30.72 MHz / (29+2) ~= 1 Mbaud (icE1usb)
+	//.equ	UART_DIV, 22	// 24    MHz / (22+2) ~= 1 Mbaud (e1-tracer)
+
 	.section .text.start
 	.global _start
 _start:
+	// Debug
+#ifdef BOOT_DEBUG
+	// Set UART divisor
+	li	a0, UART_BASE
+	li	a1, UART_DIV
+	sw	a1, 4(a0)
+
+	// Output 'a'
+	li	a1, 97
+	sw	a1, 0(a0)
+#endif
+
 	// SPI init
 	jal	spi_init
+
+	// Debug
+#ifdef BOOT_DEBUG
+	// Output 'b'
+	li	a0, UART_BASE
+	li	a1, 98
+	sw	a1, 0(a0)
+#endif
 
 	// Read from flash to SRAM
 	li	a0, APP_SRAM_ADDR
 	li	a1, APP_SIZE
 	li	a2, APP_FLASH_ADDR
 	jal	spi_flash_read
+
+	// Debug
+#ifdef BOOT_DEBUG
+	// Output 'c'
+	li	a0, UART_BASE
+	li	a1, 99
+	sw	a1, 0(a0)
+#endif
 
 	// Setup reboot code
 	li	t0, 0x0002006f
@@ -39,16 +74,27 @@ _start:
 	j	APP_SRAM_ADDR
 
 
-	.equ    SPI_BASE, 0x80000000
-	.equ    SPICR0,  4 * 0x08
-	.equ    SPICR1,  4 * 0x09
-	.equ    SPICR2,  4 * 0x0a
-	.equ    SPIBR,   4 * 0x0b
-	.equ    SPISR,   4 * 0x0c
-	.equ    SPITXDR, 4 * 0x0d
-	.equ    SPIRXDR, 4 * 0x0e
-	.equ    SPICSR,  4 * 0x0f
+// ---------------------------------------------------------------------------
+// SB_SPI driver code
+// ---------------------------------------------------------------------------
 
+// Register definitions
+
+	.equ	SPI_BASE, 0x80000000
+
+	.equ	SPICR0,  4 * 0x08
+	.equ	SPICR1,  4 * 0x09
+	.equ	SPICR2,  4 * 0x0a
+	.equ	SPIBR,   4 * 0x0b
+	.equ	SPISR,   4 * 0x0c
+	.equ	SPITXDR, 4 * 0x0d
+	.equ	SPIRXDR, 4 * 0x0e
+	.equ	SPICSR,  4 * 0x0f
+
+
+// Initializes te SPI hardware
+//
+// Clobbers a0, a1
 
 spi_init:
 	li	a0, SPI_BASE
@@ -71,11 +117,13 @@ spi_init:
 	ret
 
 
+// Reads a block of memory from SPI flash
+//
 // Params:
 //  a0 - destination pointer
 //  a1 - length (bytes)
 //  a2 - flash offset
-//
+// Clobbers t0, t1, s0, s1, s2
 
 spi_flash_read:
 	// Save params
@@ -121,9 +169,12 @@ _spi_loop:
 	jr	s2
 
 
+// Performs a single 8 bit SPI xfer
+//
 // Params:  a0 - Data to TX
 // Returns: a0 - RX data
 // Clobbers t0, t1
+
 _spi_do_one:
 	li	t0, SPI_BASE
 	li	t1, 0x08
