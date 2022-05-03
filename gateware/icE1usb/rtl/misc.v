@@ -198,7 +198,7 @@ module misc (
 		.PIN_TYPE(6'b000000),	// Reg input, no output
 		.PULLUP(1'b0),
 		.IO_STANDARD("SB_LVCMOS")
-	) btn_iob_I (
+	) pps_iob_I (
 		.PACKAGE_PIN(gps_pps),
 		.INPUT_CLK  (clk),
 		.D_IN_0     (gps_pps_iob)
@@ -209,7 +209,7 @@ module misc (
 		.L(2),
 		.RST_VAL(1'b0),
 		.WITH_SYNCHRONIZER(1)
-	) btn_flt_I (
+	) pps_flt_I (
 		.in       (gps_pps_iob),
 		.val      (),
 		.rise     (gps_pps_r),
