@@ -200,10 +200,6 @@ refill:
 		/* Next BDI */
 		bdi ^= 1;
 		usb_e1->out_bdi = bdi;
-
-		static int x = 0;
-		if ((x++ & 0xff) == 0xff)
-			puts(".");
 	}
 
 	/* Feedback endpoint */

@@ -165,8 +165,6 @@ void main()
 	/* SPI */
 	spi_init();
 
-	puts("XXX\n");
-
 	/* Enable USB directly */
 	serial_no_init();
 	usb_init(&app_stack_desc);
