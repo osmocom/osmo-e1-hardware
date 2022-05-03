@@ -38,7 +38,7 @@ PACKAGE := sg48
 
 SEED ?= 15
 YOSYS_SYNTH_ARGS :=
-NEXTPNR_ARGS := --pre-pack data/clocks.py --pre-pack data/opt.py --seed $(SEED)
+NEXTPNR_ARGS := --pre-pack data/clocks.py --pre-pack data/opt.py --seed $(SEED) --no-promote-globals
 
 ifeq ($(IGNORE_TIMING),1)
 	NEXTPNR_ARGS += --timing-allow-fail
