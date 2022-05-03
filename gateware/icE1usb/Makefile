@@ -3,8 +3,6 @@ PROJ=icE1usb
 
 PROJ_DEPS := no2e1 no2ice40 no2misc no2usb
 PROJ_RTL_SRCS := $(addprefix rtl/, \
-	i2c_master.v \
-	i2c_master_wb.v \
 	led_blinker.v \
 	misc.v \
 	sr_btn_if.v \

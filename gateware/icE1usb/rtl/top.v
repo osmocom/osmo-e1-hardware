@@ -105,6 +105,7 @@ module top (
 
 	// I2C
 	wire i2c_scl_oe;
+	wire i2c_scl_i;
 	wire i2c_sda_oe;
 	wire i2c_sda_i;
 
@@ -319,6 +320,7 @@ module top (
 		.FIFO_DEPTH(0)
 	) i2c_I (
 		.scl_oe  (i2c_scl_oe),
+		.scl_i   (i2c_scl_i),
 		.sda_oe  (i2c_sda_oe),
 		.sda_i   (i2c_sda_i),
 		.wb_rdata(wb_rdata[2]),
@@ -326,34 +328,22 @@ module top (
 		.wb_we   (wb_we),
 		.wb_cyc  (wb_cyc[2]),
 		.wb_ack  (wb_ack[2]),
-		.ready   (),
 		.clk     (clk_sys),
 		.rst     (rst_sys)
 	);
 
 	// IOBs
 	SB_IO #(
-		.PIN_TYPE(6'b110101),
-		.PULLUP(1'b1),
-		.IO_STANDARD("SB_LVCMOS")
-	) i2c_scl_iob_I (
-		.PACKAGE_PIN  (i2c_scl),
-		.OUTPUT_CLK   (clk_sys),
-		.OUTPUT_ENABLE(i2c_scl_oe),
-		.D_OUT_0      (1'b0)
-	);
-
-	SB_IO #(
 		.PIN_TYPE(6'b110100),
 		.PULLUP(1'b1),
 		.IO_STANDARD("SB_LVCMOS")
-	) i2c_sda_iob_I (
-		.PACKAGE_PIN  (i2c_sda),
+	) i2c_iob_I[1:0] (
+		.PACKAGE_PIN  ({i2c_scl, i2c_sda}),
 		.INPUT_CLK    (clk_sys),
 		.OUTPUT_CLK   (clk_sys),
-		.OUTPUT_ENABLE(i2c_sda_oe),
+		.OUTPUT_ENABLE({i2c_scl_oe, i2c_sda_oe}),
 		.D_OUT_0      (1'b0),
-		.D_IN_0       (i2c_sda_i)
+		.D_IN_0       ({i2c_scl_i, i2c_sda_i})
 	);
 
 `else
