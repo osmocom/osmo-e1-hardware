@@ -12,8 +12,8 @@
 `default_nettype none
 
 // `define WITH_SINGLE_CHANNEL
-`define WITH_SB_I2C
-// `define WITH_CUSTOM_I2C
+// `define WITH_SB_I2C
+`define WITH_CUSTOM_I2C
 
 module top (
 	// E1 PHY
