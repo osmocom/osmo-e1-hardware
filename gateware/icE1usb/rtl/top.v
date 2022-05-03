@@ -316,7 +316,7 @@ module top (
 
 	// Controller
 	i2c_master_wb #(
-		.DW(3),
+		.DW(4),
 		.FIFO_DEPTH(0)
 	) i2c_I (
 		.scl_oe  (i2c_scl_oe),
