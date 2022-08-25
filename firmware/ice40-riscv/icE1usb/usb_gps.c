@@ -17,6 +17,7 @@
 #include <no2usb/usb_cdc_proto.h>
 
 #include "console.h"
+#include "misc.h"
 #include "usb_desc_ids.h"
 
 
@@ -34,7 +35,21 @@ static struct {
 		unsigned int rd;
 		char data[BUF_SIZE] __attribute__((aligned(4)));
 	} buf;
+
+#ifdef GPS_PPS_ON_CD
+	/* PPS tracking */
+	struct {
+		uint32_t last;
+		bool set;
+	} pps;
+#endif
 } g_usb_gps;
+
+
+struct usb_cdc_notif_serial_state {
+	struct usb_ctrl_req hdr;
+	uint16_t bits;
+};
 
 
 static void
@@ -120,6 +135,53 @@ usb_gps_poll(void)
 		else
 			ep_regs->bd[0].csr = 0;
 	}
+
+#ifdef GPS_PPS_ON_CD
+	/* IN EP CTL: Send PPS pulse */
+	ep_regs = &usb_ep_regs[USB_EP_GPS_CDC_CTL & 0x1f].in;
+
+	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
+	{
+		/* Default request */
+		struct usb_cdc_notif_serial_state notif = {
+			.hdr = {
+				.bmRequestType = USB_REQ_READ | USB_REQ_TYPE_CLASS | USB_REQ_RCPT_INTF,
+				.bRequest      = USB_NOTIF_CDC_SERIAL_STATE,
+				.wValue        = 0,
+				.wIndex        = USB_INTF_GPS_CDC_CTL,
+				.wLength       = 2
+			},
+			.bits = 0x00
+		};
+
+		/* Check if PPS occurred */
+		uint32_t pps_now = time_pps_read();
+
+		if (pps_now != g_usb_gps.pps.last)
+		{
+			/* Update last */
+			g_usb_gps.pps.last = pps_now;
+
+			/* Queue CD Set */
+			notif.bits = 1;
+			usb_data_write(ep_regs->bd[0].ptr, &notif, 12);
+			ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(10);
+
+			/* Need to clear in the future */
+			g_usb_gps.pps.set = true;
+		}
+		else if (g_usb_gps.pps.set)
+		{
+			/* Queue CD Clear */
+			notif.bits = 0;
+			usb_data_write(ep_regs->bd[0].ptr, &notif, 12);
+			ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(10);
+
+			/* Cleared */
+			g_usb_gps.pps.set = false;
+		}
+	}
+#endif
 }
 
 

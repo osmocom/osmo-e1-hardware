@@ -250,7 +250,11 @@ static const struct {
 			.bmAttributes		= 0x03,
 				/* Longest notif is SERIAL_STATE with 2 data bytes */
 			.wMaxPacketSize		= sizeof(struct usb_ctrl_req) + 2,
+#ifdef GPS_PPS_ON_CD
+			.bInterval		= 1,
+#else
 			.bInterval		= 0x40,
+#endif
 		},
 		.intf_data = {
 			.bLength		= sizeof(struct usb_intf_desc),
