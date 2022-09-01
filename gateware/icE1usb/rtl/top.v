@@ -73,7 +73,7 @@ module top (
 	output wire [2:0] rgb
 );
 
-	localparam integer WB_N = 3;
+	localparam integer WB_N = 4;
 
 	genvar i;
 
@@ -104,10 +104,14 @@ module top (
 	wire       tick_usb_sof;
 
 	// I2C
-	wire i2c_scl_oe;
-	wire i2c_scl_i;
-	wire i2c_sda_oe;
-	wire i2c_sda_i;
+	wire       i2c_scl_oe;
+	wire       i2c_scl_i;
+	wire       i2c_sda_oe;
+	wire       i2c_sda_i;
+
+	// Aux UART
+	wire       aux_uart_tx;
+	wire       aux_uart_rx;
 
 	// Led & Button
 	wire [7:0] e1_led_state;
@@ -259,6 +263,8 @@ module top (
 		.tick_e1_tx    (tick_e1_tx),
 		.tick_usb_sof  (tick_usb_sof),
 		.rst_req       (rst_req),
+		.aux_uart_tx   (aux_uart_tx),
+		.aux_uart_rx   (aux_uart_rx),
 		.wb_addr       (wb_addr[7:0]),
 		.wb_rdata      (wb_rdata[0]),
 		.wb_wdata      (wb_wdata),
@@ -353,6 +359,26 @@ module top (
 	assign wb_rdata[2] = 32'h00000000;
 
 `endif
+
+
+	// Aux UART [3]
+	// --------
+
+	uart_wb #(
+		.DIV_WIDTH(12),
+		.DW(32)
+	) aux_uart_I (
+		.uart_tx  (aux_uart_tx),
+		.uart_rx  (aux_uart_rx),
+		.wb_addr  (wb_addr[1:0]),
+		.wb_rdata (wb_rdata[3]),
+		.wb_wdata (wb_wdata),
+		.wb_we    (wb_we),
+		.wb_cyc   (wb_cyc[3]),
+		.wb_ack   (wb_ack[3]),
+		.clk      (clk_sys),
+		.rst      (rst_sys)
+	);
 
 
 	// E1 LEDs & Button
