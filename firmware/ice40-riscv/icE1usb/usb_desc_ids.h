@@ -7,12 +7,16 @@
 
 #pragma once
 
+#ifndef NUM_E1_PORTS
+# define NUM_E1_PORTS 2
+#endif
+
 #define USB_INTF_E1(p)		(0 + (p))
-#define USB_INTF_GPS_CDC_CTL	2
-#define USB_INTF_GPS_CDC_DATA	3
-#define USB_INTF_GPSDO		4
-#define USB_INTF_DFU		5
-#define USB_INTF_NUM		6
+#define USB_INTF_GPS_CDC_CTL	(NUM_E1_PORTS + 0)
+#define USB_INTF_GPS_CDC_DATA	(NUM_E1_PORTS + 1)
+#define USB_INTF_GPSDO		(NUM_E1_PORTS + 2)
+#define USB_INTF_DFU		(NUM_E1_PORTS + 3)
+#define USB_INTF_NUM		(NUM_E1_PORTS + 4)
 
 #define USB_EP_E1_IN(p)		(0x82 + (3 * (p)))
 #define USB_EP_E1_OUT(p)	(0x01 + (3 * (p)))

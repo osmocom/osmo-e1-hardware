@@ -17,6 +17,10 @@ BOARD_DEFINE=BOARD_$(shell echo $(BOARD) | tr a-z\- A-Z_)
 CFLAGS=-Wall -Wextra -Wno-unused-parameter -Os -march=rv32i -mabi=ilp32 -ffreestanding -flto -nostartfiles -fomit-frame-pointer -Wl,--gc-section --specs=nano.specs -D$(BOARD_DEFINE) -I. -I../common
 CFLAGS += -DBUILD_INFO="\"$(GITVER) built $(shell date) on $(shell hostname)\""
 
+ifeq ($(SINGLE_CHANNEL),1)
+CFLAGS += -DNUM_E1_PORTS=1
+endif
+
 NO2USB_FW_VERSION=0
 include ../../../gateware/cores/no2usb/fw/fw.mk
 CFLAGS += $(INC_no2usb)
