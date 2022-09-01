@@ -13,6 +13,7 @@
 #include "console.h"
 #include "gps.h"
 #include "misc.h"
+#include "rs422.h"
 #include "usb_gps.h"
 #include "utils.h"
 
@@ -28,7 +29,7 @@ struct gps_uart {
 #define GPS_UART_CSR_TX_EMPTY	(1 << 29)
 #define GPS_UART_DATA_EMPTY	(1 << 31)
 
-static volatile struct gps_uart * const gps_uart_regs = (void*)(GPS_UART_BASE);
+static volatile struct gps_uart * const gps_uart_regs = (void*)(AUX_UART_BASE);
 
 
 static struct {
@@ -159,37 +160,11 @@ _gps_query(void)
 void
 _gps_parse_nmea(const char *nmea)
 {
-	/* Very basic parsing, we just look at GSA messages and consider
-	 * that if we have a 3D fix with PDOP < 5, the timing data should
-	 * be usable
-	 */
-	if (!strncmp(nmea, "$GPGSA", 6))
+	/* Very basic parsing, we just look at $PERC,GPsts message for
+	 * state 1 (survey mode) and 2 (position-hold) */
+	if (!strncmp(nmea, "$PERC,GPsts,", 12))
 	{
-		/* Check for Autonomous 3D fix (fixed field positions) */
-		if ((nmea[7] != 'A') || (nmea[9] != '3')) {
-			g_gps.fix.valid = false;
-			return;
-		}
-
-		/* Find PDOP */
-		const char *p = nmea;
-		for (int i=0; (i < 15) && (*p != '*'); i += (*(p++)==',') );
-
-		/* Is it low enough ? */
-		g_gps.fix.valid = (p[1] < '5');
-	}
-
-	/* Parse TXT ANTENNA Status */
-	if (!strncmp(nmea, "$GPTXT", 6) && nmea[13] == '0' && nmea[14] == '1')
-	{
-		if      (!strncmp(&nmea[16], "ANTENNA OK",    10))
-			g_gps.antenna = ANT_OK;
-		else if (!strncmp(&nmea[16], "ANTENNA OPEN",  12))
-			g_gps.antenna = ANT_OPEN;
-		else if (!strncmp(&nmea[16], "ANTENNA SHORT", 13))
-			g_gps.antenna = ANT_SHORT;
-		else
-			g_gps.antenna = ANT_UNKNOWN;
+		g_gps.fix.valid = (nmea[12] == '1') || (nmea[12] == '2');
 	}
 }
 
@@ -226,65 +201,31 @@ gps_poll(void)
 void
 gps_init(void)
 {
-	int i;
+	uint32_t start_time = time_now_read();
+	bool init_ok;
 
 	/* State init */
 	memset(&g_gps, 0x00, sizeof(g_gps));
 
-	/* Configure reset gpio */
+	/* Hold onboard GPS in reset */
 	gpio_out(3, false);
 	gpio_dir(3, true);
 
-	/* Attempt reset sequence at 9600 baud and then 115200 baud */
-	for (i=0; i<2; i++)
-	{
-		uint32_t start_time = time_now_read();
-		bool init_ok;
+	/* Init RS422 board */
+	rs422_init();
 
-		/* Assert reset */
-		gpio_out(3, false);
+	/* Configure uart and empty buffer */
+	gps_uart_regs->csr = GPS_UART_CSR_DIV(9600);
+	_gps_empty(false);
 
-		/* Configure uart and empty buffer */
-		gps_uart_regs->csr = i ? GPS_UART_CSR_DIV(115200) : GPS_UART_CSR_DIV(9600);
-		_gps_empty(false);
-
-		/* Wait 100 ms */
-		delay(100);
-
-		/* Release reset line */
-		gpio_out(3, true);
-
-		/* Wait for first line of output as sign it's ready, timeout after 1s */
-		while (!time_elapsed(start_time, SYS_CLK_FREQ))
-			if ((init_ok = (_gps_query() != NULL)))
-				break;
-
-		if (init_ok) {
-			printf("[+] GPS ok at %d baud\n", i ? 115200 : 9600);
+	/* Wait for first line of output as sign it's ready, timeout after 10 s */
+	while (!time_elapsed(start_time, 10 * SYS_CLK_FREQ))
+		if ((init_ok = (_gps_query() != NULL)))
 			break;
-		}
-	}
 
-	/* Failed ? */
-	if (i == 2) {
+	if (init_ok) {
+		printf("[+] GPS ok\n");
+	} else {
 		printf("[!] GPS init failed\n");
-		return;
 	}
-
-	/* If success was at 9600 baud, need to speed up */
-	if (i == 0) {
-		/* Configure GPS to use serial at 115200 baud */
-		_gps_send("PCAS01,5");
-
-		/* Add dummy byte which will be mangled during baudrate switch ... */
-		gps_uart_regs->data = 0x00;
-		while (!(gps_uart_regs->csr & GPS_UART_CSR_TX_EMPTY));
-
-		/* Set uart to 115200 and empty uart buffer, line aligned */
-		gps_uart_regs->csr = GPS_UART_CSR_DIV(115200) ;
-		_gps_empty(true);
-	}
-
-	/* Configure GPS to be GPS-only (no GLONASS/BEIDOU) */
-	_gps_send("PCAS04,1");
 }

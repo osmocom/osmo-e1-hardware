@@ -57,6 +57,7 @@ HEADERS_app=\
 	ice1usb_proto.h \
 	i2c.h \
 	misc.h \
+	rs422.h \
 	usb_desc_ids.h \
 	usb_dev.h \
 	usb_e1.h \
@@ -72,6 +73,7 @@ SOURCES_app=\
 	gpsdo.c \
 	i2c.c \
 	misc.c \
+	rs422.c \
 	usb_desc_app.c \
 	usb_dev.c \
 	usb_e1.c \
