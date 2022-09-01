@@ -44,6 +44,10 @@ module misc (
 	// Reset request
 	output wire        rst_req,
 
+	// Aux UART
+	output wire        aux_uart_rx,
+	input  wire        aux_uart_tx,
+
 	// Wishbone
 	input  wire [ 7:0] wb_addr,
 	output reg  [31:0] wb_rdata,
@@ -71,8 +75,11 @@ module misc (
 	reg  [ 1:0] bus_we_pdm_e1;
 
 	// GPIO
+	reg  [3:0] gpio_fn;
 	reg  [3:0] gpio_oe;
+	wire [3:0] gpio_oe_io;
 	reg  [3:0] gpio_out;
+	wire [3:0] gpio_out_io;
 	wire [3:0] gpio_in;
 
 	// LED
@@ -80,12 +87,15 @@ module misc (
 
 	// PPS sync
 	wire gps_pps_iob;
-	wire gps_pps_r;
+	wire aux_pps_iob;
+
+	reg  pps_in;
+	wire pps_rise;
 
 	// Counters
 	wire [15:0] cap_e1_rx[0:1];
 	wire [15:0] cap_e1_tx[0:1];
-	wire [31:0] cap_gps;
+	wire [31:0] cap_pps;
 	wire [31:0] cnt_time;
 
 	// PDM
@@ -132,11 +142,11 @@ module misc (
 			wb_rdata <= 32'h00000000;
 		else
 			case (wb_addr[3:0])
-				4'h1:    wb_rdata <= { 12'h000, gpio_in, 4'h0, gpio_oe, 4'h0, gpio_out };
+				4'h1:    wb_rdata <= { 4'h0, gpio_fn, 4'h0, gpio_in, 4'h0, gpio_oe, 4'h0, gpio_out };
 				4'h2:    wb_rdata <= { 22'h000000, e1_led_active, e1_led };
 				4'h4:    wb_rdata <= { cap_e1_tx[0], cap_e1_rx[0] };
 				4'h5:    wb_rdata <= { cap_e1_tx[1], cap_e1_rx[1] };
-				4'h6:    wb_rdata <= cap_gps;
+				4'h6:    wb_rdata <= cap_pps;
 				4'h7:    wb_rdata <= cnt_time;
 `ifdef WITH_PDM_READBACK
 				4'h8:    wb_rdata <= { pdm_clk[0][12], 19'h00000, pdm_clk[0][11:0] };
@@ -161,17 +171,38 @@ module misc (
 		.CLOCK_ENABLE (1'b1),
 		.INPUT_CLK    (clk),
 		.OUTPUT_CLK   (clk),
-		.OUTPUT_ENABLE(gpio_oe),
-		.D_OUT_0      (gpio_out),
+		.OUTPUT_ENABLE(gpio_oe_io),
+		.D_OUT_0      (gpio_out_io),
 		.D_IN_0       (gpio_in)
 	);
+
+	// Alt function
+		// gpio[0]: aux_uart_rx
+	assign gpio_out_io[0] = gpio_fn[0] ? 1'b0 : gpio_out[0];
+	assign gpio_oe_io[0]  = gpio_fn[0] ? 1'b0 : gpio_oe[0];
+	assign aux_uart_rx    = gpio_fn[0] ? gpio_in[0] : 1'b1;
+
+		// gpio[1]: aux_uart_tx
+	assign gpio_out_io[1] = gpio_fn[1] ? aux_uart_tx : gpio_out[1];
+	assign gpio_oe_io[1]  = gpio_fn[1] ? 1'b1 : gpio_oe[1];
+
+		// gpio[2]: aux pps
+	assign gpio_out_io[2] = gpio_fn[2] ? gps_pps_iob : gpio_out[2];
+	assign gpio_oe_io[2]  = gpio_oe[2];
+	assign aux_pps_iob    = gpio_in[2];
+
+		// gpio[3]: Always gps_reset_n
+	assign gpio_out_io[3] = gpio_out[3];
+	assign gpio_oe_io[3]  = gpio_oe[3];
 
 	// Bus
 	always @(posedge clk or posedge rst)
 		if (rst) begin
+			gpio_fn  <= 4'h0;
 			gpio_oe  <= 4'h0;
 			gpio_out <= 4'h0;
 		end else if (bus_we_gpio) begin
+			gpio_fn  <= wb_wdata[27:24];
 			gpio_oe  <= wb_wdata[11:8];
 			gpio_out <= wb_wdata[ 3:0];
 		end
@@ -204,15 +235,19 @@ module misc (
 		.D_IN_0     (gps_pps_iob)
 	);
 
+	// Mux with aux
+	always @(posedge clk)
+		pps_in <= (gpio_fn[2] & ~gpio_oe[2]) ? aux_pps_iob : gps_pps_iob;
+
 	// Deglitch
 	glitch_filter #(
 		.L(2),
 		.RST_VAL(1'b0),
-		.WITH_SYNCHRONIZER(1)
+		.WITH_SYNCHRONIZER(0)
 	) pps_flt_I (
-		.in       (gps_pps_iob),
+		.in       (pps_in),
 		.val      (),
-		.rise     (gps_pps_r),
+		.rise     (pps_rise),
 		.fall     (),
 		.clk      (clk),
 `ifdef SIM
@@ -240,14 +275,14 @@ module misc (
 		.rst     (rst)
 	);
 
-	// Time / GPS
+	// Time / PPS
 	capcnt #(
 		.W(32)
 	) time_cnt_I (
 		.cnt_cur (cnt_time),
-		.cnt_cap (cap_gps),
+		.cnt_cap (cap_pps),
 		.inc     (1'b1),
-		.cap     (gps_pps_r),
+		.cap     (pps_rise),
 		.clk     (clk),
 		.rst     (rst)
 	);
