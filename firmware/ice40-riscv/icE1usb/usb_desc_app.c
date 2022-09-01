@@ -39,7 +39,7 @@ static const struct {
 			struct usb_ep_desc ep_fb;
 			struct usb_ep_desc ep_interrupt;
 		} __attribute__ ((packed)) on;
-	} __attribute__ ((packed)) e1[2];
+	} __attribute__ ((packed)) e1[NUM_E1_PORTS];
 
 	/* CDC */
 	struct {
@@ -142,6 +142,7 @@ static const struct {
 			},
 		},
 	},
+#ifndef WITH_SINGLE_CHANNEL
 	.e1[1] = {
 		.off = {
 			.intf = {
@@ -210,6 +211,7 @@ static const struct {
 			},
 		},
 	},
+#endif
 	.cdc = {
 		.intf_ctl = {
 			.bLength		= sizeof(struct usb_intf_desc),

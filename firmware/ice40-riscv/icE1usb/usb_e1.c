@@ -29,7 +29,7 @@ struct usb_e1_state {
 	struct e1_error_count last_err;
 };
 
-static struct usb_e1_state g_usb_e1[2];
+static struct usb_e1_state g_usb_e1[NUM_E1_PORTS];
 
 /* default configuration at power-up */
 static const struct ice1usb_tx_config tx_cfg_default = {
@@ -53,7 +53,7 @@ _get_ep_regs(uint8_t ep)
 static struct usb_e1_state *
 _get_state(int port)
 {
-	if ((port < 0) || (port > 1))
+	if ((port < 0) || (port >= NUM_E1_PORTS))
 		panic("_get_state invalid port %d", port);
 	return &g_usb_e1[port];
 }
@@ -63,7 +63,9 @@ _ifnum2port(uint8_t bInterfaceNumber)
 {
 	switch (bInterfaceNumber) {
 	case USB_INTF_E1(0): return 0;
+#ifndef WITH_SINGLE_CHANNEL
 	case USB_INTF_E1(1): return 1;
+#endif
 	default:
 		/* Don't panic since this will be handled as USB STALL */
 		return -1;
@@ -209,7 +211,7 @@ refill:
 void
 usb_e1_poll(void)
 {
-	for (int i=0; i<2; i++) {
+	for (int i=0; i<NUM_E1_PORTS; i++) {
 		e1_poll(i);
 		_usb_e1_run(i);
 	}
@@ -225,7 +227,7 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	if (!conf)
 		return USB_FND_SUCCESS;
 
-	for (int port=0; port<2; port++)
+	for (int port=0; port<NUM_E1_PORTS; port++)
 	{
 		intf = usb_desc_find_intf(conf, USB_INTF_E1(port), 0, NULL);
 		if (!intf)
@@ -445,7 +447,7 @@ usb_e1_init(void)
 	uint32_t rx_cr = _rx_config_reg(&rx_cfg_default);
 	uint32_t tx_cr = _tx_config_reg(&tx_cfg_default);
 
-	for (int i=0; i<2; i++) {
+	for (int i=0; i<NUM_E1_PORTS; i++) {
 		struct usb_e1_state *usb_e1 = _get_state(i);
 		memset(usb_e1, 0x00, sizeof(struct usb_e1_state));
 		usb_e1->tx_cfg = tx_cfg_default;
