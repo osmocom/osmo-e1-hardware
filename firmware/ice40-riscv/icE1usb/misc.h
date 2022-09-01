@@ -26,6 +26,7 @@ enum pdm_chan {
 
 void pdm_set(int chan, bool enable, unsigned value, bool normalize);
 
+void gpio_sfn(int n, bool sfn);
 void gpio_dir(int n, bool output);
 void gpio_out(int n, bool val);
 bool gpio_in(int n);
