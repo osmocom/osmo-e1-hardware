@@ -18,6 +18,7 @@
 #define MISC_BASE	0x88000000
 #define GPS_UART_BASE	0x89000000
 #define I2C_BASE	0x8a000000
+#define AUX_UART_BASE	0x8b000000
 
 /* Alias for common code */
 #define UART_BASE DBG_UART_BASE
