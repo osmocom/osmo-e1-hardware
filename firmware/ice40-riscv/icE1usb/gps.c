@@ -161,12 +161,10 @@ void
 _gps_parse_nmea(const char *nmea)
 {
 	/* Very basic parsing, we just look at $PERC,GPsts message for
-	 * state 1 and 2 */
+	 * state 1 (survey mode) and 2 (position-hold) */
 	if (!strncmp(nmea, "$PERC,GPsts,", 12))
 	{
-		g_gps.fix.valid =
-			((nmea[12] == '1') || (nmea[12] == '2')) &&
-			(nmea[16] == '2');
+		g_gps.fix.valid = (nmea[12] == '1') || (nmea[12] == '2');
 	}
 }
 
