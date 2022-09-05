@@ -130,6 +130,10 @@ Production version, sent to manufacturer for production.
     * Those 2 would be very slight changes, like ~ 0.1mm on each side, still have to account
       for possible tolerance in the cases that could be smaller than nominal !
 
+* The I2C connection to the GPS conflicts with usage for the extension port. Turns out the
+  chinese GPS module act as a master on those lines.
+  See https://projects.osmocom.org/issues/5664 for details of the issue.
+
 ### Notes
 
 * Adding series resistor for `gps_reset_n` and `gps_pps` was considered, but deemed not necessary.
@@ -155,3 +159,23 @@ FPGA        \        /     R         Magnetics
 
   This would take strain off the FPGA driver, provide more current and the  delay of the gate
   might actually help make the pulse shape more correct.
+
+
+Revision 1.1
+------------
+
+### Description
+
+Updated production version with minor fixes and a few adaptations for further production runs
+by sysmocom.
+
+### Changes compared to previous revisions
+
+* Updated to kicad 6 format
+* Added NO jumpers on the I2C lines to GPS module
+* Added fiducials
+* Silkscreen updated
+
+### Manufactured
+
+* TBD
