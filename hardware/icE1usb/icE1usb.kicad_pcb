@@ -6174,7 +6174,7 @@
   (gr_line (start -17.5 22) (end -17.75 22) (layer "F.Fab") (width 0.05) (tstamp 52da99c6-c348-4007-8828-51a963a2879f))
   (gr_line (start -22 1) (end -21.75 0.75) (layer "F.Fab") (width 0.05) (tstamp 7a25e2e8-d883-44ae-8207-1f946e50b1fa))
   (gr_line (start -14.75 21.75) (end -14.75 22.25) (layer "F.Fab") (width 0.05) (tstamp e2743b78-cc59-458c-8fb0-4238f348a49f))
-  (gr_text "rev 1.0 - 202008\n(c) 2020 - Munaut.S\nCERN-OHL-S" (at 0 -15) (layer "F.SilkS") (tstamp 00000000-0000-0000-0000-00005f3d863c)
+  (gr_text "rev 1.1 - 202209\n(c) 2020 - Munaut.S\nCERN-OHL-S" (at 0 -15) (layer "F.SilkS") (tstamp 00000000-0000-0000-0000-00005f3d863c)
     (effects (font (size 0.6 0.6) (thickness 0.1)) (justify left))
   )
   (gr_text "icE1usb" (at 0 -17.5) (layer "F.SilkS") (tstamp 00000000-0000-0000-0000-00005f3d8699)
