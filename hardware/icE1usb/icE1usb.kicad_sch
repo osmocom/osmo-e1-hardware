@@ -3759,6 +3759,12 @@
     (path "/00000000-0000-0000-0000-00005f27e0f4/00000000-0000-0000-0000-00005f34e744"
       (reference "JP1") (unit 1) (value "BatBypass") (footprint "s47-misc:J_NC_0603_30")
     )
+    (path "/00000000-0000-0000-0000-00005f27e0f4/2fe05468-a358-4532-91bb-d12596f61ee3"
+      (reference "JP2") (unit 1) (value "GPS SDA") (footprint "s47-misc:J_0402")
+    )
+    (path "/00000000-0000-0000-0000-00005f27e0f4/c5d67839-4777-45dd-9641-4c04e45579f7"
+      (reference "JP3") (unit 1) (value "GPS SCL") (footprint "s47-misc:J_0402")
+    )
     (path "/00000000-0000-0000-0000-00005f27e0f4/00000000-0000-0000-0000-00005f334ba8"
       (reference "L1") (unit 1) (value "47n") (footprint "Inductor_SMD:L_0402_1005Metric")
     )
