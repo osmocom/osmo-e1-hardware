@@ -49,8 +49,8 @@ struct {
 
 	/* Fine tracking */
 	struct {
-		int acc;
-		int div;
+		int acc;		/* Accumulated error */
+		int integral;		/* PID Integral term */
 	} fine;
 
 } g_gpsdo;
@@ -60,6 +60,7 @@ struct {
  * VCXTO parameters
  *
  * - iKv is reciprocal sensitivity vs 'coarse' count for fast initial acquisition
+ * - Kp, Ki, Kd are params for the fine-tracking PID loop
  *
  * Note that the spec if often a guaranteed minimum range and goes
  * from ~0.1V to 3.2V instead of 0-3.3V so actual sensitivity is
@@ -67,13 +68,22 @@ struct {
  */
 static const struct {
 	int iKv;  /* hi-count / Hz         (.8  fixed point) */
+	int Kp;   /* PID proportional term (.12 fixed point) */
+	int Ki;   /* PID integral term     (.12 fixed point) */
+	int Kd;   /* PID differential term (.12 fixed point) */
 } vctxo_params[] = {
 	[VCTXO_TAITIEN_VT40] = {
 		.iKv =   300, /* +-  50 ppm pull range => ~ 0.75 Hz / hi-count (set to 0.85) */
+		.Kp  = 14336,
+		.Ki  =   410,
+		.Kd  = -6144,
 	},
 
 	[VCTXO_SITIME_SIT3808_E] = {
 		.iKv =   160, /* +- 100 ppm pull range => ~ 1.50 Hz / hi-count (set to 1.6) */
+		.Kp  =  7168,
+		.Ki  =   205,
+		.Kd  = -4096,
 	},
 };
 
@@ -188,7 +198,7 @@ _gpsdo_fine_start(void)
 
 	/* Reset the long term error tracking */
 	g_gpsdo.fine.acc = 0;
-	g_gpsdo.fine.div = 0;
+	g_gpsdo.fine.integral = 0;
 }
 
 static void
@@ -219,7 +229,6 @@ static void
 _gpsdo_fine_track(uint32_t tick_diff)
 {
 	int freq_diff = (int)tick_diff - TARGET;
-	uint16_t tune;
 
 	/* Did we deviate too much ? */
 	if ((freq_diff < -2*MAX_DEV_FINE) || (freq_diff > 2*MAX_DEV_FINE)) {
@@ -227,30 +236,16 @@ _gpsdo_fine_track(uint32_t tick_diff)
 		return;
 	}
 
-	/* Accumulate long term error */
+	/* Accumulate long term error and integrate it */
 	g_gpsdo.fine.acc += freq_diff;
+	g_gpsdo.fine.integral += g_gpsdo.fine.acc;
 
-	/* Update fine tuning value */
-	if (((g_gpsdo.fine.acc >= 0) && (freq_diff > 0)) ||
-	    ((g_gpsdo.fine.acc <= 0) && (freq_diff < 0)))
-	{
-		    g_gpsdo.tune.fine -= freq_diff;
-	}
-
-	if (g_gpsdo.fine.acc) {
-		if (++g_gpsdo.fine.div > 10) {
-			g_gpsdo.fine.div = 0;
-			if (g_gpsdo.fine.acc > 0)
-				g_gpsdo.tune.fine--;
-			else if (g_gpsdo.fine.acc < 0)
-				g_gpsdo.tune.fine++;
-		}
-	} else {
-		g_gpsdo.fine.div = 0;
-	}
-
-	/* Compute value with a bias from long term accumulator */
-	tune = g_gpsdo.tune.fine - (g_gpsdo.fine.acc / 2);
+	/* PID */
+	g_gpsdo.tune.fine = 2048 - ((
+		vctxo_params[g_gpsdo.vctxo].Kp * g_gpsdo.fine.acc +
+		vctxo_params[g_gpsdo.vctxo].Ki * g_gpsdo.fine.integral +
+		vctxo_params[g_gpsdo.vctxo].Kd * freq_diff
+	) >> 12);
 
 	/* If fine tune is getting close to boundary, do our
 	 * best to transfer part of it to coarse tuning */
@@ -260,13 +255,12 @@ _gpsdo_fine_track(uint32_t tick_diff)
 
 		g_gpsdo.tune.coarse += coarse_adj;
 		g_gpsdo.tune.fine   -= coarse_adj << 6;
-		tune                -= coarse_adj << 6;
 
 		pdm_set(PDM_CLK_HI, true, g_gpsdo.tune.coarse, false);
 	}
 
 	/* Apply fine */
-	pdm_set(PDM_CLK_LO, true, tune, false);
+	pdm_set(PDM_CLK_LO, true, g_gpsdo.tune.fine, false);
 
 	/* Debug */
 #ifdef GPSDO_DEBUG
