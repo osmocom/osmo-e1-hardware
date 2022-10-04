@@ -102,6 +102,7 @@ gpsdo_get_status(struct e1usb_gpsdo_status *status)
 	status->tune.coarse    = g_gpsdo.tune.coarse;
 	status->tune.fine      = g_gpsdo.tune.fine;
 	status->freq_est       = g_gpsdo.meas.last;
+	status->err_acc        = (g_gpsdo.state == STATE_TUNE_FINE) ? g_gpsdo.fine.acc : 0;
 }
 
 void
