@@ -17,6 +17,9 @@
 
 
 struct {
+	/* Configuration */
+	enum gpsdo_vctxo_model vctxo;
+
 	/* Current tuning */
 	struct {
 		uint16_t coarse;
@@ -41,7 +44,6 @@ struct {
 
 	/* Coarse tuning */
 	struct {
-		int vctxo_sensitivity;
 		int step;
 	} coarse;
 
@@ -54,19 +56,25 @@ struct {
 } g_gpsdo;
 
 
-/* VCXTO sensitivity vs 'coarse' count for fast initial acquisition */
-	/*
-	 * Note that the spec if often a guaranteed minimum range and goes
-	 * from ~0.1V to 3.2V instead of 0-3.3V so actual sensitivity is
-	 * higher than the "theoritical value". We boost it by ~ 10% here.
-	 */
-static const int
-vctxo_sensitivity[] = {
-	/* +-  50 ppm pull range => ~ 0.75 Hz / hi-count (set to 0.85) */
-	[VCTXO_TAITIEN_VT40]     = 300,
+/*
+ * VCXTO parameters
+ *
+ * - iKv is reciprocal sensitivity vs 'coarse' count for fast initial acquisition
+ *
+ * Note that the spec if often a guaranteed minimum range and goes
+ * from ~0.1V to 3.2V instead of 0-3.3V so actual sensitivity is
+ * higher than the "theoritical value". We boost it by ~ 10% here.
+ */
+static const struct {
+	int iKv;  /* hi-count / Hz         (.8  fixed point) */
+} vctxo_params[] = {
+	[VCTXO_TAITIEN_VT40] = {
+		.iKv =   300, /* +-  50 ppm pull range => ~ 0.75 Hz / hi-count (set to 0.85) */
+	},
 
-	/* +- 100 ppm pull range => ~ 1.50 Hz / hi-count (set to 1.6) */
-	[VCTXO_SITIME_SIT3808_E] = 160,
+	[VCTXO_SITIME_SIT3808_E] = {
+		.iKv =   160, /* +- 100 ppm pull range => ~ 1.50 Hz / hi-count (set to 1.6) */
+	},
 };
 
 /* Tuning params */
@@ -195,7 +203,7 @@ _gpsdo_coarse_tune(uint32_t tick_diff)
 	}
 
 	/* Estimate correction and apply it */
-	g_gpsdo.tune.coarse -= (freq_diff * g_gpsdo.coarse.vctxo_sensitivity) >> 8;
+	g_gpsdo.tune.coarse -= (freq_diff * vctxo_params[g_gpsdo.vctxo].iKv) >> 8;
 	pdm_set(PDM_CLK_HI, true, g_gpsdo.tune.coarse, false);
 
 	/* Skip next measurement */
@@ -357,5 +365,5 @@ gpsdo_init(enum gpsdo_vctxo_model vctxo)
 
 	/* Initial state and config */
 	g_gpsdo.state = STATE_HOLD_OVER;
-	g_gpsdo.coarse.vctxo_sensitivity = vctxo_sensitivity[vctxo];
+	g_gpsdo.vctxo = vctxo;
 }
