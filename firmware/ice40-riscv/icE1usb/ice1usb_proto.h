@@ -20,6 +20,10 @@
 /*! returns a string describing the firmware version */
 #define ICE1USB_DEV_GET_FW_BUILD	0x02
 
+/*! performs an I2C register access (read/write depends on direction) */
+#define ICE1USB_DEV_I2C_REG_ACCESS	0x10
+
+
 enum e1usb_dev_capability {
 	/*! Does this board have a GPS-DO */
 	ICE1USB_DEV_CAP_GPSDO,

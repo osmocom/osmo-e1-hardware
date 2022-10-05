@@ -12,6 +12,7 @@
 #include <no2usb/usb_proto.h>
 
 #include "console.h"
+#include "i2c.h"
 #include "misc.h"
 
 #include "ice1usb_proto.h"
@@ -24,6 +25,10 @@ static enum usb_fnd_resp
 _usb_dev_ctrl_req_write(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 {
 	switch (req->bRequest) {
+	case ICE1USB_DEV_I2C_REG_ACCESS:
+		if (!i2c_write_reg((req->wIndex >> 8), req->wIndex & 0xff, req->wValue & 0xff))
+			return USB_FND_ERROR;
+		break;
 	default:
 		return USB_FND_ERROR;
 	}
@@ -42,6 +47,11 @@ _usb_dev_ctrl_req_read(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 	case ICE1USB_DEV_GET_FW_BUILD:
 		xfer->data = (void*) fw_build_str;
 		xfer->len  = strlen(fw_build_str);
+		break;
+	case ICE1USB_DEV_I2C_REG_ACCESS:
+		if (!i2c_read_reg((req->wIndex >> 8), req->wIndex & 0xff, &xfer->data[0]))
+			return USB_FND_ERROR;
+		xfer->len = 1;
 		break;
 	default:
 		return USB_FND_ERROR;
