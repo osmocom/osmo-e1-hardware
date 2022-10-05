@@ -21,13 +21,19 @@ const char *fw_build_str = BUILD_INFO;
 
 
 static enum usb_fnd_resp
-_usb_dev_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
+_usb_dev_ctrl_req_write(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 {
-	/* Check it's a device-wide vendor request */
-	if (USB_REQ_TYPE_RCPT(req) != (USB_REQ_TYPE_VENDOR | USB_REQ_RCPT_DEV))
-		return USB_FND_CONTINUE;
+	switch (req->bRequest) {
+	default:
+		return USB_FND_ERROR;
+	}
 
-	/* Dispatch / Handle */
+	return USB_FND_SUCCESS;
+}
+
+static enum usb_fnd_resp
+_usb_dev_ctrl_req_read(struct usb_ctrl_req *req, struct usb_xfer *xfer)
+{
 	switch (req->bRequest) {
 	case ICE1USB_DEV_GET_CAPABILITIES:
 		xfer->data[0] = (1 << ICE1USB_DEV_CAP_GPSDO);
@@ -42,6 +48,20 @@ _usb_dev_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 	}
 
 	return USB_FND_SUCCESS;
+}
+
+static enum usb_fnd_resp
+_usb_dev_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
+{
+	/* Check it's a device-wide vendor request */
+	if (USB_REQ_TYPE_RCPT(req) != (USB_REQ_TYPE_VENDOR | USB_REQ_RCPT_DEV))
+		return USB_FND_CONTINUE;
+
+	/* Read / Write dispatch */
+	if (USB_REQ_IS_READ(req))
+		return _usb_dev_ctrl_req_read(req, xfer);
+	else
+		return _usb_dev_ctrl_req_write(req, xfer);
 }
 
 
