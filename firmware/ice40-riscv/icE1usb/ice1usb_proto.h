@@ -16,6 +16,8 @@
 
 /*! returns a bit-mask of optional device capabilities (see enum e1usb_dev_capability) */
 #define ICE1USB_DEV_GET_CAPABILITIES	0x01
+
+/*! returns a string describing the firmware version */
 #define ICE1USB_DEV_GET_FW_BUILD	0x02
 
 enum e1usb_dev_capability {
