@@ -2,7 +2,7 @@
  * usb_desc_ids.h
  *
  * Copyright (C) 2022  Sylvain Munaut <tnt@246tNt.com>
- * SPDX-License-Identifier: LGPL-3.0-or-later
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #pragma once
