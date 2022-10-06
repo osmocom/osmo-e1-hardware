@@ -278,7 +278,8 @@ gpsdo_poll(void)
 	bool valid;
 
 	/* If more than 3 sec elapsed since last PPS, go to hold-over */
-	if (time_elapsed(g_gpsdo.meas.tick_prev, 3 * SYS_CLK_FREQ)) {
+	if ((g_gpsdo.state != STATE_DISABLED) &&
+	    time_elapsed(g_gpsdo.meas.tick_prev, 3 * SYS_CLK_FREQ)) {
 		g_gpsdo.state = STATE_HOLD_OVER;
 		g_gpsdo.meas.invalid = 0;
 		g_gpsdo.meas.skip = 0;
