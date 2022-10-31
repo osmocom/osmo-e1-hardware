@@ -149,7 +149,8 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 		g_usb_e1.running = false;
 
 		/* Stop E1 */
-		e1_stop();
+		e1_stop(0);
+		e1_stop(1);
 
 		/* Disable end-points */
 		usb_ep_regs[1].in.status = 0;
@@ -187,7 +188,8 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 		usb_ep_regs[2].in.bd[1].csr = 0;
 
 		/* Start E1 */
-		e1_start();
+		e1_start(0);
+		e1_start(1);
 	}
 	else
 	{

@@ -2,6 +2,7 @@
  * e1.c
  *
  * Copyright (C) 2019-2020  Sylvain Munaut <tnt@246tNt.com>
+ * Copyright (C) 2022  Harald Welte <laforge@osmocom.org>
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
@@ -276,53 +277,36 @@ e1_init(void)
 }
 
 void
-e1_start(void)
+e1_start(int chan)
 {
 	/* Reset FIFOs */
 #ifdef BIGBUF
-	e1f_reset(&g_e1.rx[0].fifo,    0, 1024);
-	e1f_reset(&g_e1.rx[1].fifo, 1024, 1024);
+	e1f_reset(&g_e1.rx[chan].fifo,    0, 1024);
 #else
-	e1f_reset(&g_e1.rx[0].fifo,   0, 128);
-	e1f_reset(&g_e1.rx[1].fifo, 128, 128);
+	e1f_reset(&g_e1.rx[chan].fifo,   0, 128);
 #endif
 
-	/* Enable Rx0 */
-	g_e1.rx[0].cr = E1_RX_CR_OVFL_CLR |
+	/* Enable Rx */
+	g_e1.rx[chan].cr = E1_RX_CR_OVFL_CLR |
 	                E1_RX_CR_MODE_MFA |
 	                E1_RX_CR_ENABLE;
-	e1_regs->rx[0].csr = g_e1.rx[0].cr;
-
-	/* Enable Rx1 */
-	g_e1.rx[1].cr = E1_RX_CR_OVFL_CLR |
-	                E1_RX_CR_MODE_MFA |
-	                E1_RX_CR_ENABLE;
-	e1_regs->rx[1].csr = g_e1.rx[1].cr;
+	e1_regs->rx[chan].csr = g_e1.rx[chan].cr;
 
 	/* State */
-	g_e1.rx[0].state = BOOT;
-	g_e1.rx[0].in_flight = 0;
-	g_e1.rx[0].flags = 0;
-
-	g_e1.rx[1].state = BOOT;
-	g_e1.rx[1].in_flight = 0;
-	g_e1.rx[1].flags = 0;
+	g_e1.rx[chan].state = BOOT;
+	g_e1.rx[chan].in_flight = 0;
+	g_e1.rx[chan].flags = 0;
 }
 
 void
-e1_stop()
+e1_stop(int chan)
 {
-	/* Disable RX0 */
-	g_e1.rx[0].cr = 0;
-	e1_regs->rx[0].csr = g_e1.rx[0].cr;
-
-	/* Disable RX1 */
-	g_e1.rx[1].cr = 0;
-	e1_regs->rx[1].csr = g_e1.rx[1].cr;
+	/* Disable RX */
+	g_e1.rx[chan].cr = 0;
+	e1_regs->rx[chan].csr = g_e1.rx[0].cr;
 
 	/* State */
-	g_e1.rx[0].state = IDLE;
-	g_e1.rx[1].state = IDLE;
+	g_e1.rx[chan].state = IDLE;
 }
 
 

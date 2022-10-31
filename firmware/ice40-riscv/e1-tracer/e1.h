@@ -8,8 +8,8 @@
 #pragma once
 
 void e1_init();
-void e1_start();
-void e1_stop();
+void e1_start(int chan);
+void e1_stop(int chan);
 
 void e1_poll(void);
 
