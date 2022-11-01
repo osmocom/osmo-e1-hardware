@@ -16,10 +16,12 @@
 #include "console.h"
 #include "e1.h"
 #include "misc.h"
+#include "idt82v2081.h"
 
 struct {
 	bool running[2];
 	int in_bdi[2];
+	struct idt82 idt82[2];
 } g_usb_e1;
 
 
@@ -213,6 +215,7 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 				disable_chan(base->bInterfaceNumber);
 				break;
 			case 1:
+				idt82_init(&g_usb_e1.idt82[base->bInterfaceNumber], true);
 				enable_chan(base->bInterfaceNumber);
 				break;
 			default:
@@ -266,6 +269,9 @@ usb_e1_init(void)
 {
 	/* Clear state */
 	memset(&g_usb_e1, 0x00, sizeof(g_usb_e1));
+	/* make sure we use the right SPI channel for the respective IDT82 */
+	g_usb_e1.idt82[0].cs = 0;
+	g_usb_e1.idt82[1].cs = 1;
 
 	/* Install driver */
 	usb_register_function_driver(&_e1_drv);

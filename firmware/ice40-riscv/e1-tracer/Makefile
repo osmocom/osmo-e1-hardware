@@ -47,6 +47,8 @@ SOURCES_common += $(SOURCES_no2usb)
 HEADERS_app=\
 	config.h \
 	e1.h \
+	idt82v2081.h \
+	idt82v2081_regs.h \
 	misc.h \
 	usb_str_app.gen.h \
 	$(NULL)
@@ -54,6 +56,8 @@ HEADERS_app=\
 SOURCES_app=\
 	e1.c \
 	fw_app.c \
+	idt82v2081.c \
+	idt82v2081_no2spi.c \
 	misc.c \
 	usb_desc_app.c \
 	usb_e1.c \
