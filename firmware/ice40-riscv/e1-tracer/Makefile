@@ -84,7 +84,7 @@ prog: $(GITVER).bin
 	$(ICEPROG) -o 640k $<
 
 dfuprog: $(GITVER).bin
-	$(DFU_UTIL) -R -a 1 -D $<
+	$(DFU_UTIL) -R -d 1d50:6151,1d50:6150 -a 1 -D $<
 
 
 clean:
