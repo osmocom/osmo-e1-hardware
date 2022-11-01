@@ -1,6 +1,9 @@
 0000000000000000
 osmocom
 e1-tracer
-Main
+Legacy
 E1
 DFU runtime
+osmo-e1d compatible
+E1 Direction A
+E1 Direction B

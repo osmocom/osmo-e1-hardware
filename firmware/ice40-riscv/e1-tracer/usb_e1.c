@@ -2,6 +2,7 @@
  * usb_e1.c
  *
  * Copyright (C) 2019-2020  Sylvain Munaut <tnt@246tNt.com>
+ * Copyright (C) 2022  Harald Welte <laforge@osmocom.org>
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
@@ -17,7 +18,7 @@
 #include "misc.h"
 
 struct {
-	bool running;
+	bool running[2];
 	int in_bdi[2];
 } g_usb_e1;
 
@@ -35,12 +36,12 @@ usb_e1_run(void)
 	int chan;
 	int bdi;
 
-	if (!g_usb_e1.running)
-		return;
-
 	/* EP[1-2] IN */
 	for (chan=0; chan<2; chan++)
 	{
+		if (!g_usb_e1.running[chan])
+			continue;
+
 		bdi = g_usb_e1.in_bdi[chan];
 
 		while ((usb_ep_regs[1+chan].in.bd[bdi].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
@@ -112,12 +113,17 @@ _find_intf(const struct usb_conf_desc *conf, uint8_t idx)
 
 	return NULL;
 }
+
+static const struct usb_conf_desc *last_conf;
+
 enum usb_fnd_resp
 _e1_set_conf(const struct usb_conf_desc *conf)
 {
 	const struct usb_intf_desc *intf;
 
 	printf("e1 set_conf %08x\n", conf);
+
+	last_conf = conf;
 	if (!conf)
 		return USB_FND_SUCCESS;
 
@@ -133,70 +139,93 @@ _e1_set_conf(const struct usb_conf_desc *conf)
 	return USB_FND_SUCCESS;
 }
 
+static void
+disable_chan(int chan)
+{
+	/* Already stopped ? */
+	if (!g_usb_e1.running[chan])
+		return;
+
+	/* Update state */
+	g_usb_e1.running[chan] = false;
+
+	/* Stop E1 */
+	e1_stop(chan);
+
+	/* Disable end-points */
+	usb_ep_regs[chan+1].in.status = 0;
+}
+
+static void
+enable_chan(int chan)
+{
+	/* Already running ? */
+	if (g_usb_e1.running[chan])
+		return;
+
+	/* Update state */
+	g_usb_e1.running[chan] = true;
+
+	/* Reset buffer pointers */
+	g_usb_e1.in_bdi[chan] = 0;
+
+	/* Configure EP1 IN / EP2 IN */
+	usb_ep_regs[chan+1].in.status = USB_EP_TYPE_ISOC | USB_EP_BD_DUAL;	/* Type=Isochronous, dual buffered */
+
+	/* EP1 IN: Prepare two buffers */
+	usb_ep_regs[chan+1].in.bd[0].ptr = 256 + (chan * 2 + 0) * 388;
+	usb_ep_regs[chan+1].in.bd[0].csr = 0;
+
+	usb_ep_regs[chan+1].in.bd[1].ptr = 256 + (chan * 2 + 1) * 388;
+	usb_ep_regs[chan+1].in.bd[1].csr = 0;
+
+	/* Start E1 */
+	e1_start(chan);
+}
+
 enum usb_fnd_resp
 _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 {
-	if (base->bInterfaceNumber != 0)
-		return USB_FND_CONTINUE;
+	if (!last_conf || last_conf->bConfigurationValue == 1) {
+		/* Legacy Configuration */
 
-	if (sel->bAlternateSetting == 0)
-	{
-		/* Already stopped ? */
-		if (!g_usb_e1.running)
-			return USB_FND_SUCCESS;
+		if (base->bInterfaceNumber != 0)
+			return USB_FND_CONTINUE;
 
-		/* Update state */
-		g_usb_e1.running = false;
+		if (sel->bAlternateSetting == 0) {
+			disable_chan(0);
+			disable_chan(1);
+		} else if (sel->bAlternateSetting == 1) {
+			enable_chan(0);
+			enable_chan(1);
+		} else {
+			/* Unknown */
+			return USB_FND_ERROR;
+		}
+	} else if (last_conf && last_conf->bConfigurationValue == 2) {
+		/* e1d compatible configuration */
 
-		/* Stop E1 */
-		e1_stop(0);
-		e1_stop(1);
-
-		/* Disable end-points */
-		usb_ep_regs[1].in.status = 0;
-		usb_ep_regs[2].in.status = 0;
-	}
-	else if (sel->bAlternateSetting == 1)
-	{
-		/* Already running ? */
-		if (g_usb_e1.running)
-			return USB_FND_SUCCESS;
-
-		/* Update state */
-		g_usb_e1.running = true;
-
-		/* Reset buffer pointers */
-		g_usb_e1.in_bdi[0] = 0;
-		g_usb_e1.in_bdi[1] = 0;
-
-		/* Configure EP1 IN / EP2 IN */
-		usb_ep_regs[1].in.status = USB_EP_TYPE_ISOC | USB_EP_BD_DUAL;	/* Type=Isochronous, dual buffered */
-		usb_ep_regs[2].in.status = USB_EP_TYPE_ISOC | USB_EP_BD_DUAL;	/* Type=Isochronous, dual buffered */
-
-		/* EP1 IN: Prepare two buffers */
-		usb_ep_regs[1].in.bd[0].ptr = 256 + 0 * 388;
-		usb_ep_regs[1].in.bd[0].csr = 0;
-
-		usb_ep_regs[1].in.bd[1].ptr = 256 + 1 * 388;
-		usb_ep_regs[1].in.bd[1].csr = 0;
-
-		/* EP2 IN: Prepare two buffers */
-		usb_ep_regs[2].in.bd[0].ptr = 256 + 2 * 388;
-		usb_ep_regs[2].in.bd[0].csr = 0;
-
-		usb_ep_regs[2].in.bd[1].ptr = 256 + 3 * 388;
-		usb_ep_regs[2].in.bd[1].csr = 0;
-
-		/* Start E1 */
-		e1_start(0);
-		e1_start(1);
-	}
-	else
-	{
-		/* Unknown */
+		switch (base->bInterfaceNumber) {
+		case 0:
+		case 1:
+			switch (sel->bAlternateSetting) {
+			case 0:
+				disable_chan(base->bInterfaceNumber);
+				break;
+			case 1:
+				enable_chan(base->bInterfaceNumber);
+				break;
+			default:
+				/* Unknown */
+				return USB_FND_ERROR;
+			}
+			break;
+		default:
+			return USB_FND_CONTINUE;
+		}
+	} else {
 		return USB_FND_ERROR;
 	}
-
 
 	return USB_FND_SUCCESS;
 }
@@ -204,10 +233,24 @@ _e1_set_intf(const struct usb_intf_desc *base, const struct usb_intf_desc *sel)
 enum usb_fnd_resp
 _e1_get_intf(const struct usb_intf_desc *base, uint8_t *alt)
 {
-	if (base->bInterfaceNumber != 0)
-		return USB_FND_CONTINUE;
+	if (!last_conf || last_conf->bConfigurationValue == 1) {
+		/* Legacy configuration */
+		if (base->bInterfaceNumber != 0)
+			return USB_FND_CONTINUE;
 
-	*alt = g_usb_e1.running ? 1 : 0;
+		*alt = g_usb_e1.running[0] && g_usb_e1.running[1] ? 1 : 0;
+	} else if (last_conf && last_conf->bConfigurationValue == 2) {
+		/* e1d compatible configuration */
+		switch (base->bInterfaceNumber) {
+		case 0:
+		case 1:
+			*alt = g_usb_e1.running[base->bInterfaceNumber] ? 1 : 0;
+			break;
+		default:
+			return USB_FND_CONTINUE;
+		}
+	} else
+		return USB_FND_CONTINUE;
 
 	return USB_FND_SUCCESS;
 }
