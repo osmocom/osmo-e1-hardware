@@ -15,7 +15,7 @@ It's main building blocks are:
 As icE1usb is an OSHW (Open Source Hardware) project, the full schematics
 and design files are publicly available.
 
-The design files in KiCAD formwa are available at https://git.osmocom.org/osmo-e1-hardware/tree/hardware/icE1usb
+The design files in KiCAD format are available at https://git.osmocom.org/osmo-e1-hardware/tree/hardware/icE1usb
 
 PDF rendered schematics are available at https://git.osmocom.org/osmo-e1-hardware/plain/hardware/icE1usb/r1.0/icE1usb.pdf
 
