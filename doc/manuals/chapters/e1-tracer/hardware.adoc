@@ -1,0 +1,123 @@
+[[hardware]]
+== e1-tracer Hardware
+
+The e1-tracer Hardware consists of a single circuit board, mechanically
+either assembled into a desktop enclosure (KOH variant) or into a 3U component
+carrier module (BGT variant).
+
+image::images/e1_tracer-bgt-front.jpg[width=400,title="e1-tracer BGT variant"]
+image::images/e1_tracer-koh1.jpg[width=400,title="e1-tracer KOH variant"]
+
+
+It's main building blocks are:
+
+* an iCE40 FPGA
+* two E1 Line Interface Unit ICs
+* two E1 line interface analog (transformers, biasing networks and ESD protection)
+
+=== Schematics / Board Layout
+
+As e1-tracer is an OSHW (Open Source Hardware) project, the full schematics
+and design files are publicly available.
+
+The design files in EAGLE format are available at https://git.osmocom.org/osmo-e1-hardware/tree/hardware/e1-tracer
+
+PDF rendered schematics are available at https://gitea.osmocom.org/retronetworking/osmo-e1-hardware/raw/branch/master/hardware/e1-tracer/e1-tracer_sch.pdf
+
+=== Connectors / LEDs
+
+image::images/e1-tracer-plate.png[width=400,title="front side of e1-tracer"]
+
+From left to right, there are the following LED indcators, connectors and buttons:
+
+* LED block with 4 LED's
+* Primary E1 Port (E1 A)
+* Secondary E1 Port (E1 B)
+* Serial Console Connector
+* USB Connector
+* Bootloader Button
+
+==== LEDs
+
+The left-most column of LEDs consists of two red *LOS LEDs*.
+They indicate a LOS (Loss Of Signal) condition for the respective E1 direction.  It is normal for the LEDs to be illuminated even in presence of a valid E1 signal until the host software has fully initialized the firmware for the first time after power-up.
+
+The right column of LEDs consists of two further LEDs:
+
+* a multi-color *STATUS LED* on the top
+* a green *POWER LED* on the bottom
+
+The *STATUS LED* is used by the firmware to indicate a variety of status
+information.  Pleas see the firmware documentation in <<firmware>>.
+
+The green *POWER LED* is illuminated as soon as the device has DC power.
+
+==== J1A and J1B: E1 Interface Connectors
+
+There are two RJ45 connectors next to each other.
+
+Those are the connections for your symmetric 120 Ohms E1 interface
+circuit.  You insert the e1-tracer into your E1 link.  The two ports are
+internally wired straight-through, so you can insert the e1-tracer into
+your E1 link.
+
+The actual tracing functionality is implemented via a high-impedance
+tap, which will not disturb the normal E1 communications link. The link
+remains unaffected even if the e1-tracer is unpowered.
+
+.Pin-out of RJ45 E1 connectors
+[options="header"]
+|===
+| Pin | Function (TE) | Function (NT Mode)
+| 1   | Pair A        | Pair A
+| 2   | Pair A        | Pair A
+| 3   | not used      | not used
+| 4   | Pair B        | Pair B
+| 5   | Pair B        | Pair B
+| 7   | not used      | not used
+| 8   | not used      | not used
+|===
+
+NOTE: E1 cables use RJ45 like Ethernet, but Ethernet cables have a
+different pin-out.  Particularly, you cannot use an Ethernet cross-over
+cable as an E1 cross-over!
+
+==== X1: USB Connector
+
+The USB connector is a USB Mini B connector.   The e1-tracer uses
+USB 1.1 full-speed signals.  As the e1-tracer is a bus-powered device,
+5V DC power is also sourced from this connector.
+
+==== X2: Serial Console Connector
+
+The serial console is used for development and debugging.  It uses an
+Osmocom-style 2.5mm stereo TRS jack.
+
+The serial console uses 3.3V CMOS logic levels
+
+The serial console uses a rate of 1000000 bps.
+
+The pin-out is as follows:
+
+* Tip: Tx output from PC (Rx input of e1-tracer)
+* Ring: Rx input of PC (Tx output of e1-tracer)
+* Shield: GND
+
+A compatible cable can be sourced from the sysmocom web-shop at
+http://shop.sysmocom.de/.
+
+Note that CP2102 based cables require special programming to support
+the baud rate of 1000000 (as opposed to the more standard 921600).
+
+[[hw-pushbutton]]
+=== Bootloader Button
+
+There is a push-button next to the _USB B connector_.   It is recessed
+to protect against accidental use.   You will need to use a paper clip,
+pen tip or other similar object to push it.
+
+The button, when pressed while power-up, can be used to force booting
+into the DFU loader in order to recover from a broken firmware
+installation.
+
+

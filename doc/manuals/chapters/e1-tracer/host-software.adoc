@@ -1,0 +1,291 @@
+== Host Software
+
+Host Software is software running on the USB host computer to which the
+e1-tracer is attached.
+
+At the time of this writing, there are two options:
+
+* legcay tools from the `software/e1-tracer` sub-directory of the `osmo-e1-hardware.git` repository
+* `osmo-e1d`
+
+=== Legacy Software
+
+The legacy software was the initial software developed for the
+e1-tracer.  Its purpose was raw trace recording for later offline
+analysis.
+
+The source code of this software can be found in the
+`software/e1-tracer` sub-directory of the `osmo-e1-hardware.git`
+repository at https://gitea.osmocom.org/retronetworking/osmo-e1-hardware
+
+==== e1-tracer-record
+
+The `e1-tracer-record` program is used to create on-disk recordings of the
+full E1 interface in both directions.
+
+You can use `e1-trace-record` to obtain a raw recording using the osmo-e1-tracer.
+
+Once the program is started, it will open the USB device (via libusb), enable it
+and subsequently store all received E1 frames to a file on disk.  The disk file format
+is a custom format containing chunks of data, each prefixed by a header containing
+metadata such as the receive timestamp and the direction of the data.
+
+The program supports the following command line arguments:
+
+.Command line arguments of `e1-tracer-record` program
+----
+ `-o FILE`  the name of the output file to which the recording is to be stored.
+ `-a`       append (instead of overwrite) the output file, if it already exists.
+ `-m`       set the PHY into monitor (high-impedance) mode.  You should always enable this.
+ `-r`       use SCHED_RR *realtime* scheduling to reduce the likelihood of lost data on overloaded systems
+----
+
+A typical invocation of the program would look like this:
+
+ `e1-trace-record -o /tmp/my_recording.e1cap -m -r`
+
+There are some additional low-level tuning parameters (`-n` and `-p`), but you should not need those
+under normal operation.
+
+==== e1cap file format
+
+The recording file format consists of *chunks* of data. Each chunk contains a number of E1 frames in one
+direction of the line.
+
+The chunk header is prefixed with a 32bit magic value 0xE115600D, followed by two 64bit values as timestamp
+(seconds and microseconds), followed by a 16bit length value and an 8 bit USB endpoint number.  The USB
+endpoint number signifies the direction; it can be either 0x81 or 0x82.
+
+.Definition of chunk header
+----
+struct e1_chunk_hdr {
+        uint32_t magic;
+        struct {
+                uint64_t sec;
+                uint64_t usec;
+        } time;
+        int16_t len;
+        uint8_t ep;
+} __attribute__((packed));
+----
+
+After the chunk header is a concatenation of multiple E1 frames, each 32bytes long (one byte for each timeslot
+in the frame).
+
+
+=== `osmo-e1d`
+
+`osmo-e1d` was originally implemented as a host software stack for the
+icE1usb E1 USB interface, which is _terminating_ an E1 link and allows
+receive and transmit use by external software.
+
+More recently, `osmo-e1d` and the e1-tracer firmware have been made
+compatible.  This means that `osmo-e1d` can now be used by applications
+to get raw trace data from individual E1 timeslots in real-time using
+the same API/interface that was originally designed for icE1usb.
+
+The e1-tracer appears to `osmo-e1d` as one _interface_ which two
+_lines_.  Each _line_ represents one direction of the E1
+traffic.
+
+In theory, `osmo-e1d` should work on any operating system with libusb
+support for isochronous transfers.  However, official support is limited
+to GNU/Linux at this point.
+
+More information about `osmo-e1d` can be found at its homepage
+https://osmocom.org/projects/osmo-e1d/wiki
+
+==== Example osmo-e1d configuration / start-up
+
+.Sample config file (pass as `-c /path/to/my/osmo-e1d.cfg` when starting osmo-e1d)
+----
+log stderr
+ logging filter all 1
+ logging color 1
+ logging print category-hex 0
+ logging print category 1
+ logging print level 1
+ logging timestamp 0
+ logging print file 1 last
+ logging level e1d info
+ logging level linp info
+e1d
+----
+
+.Sample output of osmo-e1d starting with above config file and one e1-tracer attached to USB
+----
+DLGLOBAL NOTICE Available via telnet 127.0.0.1 4269 (telnet_interface.c:100)
+DE1D NOTICE No configuration for e1-tracer serial 'dc696c80532f7d34' found, auto-generating it (usb.c:868)
+DE1D NOTICE (I0) Created (intf_line.c:184)
+DE1D NOTICE (I0:L0) Created (intf_line.c:285)
+DE1D NOTICE (I0:L0) Activated (intf_line.c:319)
+DE1D NOTICE (I0:L1) Created (intf_line.c:285)
+DE1D NOTICE (I0:L1) Activated (intf_line.c:319)
+----
+
+This means that a single e1-tracer device was found, and that it has been designated *interface 0* with *line 0* and *line 1* within that interface.
+
+You can introspect the `osmo-e1d` state using its VTY interface:
+
+.Example VTY output when telnet-ing into the osmo-e1d VTY port 4269
+----
+$ telnet localhost 4269
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Welcome to the osmo-e1d VTY interface
+
+(C) 2019-2022 by Sylvain Munaut, Harald Welte and contributors
+osmo-e1d> show line <1>
+Interface #0 (dc696c80532f7d34), Line #0, Mode CHANNELIZED:
+ TS00: Mode off, FD -1, Peer PID -1
+ TS01: Mode off, FD -1, Peer PID -1
+ TS02: Mode off, FD -1, Peer PID -1
+ TS03: Mode off, FD -1, Peer PID -1
+ TS04: Mode off, FD -1, Peer PID -1
+ TS05: Mode off, FD -1, Peer PID -1
+ TS06: Mode off, FD -1, Peer PID -1
+ TS07: Mode off, FD -1, Peer PID -1
+ TS08: Mode off, FD -1, Peer PID -1
+ TS09: Mode off, FD -1, Peer PID -1
+ TS10: Mode off, FD -1, Peer PID -1
+ TS11: Mode off, FD -1, Peer PID -1
+ TS12: Mode off, FD -1, Peer PID -1
+ TS13: Mode off, FD -1, Peer PID -1
+ TS14: Mode off, FD -1, Peer PID -1
+ TS15: Mode off, FD -1, Peer PID -1
+ TS16: Mode off, FD -1, Peer PID -1
+ TS17: Mode off, FD -1, Peer PID -1
+ TS18: Mode off, FD -1, Peer PID -1
+ TS19: Mode off, FD -1, Peer PID -1
+ TS20: Mode off, FD -1, Peer PID -1
+ TS21: Mode off, FD -1, Peer PID -1
+ TS22: Mode off, FD -1, Peer PID -1
+ TS23: Mode off, FD -1, Peer PID -1
+ TS24: Mode off, FD -1, Peer PID -1
+ TS25: Mode off, FD -1, Peer PID -1
+ TS26: Mode off, FD -1, Peer PID -1
+ TS27: Mode off, FD -1, Peer PID -1
+ TS28: Mode off, FD -1, Peer PID -1
+ TS29: Mode off, FD -1, Peer PID -1
+ TS30: Mode off, FD -1, Peer PID -1
+ TS31: Mode off, FD -1, Peer PID -1
+ Counters for each line in e1d:
+  Rx Signal Lost:        0 (0/s 0/m 0/h 0/d)
+  Rx Alignment Lost:        0 (0/s 0/m 0/h 0/d)
+  E1 Rx CRC Errors:        0 (0/s 0/m 0/h 0/d)
+  E1 Rx Overflow:        0 (0/s 0/m 0/h 0/d)
+  E1 Tx Underflow:        0 (0/s 0/m 0/h 0/d)
+  Rx Frames Reporting Remote CRC Error:        0 (0/s 0/m 0/h 0/d)
+  Rx Frames Reporting Remote Alarm:        0 (0/s 0/m 0/h 0/d)
+  E1 Tx Frames multiplexed:        0 (0/s 0/m 0/h 0/d)
+  E1 Rx Frames demultiplexed:   143680 (8000/s 142560/m 0/h 0/d)
+Interface #0 (dc696c80532f7d34), Line #1, Mode CHANNELIZED:
+ TS00: Mode off, FD -1, Peer PID -1
+ TS01: Mode off, FD -1, Peer PID -1
+ TS02: Mode off, FD -1, Peer PID -1
+ TS03: Mode off, FD -1, Peer PID -1
+ TS04: Mode off, FD -1, Peer PID -1
+ TS05: Mode off, FD -1, Peer PID -1
+ TS06: Mode off, FD -1, Peer PID -1
+ TS07: Mode off, FD -1, Peer PID -1
+ TS08: Mode off, FD -1, Peer PID -1
+ TS09: Mode off, FD -1, Peer PID -1
+ TS10: Mode off, FD -1, Peer PID -1
+ TS11: Mode off, FD -1, Peer PID -1
+ TS12: Mode off, FD -1, Peer PID -1
+ TS13: Mode off, FD -1, Peer PID -1
+ TS14: Mode off, FD -1, Peer PID -1
+ TS15: Mode off, FD -1, Peer PID -1
+ TS16: Mode off, FD -1, Peer PID -1
+ TS17: Mode off, FD -1, Peer PID -1
+ TS18: Mode off, FD -1, Peer PID -1
+ TS19: Mode off, FD -1, Peer PID -1
+ TS20: Mode off, FD -1, Peer PID -1
+ TS21: Mode off, FD -1, Peer PID -1
+ TS22: Mode off, FD -1, Peer PID -1
+ TS23: Mode off, FD -1, Peer PID -1
+ TS24: Mode off, FD -1, Peer PID -1
+ TS25: Mode off, FD -1, Peer PID -1
+ TS26: Mode off, FD -1, Peer PID -1
+ TS27: Mode off, FD -1, Peer PID -1
+ TS28: Mode off, FD -1, Peer PID -1
+ TS29: Mode off, FD -1, Peer PID -1
+ TS30: Mode off, FD -1, Peer PID -1
+ TS31: Mode off, FD -1, Peer PID -1
+ Counters for each line in e1d:
+  Rx Signal Lost:        0 (0/s 0/m 0/h 0/d)
+  Rx Alignment Lost:        0 (0/s 0/m 0/h 0/d)
+  E1 Rx CRC Errors:        0 (0/s 0/m 0/h 0/d)
+  E1 Rx Overflow:        0 (0/s 0/m 0/h 0/d)
+  E1 Tx Underflow:        0 (0/s 0/m 0/h 0/d)
+  Rx Frames Reporting Remote CRC Error:        0 (0/s 0/m 0/h 0/d)
+  Rx Frames Reporting Remote Alarm:        0 (0/s 0/m 0/h 0/d)
+  E1 Tx Frames multiplexed:        0 (0/s 0/m 0/h 0/d)
+  E1 Rx Frames demultiplexed:   143648 (8000/s 142560/m 0/h 0/d)
+----
+<1> typing `show line` will produce the below output, indicating that all timeslots are currently _off_ and 8000 E1 frames per second are received from both lines (i.e. directions)
+
+Other applications on the system can not connect to `osmo-e1d` and open individual timeslots either in _RAW_ or in _HDLC-FCS_ mode.
+
+An example program is included, it is called `osmo-e1d-pipe`.  Using this program, you can get a raw output of an individual timeslot.
+
+.Command line reference of `osmo-e1d-pipe` utility
+----
+$ ./osmo-e1d-pipe --help
+ -h --help                     This help message
+ -p --path PATH                Path of the osmo-e1d control socket
+ -i --interface <0-255>        E1 Interface Number
+ -l --line <0-255>             E1 Line Number
+ -t --timeslot <0-31>          E1 Timeslot Number
+ -m --mode (RAW|HDLC-FCS)      E1 Timeslot Mode
+ -f --force                    Force open of the timeslot (may disconnect other client)
+ -r --read FILE                Read from FILE instead of STDIN
+----
+
+.Sample output of one direction of a raw B-channel
+----
+$./osmo-e1d-pipe -i 0 -l 0 -t 3 -m RAW -r /dev/zero | hexdump -v
+0000000 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+0000010 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+0000020 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+0000030 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+0000040 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+0000050 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+0000060 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+0000070 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+0000080 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+0000090 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+00000a0 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5 d5d5
+...
+----
+
+.Sample output of one direction of a HDLC-FCS D-channel
+----
+$ ./osmo-e1d-pipe -i 0 -l 1 -t 16 -m hdlc-fcs -r /dev/zero | hexdump -v
+0000000 0102 027f 7f01 0102 027f 7f01 0102 027f
+0000010 7f01 0102 027f 7f01 0102 027f 7f01 0102
+0000020 027f 7f01 0102 027f 7f01 0102 027f 7f01
+0000030 0102 027f 7f01 0102 027f 7f01 0102 027f
+0000040 7f01 0102 027f 7f01 0102 027f 7f01 0102
+----
+
+
+
+=== Other / 3rd party software
+
+you can interface 3rd party applications with osmo-e1d in the following
+mutually exclusive ways:
+
+* by adding support for `osmo-e1d`, e.g. via `libosmo-e1d` to the
+  respective application.  This way your application can receive traffic
+  one a per-timeslot basis.
+* by directly implementing the USB protocol exposed by e1-tracer in your
+  software.  This is definitely more effort, as you have to parse the
+  entire E1 frames, implement software HDLC decoders, etc. - all of
+  which are already present in `osmo-e1d`
+* by post-processing the raw disk recordings generated by the
+  `e1-trace-recorder` program.
+
+Should you require any related development/porting services, please do
+not hesitate to reach out to sysmocom.

@@ -1,0 +1,199 @@
+[[firmware]]
+== e1-tracer Firmware
+
+The e1-tracer _firmware_ is a small amount of bare-iron software running
+on the picoRISCV soft-core of the _gateware_.
+
+It mainly consists of drivers for the no2e1 E1 Framer IP core and the
+no2usb USB Device IP core which are part of the gateware described in
+<<gateware>>.
+
+=== Firmware Upgrade (DFU)
+
+e1-tracer contains support for the USB DFU (Device Firmware Upgrade)
+standard.
+
+As such, you can use any USB DFU compliant utility to upgrade the
+firmware of the e1-tracer device.
+
+DFU mode can be entered in two ways:
+
+1. by performing a DFU detach from the normal application firmware
+   (obviously that requires a [still] working firmware present on the
+   device).  To do so, please use `dfu-util -e`
+
+2. by pushing the push-button (see <<hw-pushbutton>>) during power-up.
+   Simply disconnect the USB cable, then push that button and keep it
+   pushed while re-attaching the USB cable.
+
+The e1-tracer boot loader enumerates as VID:PID `1d50:6150`, while the
+normal application firmware enumerates as `1d50:6151`,
+
+You can for example use `lsusb` to check the VID:PID:
+
+.Example output of `dfu-util` on a system with e1-tracer attached
+----
+$ lsusb -d 1d50:
+Bus 001 Device 042: ID 1d50:6151<1> OpenMoko, Inc. e1-tracer
+$ sudo dfu-util -d 1d50:6151 -e <2>
+...
+$ lsusb -d 1d50:
+Bus 001 Device 043: ID 1d50:6150<3> OpenMoko, Inc. e1-tracer (DFU)
+----
+<1> initially the device is in normal runtime mode
+<2> we use `dfu-util -e` to switch to DFU mode
+<3> we can see, the device is now in DFU mode
+
+==== Obtaining firmware upgrades
+
+The latest firmware can be found at
+https://ftp.osmocom.org/binaries/e1-tracer/firmware/latest/
+a backlog of earlier builds can be found at
+https://ftp.osmocom.org/binaries/e1-tracer/firmware/all/
+
+The latest gateware can currently only be found at the personal developer
+directory of tnt at https://people.osmocom.org/tnt/e1-tracer/e1-tracer-gw-c7566442.bin
+A more official download location for the gateware will be provided shortly.
+
+==== Upgrading the FPGA gateware
+
+Gateware files are called `e1-tracer-gw-*.bin`. (without 'fw' in the name)
+
+The gateware can be upgraded by accessing the DFU _altsetting 0_ using `dfu-util` *`-a 0`*
+
+Assuming you already are in DFU mode, you would typically use a command
+like `dfu-util -d 1d50:6150 -a 0 -D e1-tracer-gw-c7566442.bin -R` to perform the upgrade.
+
+NOTE: The `-R` will switch the device back to runtime mode after the
+upgrade.   If you want to upgrade the firmware in the same session, skip
+the `-R` in the above command.
+
+==== Upgrading the picoRISCV firmware
+
+Firmware files are called `e1_tracer-fw*.bin`.
+
+The firmware can be upgraded by accessing the DFU _altsetting 1_ using `dfu-util` *`-a 1`*
+
+Assuming you already are in DFU mode, you would typically use a command
+like `dfu-util -d 1d50:6150 -a 1 -D e1_tracer-fw-0.1-132-ga0df047.bin -R` to perform the upgrade.
+
+.Typical output during upgrade of the firmware
+----
+$ sudo dfu-util -d 1d50:6150 -a 1 -D e1_tracer-fw-0.1-132-ga0df047.bin -R
+dfu-util 0.9
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2016 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+dfu-util: Invalid DFU suffix signature
+dfu-util: A valid DFU suffix will be required in a future dfu-util release!!!
+Opening DFU capable USB device...
+ID 1d50:6150
+Run-time device DFU version 0101
+Claiming USB DFU Interface...
+Setting Alternate Setting #1 ...
+Determining device status: state = dfuIDLE, status = 0
+dfuIDLE, continuing
+DFU mode device DFU version 0101
+Device returned transfer size 4096
+Copying data from PC to DFU device
+Download        [=========================] 100%        11256 bytes
+Download done.
+state(2) = dfuIDLE, status(0) = No error condition is present
+Done!
+Resetting USB to switch back to runtime mode
+----
+
+As the `-R` option was used, the device will reset and re-enumerate in
+the newly programmed firmware.
+
+You can verify this as follows:
+
+----
+$ lsusb -d 1d50:
+Bus 001 Device 042: ID 1d50:6151 OpenMoko, Inc. e1-tracer
+----
+
+or alternatively:
+
+----
+$ dfu-util -l -d 1d50:
+dfu-util 0.9
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2016 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+Found Runtime: [1d50:6151] ver=0003, devnum=44, cfg=1, intf=1, path="1-2", alt=0, name="DFU runtime", serial="dc697407e7881531"
+----
+
+
+=== Use of the LEDs
+
+==== LOS LEDs
+
+Each E1 channel has one red *LOS LED*.  They are red if either
+
+* the E1 framer has not yet been initialized (done by starting host software)
+* there is an actual LOS (Loss of Signal) condition in the respective direction
+
+
+==== Multi-Color RGB STATUS LED
+
+The multi-color RGB *STATUS LED* is used to indicate overall hardware/firmware status.
+
+[options="header",cols="10,10,60"]
+|===
+|Color  | Pattern         | Meaning
+|Red    | On              | E1 interface not active (no host software?)
+|Red    | Blinking        | E1 interface active, but error status (CRC, alignment)
+|Green  | On              | E1 Receiver B aligned
+|Green  | Blinking        | E1 Receiver A attempting to align
+|Blue   | On              | E1 Receiver B aligned
+|Blue   | Blinking        | E1 Receiver B attempting to align
+|Cyan   | On              | E1 Receiver A+B aligned
+|Cyan   | Blinking        | E1 Receiver A+B attempting to align
+|===
+
+
+
+=== Firmware - USB Host Interface
+
+The e1-tracer firmware provides a USB 1.1 full-speed (FS) device with two configurations
+
+* legacy configuration (for use with `e1-tracer-record`)
+** 2 interfaces
+*** combined interface for both E1 directions
+*** DFU (device firmware upgrade)
+* `osmo-e1d` compatible configuration
+* 2 interfaces
+** E1 direction A->B
+** E1 direction A<-B
+
+The configurations and interfaces have self-explanatory string descriptors like
+
+----
+      iInterface              8 E1 Direction A
+      iInterface              9 E1 Direction B
+----
+
+==== e1d compatible configuration: E1 ports
+
+There are two physical E1 ports in the e1-tracer.  Each represents one direction
+of the traced E1 circuit.  Each is exposed via its own USB _interface_.
+
+Each port/direction (USB _interface_) contains two _altsettings_:
+
+* one altsetting with no data endpoints (E1 tracing disabled, this is the default)
+* one altsetting with isochronous IN/OUT endpoints (E1 tracing enabled)
+
+In order to activate one E1 port, the driver must perform a USB standard
+request to activate the _enabled_ altsetting.
+
+==== DFU (Device Firmware Upgrade)
+
+There's a DFU interface available in order to update the e1-tracer
+gateware and firmware.  For more information, see above.

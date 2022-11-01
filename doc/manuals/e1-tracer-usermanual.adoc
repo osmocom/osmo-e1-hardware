@@ -1,0 +1,17 @@
+:gfdl-enabled:
+
+e1-tracer User Manual
+===================
+Harald Welte <hwelte@sysmocom.de>
+
+include::./common/chapters/preface.adoc[]
+
+include::./chapters/e1-tracer/hardware.adoc[]
+
+include::./chapters/e1-tracer/gateware.adoc[]
+
+include::./chapters/e1-tracer/firmware.adoc[]
+
+include::./chapters/e1-tracer/host-software.adoc[]
+
+include::./common/chapters/gfdl.adoc[]

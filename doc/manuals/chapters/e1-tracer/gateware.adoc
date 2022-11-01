@@ -1,0 +1,16 @@
+[[gateware]]
+== e1-tracer Gateware
+
+The e1-tracer _gateware_ is where pretty much everything happens,
+from the E1 Line Interface Unit to the E1 Framer/Deframer, the
+picoRISCV soft-core running the [[firmware]] as well as the USB
+device peripheral talking to the host PC.
+
+The gateware is stored in binary form on the device-internal
+non-volatile memory (SPI flash).  It is field-upgradeable via USB.
+
+As an OSHW project, all of it is available in source code format
+at https://git.osmocom.org/osmo-e1-hardware/tree/gateware/e1-tracer
+
+Please use `git clone --recursive` when cloning the git repository
+so you get all of the sub-modules for the various soft-cores.
