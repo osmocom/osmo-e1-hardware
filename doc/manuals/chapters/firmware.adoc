@@ -22,7 +22,7 @@ DFU mode can be entered in two ways:
    (obviously that requires a [still] working firmware present on the
    device).  To do so, please use `dfu-util -e`
 
-1. by pushing the push-button (see <<hw-pushbutton>>) during power-up.
+2. by pushing the push-button (see <<hw-pushbutton>>) during power-up.
    Simply disconnect the USB cable, then push that button and keep it
    pushed while re-attaching the USB cable.
 
