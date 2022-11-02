@@ -156,7 +156,7 @@ static const struct {
 		.bLength                = sizeof(struct usb_conf_desc),
 		.bDescriptorType        = USB_DT_CONF,
 		.wTotalLength           = sizeof(_app_conf_desc_e1d),
-		.bNumInterfaces         = 3,
+		.bNumInterfaces         = 2,
 		.bConfigurationValue    = 2,
 		.iConfiguration         = 7,
 		.bmAttributes           = 0x80,
