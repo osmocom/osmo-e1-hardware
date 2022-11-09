@@ -172,10 +172,11 @@ by sysmocom.
 ### Changes compared to previous revisions
 
 * Updated to kicad 6 format
+* Renumbered schematic pages
 * Added NO jumpers on the I2C lines to GPS module
 * Added fiducials
 * Silkscreen updated
 
 ### Manufactured
 
-* TBD
+* 105 units manufactured by sysmocom at the end of 2022.
