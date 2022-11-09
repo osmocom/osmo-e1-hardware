@@ -6,10 +6,10 @@
 
   (title_block
     (title "icE1usb - GPS")
-    (date "2020-08-26")
-    (rev "1.0")
+    (date "2022-09-05")
+    (rev "1.1")
     (comment 1 "CERN-OHL-S")
-    (comment 2 "(C) 2020 Sylvain Munaut")
+    (comment 2 "(C) 2020-2022 Sylvain Munaut")
   )
 
   (lib_symbols

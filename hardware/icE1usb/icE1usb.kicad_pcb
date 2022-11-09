@@ -7,8 +7,8 @@
   (paper "A4")
   (title_block
     (title "icE1usb")
-    (date "2020-08-26")
-    (rev "1.0")
+    (date "2020-09-05")
+    (rev "1.1")
   )
 
   (layers
