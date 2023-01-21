@@ -267,19 +267,26 @@ test_done(void)
 
 	printf("\n");
 
-	ok = limit(test.freq_diff[0], -100, 100); gok &= ok;
+		/* In theory -768 ... 768, we we limit to 25% of that */
+	ok = limit(test.freq_diff[0], -192, 192); gok &= ok;
 	printf("[+] Base             : %d - %s\n", test.freq_diff[0], ok ? "PASS" : "FAIL");
 
-	ok = limit(-d_hi_n, 2304, 3840); gok &= ok;
+		/* Theoritical value is 3072. Allow -12.5% ... 25% deviation */
+	ok = limit(-d_hi_n, 2688, 3840); gok &= ok;
 	printf("[+] Hi Negative swing: %d - %s\n", d_hi_n, ok ? "PASS" : "FAIL");
 
-	ok = limit( d_hi_p, 2304, 3840); gok &= ok;
+	ok = limit( d_hi_p, 2688, 3840); gok &= ok;
 	printf("[+] Hi Positive swing:  %d - %s\n", d_hi_p, ok ? "PASS" : "FAIL");
 
-	ok = limit(-d_lo_n, 37, 62); gok &= ok;
+		/* Limit absolute and is relative to the 'hi' value */
+	int sl = (-d_hi_n * 3 + 91) / 182;
+	ok  = limit(-d_lo_n, sl-4, sl+4); gok &= ok;
+	ok &= limit(-d_lo_n,   44,   63); gok &= ok;
 	printf("[+] Lo Negative swing:   %d - %s\n", d_lo_n, ok ? "PASS" : "FAIL");
 
-	ok = limit( d_lo_p, 37, 62); gok &= ok;
+	int sl = (d_hi_p * 3 + 91) / 182;
+	ok  = limit( d_lo_p, sl-4, sl+4); gok &= ok;
+	ok &= limit( d_lo_p,   44,   63); gok &= ok;
 	printf("[+] Lo Positive swing:    %d - %s\n", d_lo_p, ok ? "PASS" : "FAIL");
 
 	printf("\n");
