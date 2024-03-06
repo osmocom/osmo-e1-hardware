@@ -49,7 +49,7 @@ static struct {
 struct usb_cdc_notif_serial_state {
 	struct usb_ctrl_req hdr;
 	uint16_t bits;
-};
+} __attribute__((packed,aligned(4)));
 
 
 static void
