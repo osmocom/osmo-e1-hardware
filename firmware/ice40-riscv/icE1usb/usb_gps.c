@@ -143,7 +143,8 @@ usb_gps_poll(void)
 	if ((ep_regs->bd[0].csr & USB_BD_STATE_MSK) != USB_BD_STATE_RDY_DATA)
 	{
 		/* Default request */
-		struct usb_cdc_notif_serial_state notif = {
+			/* Put as static to work around gcc aliasing bug ... */
+		static struct usb_cdc_notif_serial_state notif = {
 			.hdr = {
 				.bmRequestType = USB_REQ_READ | USB_REQ_TYPE_CLASS | USB_REQ_RCPT_INTF,
 				.bRequest      = USB_NOTIF_CDC_SERIAL_STATE,
