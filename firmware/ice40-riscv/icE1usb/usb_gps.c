@@ -148,6 +148,7 @@ usb_gps_poll(void)
 			},
 			.bits = 0x00
 		};
+		const int notif_len = sizeof(struct usb_cdc_notif_serial_state);
 
 		/* Check if PPS occurred */
 		uint32_t pps_now = time_pps_read();
@@ -159,8 +160,8 @@ usb_gps_poll(void)
 
 			/* Queue CD Set */
 			notif.bits = 1;
-			usb_data_write(ep_regs->bd[0].ptr, &notif, 12);
-			ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(10);
+			usb_data_write(ep_regs->bd[0].ptr, &notif, notif_len);
+			ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(notif_len);
 
 			/* Need to clear in the future */
 			g_usb_gps.pps.set = true;
@@ -169,8 +170,8 @@ usb_gps_poll(void)
 		{
 			/* Queue CD Clear */
 			notif.bits = 0;
-			usb_data_write(ep_regs->bd[0].ptr, &notif, 12);
-			ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(10);
+			usb_data_write(ep_regs->bd[0].ptr, &notif, notif_len);
+			ep_regs->bd[0].csr = USB_BD_STATE_RDY_DATA | USB_BD_LEN(notif_len);
 
 			/* Cleared */
 			g_usb_gps.pps.set = false;
