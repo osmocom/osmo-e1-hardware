@@ -138,7 +138,7 @@ usb_gps_poll(void)
 	{
 		/* Default request */
 			/* Put as static to work around gcc aliasing bug ... */
-		static struct usb_cdc_notif_serial_state notif = {
+		static struct usb_cdc_notif_serial_state __attribute__((aligned(4))) notif = {
 			.hdr = {
 				.bmRequestType = USB_REQ_READ | USB_REQ_TYPE_CLASS | USB_REQ_RCPT_INTF,
 				.bRequest      = USB_NOTIF_CDC_SERIAL_STATE,
