@@ -46,12 +46,6 @@ static struct {
 } g_usb_gps;
 
 
-struct usb_cdc_notif_serial_state {
-	struct usb_ctrl_req hdr;
-	uint16_t bits;
-} __attribute__((packed,aligned(4)));
-
-
 static void
 _usb_gps_set_active(bool active)
 {
