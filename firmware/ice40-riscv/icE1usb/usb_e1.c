@@ -345,27 +345,25 @@ _e1_get_intf(const struct usb_intf_desc *base, uint8_t *alt)
 static bool
 _set_tx_mode_done(struct usb_xfer *xfer)
 {
-	const struct ice1usb_tx_config *cfg = (const struct ice1usb_tx_config *) xfer->data;
 	struct usb_ctrl_req *req = xfer->cb_ctx;
 	int port = _ifnum2port(req->wIndex);
 	struct usb_e1_state *usb_e1 = _get_state(port);
 	printf("set_tx_mode[%d] %02x%02x%02x%02x\r\n", port,
 		xfer->data[0], xfer->data[1], xfer->data[2], xfer->data[3]);
-	usb_e1->tx_cfg = *cfg;
-	e1_tx_config(port, _tx_config_reg(cfg));
+	memcpy(&usb_e1->tx_cfg, xfer->data, sizeof(struct ice1usb_tx_config));
+	e1_tx_config(port, _tx_config_reg(&usb_e1->tx_cfg));
 	return true;
 }
 
 static bool
 _set_rx_mode_done(struct usb_xfer *xfer)
 {
-	const struct ice1usb_rx_config *cfg = (const struct ice1usb_rx_config *) xfer->data;
 	struct usb_ctrl_req *req = xfer->cb_ctx;
 	int port = _ifnum2port(req->wIndex);
 	struct usb_e1_state *usb_e1 = _get_state(port);
 	printf("set_rx_mode[%d] %02x\r\n", port, xfer->data[0]);
-	usb_e1->rx_cfg = *cfg;
-	e1_rx_config(port, _rx_config_reg(cfg));
+	memcpy(&usb_e1->rx_cfg, xfer->data, sizeof(struct ice1usb_rx_config));
+	e1_rx_config(port, _rx_config_reg(&usb_e1->rx_cfg));
 	return true;
 }
 
