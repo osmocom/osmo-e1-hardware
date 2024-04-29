@@ -270,6 +270,11 @@ struct e1_state {
 	} linemon;
 
 	struct e1_error_count errors;
+
+	struct {
+		enum e1_platform_led_state green;
+		enum e1_platform_led_state yellow;
+	} led;
 };
 
 static struct e1_state g_e1[NUM_E1_PORTS];
@@ -323,6 +328,76 @@ _e1_update_cr_val(int port)
 	} else {
 		/* "On state: Enabled + User config */
 		e1->tx.cr.val = e1->tx.cr.cfg | E1_TX_CR_ENABLE;
+	}
+}
+
+static void
+_e1_update_leds(int port)
+{
+	struct e1_state *e1 = _get_state(port);
+
+	enum e1_platform_led_state green;
+	enum e1_platform_led_state yellow;
+
+	/*
+	 * Green	Yellow		Condition
+	 * OFF		/		LOS
+	 * BLINK	OFF		LOF
+	 * BLINK	ON		LOF + AIS
+	 * ON		OFF		ALIGNED
+	 * ON		ON		ALIGNED + RAI
+	 */
+
+	/* Compute expected state */
+	if (e1->errors.flags & E1_ERR_F_LOS) {
+		green  = E1P_LED_ST_OFF;
+		yellow = E1P_LED_ST_OFF;
+	} else if (e1->errors.flags & E1_ERR_F_ALIGN_ERR) {
+		green  = E1P_LED_ST_BLINK;
+		yellow = (e1->errors.flags & E1_ERR_F_AIS) ? E1P_LED_ST_ON : E1P_LED_ST_OFF;
+	} else {
+		green  = E1P_LED_ST_ON;
+		yellow = (e1->errors.flags & E1_ERR_F_RAI) ? E1P_LED_ST_ON : E1P_LED_ST_OFF;
+	}
+
+	/* Update actual leds */
+	if (e1->led.green != green)
+		e1_platform_led_set(port, E1P_LED_GREEN, green);
+
+	if (e1->led.yellow != yellow)
+		e1_platform_led_set(port, E1P_LED_YELLOW, yellow);
+
+	e1->led.green  = green;
+	e1->led.yellow = yellow;
+
+	/* Update the shared RGB led */
+	if (port == (NUM_E1_PORTS - 1))
+	{
+		static bool c_ok = true,  c_flow = false;
+		bool        n_ok = false, n_flow = false;
+
+		for (int port=0; port<NUM_E1_PORTS; port++)
+		{
+			struct e1_state *e1 = _get_state(port);
+			n_ok   |= !(e1->errors.flags & E1_ERR_F_ALIGN_ERR);
+			n_flow |= (e1->rx.state != IDLE);
+			n_flow |= (e1->tx.state != IDLE);
+		}
+
+		if (n_ok != c_ok) {
+			if (n_ok)
+				led_color(0, 48, 0); // Green
+			else
+				led_color(48, 0, 0); // Red
+		}
+
+		if (n_flow != c_flow) {
+			led_blink(n_flow, 200, 1000);
+			led_breathe(n_flow, 100, 200);
+		}
+
+		c_ok   = n_ok;
+		c_flow = n_flow;
 	}
 }
 
@@ -490,13 +565,10 @@ e1_rx_need_data(int port, unsigned int usb_addr, unsigned int max_frames, unsign
 	}
 
 	if (rai_possible) {
-		if (rai_received) {
+		if (rai_received)
 			e1->errors.flags |= E1_ERR_F_RAI;
-			e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_ON);
-		} else {
+		else
 			e1->errors.flags &= ~E1_ERR_F_RAI;
-			e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_OFF);
-		}
 	}
 
 	return tot_frames;
@@ -561,10 +633,8 @@ e1_poll(int port)
 	uint32_t bd;
 	unsigned int ofs;
 
-	/* HACK: LED link status */
+	/* Update error flags */
 	if (e1_regs->rx.csr & E1_RX_SR_ALIGNED) {
-		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_ON);
-		led_color(0, 48, 0);
 		e1->errors.flags &= ~(
 			E1_ERR_F_LOS |
 			E1_ERR_F_AIS |
@@ -572,13 +642,12 @@ e1_poll(int port)
 			E1_ERR_F_ALIGN_ERR
 		);
 	} else {
-		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_BLINK);
-		e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_OFF);
-		led_color(48, 0, 0);
 		e1->errors.flags |=  E1_ERR_F_ALIGN_ERR;
 		e1->errors.flags &= ~E1_ERR_F_RAI;
-		/* TODO: completely off if rx tick counter not incrementing */
 	}
+
+	/* Update leds */
+	_e1_update_leds(port);
 
 	/* Active ? */
 	if ((e1->rx.state == IDLE) && (e1->tx.state == IDLE))
@@ -605,9 +674,6 @@ e1_poll(int port)
 	if (e1->tx.state == STARTING) {
 		if (e1f_unseen_frames(&e1->tx.fifo) < (16 * 5))
 			return;
-		/* HACK: LED flow status */
-		led_blink(true, 200, 1000);
-		led_breathe(true, 100, 200);
 	}
 
 	/* Handle RX */
