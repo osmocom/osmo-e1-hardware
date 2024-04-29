@@ -35,6 +35,7 @@ unsigned int e1_tx_level(int port);
 #define E1_ERR_F_ALIGN_ERR	0x01
 #define E1_ERR_F_LOS		0x02
 #define E1_ERR_F_RAI		0x04
+#define E1_ERR_F_AIS		0x08
 
 struct e1_error_count {
 	uint16_t crc;

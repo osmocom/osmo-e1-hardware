@@ -565,12 +565,18 @@ e1_poll(int port)
 	if (e1_regs->rx.csr & E1_RX_SR_ALIGNED) {
 		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_ON);
 		led_color(0, 48, 0);
-		e1->errors.flags &= ~(E1_ERR_F_LOS|E1_ERR_F_ALIGN_ERR);
+		e1->errors.flags &= ~(
+			E1_ERR_F_LOS |
+			E1_ERR_F_AIS |
+			E1_ERR_F_RAI |
+			E1_ERR_F_ALIGN_ERR
+		);
 	} else {
 		e1_platform_led_set(port, E1P_LED_GREEN, E1P_LED_ST_BLINK);
 		e1_platform_led_set(port, E1P_LED_YELLOW, E1P_LED_ST_OFF);
 		led_color(48, 0, 0);
-		e1->errors.flags |= E1_ERR_F_ALIGN_ERR;
+		e1->errors.flags |=  E1_ERR_F_ALIGN_ERR;
+		e1->errors.flags &= ~E1_ERR_F_RAI;
 		/* TODO: completely off if rx tick counter not incrementing */
 	}
 
@@ -748,7 +754,30 @@ e1_linemon_update(void)
 
 	/* Next cycle */
 	if (++cycle == 6)
+	{
+		/* We did one full cycle of data, update our local flags */
+		for (int port=0; port<NUM_E1_PORTS; port++)
+		{
+			struct e1_state *e1 = _get_state(port);
+			if (e1->linemon.rx_pulse < 16) {
+				/* No pulse ?  -> LOS */
+				e1->errors.flags |=  E1_ERR_F_LOS;
+				e1->errors.flags &= ~E1_ERR_F_AIS;
+			} else {
+				/* We have "some" pulses, so somone is talking */
+				e1->errors.flags &= ~E1_ERR_F_LOS;
+
+				/* If it's mostly ones, consider it AIS */
+				if (e1->linemon.rx_one > 2040)
+					e1->errors.flags |=  E1_ERR_F_AIS;
+				else
+					e1->errors.flags &= ~E1_ERR_F_AIS;
+			}
+		}
+
+		/* Start over */
 		cycle = 0;
+	}
 }
 
 void

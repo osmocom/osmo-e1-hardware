@@ -143,6 +143,7 @@ enum ice1usb_irq_type {
 #define ICE1USB_ERR_F_ALIGN_ERR	0x01
 #define ICE1USB_ERR_F_LOS	0x02
 #define ICE1USB_ERR_F_RAI	0x04
+#define ICE1USB_ERR_F_AIS	0x08
 
 struct ice1usb_irq_err {
 	/* 16-bit little-endian counters */
