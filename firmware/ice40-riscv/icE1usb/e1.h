@@ -15,6 +15,7 @@ void e1_start(int port);
 void e1_stop(int port);
 
 void e1_poll(int port);
+void e1_linemon_update(void);
 void e1_debug_print(int port, bool data);
 
 void e1_rx_config(int port, uint16_t cr);

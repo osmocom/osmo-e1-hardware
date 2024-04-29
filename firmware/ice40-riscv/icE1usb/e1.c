@@ -16,6 +16,7 @@
 
 #include "dma.h"
 #include "led.h" // FIXME
+#include "misc.h"
 #include "utils.h"
 
 
@@ -259,6 +260,14 @@ struct e1_state {
 		int in_flight;
 		enum e1_pipe_state state;
 	} tx;
+
+	struct {
+		uint16_t rx_pulse;
+		uint16_t rx_sample;
+		uint16_t rx_one;
+
+		uint16_t _val;
+	} linemon;
 
 	struct e1_error_count errors;
 };
@@ -696,6 +705,53 @@ done_rx:
 }
 
 void
+e1_linemon_update(void)
+{
+	static int cycle = -1;
+
+	/* Initial boot */
+	if (cycle == -1) {
+		e1_tick_sel(TICK_RX_PULSE);
+		cycle = 0;
+		return;
+	}
+
+	/* Current cycle ? */
+	switch (cycle) {
+		/* Read initial values */
+	case 0:
+	case 2:
+	case 4:
+		for (int port=0; port<NUM_E1_PORTS; port++)
+			g_e1[port].linemon._val = e1_tick_read(port);
+		break;
+
+		/* Actual reading */
+	case 1:
+		for (int port=0; port<NUM_E1_PORTS; port++)
+			g_e1[port].linemon.rx_pulse = e1_tick_read(port) - g_e1[port].linemon._val;
+		e1_tick_sel(TICK_RX_SAMPLE);
+		break;
+
+	case 3:
+		for (int port=0; port<NUM_E1_PORTS; port++)
+			g_e1[port].linemon.rx_sample = e1_tick_read(port) - g_e1[port].linemon._val;
+		e1_tick_sel(TICK_RX_ONE);
+		break;
+
+	case 5:
+		for (int port=0; port<NUM_E1_PORTS; port++)
+			g_e1[port].linemon.rx_one = e1_tick_read(port) - g_e1[port].linemon._val;
+		e1_tick_sel(TICK_RX_PULSE);
+		break;
+	}
+
+	/* Next cycle */
+	if (++cycle == 6)
+		cycle = 0;
+}
+
+void
 e1_debug_print(int port, bool data)
 {
 	volatile struct e1_core *e1_regs = _get_regs(port);
@@ -706,6 +762,8 @@ e1_debug_print(int port, bool data)
 	printf("CSR: Rx %04x / Tx %04x\n", e1_regs->rx.csr, e1_regs->tx.csr);
 	printf("InF: Rx %d / Tx %d\n", e1->rx.in_flight, e1->tx.in_flight);
 	printf("Sta: Rx %d / Tx %d\n", e1->rx.state, e1->tx.state);
+	printf("Tck: P %d / S %d / O %d\n",
+		e1->linemon.rx_pulse, e1->linemon.rx_sample, e1->linemon.rx_one);
 
 	e1f_debug(&e1->rx.fifo, "Rx FIFO");
 	e1f_debug(&e1->tx.fifo, "Tx FIFO");

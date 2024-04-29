@@ -433,6 +433,7 @@ _e1_ctrl_req(struct usb_ctrl_req *req, struct usb_xfer *xfer)
 
 
 static struct usb_fn_drv _e1_drv = {
+	.sof		= e1_linemon_update,
 	.set_conf	= _e1_set_conf,
 	.set_intf	= _e1_set_intf,
 	.get_intf	= _e1_get_intf,
