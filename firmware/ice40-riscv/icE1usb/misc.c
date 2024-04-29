@@ -21,11 +21,12 @@ struct misc {
 		uint8_t  _rsvd;
 	} gpio;
 	uint32_t e1_led;
-	uint32_t _rsvd;
-	struct {
-		uint16_t rx;
-		uint16_t tx;
-	} e1_tick[2];
+	uint32_t _rsvd0;
+	union {
+		uint32_t e1_tick_sel;
+		uint16_t e1_tick[2];
+	};
+	uint32_t _rsvd1;
 	struct {
 		uint32_t pps;
 		uint32_t now;
@@ -116,10 +117,16 @@ e1_platform_led_set(int port, enum e1_platform_led led,
 }
 
 
+void
+e1_tick_sel(int type)
+{
+	misc_regs->e1_tick_sel = (type << 16) | type;
+}
+
 uint16_t
 e1_tick_read(int port)
 {
-	return misc_regs->e1_tick[port].tx;
+	return misc_regs->e1_tick[port];
 }
 
 

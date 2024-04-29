@@ -15,10 +15,11 @@
 struct misc {
 	uint32_t warmboot;
 	uint32_t _rsvd0[3];;
-	struct {
-		uint16_t rx;
-		uint16_t _rsvd1;
-	} e1_tick[2];
+	union {
+		uint32_t e1_tick_sel;
+		uint16_t e1_tick[2];
+	};
+	uint32_t _rsvd1;
 	struct {
 		uint32_t _rsvd2;
 		uint32_t now;
@@ -29,10 +30,15 @@ static volatile struct misc * const misc_regs = (void*)(MISC_BASE);
 
 
 void
-e1_tick_read(uint16_t *ticks)
+e1_tick_sel(int type)
 {
-	ticks[0] = misc_regs->e1_tick[0].rx;
-	ticks[1] = misc_regs->e1_tick[1].rx;
+	misc_regs->e1_tick_sel = (type << 16) | type;
+}
+
+uint16_t
+e1_tick_read(int port)
+{
+	return misc_regs->e1_tick[port];
 }
 
 

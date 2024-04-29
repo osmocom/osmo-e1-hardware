@@ -34,6 +34,14 @@ void e1_led_run(void);
 void e1_led_pause(void);
 void e1_led_set(bool enable, uint8_t cfg);
 
+enum e1_tick_type {
+	TICK_TX		= 0,
+	TICK_RX_PULSE	= 1,
+	TICK_RX_SAMPLE	= 2,
+	TICK_RX_ONE	= 3,
+};
+
+void     e1_tick_sel(int type);
 uint16_t e1_tick_read(int port);
 
 bool time_elapsed(uint32_t ref, unsigned int tick);

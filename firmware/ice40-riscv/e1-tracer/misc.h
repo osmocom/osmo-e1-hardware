@@ -10,6 +10,14 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-void e1_tick_read(uint16_t *ticks);
+enum e1_tick_type {
+	TICK_TX		= 0,
+	TICK_RX_PULSE	= 1,
+	TICK_RX_SAMPLE	= 2,
+	TICK_RX_ONE	= 3,
+};
+
+void     e1_tick_sel(int type);
+uint16_t e1_tick_read(int port);
 
 void reboot(int fw);
