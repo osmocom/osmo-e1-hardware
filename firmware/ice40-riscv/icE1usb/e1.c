@@ -309,7 +309,7 @@ _e1_update_cr_val(int port)
 
 	/* TX */
 	if (e1->tx.state == IDLE) {
-		/* "Off" state: We TX only OIS */
+		/* "Off" state: We TX only AIS */
 		e1->tx.cr.val = (e1->tx.cr.cfg & ~(E1_TX_CR_MODE_MASK | E1_TX_CR_ALARM)) | E1_TX_CR_ENABLE | E1_TX_CR_MODE_TRSP;
 	} else {
 		/* "On state: Enabled + User config */
