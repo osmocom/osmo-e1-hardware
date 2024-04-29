@@ -7,10 +7,6 @@
 
 #pragma once
 
-#ifndef NUM_E1_PORTS
-# define NUM_E1_PORTS 2
-#endif
-
 #define USB_INTF_E1(p)		(0 + (p))
 #define USB_INTF_GPS_CDC_CTL	(NUM_E1_PORTS + 0)
 #define USB_INTF_GPS_CDC_DATA	(NUM_E1_PORTS + 1)

@@ -19,6 +19,8 @@ CFLAGS += -DBUILD_INFO="\"$(GITVER) built $(shell date) on $(shell hostname)\""
 
 ifeq ($(SINGLE_CHANNEL),1)
 CFLAGS += -DNUM_E1_PORTS=1
+else
+CFLAGS += -DNUM_E1_PORTS=2
 endif
 
 NO2USB_FW_VERSION=0
