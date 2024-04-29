@@ -99,8 +99,7 @@ module top (
 	wire [(WB_N*32)-1:0] wb_rdata_flat;
 
 	// Ticks
-	wire [1:0] tick_e1_rx;
-	wire [1:0] tick_e1_tx;
+	wire [7:0] tick_e1;
 	wire       tick_usb_sof;
 
 	// I2C
@@ -182,8 +181,7 @@ module top (
 		.wb_m_we      (wb_we),
 		.wb_m_cyc     (wb_cyc),
 		.wb_m_ack     (wb_ack),
-		.tick_e1_rx   (tick_e1_rx),
-		.tick_e1_tx   (tick_e1_tx),
+		.tick_e1      (tick_e1),
 		.tick_usb_sof (tick_usb_sof),
 		.clk_sys      (clk_sys),
 		.rst_sys      (rst_sys),
@@ -255,8 +253,7 @@ module top (
 		.e1_led_active (e1_led_active),
 		.btn_val       (btn_val),
 		.btn_stb       (btn_stb),
-		.tick_e1_rx    (tick_e1_rx),
-		.tick_e1_tx    (tick_e1_tx),
+		.tick_e1       (tick_e1),
 		.tick_usb_sof  (tick_usb_sof),
 		.rst_req       (rst_req),
 		.wb_addr       (wb_addr[7:0]),

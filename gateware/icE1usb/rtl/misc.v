@@ -37,8 +37,7 @@ module misc (
 	input  wire        btn_stb,
 
 	// Ticks
-	input  wire [ 1:0] tick_e1_rx,
-	input  wire [ 1:0] tick_e1_tx,
+	input  wire [ 7:0] tick_e1,
 	input  wire        tick_usb_sof,
 
 	// Reset request
@@ -67,6 +66,7 @@ module misc (
 	reg         bus_we_boot;
 	reg         bus_we_gpio;
 	reg         bus_we_led;
+	reg         bus_we_tick_sel;
 	reg  [ 1:0] bus_we_pdm_clk;
 	reg  [ 1:0] bus_we_pdm_e1;
 
@@ -83,8 +83,10 @@ module misc (
 	wire gps_pps_r;
 
 	// Counters
-	wire [15:0] cap_e1_rx[0:1];
-	wire [15:0] cap_e1_tx[0:1];
+	reg   [1:0] tick_e1_sel[0:1];
+	wire  [1:0] tick_e1_mux;
+
+	wire [15:0] cap_e1[0:1];
 	wire [31:0] cap_gps;
 	wire [31:0] cnt_time;
 
@@ -112,6 +114,7 @@ module misc (
 			bus_we_boot       <= 1'b0;
 			bus_we_gpio       <= 1'b0;
 			bus_we_led        <= 1'b0;
+			bus_we_tick_sel   <= 1'b0;
 			bus_we_pdm_clk[0] <= 1'b0;
 			bus_we_pdm_clk[1] <= 1'b0;
 			bus_we_pdm_e1[0]  <= 1'b0;
@@ -120,6 +123,7 @@ module misc (
 			bus_we_boot       <= wb_addr == 4'h0;
 			bus_we_gpio       <= wb_addr == 4'h1;
 			bus_we_led        <= wb_addr == 4'h2;
+			bus_we_tick_sel   <= wb_addr == 4'h4;
 			bus_we_pdm_clk[0] <= wb_addr == 4'h8;
 			bus_we_pdm_clk[1] <= wb_addr == 4'h9;
 			bus_we_pdm_e1[0]  <= wb_addr == 4'ha;
@@ -134,8 +138,7 @@ module misc (
 			case (wb_addr[3:0])
 				4'h1:    wb_rdata <= { 12'h000, gpio_in, 4'h0, gpio_oe, 4'h0, gpio_out };
 				4'h2:    wb_rdata <= { 22'h000000, e1_led_active, e1_led };
-				4'h4:    wb_rdata <= { cap_e1_tx[0], cap_e1_rx[0] };
-				4'h5:    wb_rdata <= { cap_e1_tx[1], cap_e1_rx[1] };
+				4'h4:    wb_rdata <= { cap_e1[1], cap_e1[0] };
 				4'h6:    wb_rdata <= cap_gps;
 				4'h7:    wb_rdata <= cnt_time;
 `ifdef WITH_PDM_READBACK
@@ -229,12 +232,21 @@ module misc (
 	// --------
 
 	// E1 ticks
+	always @(posedge clk)
+		if (bus_we_tick_sel) begin
+			tick_e1_sel[1] <= wb_wdata[17:16];
+			tick_e1_sel[0] <= wb_wdata[ 1: 0];
+		end
+
+	assign tick_e1_mux[0] = tick_e1[{1'b0, tick_e1_sel[0]}];
+	assign tick_e1_mux[1] = tick_e1[{1'b1, tick_e1_sel[1]}];
+
 	capcnt #(
 		.W(16)
-	) e1_cnt_I[3:0] (
+	) e1_cnt_I[1:0] (
 		.cnt_cur (),
-		.cnt_cap ({cap_e1_tx[1],  cap_e1_rx[1],  cap_e1_tx[0],  cap_e1_rx[0] }),
-		.inc     ({tick_e1_tx[1], tick_e1_rx[1], tick_e1_tx[0], tick_e1_rx[0]}),
+		.cnt_cap ({      cap_e1[1],      cap_e1[0] }),
+		.inc     ({ tick_e1_mux[1], tick_e1_mux[0] }),
 		.cap     (tick_usb_sof),
 		.clk     (clk),
 		.rst     (rst)

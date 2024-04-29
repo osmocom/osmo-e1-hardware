@@ -156,20 +156,39 @@ Collection of small auxiliary peripherals.
 
 Write to this register with bit 2 set will trigger a FPGA reload of the selected image.
 
-#### E1 tick channel 0 (Read Only, addr `0x04`)
+#### E1 tick source select (Write Only, addr `0x04`)
 
 ```text
 ,-----------------------------------------------------------------------------------------------,
 |31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10| 9| 8| 7| 6| 5| 4| 3| 2| 1| 0|
 |-----------------------------------------------------------------------------------------------|
-|                  tx_tick                      |                   rx_tick                     |
+|                                        /                                                | tss |
 '-----------------------------------------------------------------------------------------------'
 
- * [31:16] - tx_tick
- * [15: 0] - rx_tick
+ * [ 1: 0] - tss : Tick Source Select
 ```
 
-An internal counter is incremented at every bit received/transmitted by the corresponding E1
+Selects the tick source for the counters below.
+Available sources are :
+
+* `0`: TX tick, for every bit sent
+* `1`: RX Pulse, for every detected pulse on the input
+* `2`: RX Sample, for every bit received
+* `3`: RX One, for every `1` bit received
+
+#### E1 tick counters (Read Only, addr `0x04`)
+
+```text
+,-----------------------------------------------------------------------------------------------,
+|31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10| 9| 8| 7| 6| 5| 4| 3| 2| 1| 0|
+|-----------------------------------------------------------------------------------------------|
+|                     /                         |                   tick_cnt                    |
+'-----------------------------------------------------------------------------------------------'
+
+ * [15: 0] - tick_cnt : Tick counter value
+```
+
+An internal counter is incremented at every E1 tick (tick source selected above) for each E1
 channel. That counter value is then captured at every USB Start-of-Frame packet and the last
 captured value made available here.
 

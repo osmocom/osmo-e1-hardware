@@ -26,9 +26,8 @@ module misc (
 	input  wire btn,
 
 	// Ticks
-	input  wire tick_e1_rx,
-	input  wire tick_e1_tx,
-	input  wire tick_usb_sof,
+	input  wire [3:0] tick_e1,
+	input  wire       tick_usb_sof,
 
 	// Reset request
 	output wire        rst_req,
@@ -52,12 +51,15 @@ module misc (
 	// Bus
 	wire        bus_clr;
 	reg         bus_we_boot;
+	reg         bus_we_tick_sel;
 	reg  [ 1:0] bus_we_pdm_clk;
 	reg  [ 2:0] bus_we_pdm_e1;
 
 	// Counters
-	wire [15:0] cap_e1_rx;
-	wire [15:0] cap_e1_tx;
+	reg   [1:0] tick_e1_sel;
+	wire        tick_e1_mux;
+
+	wire [15:0] cap_e1;
 	wire [31:0] cnt_time;
 
 	// PDM
@@ -82,6 +84,7 @@ module misc (
 	always @(posedge clk)
 		if (bus_clr | ~wb_we) begin
 			bus_we_boot       <= 1'b0;
+			bus_we_tick_sel   <= 1'b0;
 			bus_we_pdm_clk[0] <= 1'b0;
 			bus_we_pdm_clk[1] <= 1'b0;
 			bus_we_pdm_e1[0]  <= 1'b0;
@@ -89,6 +92,7 @@ module misc (
 			bus_we_pdm_e1[2]  <= 1'b0;
 		end else begin
 			bus_we_boot       <= wb_addr == 4'h0;
+			bus_we_tick_sel   <= wb_addr == 4'h4;
 			bus_we_pdm_clk[0] <= wb_addr == 4'h8;
 			bus_we_pdm_clk[1] <= wb_addr == 4'h9;
 			bus_we_pdm_e1[0]  <= wb_addr == 4'ha;
@@ -102,7 +106,7 @@ module misc (
 			wb_rdata <= 32'h00000000;
 		else
 			case (wb_addr[3:0])
-				4'h4:    wb_rdata <= { cap_e1_tx, cap_e1_rx };
+				4'h4:    wb_rdata <= { 16'h0000, cap_e1 };
 				4'h7:    wb_rdata <= cnt_time;
 `ifdef WITH_PDM_READBACK
 				4'h8:    wb_rdata <= { pdm_clk[0][12], 19'h00000, pdm_clk[0][11:0] };
@@ -119,12 +123,18 @@ module misc (
 	// --------
 
 	// E1 ticks
+	always @(posedge clk)
+		if (bus_we_tick_sel)
+			tick_e1_sel <= wb_wdata[1:0];
+
+	assign tick_e1_mux = tick_e1[tick_e1_sel];
+
 	capcnt #(
 		.W(16)
-	) e1_cnt_I[1:0] (
+	) e1_cnt_I (
 		.cnt_cur (),
-		.cnt_cap ({cap_e1_tx,  cap_e1_rx }),
-		.inc     ({tick_e1_tx, tick_e1_rx}),
+		.cnt_cap (cap_e1),
+		.inc     (tick_e1_mux),
 		.cap     (tick_usb_sof),
 		.clk     (clk),
 		.rst     (rst)

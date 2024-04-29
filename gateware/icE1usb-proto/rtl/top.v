@@ -78,8 +78,7 @@ module top (
 	wire [(WB_N*32)-1:0] wb_rdata_flat;
 
 	// Ticks
-	wire tick_e1_rx;
-	wire tick_e1_tx;
+	wire [3:0] tick_e1;
 	wire tick_usb_sof;
 
 	// Clocks / Reset
@@ -135,8 +134,7 @@ module top (
 		.wb_m_we      (wb_we),
 		.wb_m_cyc     (wb_cyc),
 		.wb_m_ack     (wb_ack),
-		.tick_e1_rx   (tick_e1_rx),
-		.tick_e1_tx   (tick_e1_tx),
+		.tick_e1      (tick_e1),
 		.tick_usb_sof (tick_usb_sof),
 		.clk_sys      (clk_sys),
 		.rst_sys      (rst_sys),
@@ -172,8 +170,7 @@ module top (
 		.clk_tune_hi   (clk_tune_hi),
 		.clk_tune_lo   (clk_tune_lo),
 		.btn           (btn),
-		.tick_e1_rx    (tick_e1_rx),
-		.tick_e1_tx    (tick_e1_tx),
+		.tick_e1       (tick_e1),
 		.tick_usb_sof  (tick_usb_sof),
 		.rst_req       (rst_req),
 		.wb_addr       (wb_addr[7:0]),

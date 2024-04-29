@@ -72,9 +72,8 @@ module soc_base #(
 	input  wire [ WB_N    -1:0] wb_m_ack,
 
 	// Ticks
-	output wire [E1_N-1:0] tick_e1_rx,
-	output wire [E1_N-1:0] tick_e1_tx,
-	output wire            tick_usb_sof,
+	output wire [4*E1_N-1:0] tick_e1,
+	output wire              tick_usb_sof,
 
 	// Clock / Reset
 	input  wire clk_sys,
@@ -502,8 +501,7 @@ module soc_base #(
 		.wb_cyc      (wb_cyc[7]),
 		.wb_ack      (wb_ack[7]),
 		.irq         (),
-		.tick_rx     (tick_e1_rx),
-		.tick_tx     (tick_e1_tx),
+		.mon_tick    (tick_e1),
 		.clk         (clk_sys),
 		.rst         (rst_sys)
 	);

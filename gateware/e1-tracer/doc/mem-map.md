@@ -156,21 +156,43 @@ Collection of small auxiliary peripherals.
 
 Write to this register with bit 2 set will trigger a FPGA reload of the selected image.
 
-#### E1 tick channel 0/1 (Read Only, addr `0x04` / `0x05`)
+#### E1 tick source select (Write Only, addr `0x04`)
 
 ```text
 ,-----------------------------------------------------------------------------------------------,
 |31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10| 9| 8| 7| 6| 5| 4| 3| 2| 1| 0|
 |-----------------------------------------------------------------------------------------------|
-|                      /                        |                   rx_tick                     |
+|                     /                   |ts[1]|                   /                     |ts[0]|
 '-----------------------------------------------------------------------------------------------'
 
- * [15:0] - rx_tick
+ * [17:16] - ts[1] : Tick Source for channel 1
+ * [ 1: 0] - ts[0] : Tick Source for channel 0
 ```
 
-An internal counter is incremented at every bit received by the corresponding E1 channel. That
-counter value is then captured at every USB Start-of-Frame packet and the last captured value
-made available here.
+Selects the tick source for the counters below for each E1 channel.
+Available sources are :
+
+* `0`: (reserved)
+* `1`: (reserved)
+* `2`: RX Sample, for every bit received
+* `3`: RX One, for every `1` bit received
+
+#### E1 tick counters (Read Only, addr `0x04`)
+
+```text
+,-----------------------------------------------------------------------------------------------,
+|31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10| 9| 8| 7| 6| 5| 4| 3| 2| 1| 0|
+|-----------------------------------------------------------------------------------------------|
+|                  chan[1]                      |                   chan[0]                     |
+'-----------------------------------------------------------------------------------------------'
+
+ * [31:16] - chan[1] : Tick counter for channel 1
+ * [15: 0] - chan[0] : Tick counter for channel 0
+```
+
+An internal counter is incremented at every E1 tick (tick source selected above) for each E1
+channel. That counter value is then captured at every USB Start-of-Frame packet and the last
+captured value made available here.
 
 #### Time (Read Only, addr `0x07`)
 
