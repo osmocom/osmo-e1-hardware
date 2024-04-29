@@ -263,13 +263,13 @@ struct e1_state {
 	struct e1_error_count errors;
 };
 
-static struct e1_state g_e1[2];
+static struct e1_state g_e1[NUM_E1_PORTS];
 
 
 static volatile struct e1_core *
 _get_regs(int port)
 {
-	if ((port < 0) || (port > 1))
+	if ((port < 0) || (port >= NUM_E1_PORTS))
 		panic("_get_regs invalid port %d", port);
 	return &e1_regs_base[port];
 }
@@ -277,7 +277,7 @@ _get_regs(int port)
 static struct e1_state *
 _get_state(int port)
 {
-	if ((port < 0) || (port > 1))
+	if ((port < 0) || (port >= NUM_E1_PORTS))
 		panic("_get_state invalid port %d", port);
 	return &g_e1[port];
 }
