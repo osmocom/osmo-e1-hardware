@@ -646,6 +646,12 @@ e1_poll(int port)
 		e1->errors.flags &= ~E1_ERR_F_RAI;
 	}
 
+	/* If we have any local alarm, make sure to notify remote side */
+	if (e1->errors.flags & (E1_ERR_F_LOS | E1_ERR_F_AIS | E1_ERR_F_ALIGN_ERR))
+		e1_regs->tx.csr = e1->tx.cr.val | E1_TX_CR_ALARM;
+	else
+		e1_regs->tx.csr = e1->tx.cr.val;
+
 	/* Update leds */
 	_e1_update_leds(port);
 
