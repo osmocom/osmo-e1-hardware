@@ -3,7 +3,7 @@
 #ice1usb-proto-bitsty
 #e1-tracer
 BOARD ?= e1-tracer
-CROSS ?= riscv-none-embed-
+CROSS ?= riscv-none-elf-
 CC = $(CROSS)gcc
 OBJCOPY = $(CROSS)objcopy
 ICEPROG = iceprog
