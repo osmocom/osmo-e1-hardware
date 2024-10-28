@@ -138,16 +138,25 @@ information to the user.
 
 [options="header"]
 |===
-|Color  | Pattern         | Meaning
-|Green  | Blinking (slow) | E1 Receiver attempting to align
-|Green  | On              | E1 Receiver fully aligned
+| Green LED | Yellow LED | Meaning
+| Off       | Off        | Loss of Signal
+| Blink     | Off        | Loss of Framing
+| Blink     | On         | Loss of Framing, Receiving AIS
+| On        | Off        | Aligned
+| On        | On         | Aligned, Receiving RAI
 |===
-
 
 === Use of the Multi-Color RGB LED
 
-FIXME: describe how it is used.
+The led near the USB port is used to indicate general device status.
 
+A blinking blue led indicates that the device is in bootloader mode.
+
+A slow breathing indicates that at least one of the two port is
+active, communicating over USB. The color of the led then indicates
+the E1 link status. If all links are without issues, it will be
+green, but if at least one of the enabled port has an issue,
+it will show up as red.
 
 === Firmware <-> USB Host Interface
 
