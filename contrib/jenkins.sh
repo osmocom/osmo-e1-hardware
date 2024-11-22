@@ -75,6 +75,7 @@ case "$JOB_TYPE" in
 	mkdir -p "$deps"
 
 	osmo-build-dep.sh libosmocore "" ac_cv_path_DOXYGEN=false
+	osmo-build-dep.sh libosmo-netif "" --disable-doxygen
 	osmo-build-dep.sh libosmo-abis
 
 	SW_DIRS="software/e1-tracer/record software/e1-tracer/analyze"
